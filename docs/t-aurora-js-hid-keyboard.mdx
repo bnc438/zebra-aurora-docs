@@ -1,0 +1,52 @@
+---
+sidebar_position: 17
+title: 'HID Keyboard'
+---
+
+# HID Keyboard
+
+Enable the HID keyboard to use the device in HID keyboard mode. Assign a string, a single button, a key, and a modifier combination. You can also add a pause between keystrokes. All of these can be leveraged into a single assignment.
+
+```typescript
+hid?: (string|(IHIDCombinationResult| IHIDPauseResult|HIDKey|string)[]);
+
+An additional helper object, HID, is available to simplify HID usage. HID properties are described in the following table.
+
+Helper Object HID Properties
+Property	Description
+HID.key	Gives access to a list of available keys.
+HID.combination	Allows the creation of a key and a modifier combination.
+HID.pause	Allows a pause between consecutive keystrokes to be created.
+HID.modifier	Gives access to a list of available key modifiers.
+:::note
+
+HID.pause argument must be between 0 and 25000 ms.
+
+HID.combination allows you to press, at the same time, a key and up to 8 different modifiers.
+
+HID.combination produces a series of consecutive keystrokes with the same modifiers when used with more than one key.
+
+Keystroke delay and preferred keyboard layout can be changed through the Communication tab in the device settings.
+
+If that property is not assigned, nothing is printed.
+
+:::
+
+/**
+* Opens notepad and types into it a decoded barcode value.
+*
+* Please do not remove the 'export' keyword or this comment.
+* The onResults function triggers the results of each job run.
+* For more detailed information, please refer to the documentation.
+* @param {IMainArguments} input_result - object with results of the job.
+* @returns {IMainResult} - object-defining outputs per interface.
+*/
+export function onResults(input_result) {
+  const run_command = [HID.combination(HID.key.R, HID.modifier.L_WINDOWS), HID.pause(200)]
+  const type_notepad = ["notepad", HID.key.ENTER, HID.pause(1000)];
+  const decode = input_result.tool_results_by_names.Read_Barcode_1.decodes;
+  return {
+    hid: [...run_command, ...type_notepad, decode.value, HID.key.ENTER]
+  };
+}
+

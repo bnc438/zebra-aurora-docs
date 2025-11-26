@@ -1,0 +1,22 @@
+---
+sidebar_position: 24
+title: 'Text Encoding'
+---
+
+# Text Encoding
+
+The read content of the barcode, data code, or other tools offering output as text is treated as a single-byte encoding in accordance with ISO-8859-1.
+
+In the script, assume that you receive an array of bytes as they display within the string. Output data to communication channels is sent in the same form as presented in the script, byte by byte, without any encoding.
+
+Use data visualization to display the output structure within the console object with ASCII encoding.
+
+All non-printable characters are printed as `\\<CONTENT\\>`.
+
+For example, the code `0x8F` in hexadecimal notation (not a valid ASCII character) is displayed as `\\<0x8F\\>`.
+
+---
+
+### See Also
+
+- [Operation Mode](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-operation-mode.html)

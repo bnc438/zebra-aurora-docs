@@ -1,0 +1,87 @@
+
+---
+sidebar_position: 26
+title: 'Debugging'
+---
+
+# Debugging
+
+After you have mounted the camera, you can use basic script debugging features. The device always sends script execution data when in deploy mode.
+
+The editor has a console at the bottom that displays the following data:
+
+The console displays the results returned by the `onResults` function. The results must match the expected field names of the structure. Data that does not match the schema is skipped.
+
+Use of the console object display in the console.
+
+Syntactic or runtime issues are reported to the console, as well as all JavaScript exceptions.
+
+The object console provides the following methods for the logs category: `console.log`, `console.warn`, `console.error`, and `console.debug`. They work similarly to the `console.log` function found in environments such as web browsers. The function accepts any number of arguments that can be concatenated into a single string. The objects passed are converted to text strings according to the standard rules of the JavaScript language.
+
+Chained instructions, multiple reassignments, nested loops, and other complex expressions might be challenging to understand without providing insight into how the data is transformed. The following code snippet does not sufficiently explain its function.
+
+```javascript
+export function onResults(input_result) {
+ if (input_result.tool_results.decodes.length === 0) { // do not process when there are no decodes
+     return {};
+ }
+ const orderedDecodes = input_result.tool_results.decodes.map(decode => decode.value).sort().join(',');
+ return {
+     tcp_ip: orderedDecodes,
+ };
+}
+```
+
+Decodes are transformed when the console object is valid. Split the steps to separate assignments and log the actual values on the console. This method tracks the progress of the data transformation step by step and quickly tracks bugs. The following example uses the console object.
+
+```javascript
+export function onResults(input_result) {
+ if (input_result.tool_results.decodes.length === 0) { // do not process when there are no decodes
+     return {};
+ }
+ const decodes = input_result.tool_results.decodes;
+ const decodedValues = decodes.map(decode => decode.value);
+ console.log('decoded values:', decodedValues);
+ const sortedValues = decodedValues.sort();
+ console.log('sorted values:', sortedValues);
+ const joinedResult = sortedValues.join(',');
+ console.log('joined result: ', joinedResult);
+ return {
+     tcp_ip: joinedResult,
+ };
+}
+```
+
+Each step is logged in the console, and each step of the decode transformation from the raw decodes to a single string is observable. Use different colors in the console. `log`, `warning` or `error` methods to improve readability.
+
+:::note
+
+While it is helpful to debug this way, the first approach may be preferable in production code because it does not declare many variables and uses less memory. After you validate the code, writing a concise version is recommended. If it is essential to keep the debug version of the code, comment it out and keep it for future reference to understand its purpose.
+
+:::
+
+```javascript
+export function onResults(input_result) {
+ if (input_result.tool_results.decodes.length === 0) { // do not process when there are no decodes
+     return {};
+ }
+ // map all decodes to a single string where all decodes are separated by a comma and ordered alphabetically
+ const orderedDecodes = input_result.tool_results.decodes
+     .map(decode => decode.value) // map array of decodes to array of docoded values
+     .sort() // sort alphabetically
+     .join(','); // join elements of the array with a comma to a single string
+ return {
+     tcp_ip: orderedDecodes // output thorugh tcp
+ };
+}
+```
+
+---
+
+### See Also
+
+- [Debugging, Advanced Techniques, and Sample Scripts](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-sample-scripts-advanced-techniques-and-debugging.html)
+
+```
+
+

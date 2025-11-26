@@ -1,0 +1,84 @@
+---
+sidebar_position: 7
+title: 'Using the JavaScript Editor'
+---
+
+# Using the JavaScript Editor
+
+Access **Script Formatting** from the **Connect** tab to create custom scripts.
+
+:::note
+JavaScript Formatting is supported on Aurora Focus version 9 and above.
+:::
+
+1.  Enable **Script Formatting** from the menu and click **Open Editor** to open a new editor window.
+    <figure>
+    <img
+    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-accessing-editor.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    alt="accessing aurora JavaScript editor"
+    style={{height: '315px', width: '580px'}} />
+    </figure>
+
+2.  While in the editor, observe the UI elements: the navigation menu, the run job button, and the script formatting slider.
+    <figure>
+    <img
+    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-first-editor.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    alt="javascript editor"
+    style={{height: '354px', width: '580px'}} />
+    </figure>
+
+### JavaScript Editor UI Elements
+
+| UI Element | Description |
+| :--- | :--- |
+| **Navigation Menu** | The top navigation menu provides access to **File**, **Edit**, and **View** functions for the application.<ul><li>Open an existing file with JavaScript code and save JavaScript to an external file from the **File** menu. JavaScript, by default, is saved in a job file when saving a whole job or deploying a job to the device.</li><li>Use templates and snippets to quickly develop new JavaScript code that is specific to your use case from the **Edit** menu.</li><li>Adjust the editor font size from the **View** menu.</li></ul> |
+| **Run Job Button** | Click **Run Job** on the control bar to validate test code in the editor by running a job on an image in the Filmstrip in Aurora Focus. You can also trigger a job by pressing **F5** while in the editor. |
+| **Script Formatting** | Disable JavaScript formatting by using the **Script Formatting** toggle in the top-right corner of the editor window. |
+
+3.  Press **F1** while inside the editor for a list of all functionalities.
+    <figure>
+    <img
+    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-console-viewer.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    alt="suggested functions"
+    style={{height: '155px', width: '580px'}} />
+    </figure>
+
+4.  Use IntelliSense for script recommendations to enable code completion. When a function has JSDoc documentation, the editor assumes its variable types and provides a recommendation for object properties. IntelliSense is also useful for standard JavaScript interfaces such as `JSON` or `Date`.
+    :::note
+    It is recommended to keep JSDoc comments for the `onResult` function. This is necessary to receive recommendations for input and output objects.
+    :::
+    <figure>
+    <img
+    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-editor-3.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    alt="using intellisense"
+    style={{height: '354px', width: '580px'}} />
+    </figure>
+
+5.  Monaco Editor powers the code editor to integrate functionalities such as adjusting the format, undo/redo, renaming symbols, and find/replace. The following code snippet is a basic script that copies the first detected barcode from the first tool to the output.
+    ```javascript
+    /** Returns the OutputResult type object
+    * @param {InputResult} inputResult
+    * @returns {OutputResult}
+    */
+    export function onResults(inputResult) {
+      return {
+          common: inputResult.tool_results.decodes.value
+      };
+    }
+    ```
+
+6.  Use the console below the code editor to view logs. The log icon and text color change depending on the log category.
+    <figure>
+    <img
+    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-console-log.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    alt="console"
+    style={{height: '158px', width: '580px'}} />
+    </figure>
+    - Use <img src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-elipses-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="save logs" /> to save the console logs to a file or clear the console.
+    - Use <img src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-expand-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="minimize console" style={{height: '14px', width: '16px'}} /> to minimize the console.
+
+---
+
+### See Also
+
+- [JavaScript Environment](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/c-aurora-js-environment.html)

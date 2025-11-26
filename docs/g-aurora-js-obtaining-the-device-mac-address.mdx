@@ -1,0 +1,19 @@
+---
+sidebar_position: 29
+title: 'Obtaining the Device MAC Address'
+---
+
+# Obtaining the Device MAC Address
+
+Use the Aurora Focus JavaScript functionality to obtain the device's MAC address.
+
+### Prerequisite
+
+Use the following script to retrieve the device MAC address:
+
+```javascript
+export function onResults (input_result) {
+console.log(DEVICE.mac_address)
+console.log(DEVICE.mac_addresses)
+return {}
+}

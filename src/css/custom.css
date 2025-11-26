@@ -1,0 +1,100 @@
+/**
+ * ============================================================================
+ *  CUSTOM DOCUSAURUS THEME - ZEBRA MACHINE VISION
+ * ============================================================================
+ *
+ *  This file overrides the default Docusaurus theme variables to create a
+ *  professional, modern look based on corporate design guidelines.
+ *
+ *  - The [data-theme='light'] block controls the Light Mode theme.
+ *  - The [data-theme='dark'] block controls the Dark Mode theme.
+ *
+ */
+
+/*
+ * ============================================================================
+ *  LIGHT THEME
+ * ============================================================================
+ */
+[data-theme='light'] {
+  /* -- Core Colors -------------------------------------------------------- */
+
+  /* Primary Brand Color: Used for links, buttons, and active UI elements. */
+  --ifm-color-primary: #2563eb; /* A modern, accessible blue */
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+
+  /* Background Colors */
+  --ifm-background-color: #ffffff; /* Page background */
+  --ifm-background-surface-color: #f7f7f8; /* Subtle background for cards/code */
+
+  /* -- Typography --------------------------------------------------------- */
+
+  /* Font Stack & Colors */
+  --ifm-font-family-base: 'Inter', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  --ifm-font-color-base: #24292f; /* Main body text color (dark gray) */
+  --ifm-heading-color: #1c2128; /* Slightly darker for headings */
+  --ifm-font-family-monospace: 'SFMono-Regular', 'Menlo', 'Consolas', 'Courier New', monospace;
+
+  /* -- Components --------------------------------------------------------- */
+
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Subtle shadow */
+
+  /* Buttons & Code Blocks */
+  --ifm-button-border-radius: 6px;
+  --ifm-code-border-radius: 6px;
+
+  /* Links */
+  --ifm-link-color: var(--ifm-color-primary);
+  --ifm-link-hover-decoration: underline;
+}
+
+
+/*
+ * ============================================================================
+ *  DARK THEME
+ * ============================================================================
+ */
+[data-theme='dark'] {
+  /* -- Core Colors -------------------------------------------------------- */
+
+  /* Primary Brand Color: Use a slightly brighter blue for better contrast on dark backgrounds. */
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #60a5fa;
+  --ifm-color-primary-darker: #3b82f6;
+  --ifm-color-primary-darkest: #2563eb;
+  --ifm-color-primary-light: #1d4ed8;
+  --ifm-color-primary-lighter: #1e40af;
+  --ifm-color-primary-lightest: #1e3a8a;
+
+  /* Background Colors */
+  --ifm-background-color: #0d1117; /* Main "off-black" page background */
+  --ifm-background-surface-color: #161b22; /* "Card" or code block background */
+
+  /* -- Typography --------------------------------------------------------- */
+
+  /* Font Colors */
+  --ifm-font-color-base: #c9d1d9; /* Main body text (light gray) */
+  --ifm-heading-color: #f0f6fc; /* Pure white/brightest gray for headings */
+
+  /* -- Components --------------------------------------------------------- */
+
+  /* Navbar */
+  --ifm-navbar-background-color: #161b22; /* Slightly lighter than page background */
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 
+  You can also define overrides for dark mode here,
+  but for now, we are focusing only on light mode.
+*/
+[data-theme='dark'] {
+  /* We can fill this out later if you want to create a dark theme. */
+}
+

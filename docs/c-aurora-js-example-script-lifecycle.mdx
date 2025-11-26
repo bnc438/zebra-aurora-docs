@@ -1,0 +1,77 @@
+---
+sidebar_position: 22
+title: 'Example Script Lifecycle'
+---
+
+# Example Script Lifecycle
+
+The lifecycle of the script includes four stages: deployment, two iterations, and edit mode.
+
+In the deployment stage, the execution environment is prepared without actions. In the first iteration, global variables are initialized, and syntax errors are checked. The `onResults` function processes the `Test String`, updates counters, and logs results. The second iteration skips initialization and processes the `Wrong String`, adjusts counters, and logs accordingly. Finally, the script enters edit mode, unloading from memory, with variables set to reinitialize upon redeployment.
+
+```javascript
+console.log("Script loading begin");
+let no_match_counter = 0;
+let match_counter = 0;
+const match_string = "Test String";
+let counter = 0;
+
+/** Returns the OutputResult type object
+* @param {InputResult} inputResult  
+* @returns {OutputResult}*/
+export function onResults(inputResult) {
+  console.log("onResult called count: ", counter);
+  counter++; // select first decode for first tool  
+  if (inputResult.tools.decodes === match_string) {
+      match_counter++;
+  } else {
+      no_match_counter++;
+      console.error("No match string find!");
+      return {
+          common: "Match count: " + match_counter + " No match count: " + no_match_counter
+      };
+  }
+  console.log("Script loading end");
+}
+
+There are four main stages in the lifecycle of a script:
+
+Deploy the job to initialize the script's execution environment.
+
+Iteration 1:
+
+The code outside the onResults function is executed. The global variables no_match_counter, match_counter, match_string, and counter are created and initialized. The console.log functions are executed. Any syntax errors in the script are reported at this stage, and its execution is performed if errors are detected.
+
+The onResults function is executed. Assume that in this iteration, the read code contains a string, e.g., Test String.
+
+Values are set, and logs are sent during this stage.
+
+The following string is sent to all available communication channels: Match count: 1 No match count: 0.
+
+Aurora Focus receives logs in the following order: Script loading begins, Script loading end, onResult called count: 0.
+
+Global variables at the end of the script are as follows: no_match_counter = 0, match_counter = 1, counter = 1.
+
+Iteration 2:
+
+No initialization phase.
+
+The onResults function is executed. Assume that in this iteration, the read code contains the string, e.g., Wrong String.
+
+Values are set, and logs are sent during this stage.
+
+The following string is sent to all available communication channels: Match count: 1 No match count: 1.
+
+Aurora Focus receives logs in the following order: onResult called count: 0 and No match string find!. The second log belongs to a different category, as noted in the editor console.
+
+Global variables at the end of the script are as follows: no_match_counter = 1, match_counter = 1, counter = 2.
+
+Edit the job and unload the script from memory.
+
+:::note
+During the next deployment, the variables from Step 2a are re-initialized.
+:::
+
+:::note
+Each execution is always the first one when using an emulator or performing jobs on the camera while editing.
+:::

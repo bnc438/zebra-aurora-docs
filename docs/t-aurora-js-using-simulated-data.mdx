@@ -1,0 +1,36 @@
+---
+sidebar_position: 27
+title: 'Using Simulated Data'
+---
+
+# Using Simulated Data
+
+If you cannot use real-world results, use simulated data until you can validate with representative data.
+
+Assign the data to a variable to simulate an actual result of a camera read. The following example simulates the results of a ManyCode read.
+
+```javascript
+export function onResults(input_result) {
+   if (input_result.tool_results.decodes.length === 0) { // do not process when there are no decodes
+       return {};
+   }
+
+   // mock the data for development and testing purposes, replace it with the actual data when possible
+   const mockedData = ["D21OCT21", "78B8D65C7DE9", "S21294520180521", "1PFS10-SR10F1-1C00W"];
+   
+   //const orderedDecodes = input_result.tool_results.decodes // uncomment this line when we switch to actual data
+   //.map(decode => decode.value)                                // uncomment this line when we switch to actual data
+   
+   const orderedDecodes = mockedData // remove or comment out this line when we switch to actual data
+       .sort()
+       .join(',');
+
+   return {
+       tcp_ip: orderedDecodes
+   };
+}
+:::warning
+
+Simulated data is hardcoded and user-defined. Use this method only for development and initial testing purposes. Conduct final tests using actual results to ensure the code works as intended.
+
+:::

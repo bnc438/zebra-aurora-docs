@@ -1,0 +1,19 @@
+---
+sidebar_position: 25
+title: 'Managing Execution Time'
+---
+
+# Managing Execution Time
+
+The JavaScript execution time may be unstable at times. Avoid instability by understanding its sources, just-in-time compiler operation, and garbage collector usage.
+
+While smaller scripts typically do not result in instability, observed irregularities in script execution times result from two primary sources:
+
+- **Just-in-time compiler operation.** When developing a script, subsequent iterations after the initial script are accelerated.
+- **The JavaScript memory model uses a garbage collector.** Scripts that use a lot of memory must periodically use the garbage collector to clean up unused memory during execution, reducing the time it takes to execute.
+
+---
+
+### See Also
+
+- [Operation Mode](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-operation-mode.html)

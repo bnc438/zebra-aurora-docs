@@ -1,0 +1,30 @@
+---
+sidebar_position: 21
+title: 'Script Invocation'
+---
+
+# Script Invocation
+
+The script executes at the end of each job when results are available. Its execution time includes the job's execution time.
+
+The `onResults` function executes new arguments at the end of each job iteration. If there are any errors in the script, a standard JavaScript exception is thrown and propagated to Aurora Focus with no outputs set.
+
+:::note
+
+For more information, refer to [Debugging](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-sample-scripts-advanced-techniques-and-debugging/c-aurora-js-debugging.html#GUID-9c867497-f525-49e7-a8e5-305e4b31c6e2-en).
+
+:::
+
+During the first iteration, the script execution may take longer because script code not enclosed in functions is executed first, such as initializing global variables.
+
+:::note
+
+All other forms of result formatting are disabled when JavaScript is enabled.
+
+:::
+
+---
+
+### See Also
+
+- [Operation Mode](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-operation-mode.html)
