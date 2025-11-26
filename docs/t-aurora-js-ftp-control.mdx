@@ -1,0 +1,22 @@
+---
+sidebar_position: 18
+title: 'FTP Control'
+---
+
+# FTP Control
+
+The `ftp` field controls FTP output if enabled in the job. If the `ftp` field is not set, explicitly set to `undefined`, or set to `null`, then default behavior and names are used, as set in the FTP tab for the job.
+
+If the `ftp` field is set to an object, the resulting file names and whether they are sent depend on the field's values.
+
+If `img_file_name` is set to a single string, the resulting image names are set to that name with the image bank name and number appended to the end. If it is set to an array of strings, the resulting image names are set to the names of the strings (the first image takes the first string name, and so on).
+
+If `common_file_name` is set, but `img_file_name` is not set, the name used with the image bank index is appended to the end. If neither is set, images are not sent over FTP.
+
+If `json_file_name` is set, and the resulting JSON file name is set to that name. If `common_file_name` is set but `json_file_name` is not set, the common file name is used. If neither is set, JSON is not sent over FTP.
+
+---
+
+### See Also
+
+- [Operation Mode](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-operation-mode.html)

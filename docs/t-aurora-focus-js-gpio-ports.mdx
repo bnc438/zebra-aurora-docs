@@ -1,0 +1,52 @@
+---
+sidebar_position: 19
+title: 'GPIO Ports'
+---
+
+# GPIO Ports
+
+Use the `gpio` field to send a pulse to available ports. Parameters of the pulse, such as length and delay, can be specified in the **GPIO Mapping** menu in General Settings. Pulse polarity can be set through the script, using one of the three values of the helper `GpioPolarityResult` enum object.
+
+```javascript
+gpio: IGpioPort[];
+
+Helper Object GpioPolarityResult Properties
+Value	Description
+GpioPolarityResult.HIGH	Pulse has a high value.
+GpioPolarityResult.LOW	Pulse has a low value.
+GpioPolarityResult.JOB_SETTINGS	Pulse parameters are taken from the specification in the GPIO Mapping settings in the job.
+The field should be an array of objects. Each object contains two properties: port_number and polarity. port_number is a zero-starting number of the port. Polarity can be one of three values described in the table above.
+
+:::note
+
+The initial value can be set through the GPIO Mapping tab in the job.
+
+The port that is written must be set as an output. It can be done through GPIO Mapping in device settings.
+
+The GPIO field of the DEVICE object can be used.
+
+:::
+
+/**
+ * Sends a pulse to the n-th port if the n-th tool execution was successful.
+ * @param {IMainArguments} input_result - object with results of the job.
+ * @returns {IMainResult} - object defining outputs per interface.
+ */
+export function onResults(input_result) {
+    // For each tool for the FlowBuilder
+    // take the success value, if positive send HIGH pulse
+    let gpio_results = [];
+    for (let i = 0; i < input_result.tool_results.length; ++i) {
+        if (DEVICE.gpio.ports[i].state === GpioPortState.OUTPUT) {
+            if (input_result.tool_results[i].success) {
+                gpio_results.push({
+                    port_number: i,
+                    polarity: GpioPolarityResult.JOB_SETTINGS
+                })
+            }
+        }
+    }
+    return {
+        gpio: gpio_results
+    };
+}

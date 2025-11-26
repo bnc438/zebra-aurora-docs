@@ -1,0 +1,44 @@
+---
+sidebar_position: 18
+title: 'TCPIP, RS232, and USB CDC Serial'
+---
+
+# TCPIP, RS232, and USB CDC Serial
+
+Use the JavaScript feature to write data to TCP/IP, RS232, and USB CDC-Serial external interfaces.
+
+```javascript
+common ? : (string | (number[] | Uint8ClampedArray | Uint8Array));
+tcp_ip ? : (string | (number[] | Uint8ClampedArray | Uint8Array));
+serial ? : (string | (number[] | Uint8ClampedArray | Uint8Array));
+cdc ? : (string | (number[] | Uint8ClampedArray | Uint8Array));
+
+The properties allow writing data to external interfaces: tcp_ip for TCP/IP, serial for RS232, and cdc for USB CDC-Serial. For binary data, assign either a string or an array of numbers for binary data. Numbers must be within the 0-255 range.
+
+If you assign a value to a specific property, it is sent with the interface. If a value is assigned to the common property, it is also sent with the interface. Otherwise, no value is sent.
+
+:::note
+
+Settings in the Communication tabs are respected by the script.
+
+:::
+
+/**
+* Prints the string value to the TCP/IP interface, and the value
+* enriched with prefixes and suffixes to the serial interface.
+*
+* Please do not remove the 'export' keyword or this comment.
+* onResults function triggers on the results of each job run.
+* For more detailed information, please refer to the documentation.
+* @param {IMainArguments} input_result - object with results of the job.
+* @returns {IMainResult} - object-defining outputs per interface.
+*/
+export function onResults(input_result) {
+  const results = input_result.tool_results_by_names.Read_Barcode_1;
+  const decode_text = results.decodes.value;
+  const decode_with_prefix_and_suffix = [0x02, ...results.decodes.raw_value, 0x03];
+  return {
+    tcp_ip: decode_text,
+    serial: decode_with_prefix_and_suffix
+  }
+}

@@ -1,0 +1,25 @@
+---
+sidebar_position: 14
+title: 'Output Data'
+---
+
+# Output Data
+
+Control the device’s output function by using `onResults` to return a specific and straightforward structure.
+
+```typescript
+interface IFtpResult {
+  common_file_name?: (string | null);
+  json_file_name?: (string | null);
+  img_file_name?: ((string | string[]) | null);
+}
+
+interface IMainResult {
+  common?: (string | (number[] | Uint8ClampedArray | Uint8Array));
+  tcp_ip?: (string | (number[] | Uint8ClampedArray | Uint8Array));
+  serial?: (string | (number[] | Uint8ClampedArray | Uint8Array));
+  hid?: (string | (IHIDCombinationResult | IHIDPauseResult | HIDKey | string)[]);
+  cdc?: (string | (number[] | Uint8ClampedArray | Uint8Array));
+  ftp?: (IFtpResult | null);
+  job_success?: (boolean | null);
+}
