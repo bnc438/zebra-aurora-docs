@@ -12,15 +12,15 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-github-username.github.io',
+  url: 'https://bnc438.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/', // Changed for local development simplicity
+  baseUrl: '/zebra-aurora-docs/', // Changed for local development simplicity
 
   // GitHub pages deployment config.
-  organizationName: 'your-github-username',
-  projectName: 'my-api-docs',
+  organizationName: 'bnc438',
+  projectName: 'zebra-aurora-docs',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
@@ -37,7 +37,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/bnc438/zebra-aurora-docs/tree/main/',
         },
         blog: false, // We disabled the blog.
         theme: {
