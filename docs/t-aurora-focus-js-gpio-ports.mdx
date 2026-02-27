@@ -3,6 +3,8 @@ sidebar_position: 19
 title: 'GPIO Ports'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # GPIO Ports
 
 Use the `gpio` field to send a pulse to available ports. Parameters of the pulse, such as length and delay, can be specified in the **GPIO Mapping** menu in General Settings. Pulse polarity can be set through the script, using one of the three values of the helper `GpioPolarityResult` enum object.
@@ -50,3 +52,21 @@ export function onResults(input_result) {
         gpio: gpio_results
     };
 }
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+    language="javascript"
+    value={`export function onResults(input_result) {
+    return {
+        gpio: [
+            {
+                port_number: 0,
+                polarity: GpioPolarityResult.HIGH
+            }
+        ]
+    };
+}`}
+/>

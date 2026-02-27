@@ -3,6 +3,8 @@ sidebar_position: 18
 title: 'TCPIP, RS232, and USB CDC Serial'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # TCPIP, RS232, and USB CDC Serial
 
 Use the JavaScript feature to write data to TCP/IP, RS232, and USB CDC-Serial external interfaces.
@@ -42,3 +44,18 @@ export function onResults(input_result) {
     serial: decode_with_prefix_and_suffix
   }
 }
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+  language="javascript"
+  value={`export function onResults(input_result) {
+  return {
+    tcp_ip: "TCP message",
+    serial: [0x02, 0x41, 0x42, 0x43, 0x03],
+    cdc: "USB CDC message"
+  };
+}`}
+/>

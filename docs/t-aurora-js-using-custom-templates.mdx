@@ -3,6 +3,10 @@ sidebar_position: 28
 title: 'Using Custom Templates'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ZoomableImage from '@site/src/components/ZoomableImage';
+
 # Using Custom Templates
 
 Integrate your own JavaScript templates into Aurora Focus.
@@ -12,10 +16,10 @@ Create your template in a file with a `.js` extension, locate the Aurora Focus f
 After restarting the application, the template is available in the **Use template** section under **Edit** in the top navigation bar.
 
 <figure>
-<img
-src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-use-template.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+<ZoomableImage
+src={useBaseUrl('/img/g-aurora-js-use-template.png')}
 alt="Using Custom Templates"
-style={{height: '249px', width: '300px'}} />
+style={{width: '300px', maxWidth: '100%', height: 'auto'}} />
 </figure>
 
 :::note
@@ -28,4 +32,17 @@ The custom template you create is only available in that instance of Aurora Focu
 
 ### See Also
 
-- [Debugging, Advanced Techniques, and Sample Scripts](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-sample-scripts-advanced-techniques-and-debugging.html)
+- [Debugging, Advanced Techniques, and Sample Scripts](./t-aurora-js-sample-scripts-advanced-techniques-and-debugging)
+
+## Monaco Sandbox
+
+<MonacoSandbox
+	language="javascript"
+	value={`export function onResults(input_result) {
+	return {
+		ftp: {
+			common_file_name: "custom-template-output.txt"
+		}
+	};
+}`}
+/>

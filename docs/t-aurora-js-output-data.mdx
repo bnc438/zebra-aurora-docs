@@ -3,6 +3,8 @@ sidebar_position: 14
 title: 'Output Data'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # Output Data
 
 Control the device’s output function by using `onResults` to return a specific and straightforward structure.
@@ -23,3 +25,17 @@ interface IMainResult {
   ftp?: (IFtpResult | null);
   job_success?: (boolean | null);
 }
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+  language="javascript"
+  value={`export function onResults(input_result) {
+  return {
+    common: "Output Data sandbox",
+    job_success: true
+  };
+}`}
+/>

@@ -3,6 +3,8 @@ sidebar_position: 12
 title: 'Input Data'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # Input Data
 
 The function `onResults` takes only one argument. This argument contains the output structure of all tools in the current job.
@@ -324,3 +326,16 @@ interface ILineArguments {
  point1: IPointArguments;
  point2: IPointArguments;
 }
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+    language="javascript"
+    value={`export function onResults(input_result) {
+    return {
+        tcp_ip: "Input Data sandbox"
+    };
+}`}
+/>

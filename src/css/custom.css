@@ -53,6 +53,10 @@
   /* Links */
   --ifm-link-color: var(--ifm-color-primary);
   --ifm-link-hover-decoration: underline;
+
+  /* Shared outline stroke (matches previous/next cards) */
+  --app-outline-stroke-width: 0.5px;
+  --app-outline-stroke-color: #6b7280;
 }
 
 
@@ -96,5 +100,92 @@
 */
 [data-theme='dark'] {
   /* We can fill this out later if you want to create a dark theme. */
+}
+
+/*
+ * ============================================================================
+ *  DOCS PAGINATION CARDS (PREVIOUS / NEXT)
+ * ============================================================================
+ */
+.pagination-nav .pagination-nav__link {
+  background-color: var(--prism-background-color);
+  border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
+}
+
+[data-theme='dark'] .pagination-nav .pagination-nav__link {
+  background-color: #f6f8fa;
+  border: 0.5px solid #6b7280;
+}
+
+.pagination-nav .pagination-nav__link:hover,
+[data-theme='dark'] .pagination-nav .pagination-nav__link:hover {
+  background-color: #f6f8fa;
+  border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
+}
+
+[data-theme='dark'] .pagination-nav .pagination-nav__sublabel {
+  color: #374151;
+}
+
+/*
+ * ============================================================================
+ *  ASKAI PANEL STYLING
+ * ============================================================================
+ */
+[data-theme='light'] .askai-chat-panel {
+  border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
+}
+
+[data-theme='dark'] .askai-chat-panel {
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+[data-theme='light'] .button.button--secondary {
+  border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
+}
+
+[data-theme='light'] .theme-layout-main input:not([type='checkbox']):not([type='radio']),
+[data-theme='light'] .theme-layout-main textarea,
+[data-theme='light'] .theme-layout-main select {
+  border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
+}
+
+/*
+ * ============================================================================
+ *  RELEASE-NOTES TABLE STYLING
+ * ============================================================================
+ */
+.theme-doc-markdown table {
+  width: auto;
+  max-width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  border: 0;
+}
+
+.theme-doc-markdown table th,
+.theme-doc-markdown table td {
+  border: 1.5px solid var(--ifm-color-emphasis-400);
+}
+
+.theme-doc-markdown table tr > :first-child {
+  border-left: 1.5px solid var(--ifm-color-emphasis-400);
+}
+
+.theme-doc-markdown table tr > :last-child {
+  border-right: 1.5px solid var(--ifm-color-emphasis-400);
+}
+
+.theme-doc-markdown table thead tr:first-child > * {
+  border-top: 1.5px solid var(--ifm-color-emphasis-400);
+}
+
+.theme-doc-markdown table tbody tr:last-child > * {
+  border-bottom: 1.5px solid var(--ifm-color-emphasis-400);
+}
+
+[data-theme='light'] .theme-doc-markdown table thead th {
+  background-color: #8e8e93;
+  color: #ffffff;
 }
 

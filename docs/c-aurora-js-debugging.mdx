@@ -1,11 +1,11 @@
-
 ---
 sidebar_position: 26
 title: 'Debugging'
 ---
 
-# Debugging
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
 
+# Debugging
 After you have mounted the camera, you can use basic script debugging features. The device always sends script execution data when in deploy mode.
 
 The editor has a console at the bottom that displays the following data:
@@ -80,8 +80,19 @@ export function onResults(input_result) {
 
 ### See Also
 
-- [Debugging, Advanced Techniques, and Sample Scripts](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/t-aurora-js-sample-scripts-advanced-techniques-and-debugging.html)
+- [Debugging, Advanced Techniques, and Sample Scripts](./t-aurora-js-sample-scripts-advanced-techniques-and-debugging)
 
-```
+## Monaco Sandbox
+
+<MonacoSandbox
+  language="javascript"
+  value={`export function onResults(input_result) {
+  console.log("Debug sandbox execution");
+  return {
+    tcp_ip: "Debug output"
+  };
+}`}
+/>
+
 
 

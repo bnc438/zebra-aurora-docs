@@ -3,6 +3,8 @@ sidebar_position: 20
 title: 'Beeper'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # Beeper
 
 Use the beeper field to control the beeper of the device and the Zebra Integrated Multi-Function Light.
@@ -44,3 +46,20 @@ export function onResults(input_result) {
         };
     }
 }
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+    language="javascript"
+    value={`export function onResults(input_result) {
+    return {
+        beeper: Beeper.beep(
+            BeeperVolumeResult.HIGH,
+            BeeperToneResult.MEDIUM,
+            BeeperDurationResult.MEDIUM
+        )
+    };
+}`}
+/>

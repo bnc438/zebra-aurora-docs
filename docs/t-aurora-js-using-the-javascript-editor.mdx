@@ -3,6 +3,9 @@ sidebar_position: 7
 title: 'Using the JavaScript Editor'
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ZoomableImage from '@site/src/components/ZoomableImage';
+
 # Using the JavaScript Editor
 
 Access **Script Formatting** from the **Connect** tab to create custom scripts.
@@ -13,18 +16,53 @@ JavaScript Formatting is supported on Aurora Focus version 9 and above.
 
 1.  Enable **Script Formatting** from the menu and click **Open Editor** to open a new editor window.
     <figure>
-    <img
-    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-accessing-editor.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-accessing-editor.png')}
     alt="accessing aurora JavaScript editor"
-    style={{height: '315px', width: '580px'}} />
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
     </figure>
 
 2.  While in the editor, observe the UI elements: the navigation menu, the run job button, and the script formatting slider.
     <figure>
-    <img
-    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-first-editor.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-first-editor.png')}
     alt="javascript editor"
-    style={{height: '354px', width: '580px'}} />
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
+    </figure>
+
+    <figure>
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-editor-2.png')}
+    alt="javascript editor second view"
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
+    </figure>
+
+    <figure>
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-top-menu.png')}
+    alt="top navigation menu"
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
+    </figure>
+
+    <figure>
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-rub-job.png')}
+    alt="run job button"
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
+    </figure>
+
+    <figure>
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-script-formatting-button.png')}
+    alt="script formatting toggle"
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
+    </figure>
+
+    <figure>
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-view-menu.png')}
+    alt="view menu"
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
     </figure>
 
 ### JavaScript Editor UI Elements
@@ -37,10 +75,10 @@ JavaScript Formatting is supported on Aurora Focus version 9 and above.
 
 3.  Press **F1** while inside the editor for a list of all functionalities.
     <figure>
-    <img
-    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-console-viewer.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-console-viewer.png')}
     alt="suggested functions"
-    style={{height: '155px', width: '580px'}} />
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
     </figure>
 
 4.  Use IntelliSense for script recommendations to enable code completion. When a function has JSDoc documentation, the editor assumes its variable types and provides a recommendation for object properties. IntelliSense is also useful for standard JavaScript interfaces such as `JSON` or `Date`.
@@ -48,10 +86,10 @@ JavaScript Formatting is supported on Aurora Focus version 9 and above.
     It is recommended to keep JSDoc comments for the `onResult` function. This is necessary to receive recommendations for input and output objects.
     :::
     <figure>
-    <img
-    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-editor-3.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-editor-3.png')}
     alt="using intellisense"
-    style={{height: '354px', width: '580px'}} />
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
     </figure>
 
 5.  Monaco Editor powers the code editor to integrate functionalities such as adjusting the format, undo/redo, renaming symbols, and find/replace. The following code snippet is a basic script that copies the first detected barcode from the first tool to the output.
@@ -69,16 +107,16 @@ JavaScript Formatting is supported on Aurora Focus version 9 and above.
 
 6.  Use the console below the code editor to view logs. The log icon and text color change depending on the log category.
     <figure>
-    <img
-    src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-console-log.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg"
+    <ZoomableImage
+    src={useBaseUrl('/img/g-aurora-js-console-log.png')}
     alt="console"
-    style={{height: '158px', width: '580px'}} />
+    style={{width: '580px', maxWidth: '100%', height: 'auto'}} />
     </figure>
-    - Use <img src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-elipses-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="save logs" /> to save the console logs to a file or clear the console.
-    - Use <img src="/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-js-expand-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="minimize console" style={{height: '14px', width: '16px'}} /> to minimize the console.
+    - Use <img src={useBaseUrl('/img/g-aurora-js-elipses-ico.png')} alt="save logs" /> to save the console logs to a file or clear the console.
+    - Use <img src={useBaseUrl('/img/g-aurora-js-expand-ico.png')} alt="minimize console" style={{height: '14px', width: '16px'}} /> to minimize the console.
 
 ---
 
 ### See Also
 
-- [JavaScript Environment](/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/c-aurora-js-environment.html)
+- [JavaScript Environment](./c-aurora-js-environment)

@@ -1,0 +1,233 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Release Notes: Aurora Focus 9.4'
+description: 'A summary of new features, fixes, and known issues for Aurora Focus version 9.4.'
+keywords: ["release notes", "Aurora Focus", "[Relevant Technology]", "9.4"]
+sidebar_label: '9.4 Release Notes'
+slug: /releases/aurora-focus/9-4
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '9.4' # e.g., 10.0.xxx
+author: 'bnc438' # e.g., bnc438
+sort_order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.)
+last_updated: '(Automated by build process)'
+last_reviewed: '[YYYY-MM-DD]'
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+
+# --- Product & Software Filters ---
+product_name: 'Aurora Focus' # e.g., Aurora Focus
+product_family: 'Machine Vision' # e.g., Machine Vision
+product_series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series
+software_tool: 'Aurora Focus' # e.g., Aurora Focus
+component_type: 'Firmware'
+
+# --- Use Case & Device Filters ---
+# Add relevant use cases or licenses affected by this release
+use_case: ['[Use Case 1]', '[Use Case 2]']
+license_type: '[License Type]'
+device_type: '[Device Type]' # e.g., Smart Camera, Fixed Scanner
+
+# --- User-Centric Filters ---
+# Roles this release is most relevant for
+role: ['Integrator/Developer', 'System Administrator', 'Controls Engineer']
+task: 'System Maintenance'
+content_type: 'Release Notes'
+skill_level: 'All'
+---
+
+**Zebra Aurora Focus™ MV/FIS Configuration Utility**
+This document summarizes the following software release:
+
+| **Software Version Number** | **Release Date** |
+| --- | --- |
+| V9.4.26 | October 2025 |
+
+# Product Description
+
+Zebra Aurora Focus™ is a host-side application which allows for the configuration Zebra FS10, xS20, xS40, xS70, FS42, NS42 and FS80 devices.  Zebra Aurora Focus™ Deep Learning Editor is companion software for training the Deep Learning Anomaly Detection tool. To use the editor, a physical or emulated NS42 device licensed for Anomaly Detection is required. It is installed independently and available in two versions: CPU and GPU versions. The GPU version is to train models using NVIDIA GPUs.
+
+# Device Compatibility
+
+| Compatibility Item | Details |
+| --- | --- |
+| Programming Modes | USB connected cable; M12 Ethernet |
+
+| Supported Devices | Supported Device FW |
+| --- | --- |
+| (BSP) GS20 | **9.4.696 -** CAAGDS00-006-R43 |
+| (BSP) FS40, VS40, FS70, VS70 | **9.4.696 -** CAAESS00-006-R43 |
+| (BSP) FS42, NS42 | **9.4.696 -** CAAGGS00-006-R43 |
+| (BSP) FS10, FS20, VS20 | **9.4.706 -** CAAFFS00-006-R44 |
+| (BSP) FS80 | **9.4.185 -** CAAHMS00-001-R59 |
+
+# Important Notes
+- If downgrading firmware from newer version to an older version, a factory reset through Aurora Focus, or the HMI must be performed after it completes. Failure to do so could result in the device not functioning properly.
+- After upgrading the FS80 to the 9.4 release, downgrades can no longer be completed with an incremental update package and must be done with the full upgrade package. To downgrade from 9.4, install the 9.1 Full Update Firmware first, and then install the desired firmware if different than 9.1.
+- If you are using an FS10/20 device with version 9.4.696, upgrade to version 9.4.706 at your earliest convenience. Refer to **\[MVFIS-2017\] FS10** and **\[MVFIS-2172\]** of the bug fix section for more information.
+
+# Components
+
+| **Components** | **Version** |
+| --- | --- |
+| Aurora Focus | **9.4.26** |
+| Aurora Focus HMI | **10.0.26** |
+| Connectivity Gateway | **1.3.6** |
+| Aurora Deep Learning | **9.4.11193** |
+| (BSP) GS20 | **9.4.696 -** CAAGDS00-006-R43 |
+| (BSP) FS40, VS40, FS70, VS70 | **9.4.696 -** CAAESS00-006-R43 |
+| (BSP) FS42, NS42 | **9.4.696 -** CAAGGS00-006-R43 |
+| (BSP) FS10, FS20, VS20 | **9.4.706 -** CAAFFS00-006-R44 |
+| (BSP) FS80 | **9.4.185 -** CAAHMS00-001-R59 |
+
+The components are installed in the following folders:
+
+| **Component** | **Location** |
+| --- | --- |
+| Application | Program Files\Zebra Technologies\Aurora Focus\\*version* |
+| Job/Configuration Files | Users\Public\Documents\ZebraAurora\\*ModelType*\Jobs |
+| Saved Images | Users\Public\Documents\ZebraAurora\Captures\\*xSxxxxxx* Camera |
+
+## New Features
+
+# **V9.4.26**
+
+**RELEASE DATE: October 2025**
+- Thales Licensing Migration
+  - Activate, provision, deactivate and deprovision licenses to devices without leaving Aurora Focus.
+  - Manage licenses online or offline using Aurora Focus or the Web HMI.
+- Job Slot Management
+  - Reuse, assign and re-assign in Device Settings or using TCP/IP commands.
+- Reuse a job slot or re-assign the job slot number.
+  - Change jobs using communication command.
+- Assign jobs to specific slot numbers.
+- Support for Pharmacode Symbologies
+  - Pharmacode symbology is now available in both the Barcode and the DataCode tool.
+- FS80 Enhancements
+- Enable the discovery of follower devices in the Connectivity Gateway in Device Settings.
+- Support for Leader & Follower Lite functionality for standard configurations without additional licenses.
+- The FS80 now supports communication with PLCs using Modbus or Ethernet/IP protocol.
+- Deep Learning OCR Enhancements
+  - A Minimum Code Quality metric is now returned for each character returned by the OCR tool.
+- Filmstrip Management
+  - Configure whether or not to capture an image when exiting deployment mode.
+- Obtain Device MAC Address Using JavaScript
+  - Retrieve the device MAC address using JavaScript
+- Zebra Integrated Multifunction Light (ZIML) Support on FS42 5MP
+  - Support for using FS42 5MP devices with the ZIML
+- Additional Enhancements
+  - Aurora Deep Learning Service launches automatically when using the editor.
+  - Anomaly Detection UI improvements.
+- Support for all trigger modes using Datacode tools.
+  - Web HMI UI improvements for performing a Factory Reset.
+  - Support for the FS10/20 configurations with plastic exit window.
+- MV Essential Toolset is now included in Deep Learning OCR and Deep Learning Anomaly Detection licenses.
+
+## Bug Fixes
+- **\[MVFIS-2044\]** The image and heatmap in the ROI of the anomaly detection tool are incorrectly oriented and cropped.
+- **\[MVFIS-2023\]** Pulse width in AF Device settings and ZCG is conflicting.
+- **\[MVFIS-2118\]** FIS devices stop triggering when deploying some JavaScript.
+- **\[MVFIS-2116\]** Focus diopter vs mm strange behavior.
+- **\[MVFIS-2112\]** Trigger ID reset issue.
+- **\[MVFIS-2138\] NS42:** Aurora Focus does not load Jobs to the NS42.
+- **\[MVFIS-2127\] FS42:** Switching back to edit mode blocks the ability to set the focal point in live view
+mode on FS42.
+- **\[MVFIS-2098\] FS10:** USB HID no output while network is disabled.
+- **\[MVFIS-2088\] FS42:** HID does not re-connect if the client (Windows or Linux) is rebooted while the
+FS42 is powered by PoE and triggering. Reboot the device to re-establish HID connection.
+- **\[MVFIS-2054\] FS42:** Focus not updating focus correctly.
+- **\[MVFIS-2039\] FS40:** Upgrading from 7.0 to 9.2 breaks the unit.
+- **\[MVFIS-2020\] NS42:** HID output - only works with USB powered device only.
+- **\[MVFIS-1994\] FS40:** During fast triggering on turntable, job stalls (triggers still recognize and the
+illumination light still flashes).
+- **\[MVFIS-1879\] FS20/40:** Re-reading - Auto (Self), Continuous, Barcode must leave the field of
+view (FOV).
+- **\[MVFIS-2017\] FS10**: Upgrade from 9.1 to 9.2.7 fails - Lightning/Charger boot problem. Issue resolved with version **9.4.706 -** CAAFFS00-006-R44, which replaces the previous version
+(**9.4.696 -** CAAFFS00-006-R43).
+- **\[MVFIS-2172\]** Upgrading FS10's firmware from 3.1.40 to 9.3.659 breaks the unit. Issue resolved with version **9.4.706 -** CAAFFS00-006-R44, which replaces the previous version
+(**9.4.696 -** CAAFFS00-006-R43).
+
+## Release Notes (Previous Releases)
+
+**V9.3.12**
+
+**RELEASE DATE: JUNE 2025**
+
+**V9.2.7**
+
+**RELEASE DATE: APRIL 2025**
+
+**V9.1.6**
+
+**RELEASE DATE: FEBRUARY 2025**
+
+**V9.0.12**
+
+**RELEASE DATE: DECEMBER 2024**
+
+**V7.0.48000**
+
+**RELEASE DATE: MAY 2024**
+
+**V6.2.70000**
+
+**RELEASE DATE: FEBRUARY 2024**
+
+**V6.1.70000**
+
+**RELEASE DATE: SEPTEMBER 2023**
+
+**V6.0.22000**
+
+**RELEASE DATE: JULY 2023**
+
+**V5.0.13000**
+
+**RELEASE DATE: FEBRUARY 2023**
+
+**V4.0.22000**
+
+**RELEASE DATE: DECEMBER 2022**
+
+**V3.1.40000**
+
+**RELEASE DATE: AUGUST 2022**
+
+**V3.0.10000**
+
+**RELEASE DATE: JUNE 2022**
+
+**V2.0.8000**
+
+**RELEASE DATE: APRIL 2022**
+
+**V2.0.7000**
+
+**RELEASE DATE: MARCH 2022**
+
+**V1.200.2001**
+
+**RELEASE DATE: DECEMBER 2021**
+
+**V1.148.0001**
+
+**RELEASE DATE: OCTOBER 2021**
+
+# **V1.134.0001 - Initial Product Release**
+
+**RELEASE DATE: JULY 2021**
+
+## Minimum PC Requirements
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>CPU</td> <td>Intel or AMD 64-bit processor</td> </tr> <tr> <td><p>Random Access</p> <p>Memory Files</p></td> <td>4 GB | Recommended: 8GB</td> </tr> <tr> <td>GPU</td> <td>GTX 1030, Intel UHD 620 or equivalent</td> </tr> <tr> <td>Graphics Memory</td> <td>2GB | Recommended: 4GB</td> </tr> <tr> <td>Disk Space</td> <td>4GB free disk space</td> </tr> <tr> <td>Monitor Resolution</td> <td>1280 x 800 | Recommended: 1920 x 1080</td> </tr> <tr> <td>Operating System</td> <td>Windows 10</td> </tr> <tr> <td><p>Internet</p> <p>Connection</p></td> <td>Required for software activation</td> </tr> </tbody> </table>
+
+## Installation
+
+**Aurora Focus™ can be launched from the Windows 10 Start button.**
+- Start / All Programs / Zebra Scanner / Zebra Aurora Focus \<*version\>*

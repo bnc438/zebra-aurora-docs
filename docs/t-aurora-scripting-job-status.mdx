@@ -3,6 +3,8 @@ sidebar_position: 15
 title: 'Job Status'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # Job Status
 
 The `job_success` property redefines the inspection Pass/Fail status based on a user-defined logic.
@@ -42,3 +44,16 @@ export function onResults(input_result) {
      job_success: input_result.job_success
   }
 }
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+   language="javascript"
+   value={`export function onResults(input_result) {
+   return {
+      job_success: input_result.job_success
+   };
+}`}
+/>

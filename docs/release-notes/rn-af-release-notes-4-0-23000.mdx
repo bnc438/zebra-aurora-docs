@@ -1,0 +1,212 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Release Notes: Aurora Focus 4.0.23000'
+description: 'A summary of new features, fixes, and known issues for Aurora Focus version 4.0.23000.'
+keywords: ["release notes", "Aurora Focus", "[Relevant Technology]", "4.0.23000"]
+sidebar_label: '4.0.23000 Release Notes'
+slug: /releases/aurora-focus/4-0-23000
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '4.0.23000' # e.g., 10.0.xxx
+author: 'bnc438' # e.g., bnc438
+sort_order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.)
+last_updated: '(Automated by build process)'
+last_reviewed: '[YYYY-MM-DD]'
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+
+# --- Product & Software Filters ---
+product_name: 'Aurora Focus' # e.g., Aurora Focus
+product_family: 'Machine Vision' # e.g., Machine Vision
+product_series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series
+software_tool: 'Aurora Focus' # e.g., Aurora Focus
+component_type: 'Firmware'
+
+# --- Use Case & Device Filters ---
+# Add relevant use cases or licenses affected by this release
+use_case: ['[Use Case 1]', '[Use Case 2]']
+license_type: '[License Type]'
+device_type: '[Device Type]' # e.g., Smart Camera, Fixed Scanner
+
+# --- User-Centric Filters ---
+# Roles this release is most relevant for
+role: ['Integrator/Developer', 'System Administrator', 'Controls Engineer']
+task: 'System Maintenance'
+content_type: 'Release Notes'
+skill_level: 'All'
+---
+
+**Zebra Aurora™ MV/FIS Configuration Utility**
+
+# Description
+
+**Product Description**  Zebra Aurora™ is a host-side application which allows for the configuration Zebra FS10, xS20, xS40 and xS70 devices.
+
+# Device Compatibility
+
+| Compatibility Item | Details |
+| --- | --- |
+| Programming Modes | USB connected cable; M12 Ethernet |
+
+| Supported Devices | Supported Device FW |
+| --- | --- |
+| FS40, VS40, FS70, VS70 | CAAESS00-001-R53 |
+| FS10, FS20, VS20 | CAAFFS00-001-R53 |
+
+# Release Notes
+
+This document summarizes the following software release:
+
+| **Software Version Number** | **Release Date** |
+| --- | --- |
+| V4.0.23000 | December 2022 |
+
+# V4.0.23000
+
+**RELEASE DATE: DECEMBER 2022**
+- Performance and Stability Enhancements
+
+# V4.0.22000
+
+## RELEASE DATE: DECEMBER 2022
+- Added Measure Object Tool
+- Added Flaw Detection Edge and Intensity Tools
+- Added Object Locate Counting
+- Added Image Filters: Gradient, Gradient Horizontal, Vertical and Full
+- MV Output Formatting on Supported Interfaces (Global or Interface Specific)
+- Added Find and Replace to Barcode Decode Tool
+- Improved 1D/2D Barcode Decode Performance
+- Setting Barcode Match String via TCP or Serial input
+- Added Image Download Capability via HMI
+- Enhanced Session Based Triggering for Level, Continuous and Presentation Triggers w/Exit Criteria/Aggregation
+- Technology Preview: Device Backup/Restore Functionality
+- Performance and Stability Enhancements
+
+# V3.1.40000
+
+## RELEASE DATE: AUGUST 2022
+- Added Reset on Trigger for Do Note Read Same Barcode
+- Spanish HID Keyboard support
+- Performance and Stability Enhancements
+
+# V3.0.10000
+
+## RELEASE DATE: JUNE 2022
+- Added Edge Counting
+- Added Deep-Learning Based OCR Tool (*in Beta*)
+- Added Circle Find Tool
+- Added Circle Diameter Measurement Tool
+- Added a Circle ROI Type
+- Added Open and Close Filters
+- Added Erode Filter
+- Added RS-232 Input Trigger
+- Additional 2D Barcode Performance Improvements
+- Added ADF to include Pass/Fail Data Types
+- Added ADF to include Barcode Quality Metrics Data
+- Performance and Stability Enhancements
+
+# V2.0.8000
+
+**RELEASE DATE: APRIL 2022**
+- Performance and Stability Enhancements
+
+# V2.0.7000
+
+## RELEASE DATE: MARCH 2022
+- Performance and Stability Enhancements
+- 1D Barcode Quality Metrics
+- Added Object Locate Plus
+- Added Blob Tools
+- Added Binarize Filter/Tool
+- Added Dilate Filter/Tool
+- ImagePerfect(+) fixes & improvements
+- Added Scale Calibration for Distance tool
+- Added Advanced Pass/Fail Configuration (AND/OR logic for Job results)
+- HID Keyboard Expansion - added French and German KB
+- Added support for Codabar symbology
+- Added Encoding type (Text/Base64) for ADF Full String data type and added option to show nonprintable characters as hex values
+- For xS10/20, added external illumination support
+- Added "File Path" option when using (S)FTP to Save images
+- Added Ability to Open a Local Job (created with emulator) On a Real Connected Camera
+
+# V1.200.2001
+
+## RELEASE DATE: DECEMBER 2021
+- Performance and Stability Enhancements
+- Support for 5MP xS40 and xS70 models
+- ImagePerfect(+) for FS models
+- Option to output Barcode Location Co-ordinates
+- Option to not read last n number of barcodes
+- Device can be a TCP/IP Client
+- Configurable RS-232 settings
+- Ability to configure GPIO Trigger delay
+- Support for Fast Hardware Trigger (2.3 MP models only)
+- Ability to set GPIOs to static high or low
+- Added Job controls to clone, rename and delete jobs
+- Support for Conditional Regular expressions for Barcode String Match
+- Barcode String Match Regular expression support for ManyCode
+- Backwards compatibility of Job files
+- Decode and MV statistics in Aurora and HMI stored and queried from device
+
+#  V1.148.0001
+
+## RELEASE DATE: OCTOBER 2021
+- Performance Enhancements
+- Stability Improvements
+- Implementation of licensing error messages in Web HMI
+- Fixed issue of Job pausing on refresh of Web HMI
+- Fixed issue of crash when clicking on "Communications" tab
+- Fixed inability to "View" active Jobs from Job menu when Job utilizes a trigger that is automatic in nature.
+- Fixed issue of slow decode rate when "Fast 1D/2D" license is enabled
+- Added Configurable TCP/IP - results port and trigger string can be configured
+- Support for GPIO \> Hardware trigger (normal speed)
+- Allow setting a job as Startup / Power up job
+- Emulators now have license level
+- Supports a total of 21 emulators
+- ZJOB backwards compatibility and auto conversion of old job files (Windows only) - Seamless (live) tool changes when Upgrade licenses are applied
+
+# V1.134.0001 - Initial Product Release
+
+## RELEASE DATE: JULY 2021
+- Bug Fixes
+- Stability Improvements
+
+## Known Issues
+- Backup and restore requires the device hostname to start with proper the model type (VS or FS)
+- Certain special characters in a job name cause the job results image folder to not allow download from the device.
+  - Workaround: Use only standard characters for job names
+- Locate Edge timeout value is sometimes not honored when timeout value is very low and searching for low contrast edges and/or high number of edges.
+- In some cases, using large number of image banks cause slight delays in processing.
+- When changing USB options during setup: Enabling/Disabling HID or changing CDC serial options, the USB cable needs to be plugged in; otherwise, the device will need to be restarted after the changes are made.
+- Changing the scale or size of an item in the flaw detection tool, when used in conjunction with fixturing with Locate Object Plus, requires readjustment of the ROI when retraining to the new size.
+  - Workaround: Adjust ROI and Retrain or use Standard (non-Plus) Locate Object tool.
+- After upgrading the device firmware, USB options may be grayed out.
+  - Workaround: Perform User Setting Reset from HMI and update device settings after.
+- Firmware update will fail if memory consumption is already high.
+  - Workaround: Reboot the device and upgrade
+- Uninstalling the InstallShield does not always remove all registry entries.
+  - Workaround: regedit and manually delete Aurora folder under
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Zebra
+
+## Components
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>SW Component</strong></th> <th><strong>Version</strong></th> </tr> </thead> <tbody> <tr> <td>InstallShield</td> <td>4.0.23000</td> </tr> <tr> <td>Aurora™</td> <td>4.0.23</td> </tr> <tr> <td>BSP (xS40/70)</td> <td>CAAESS00-001-R53</td> </tr> <tr> <td>BSP (FS10/xS20)</td> <td>CAAFFS00-001-R53</td> </tr> <tr> <td>Aurora™ HMI</td> <td>2.0.00</td> </tr> </tbody> </table>
+
+The components are installed in the following folders:
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>Application</td> <td>Program Files\Zebra Technologies\Aurora</td> </tr> <tr> <td>Job/Configuration Files</td> <td>Users\Public\Documents\ZebraAurora\xSx0\Jobs</td> </tr> <tr> <td>Saved Images</td> <td>Users\Public\Documents\ZebraAurora\Captures\xSxxxxxx Camera</td> </tr> </tbody> </table>
+
+## Minimum PC Requirements
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>CPU</td> <td>Intel or AMD 64-bit processor</td> </tr> <tr> <td>Random Access Memory Files</td> <td>4 GB | Recommended: 8GB</td> </tr> <tr> <td>GPU</td> <td>GTX 1030, Intel UHD 620 or equivalent</td> </tr> <tr> <td>Graphics Memory</td> <td>2GB | Recommended: 4GB</td> </tr> <tr> <td>Disk Space</td> <td>4GB free disk space</td> </tr> <tr> <td>Monitor Resolution</td> <td>1280 x 800 | Recommended: 1920 x 1080</td> </tr> <tr> <td>Operating System</td> <td>Windows 10</td> </tr> <tr> <td><p>Internet</p> <p>Connection</p></td> <td>Required for software activation</td> </tr> </tbody> </table>
+
+## Installation
+
+**Aurora™ can be launched from the Windows 10 Start button.**
+- Start / All Programs / Zebra Scanner / Zebra Aurora

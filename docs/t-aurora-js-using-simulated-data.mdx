@@ -3,6 +3,8 @@ sidebar_position: 27
 title: 'Using Simulated Data'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # Using Simulated Data
 
 If you cannot use real-world results, use simulated data until you can validate with representative data.
@@ -34,3 +36,17 @@ export function onResults(input_result) {
 Simulated data is hardcoded and user-defined. Use this method only for development and initial testing purposes. Conduct final tests using actual results to ensure the code works as intended.
 
 :::
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+    language="javascript"
+    value={`export function onResults(input_result) {
+    const mockedData = ["A100", "A101", "A102"];
+    return {
+        tcp_ip: mockedData.join(",")
+    };
+}`}
+/>

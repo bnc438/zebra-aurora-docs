@@ -3,6 +3,8 @@ sidebar_position: 22
 title: 'Example Script Lifecycle'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # Example Script Lifecycle
 
 The lifecycle of the script includes four stages: deployment, two iterations, and edit mode.
@@ -75,3 +77,19 @@ During the next deployment, the variables from Step 2a are re-initialized.
 :::note
 Each execution is always the first one when using an emulator or performing jobs on the camera while editing.
 :::
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+    language="javascript"
+    value={`let counter = 0;
+
+export function onResults(input_result) {
+    counter += 1;
+    return {
+        tcp_ip: "Lifecycle run #" + counter
+    };
+}`}
+/>

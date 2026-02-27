@@ -1,0 +1,150 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Release Notes: Aurora Focus 1.200.2001'
+description: 'A summary of new features, fixes, and known issues for Aurora Focus version 1.200.2001.'
+keywords: ["release notes", "Aurora Focus", "[Relevant Technology]", "1.200.2001"]
+sidebar_label: '1.200.2001 Release Notes'
+slug: /releases/aurora-focus/1-200-2001
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '1.200.2001' # e.g., 10.0.xxx
+author: 'bnc438' # e.g., bnc438
+sort_order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.)
+last_updated: '(Automated by build process)'
+last_reviewed: '[YYYY-MM-DD]'
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+
+# --- Product & Software Filters ---
+product_name: 'Aurora Focus' # e.g., Aurora Focus
+product_family: 'Machine Vision' # e.g., Machine Vision
+product_series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series
+software_tool: 'Aurora Focus' # e.g., Aurora Focus
+component_type: 'Firmware'
+
+# --- Use Case & Device Filters ---
+# Add relevant use cases or licenses affected by this release
+use_case: ['[Use Case 1]', '[Use Case 2]']
+license_type: '[License Type]'
+device_type: '[Device Type]' # e.g., Smart Camera, Fixed Scanner
+
+# --- User-Centric Filters ---
+# Roles this release is most relevant for
+role: ['Integrator/Developer', 'System Administrator', 'Controls Engineer']
+task: 'System Maintenance'
+content_type: 'Release Notes'
+skill_level: 'All'
+---
+
+**Zebra Aurora™ MV/FIS Configuration Utility**
+
+# Description
+
+**Product Description**  Zebra Aurora™ is a host-side application which allows for the configuration Zebra FS10, xS20, xS40 and xS70 devices.
+
+# Device Compatibility
+
+| Compatibility Item | Details |
+| --- | --- |
+| Programming Modes | USB connected cable; TCP/IP (Ethernet) |
+
+| Supported Devices | Supported Device FW |
+| --- | --- |
+| FS10, FS20, VS20, FS40, VS40, FS70, VS70 | CAAESS00-001-R28 |
+
+# Release Notes
+
+This document summarizes the following software release:
+
+| **Software Version Number** | **Release Date** |
+| --- | --- |
+| V1.200.2001 | December 2021 |
+
+# V1.200.2001
+
+**RELEASE DATE: DECEMBER 2021**
+- Performance and Stability Enhancements
+- Support for 5MP xS40 and xS70 models
+- ImagePerfect(+) for FS models
+- Option to output Barcode Location Co-ordinates
+- Option to not read last n number of barcodes
+- Device can be a TCP/IP Client
+- Configurable RS-232 settings
+- Ability to configure GPIO Trigger delay
+- Support for Fast Hardware Trigger (2.3 MP models only)
+- Ability to set GPIOs to static high or low
+- Added Job controls to clone, rename and delete jobs
+- Support for Conditional Regular expressions for Barcode String Match
+- Barcode String Match Regular expression support for ManyCode
+- Backwards compatibility of Job files
+- Decode and MV statistics in Aurora and HMI stored and queried from device
+
+#  V1.148.0001
+
+**RELEASE DATE: OCTOBER 2021**
+- Performance Enhancements
+- Stability Improvements
+- Implementation of licensing error messages in Web HMI
+- Fixed issue of Job pausing on refresh of Web HMI
+- Fixed issue of crash when clicking on "Communications" tab
+- Fixed inability to "View" active Jobs from Job menu when Job utilizes a trigger that is automatic in nature.
+- Fixed issue of slow decode rate when "Fast 1D/2D" license is enabled
+- Added Configurable TCP/IP - results port and trigger string can be configured
+- Support for GPIO \> Hardware trigger (normal speed)
+- Allow setting a job as Startup / Power up job
+- Emulators now have license level
+- Supports a total of 21 emulators
+- ZJOB backwards compatibility and auto conversion of old job files (Windows only) - Seamless (live) tool changes when Upgrade licenses are applied
+
+# V1.134.0001 - Initial Product Release
+
+**RELEASE DATE: JULY 2021**
+- Bug Fixes
+- Stability Improvements
+
+## Known Issues
+- Factory reset required for FS10/xS20 after updating to this release
+- Numeric entry fields can sometimes miss keystrokes when typing or overwrite characters
+- Able to deploy a Locate Object job while the tool is in the training state
+- Presentation Mode increments No-Read counter on successful decode
+- Deploy to Edit mode transition during Pulse Width of a GPIO output causes the GPIO to stay ON
+- External light can stay in Always On Mode when a certain order of operations is performed
+- Mouse can stop responding on DisplayPort after prolonged use. Workaround: press "Ctrl + Alt + Backspace" to restart HMI
+- WebHmi: Columns in Results History page changes on refresh of the page and can result in a white screen on clicking View Results button
+- Startup job can change when FW Update is performed when a Continuous job is running
+- Fixturing to Locate Edge tool works incorrectly if the target moves before the first trigger. Workaround: Do not move the target for the first trigger after Deploy
+- Running a Continuous job with 0ms Same Data Timeout and Show Images can cause the job to stop after several days of running. Workaround: Uncheck Show Image in Capture \> Triggers page
+- Monitoring device via Aurora for a long time may result in an Aurora restart. Recommended: Use Web HMI for long term job monitoring
+- ImagePerfect(+) for FS models does not work the exact same way in Edit mode as it does in Deploy mode in certain ordering of Banks
+- Uninstalling the InstallShield does not always remove all registry entries. Workaround: regedit and manually delete folders 123MV and Aurora under
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Zebra\\
+- Certain unsupported settings (RS232, GPIO) are displayed in Aurora for FS10 model
+- Certain hubs cause USB interfaces (both RNDIS and HID) on FS10 to break on HID Keyboard re-enumeration. Workaround: power cycle device
+- When Long Exposure is checked in FS10/xS20 illumination flashes twice for every capture and trigger
+- Local Adapter drop down in Connect \> Save Image \> (S)FTP will be deprecated in a future release, since incorrect configuration can lead to device disconnections from Aurora.
+- Image Capture on FS10/xS20 can take a few seconds to complete occasionally (in particular on first time connection to device)
+- Presentation Mode for FS10/xS20 is a Beta feature
+- If Barcode tool’s search ROI is mostly off the image it may cause Aurora to restart
+
+## Components
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>SW Component</strong></th> <th><strong>Version</strong></th> </tr> </thead> <tbody> <tr> <td>InstallShield</td> <td>1.200.2001</td> </tr> <tr> <td>Aurora™</td> <td>1.2.20</td> </tr> <tr> <td>BSP (xS40/70)</td> <td>CAAESS00-001-R28</td> </tr> <tr> <td>BSP (FS10/xS20)</td> <td>CAAFFS00-001-R03</td> </tr> <tr> <td>Aurora™ HMI</td> <td>1.0.31</td> </tr> </tbody> </table>
+
+The components are installed in the following folders:
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>Application</td> <td>Program Files\Zebra Technologies\Aurora</td> </tr> <tr> <td>Job/Configuration Files</td> <td>Users\Public\Documents\ZebraAurora\xSx0\Jobs</td> </tr> <tr> <td>Saved Images</td> <td>Users\Public\Documents\ZebraAurora\Captures\xSxxxxxx Camera</td> </tr> </tbody> </table>
+
+## Minimum PC Requirements
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>CPU</td> <td>Intel or AMD 64-bit processor</td> </tr> <tr> <td>Random Access Memory Files</td> <td>4 GB | Recommended: 8GB</td> </tr> <tr> <td>GPU</td> <td>GTX 1030, Intel UHD 620 or equivalent</td> </tr> <tr> <td>Graphics Memory</td> <td>2GB | Recommended: 4GB</td> </tr> <tr> <td>Disk Space</td> <td>4GB free disk space</td> </tr> <tr> <td>Monitor Resolution</td> <td>1280 x 800 | Recommended: 1920 x 1080</td> </tr> <tr> <td>Operating System</td> <td>Windows 10</td> </tr> <tr> <td><p>Internet</p> <p>Connection</p></td> <td>Required for software activation</td> </tr> </tbody> </table>
+
+## Installation
+
+**Aurora™ can be launched from the Windows 10 Start button.**
+- Start / All Programs / Zebra Scanner / Zebra Aurora

@@ -1,0 +1,385 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Release Notes: Aurora Focus 9.2.7'
+description: 'A summary of new features, fixes, and known issues for Aurora Focus version 9.2.7.'
+keywords: ["release notes", "Aurora Focus", "[Relevant Technology]", "9.2.7"]
+sidebar_label: '9.2.7 Release Notes'
+slug: /releases/aurora-focus/9-2-7
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '9.2.7' # e.g., 10.0.xxx
+author: 'bnc438' # e.g., bnc438
+sort_order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.)
+last_updated: '(Automated by build process)'
+last_reviewed: '[YYYY-MM-DD]'
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+
+# --- Product & Software Filters ---
+product_name: 'Aurora Focus' # e.g., Aurora Focus
+product_family: 'Machine Vision' # e.g., Machine Vision
+product_series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series
+software_tool: 'Aurora Focus' # e.g., Aurora Focus
+component_type: 'Firmware'
+
+# --- Use Case & Device Filters ---
+# Add relevant use cases or licenses affected by this release
+use_case: ['[Use Case 1]', '[Use Case 2]']
+license_type: '[License Type]'
+device_type: '[Device Type]' # e.g., Smart Camera, Fixed Scanner
+
+# --- User-Centric Filters ---
+# Roles this release is most relevant for
+role: ['Integrator/Developer', 'System Administrator', 'Controls Engineer']
+task: 'System Maintenance'
+content_type: 'Release Notes'
+skill_level: 'All'
+---
+
+**Zebra Aurora Focus™ MV/FIS Configuration Utility**
+
+# Description
+
+**Product Description**  Zebra Aurora Focus™ is a host-side application which allows for the configuration Zebra FS10, xS20, xS40, xS70, FS42, NS42 and FS80 devices.  Zebra Aurora Focus™ Deep Learning Editor is companion software for training the Deep Learning  Anomaly Detection tool. To use the editor, a physical or emulated NS42 device licensed for Anomaly Detection is required. It is installed independently and available in two versions: CPU and GPU versions. The GPU version is to train models using NVIDIA GPUs.
+
+# Device Compatibility
+
+| Compatibility Item | Details |
+| --- | --- |
+| Programming Modes | USB connected cable; M12 Ethernet |
+
+| Supported Devices | Supported Device FW |
+| --- | --- |
+| FS40, VS40, FS70, VS70 | **9.2.631 -** CAAESS00-006-R16 |
+| FS42, NS42 | **9.2.631 -** CAAGGS00-006-R16 |
+| FS10, FS20, VS20 | **9.2.631 -** CAAFFS00-006-R16 |
+| FS80 | **9.2.139 -** SAAHMS00-001-R19 |
+
+# Release Notes
+
+This document summarizes the following software release:
+
+| **Software Version Number** | **Release Date** |
+| --- | --- |
+| V9.2.7 | April 2025 |
+
+# V9.2.7
+
+## RELEASE DATE: APRIL 2025
+- Automation Wedge (Feature Preview)
+  - Support for Automation Wedge (SSI over USB/CDC connection)
+- This release includes a feature preview of the Automation Wedge feature which allows Zebra Fixed Industrial Scanning (FIS) smart camera to work with Zebra mobile computer through the Zebra DataWedge mobile computer application.
+- Known Limitations:
+- Use a USB C to C cable when connecting a camera to a PC/laptop and setting up Automation Wedge. Some PC/laptop machines do not work well when using USB A to C cables and enabling USB SSI.
+- Automation Wedge does not currently support multi-code barcode decoding
+- JavaScript Enhancements
+  - JavaScript support to format and customize HID output
+User can customize output via HID interface and can add special keys into the output (for example, function keys).
+- Support for additional tools in JavaScript
+- JavaScript now supports using data from the following tools: Anomaly Detection,
+Contrast, Edge and OCR
+- Support for FTP filename customization via JavaScript  <!-- -->
+- Tool Enhancements
+  - DataCode tool now supports Presentation and Presentation Aggregation Trigger modes
+  - DataCode tool now support Continuous and Level Continuous Trigger modes
+- FS80 Enhancements
+- Support (USB to) Serial port cables
+- Use of this feature requires third-party USB to serial cables/dongles
+- Other Enhancements
+  - Improvements to Match String features
+- A different Match String can be used for each tool in a job
+- Add option co configure Match Mode (Disabled, Exact, Contain, Regex) in Aurora and using communication channels
+- Add option to provide Match String as Base64
+- Add full support for Match String to OCR and DataCode tools
+  - ZETI Commands:
+- match_string_get
+- match_string_update
+\[match_mode=STRING_EXACT/DISABLED/STRING_CONTAINS/REGEX"\]  \[persistent=true/false\] \[format=PLAIN/BASE64\] \[tool=toolname/friendly name\]
+\[value=newstring{}\]
+- TCP/IP Connection Test Feature
+- The TCP/IP Connection Test feature allows the user to test both the TCP output and TCP control ports to make sure the connection works.
+
+## Known Issues
+- Under some conditions, barcode decode performance may be impacted.
+	- Workarounds:
+		- Disable unused symbologies.
+		- Disable configuration barcodes (if not used) from the General menu.
+		- Set expected module size appropriately.
+- On occasion, dual update option on firmware update fails.
+	- Workaround: Update firmware without using dual update. Then repeat the same firmware version update using "Force Update" with "Dual Update" checked.
+- "Test Connection" can fail with currently used/open device ports.
+	- Workaround: Test connection before ports are selected and/or opened during job deployment.
+- Unrestricted USB-A Power settings are not transferable with Backup/Restore.
+	- Workaround: Use configuration barcodes where unrestricted USB-A Power settings must be cloned.
+- When `user_data_control` is enabled with appropriate data and data length in AOI, it returns an error code.
+	- Workaround: Ignore the error code.
+- Sometimes HMI, after removing a license, does not update the screen.
+	- Workaround: Refreshing or switching tabs updates the screen.
+- Reboot is required to see the Anomaly Detection tool in Aurora Focus after the upgrade license is applied.
+- Rarely, it may take a few seconds for the UI to update after selecting or deselecting all symbologies.
+- When adding a very large number of tools to the VS flow builder, ROI boundaries may not be visible or performance issues may occur.
+- When using Connectivity Gateway and configuring to use more than one GPIO, changes may not take effect immediately.
+	- Workaround: Restart Runtime.
+- WebHMI objects may not always load properly when opening the WebHMI page.
+	- Workaround: Refresh page.
+- WebHMI objects may not always load properly on reboot.
+	- Workaround: Refresh page.
+- If factory resetting the device on a USB connection, or where NTP is not available, the device real-time clock may reset.
+	- Workaround: Open WebHMI and navigate to the license page to sync time with the browser host, or set time manually.
+- When saving images over FTP using a hostname, transfer delays may occur and the image is not transferred.
+	- Workaround: Use FTP server IP address.
+- When using Object Plus tools, operation may fail due to contrast value.
+	- Workaround: Adjust contrast value until operation succeeds and results are satisfactory.
+- Some ZETI commands do not work with the shortened command format.
+	- Workaround: Use the extended ZETI command format.
+- In some cases, using many image banks causes slight processing delays.
+	- Workaround: Reduce number of image banks if possible.
+- Device may not be discoverable in Aurora Focus when starting firmware update in HMI until update completes and device reboots.
+	- Workaround: Wait for firmware update completion.
+- Firmware updates fail if memory consumption is already very high.
+	- Workaround: Reboot device before performing firmware update.
+- Uninstalling InstallShield does not always remove all registry entries.
+	- Workaround: Use `regedit` and manually delete the Aurora Focus folder under `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Zebra`.
+
+# V9.1.6
+
+## RELEASE DATE: FEBRUARY 2025
+- Support for new FS42 5MP resolution camera
+- JavaScript enhancements
+  - Support for sending raw bytes in addition to sending text data in results output
+  - Serial port output control and sending unique output to the serial port
+  - TCP output control and sending unique output to the TCPIP connection
+  - Control of job pass fail results
+  - Support JavaScript on the FS80
+  - Additional device, inspection and performance metric information is now available for use in JavaScript
+- Tool enhancements
+  - Fixturing from Barcode and Datacode tools
+  - Contrast tool improvements
+- FS80 enhancements
+  - APIPA: Automatic private IP fallback when DCHP fails to assign IP address on FS80
+
+# V9.0.12
+
+## RELEASE DATE: DECEMBER 2024
+- Support for the NS42 Camera
+- Support for the FS80 Camera. Note the following will be supported in future releases
+  - JavaScript
+  - FS80 Connectivity Gateway (Leader/Follower), GS20 is required
+  - Image banks (Image Perfect)
+  - Presentation mode
+  - Communication with PLCs (Ethernet EIP, Modbus, Profinet)
+  - ZETI command to control GPIO
+  - SW license upgrade capability
+  - Configuration barcodes
+- Support for Multi-Function Integrated Light for FS80
+- NEW tool: Deep Learning Anomaly Detection
+- Deep Learning Editor (for training the Anomaly Detection tool)
+- JavaScript Support
+  - Output formatting
+  - Output over TCP, Serial Port, CDC and basic HID (function keys not supported)
+  - Editor with IntelliSense
+  - Console logging for basic debugging
+- Support for explicit serial trigger command
+- Support for Multiple Aurora Focus versions installed on same host
+- Option to select USB2 or USB3 for xS40/xS42/xS70
+- Support for NPU-accelerated Deep Learning OCR
+- Support for AutoTune on DPM with the Datacode tool
+- Support for DPM QR code reading
+- Support for reading QR Codes in Datacode tool
+- Lower selectable heartbeat intervals
+- Support for aggregating codes in presentation trigger mode
+- Multiple Aurora Focus stability changes and enhancements
+- Miscellaneous bug fixes
+- Improved debugging for trigger overrun conditions when enabling logging on the camera
+
+# V7.0.48000
+
+## RELEASE DATE: MAY 2024
+- When editing a job for a camera, editing occurs directly on device and then timing values are more realistic.
+- Support for the new FS42 camera
+- Support for Separate (Explicit) TCP start and stop trigger strings
+- Support for TCP control and outport on same port number.
+- Connectivity Gateway: Support for backup and restore for configuration (HMI and ZETI)
+- Connectivity Gateway: Support for level trigger Mode
+- Connectivity Gateway: Separate start and stop TCP/Serial triggers
+- Connectivity Gateway: Output at end of level trigger mode
+- Connectivity Gateway: UI/UX Improvements
+  - Now include helper tips in each section
+  - Debugging tools added to bottom of Setup screen DL-OCR Match string settable by TCP command via ZETI
+Debug mode to save images in both level and continuous modes > > Support for saving images based on a time interval  ZETI support for ASCII format when sending match string commands
+Multiple performance improvements > > Multiple Aurora Focus stability changes and enhancements Miscellaneous Bug Fixes
+
+# V6.2.70000
+
+## RELEASE DATE: FEBRUARY 2024
+- Support for Liquid Lens focal distance using millimeters or inches.
+- 2D Configuration barcode support to perform Autotune (Focus only)
+- ZETI Command support to perform Autotune (Focus only)
+
+# V6.1.70000
+
+## RELEASE DATE: SEPTEMBER 2023
+- Performance and Enhancements
+  - Datacode Tool Improvements and Optimizations
+  - Quantized Deep Learning OCR
+  - FTP/SFTP folder storage suffix options
+  - FTP/SFTP option to disable JSON results file
+- ADF Output Enhancements
+  - Support for Function Keys: F1-12
+  - Support for Modifier Keys CTRL and ALT
+- Option to Disable Tune and Trigger hardware buttons
+- ZETI Interface improvements
+- Backup and Restore feature improvements
+- Miscellaneous Bug Fixes
+
+# V6.0.22000
+
+## RELEASE DATE: JULY 2023
+- 2D Configuration Barcode Generation and Deployment
+- Advanced Filtering and Formatting of Decode Data
+- Multi-device management (Up to 5 devices at a time)
+  - Firmware Update
+  - Backup/Restore
+  - Device Log Download
+Zebra Connectivity Gateway for Leader/Followers scanner configuration > > ZETI Command Interface Additional Command Support > > Aurora Focus UX Improvements
+  - Improvements to Custom Formatting
+  - Improved Localization
+- Performance and Enhancements
+  - Decode performance improvements.
+  - Enhanced Session Based Triggering with Image Save
+  - Additional Localization Enhancements
+
+# V5.0.13000
+
+## RELEASE DATE: FEBRUARY 2023
+- Technology Previews
+  - Aurora Focus and HMI Language Support - Simplified Chinese, Korean, German, French and Spanish
+  - Expanded ZETI Interface Commands
+- Tools
+  - Deep Learning Based OCR for Fixed Industrial Scanners - Fully Released and Activated via Licenses
+- Performance
+  - Improvements to deployed job run consistency including Barcode tool timeout, decoding, and trigger timing consistency.
+  - Level Trigger Enhancements
+  - Triggered Image Buffering
+- UX Improvements
+  - Backup/Restore/Firmware Upgrade in Aurora Focus
+- Device Configuration 1D Parameter Barcode Setup
+
+# V4.0.22000
+
+## RELEASE DATE: DECEMBER 2022
+Added Measure Object Tool > > Added Flaw Detection Edge and Intensity Tools > > Added Object Locate Counting > > Added Image Filters: Gradient, Gradient Horizontal, Vertical and Full > > MV Output Formatting on Supported Interfaces (Global or Interface Specific) > > Added Find and Replace to Barcode Decode Tool > > Improved 1D/2D Barcode Decode Performance
+- Setting Barcode Match String via TCP or Serial input
+- Added Image Download Capability via HMI
+- Enhanced Session Based Triggering for Level, Continuous and Presentation Triggers w/Exit Criteria/Aggregation
+- Technology Preview: Device Backup/Restore Functionality
+- Performance and Stability Enhancements
+
+# V3.1.40000
+
+## RELEASE DATE: AUGUST 2022
+- Added Reset on Trigger for Do Note Read Same Barcode
+- Spanish HID Keyboard support
+- Performance and Stability Enhancements
+
+# V3.0.10000
+
+## RELEASE DATE: JUNE 2022
+- Added Edge Counting
+- Added Deep-Learning Based OCR Tool (*in Beta*)
+- Added Circle Find Tool
+- Added Circle Diameter Measurement Tool
+- Added a Circle ROI Type
+- Added Open and Close Filters
+- Added Erode Filter
+- Added RS-232 Input Trigger
+- Additional 2D Barcode Performance Improvements
+- Added ADF to include Pass/Fail Data Types
+- Added ADF to include Barcode Quality Metrics Data
+- Performance and Stability Enhancements
+
+# V2.0.8000
+
+**RELEASE DATE: APRIL 2022**
+- Performance and Stability Enhancements
+
+# V2.0.7000
+
+## RELEASE DATE: MARCH 2022
+- Performance and Stability Enhancements
+- 1D Barcode Quality Metrics
+- Added Object Locate Plus
+- Added Blob Tools
+- Added Binarize Filter/Tool
+- Added Dilate Filter/Tool
+- ImagePerfect(+) fixes & improvements
+- Added Scale Calibration for Distance tool
+- Added Advanced Pass/Fail Configuration (AND/OR logic for Job results)
+- HID Keyboard Expansion - added French and German KB
+- Added support for Codabar symbology
+- Added Encoding type (Text/Base64) for ADF Full String data type and added option to show nonprintable characters as hex values
+- For xS10/20, added external illumination support
+- Added "File Path" option when using (S)FTP to Save images
+- Added Ability to Open a Local Job (created with emulator) On a Real Connected Camera
+
+# V1.200.2001
+
+## RELEASE DATE: DECEMBER 2021
+- Performance and Stability Enhancements
+- Support for 5MP xS40 and xS70 models
+- ImagePerfect(+) for FS models
+- Option to output Barcode Location Co-ordinates
+- Option to not read last n number of barcodes
+- Device can be a TCP/IP Client
+Configurable RS-232 settings > > Ability to configure GPIO Trigger delay > > Support for Fast Hardware Trigger (2.3 MP models only) > > Ability to set GPIOs to static high or low
+- Added Job controls to clone, rename and delete jobs
+- Support for Conditional Regular expressions for Barcode String Match
+- Barcode String Match Regular expression support for ManyCode
+- Backwards compatibility of Job files
+- Decode and MV statistics in Aurora Focus and HMI stored and queried from device
+
+#  V1.148.0001
+
+## RELEASE DATE: OCTOBER 2021
+- Performance Enhancements
+- Stability Improvements
+- Implementation of licensing error messages in Web HMI
+- Fixed issue of Job pausing on refresh of Web HMI
+- Fixed issue of crash when clicking on "Communications" tab
+- Fixed inability to "View" active Jobs from Job menu when Job utilizes a trigger that is automatic in nature.
+- Fixed issue of slow decode rate when "Fast 1D/2D" license is enabled
+- Added Configurable TCP/IP - results port and trigger string can be configured
+- Support for GPIO \> Hardware trigger (normal speed)
+- Allow setting a job as Startup / Power up job
+- Emulators now have license level
+- Supports a total of 21 emulators
+- ZJOB backwards compatibility and auto conversion of old job files (Windows only) - Seamless (live) tool changes when Upgrade licenses are applied
+
+# V1.134.0001 - Initial Product Release
+
+## RELEASE DATE: JULY 2021
+- Bug Fixes
+- Stability Improvements
+
+## Components
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>SW Component</strong></th> <th><strong>Version</strong></th> </tr> </thead> <tbody> <tr> <td>InstallShield</td> <td>9.2.7</td> </tr> <tr> <td>Aurora Focus™</td> <td>9.2.7</td> </tr> <tr> <td>Aurora Focus Deep Learning Editor</td> <td>9.0.10631</td> </tr> <tr> <td>BSP (xS40/70)</td> <td>9.2.631 - CAAESS00-006-R16</td> </tr> <tr> <td>BSP (FS42/NS42)</td> <td>9.2.631 - CAAGGS00-006-R16</td> </tr> <tr> <td>BSP (FS10/xS20)</td> <td>9.2.631 - CAAFFS00-006-R16</td> </tr> <tr> <td>BSP (FS80)</td> <td>9.2.139 - SAAHMS00-001-R19</td> </tr> <tr> <td>Aurora Focus™ HMI</td> <td>10.0.11</td> </tr> <tr> <td>Connectivity Gateway</td> <td>1.2.10</td> </tr> </tbody> </table>
+
+The components are installed in the following folders:
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>Application</td> <td>Program Files\Zebra Technologies\Aurora Focus/version</td> </tr> <tr> <td>Job/Configuration Files</td> <td>Users\Public\Documents\ZebraAurora/ModelType\Jobs</td> </tr> <tr> <td>Saved Images</td> <td>Users\Public\Documents\ZebraAurora/Captures/xSxxxxxx Camera</td> </tr> </tbody> </table>
+
+## Minimum PC Requirements
+
+<table> <colgroup> <col /> <col /> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>CPU</td> <td>Intel or AMD 64-bit processor</td> </tr> <tr> <td>Random Access Memory Files</td> <td>4 GB | Recommended: 8GB</td> </tr> <tr> <td>GPU</td> <td>GTX 1030, Intel UHD 620 or equivalent</td> </tr> <tr> <td>Graphics Memory</td> <td>2GB | Recommended: 4GB</td> </tr> <tr> <td>Disk Space</td> <td>4GB free disk space</td> </tr> <tr> <td>Monitor Resolution</td> <td>1280 x 800 | Recommended: 1920 x 1080</td> </tr> <tr> <td>Operating System</td> <td>Windows 10</td> </tr> <tr> <td><p>Internet</p> <p>Connection</p></td> <td>Required for software activation</td> </tr> </tbody> </table>
+
+## Installation
+
+**Aurora Focus™ can be launched from the Windows 10 Start button.**
+- Start / All Programs / Zebra Scanner / Zebra Aurora Focus

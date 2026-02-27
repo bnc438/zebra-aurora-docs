@@ -3,6 +3,8 @@ sidebar_position: 13
 title: 'Constant Data'
 ---
 
+import MonacoSandbox from '@site/src/components/MonacoSandbox';
+
 # Constant Data
 
 Each script has a global variable called `DEVICE` that is available from anywhere in the code. They contain constant data about the current device. When using an emulator, this variable contains applicable messages about a lack of support.
@@ -57,3 +59,16 @@ interface ISensor {
   width: number;
   height: number;
 }
+
+```
+
+## Monaco Sandbox
+
+<MonacoSandbox
+  language="javascript"
+  value={`export function onResults(input_result) {
+  return {
+    tcp_ip: DEVICE.model
+  };
+}`}
+/>

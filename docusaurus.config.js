@@ -47,6 +47,18 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        docsRouteBasePath: ['/docs'],
+        indexBlog: false,
+        indexPages: true,
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -60,9 +72,32 @@ const config = {
         items: [
           {
             type: 'docSidebar',
+            sidebarId: 'userGuideSidebar',
+            position: 'left',
+            label: 'User Guide',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'JavaScript Developers Guide', // Changed label for clarity
+          },
+          {
+            type: 'doc',
+            docId: 'licensing/index',
+            position: 'left',
+            label: 'Licensing',
+          },
+          {
+            type: 'doc',
+            docId: 'release-notes/index',
+            position: 'left',
+            label: 'Release Notes',
+          },
+          {
+            to: '/ask-ai',
+            position: 'right',
+            label: 'Ask AI',
           },
         ],
       },
