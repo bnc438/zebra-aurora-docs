@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-release-notes/rn-af-release-notes-9-0-12" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Release Notes: Aurora Focus 9.0.12 | Zebra Machine Vision</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://bnc438.github.io/zebra-aurora-docs/docs/releases/aurora-focus/9-0-12"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Release Notes: Aurora Focus 9.0.12 | Zebra Machine Vision"><meta data-rh="true" name="description" content="A summary of new features, fixes, and known issues for Aurora Focus version 9.0.12."><meta data-rh="true" property="og:description" content="A summary of new features, fixes, and known issues for Aurora Focus version 9.0.12."><meta data-rh="true" name="keywords" content="release notes,Aurora Focus,[Relevant Technology],9.0.12"><link data-rh="true" rel="icon" href="/zebra-aurora-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://bnc438.github.io/zebra-aurora-docs/docs/releases/aurora-focus/9-0-12"><link data-rh="true" rel="alternate" href="https://bnc438.github.io/zebra-aurora-docs/docs/releases/aurora-focus/9-0-12" hreflang="en"><link data-rh="true" rel="alternate" href="https://bnc438.github.io/zebra-aurora-docs/docs/releases/aurora-focus/9-0-12" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"9.0.12 Release Notes","item":"https://bnc438.github.io/zebra-aurora-docs/docs/releases/aurora-focus/9-0-12"}]}</script><link rel="stylesheet" href="/zebra-aurora-docs/assets/css/styles.00b608e9.css">
+<script src="/zebra-aurora-docs/assets/js/runtime~main.48fdff2c.js" defer="defer"></script>
+<script src="/zebra-aurora-docs/assets/js/main.18831ef1.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/zebra-aurora-docs/img/z-logo-b.svg"><link rel="preload" as="image" href="/zebra-aurora-docs/img/z-logo-bw.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/zebra-aurora-docs/"><div class="navbar__logo"><img src="/zebra-aurora-docs/img/z-logo-b.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/zebra-aurora-docs/img/z-logo-bw.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Zebra Aurora Focus</b></a><a class="navbar__item navbar__link" href="/zebra-aurora-docs/docs/user-guide/">User Guide</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/zebra-aurora-docs/docs/">JavaScript Developers Guide</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/zebra-aurora-docs/docs/licensing/">Licensing</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/zebra-aurora-docs/docs/release-notes/">Release Notes</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/zebra-aurora-docs/ask-ai">Ask AI</a><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/zebra-aurora-docs/docs/"><span title="Zebra Aurora Focus JavaScript Programmer&#x27;s Guide" class="linkLabel_WmDU">Zebra Aurora Focus JavaScript Programmer&#x27;s Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/zebra-aurora-docs/docs/t-aurora-js-about-this-guide"><span title="About this Guide" class="categoryLinkLabel_W154">About this Guide</span></a><button aria-label="Expand sidebar category &#x27;About this Guide&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/zebra-aurora-docs/docs/c-aurora-js-environment"><span title="Using the JavaScript Environment" class="categoryLinkLabel_W154">Using the JavaScript Environment</span></a><button aria-label="Expand sidebar category &#x27;Using the JavaScript Environment&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/zebra-aurora-docs/docs/t-aurora-js-operation-mode"><span title="Operation Mode" class="categoryLinkLabel_W154">Operation Mode</span></a><button aria-label="Expand sidebar category &#x27;Operation Mode&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/zebra-aurora-docs/docs/t-aurora-js-sample-scripts-advanced-techniques-and-debugging"><span title="Debugging, Advanced Techniques, and Sample Scripts" class="categoryLinkLabel_W154">Debugging, Advanced Techniques, and Sample Scripts</span></a><button aria-label="Expand sidebar category &#x27;Debugging, Advanced Techniques, and Sample Scripts&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zebra-aurora-docs/docs/user-guide/"><span title="User Guide" class="categoryLinkLabel_W154">User Guide</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zebra-aurora-docs/docs/licensing/"><span title="Licensing" class="categoryLinkLabel_W154">Licensing</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/zebra-aurora-docs/docs/release-notes/"><span title="Release Notes" class="categoryLinkLabel_W154">Release Notes</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/release-notes/"><span title="Release Notes" class="linkLabel_WmDU">Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/10.0.15"><span title="10.0.15 Release Notes" class="linkLabel_WmDU">10.0.15 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/9-4"><span title="9.4 Release Notes" class="linkLabel_WmDU">9.4 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/9-3"><span title="9.3 Release Notes" class="linkLabel_WmDU">9.3 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/9-2-7"><span title="9.2.7 Release Notes" class="linkLabel_WmDU">9.2.7 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/9-1-6"><span title="9.1.6 Release Notes" class="linkLabel_WmDU">9.1.6 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/9-0-12"><span title="9.0.12 Release Notes" class="linkLabel_WmDU">9.0.12 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/7-0-51000"><span title="7.0.51000 Release Notes" class="linkLabel_WmDU">7.0.51000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/7-0-48000"><span title="7.0.48000 Release Notes" class="linkLabel_WmDU">7.0.48000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/6-2-70000"><span title="6.2.70000 Release Notes" class="linkLabel_WmDU">6.2.70000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/6-1-70000"><span title="6.1.70000 Release Notes" class="linkLabel_WmDU">6.1.70000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/6-0-22000"><span title="6.0.22000 Release Notes" class="linkLabel_WmDU">6.0.22000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/5-0-13000"><span title="5.0.13000 Release Notes" class="linkLabel_WmDU">5.0.13000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/4-0-23000"><span title="4.0.23000 Release Notes" class="linkLabel_WmDU">4.0.23000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/3-1-40000"><span title="3.1.40000 Release Notes" class="linkLabel_WmDU">3.1.40000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/3-0-10000"><span title="3.0.10000 Release Notes" class="linkLabel_WmDU">3.0.10000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/2-0-8000"><span title="2.0.8000 Release Notes" class="linkLabel_WmDU">2.0.8000 Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/zebra-aurora-docs/docs/releases/aurora-focus/1-200-2001"><span title="1.200.2001 Release Notes" class="linkLabel_WmDU">1.200.2001 Release Notes</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/zebra-aurora-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Release Notes</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">9.0.12 Release Notes</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><p><strong>Zebra Aurora Focus™ MV/FIS Configuration Utility</strong></p>
+<header><h1>Description</h1></header>
+<p><strong>Product Description</strong>  Zebra Aurora Focus™ is a host-side application which allows for the configuration Zebra FS10, xS20, xS40, xS70, FS42, NS42 and FS80 devices.  Zebra Aurora Focus™ Deep Learning Editor is companion software for training the Deep Learning  Anomaly Detection tool. To use the editor, a physical or emulated NS42 device licensed for Anomaly Detection is required. It is installed independently and available in two versions: CPU and GPU versions. The GPU version is to train models using NVIDIA GPUs.</p>
+<h1>Device Compatibility</h1>
+<table><thead><tr><th>Compatibility Item</th><th>Details</th></tr></thead><tbody><tr><td>Programming Modes</td><td>USB connected cable; M12 Ethernet</td></tr></tbody></table>
+<table><thead><tr><th>Supported Devices</th><th>Supported Device FW</th></tr></thead><tbody><tr><td>FS40, VS40, FS70, VS70</td><td><strong>9.0.1000011 -</strong> CAAESS00-006-R02</td></tr><tr><td>FS42, NS42</td><td><strong>9.0.1000011 -</strong> CAAGGS00-006-R02</td></tr><tr><td>FS10, FS20, VS20</td><td><strong>9.0.1000011 -</strong> CAAFFS00-006-R02</td></tr><tr><td>FS80</td><td><strong>9.0.2000013 -</strong> SAAHMS00-001-R04</td></tr></tbody></table>
+<h1>Release Notes</h1>
+<p>This document summarizes the following software release:</p>
+<table><thead><tr><th><strong>Software Version Number</strong></th><th><strong>Release Date</strong></th></tr></thead><tbody><tr><td>V9.0.12</td><td>December 2024</td></tr></tbody></table>
+<h1>V9.0.12</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-december-2024">RELEASE DATE: DECEMBER 2024<a href="#release-date-december-2024" class="hash-link" aria-label="Direct link to RELEASE DATE: DECEMBER 2024" title="Direct link to RELEASE DATE: DECEMBER 2024" translate="no">​</a></h2>
+<ul>
+<li class="">Support for the NS42 Camera</li>
+<li class="">Support for the FS80 Camera. Note the following will be supported in future releases<!-- -->
+<ul>
+<li class="">JavaScript</li>
+<li class="">FS80 Connectivity Gateway (Leader/Follower), GS20 is required</li>
+<li class="">Image banks (Image Perfect)</li>
+<li class="">Presentation mode</li>
+<li class="">Communication with PLCs (Ethernet EIP, Modbus, Profinet)</li>
+<li class="">ZETI command to control GPIO</li>
+<li class="">SW license upgrade capability</li>
+<li class="">Configuration barcodes</li>
+</ul>
+</li>
+<li class="">Support for Multi-Function Integrated Light for FS80</li>
+<li class="">NEW tool: Deep Learning Anomaly Detection</li>
+<li class="">Deep Learning Editor (for training the Anomaly Detection tool)</li>
+<li class="">JavaScript Support<!-- -->
+<ul>
+<li class="">Output formatting</li>
+<li class="">Output over TCP, Serial Port, CDC and basic HID (function keys not supported)</li>
+<li class="">Editor with IntelliSense</li>
+<li class="">Console logging for basic debugging</li>
+</ul>
+</li>
+<li class="">Support for explicit serial trigger command</li>
+<li class="">Support for Multiple Aurora Focus versions installed on same host</li>
+<li class="">Option to select USB2 or USB3 for xS40/xS42/xS70</li>
+<li class="">Support for NPU-accelerated Deep Learning OCR</li>
+<li class="">Support for AutoTune on DPM with the Datacode tool</li>
+<li class="">Support for DPM QR code reading</li>
+<li class="">Support for reading QR Codes in Datacode tool</li>
+<li class="">Lower selectable heartbeat intervals</li>
+<li class="">Support for aggregating codes in presentation trigger mode</li>
+<li class="">Multiple Aurora Focus stability changes and enhancements</li>
+<li class="">Miscellaneous bug fixes</li>
+<li class="">Improved debugging for trigger overrun conditions when enabling logging on the camera</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="known-issues">Known Issues<a href="#known-issues" class="hash-link" aria-label="Direct link to Known Issues" title="Direct link to Known Issues" translate="no">​</a></h2>
+<ul>
+<li class="">Under some conditions, Datamatrix performance issues have been observed with Barcode tool.<!-- -->
+<ul>
+<li class="">Workaround: Use the Datacode tool.</li>
+</ul>
+</li>
+<li class="">Under some conditions, barcode decode performance may be impacted.<!-- -->
+<ul>
+<li class="">Workarounds:<!-- -->
+<ul>
+<li class="">Disable unused symbologies.</li>
+<li class="">Disable configuration barcodes (if not used) from the General menu.</li>
+<li class="">Set expected module size appropriately.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">On occasion, dual update option on firmware update fails.<!-- -->
+<ul>
+<li class="">Workaround: Update firmware without using dual update. Then repeat the same firmware version update using &quot;Force Update&quot; with &quot;Dual Update&quot; checked.</li>
+</ul>
+</li>
+<li class="">Sometimes HMI, after removing a license, does not update the screen.<!-- -->
+<ul>
+<li class="">Workaround: Refresh or switch tabs to update the screen.</li>
+</ul>
+</li>
+<li class="">On some devices, USB port speed may not change from 2.0 to 3.0 when updated in Aurora.<!-- -->
+<ul>
+<li class="">Workaround:<!-- -->
+<ul>
+<li class="">Switch from 3.0 to 2.0 and apply settings.</li>
+<li class="">Switch from 2.0 to 3.0 and apply settings.</li>
+<li class="">Reboot the device.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">After very long idle durations, the JavaScript editor window may lose connection.<!-- -->
+<ul>
+<li class="">Workaround: Restart Aurora Focus.</li>
+</ul>
+</li>
+<li class="">Autotune may fail if the center of image is black (no features) and the barcode is outside the center.<!-- -->
+<ul>
+<li class="">Workaround: Run autotune with the barcode closer to the center of field of view.</li>
+</ul>
+</li>
+<li class="">FS80 currently does not support IP fallback to a default 169.254.x.x network IP.<!-- -->
+<ul>
+<li class="">Workaround: Use with a DHCP server.</li>
+</ul>
+</li>
+<li class="">Reboot is required to see the Anomaly Detection tool in Aurora Focus after the device upgrade license is applied.</li>
+<li class="">Rarely, the job list in Aurora Focus does not show a job after reboot.<!-- -->
+<ul>
+<li class="">Workaround: Click Refresh at the top of the job list.</li>
+</ul>
+</li>
+<li class="">Rarely, it may take a few seconds for the UI to update after selecting or deselecting all symbologies.</li>
+<li class="">When adding a very large number of tools to the VS flow builder, ROI boundaries may not be visible or performance issues may occur.</li>
+<li class="">When using Connectivity Gateway and configuring more than one GPIO, changes may not take effect immediately.<!-- -->
+<ul>
+<li class="">Workaround: Restart Runtime.</li>
+</ul>
+</li>
+<li class="">WebHMI objects may not always load properly when opening the WebHMI page.<!-- -->
+<ul>
+<li class="">Workaround: Refresh the page.</li>
+</ul>
+</li>
+<li class="">WebHMI objects may not always load properly on reboot.<!-- -->
+<ul>
+<li class="">Workaround: Refresh the page.</li>
+</ul>
+</li>
+<li class="">If the device is factory reset over USB, or where NTP is not available, the device real-time clock may be reset.<!-- -->
+<ul>
+<li class="">Workaround: Open WebHMI and navigate to the license page to sync time with the browser host, or set the time manually.</li>
+</ul>
+</li>
+<li class="">When saving images over FTP using a hostname, transfer delays may occur and the image is not transferred.<!-- -->
+<ul>
+<li class="">Workaround: Use the FTP server IP address instead of hostname.</li>
+</ul>
+</li>
+<li class="">When using the Object Plus tools, operation may fail due to contrast value.<!-- -->
+<ul>
+<li class="">Workaround: Adjust contrast until it succeeds and the result is satisfactory.</li>
+</ul>
+</li>
+<li class="">Rarely, OCR performance may be impacted depending on the inspected character set.<!-- -->
+<ul>
+<li class="">Workaround: Adjust ROI size.</li>
+</ul>
+</li>
+<li class="">OCR performance is sometimes impacted when ROI is close to one or more characters.<!-- -->
+<ul>
+<li class="">Workaround: Increase ROI slightly.</li>
+</ul>
+</li>
+<li class="">Some ZETI commands do not work with the shortened command format.<!-- -->
+<ul>
+<li class="">Workaround: Use the extended version of the ZETI command.</li>
+</ul>
+</li>
+<li class="">In some cases, using many image banks causes slight processing delays.<!-- -->
+<ul>
+<li class="">Workaround: Reduce the number of image banks if possible.</li>
+</ul>
+</li>
+<li class="">Device may not be discoverable in Aurora Focus when starting firmware update in HMI until update completes and the device reboots.<!-- -->
+<ul>
+<li class="">Workaround: Wait for firmware update completion.</li>
+</ul>
+</li>
+<li class="">Firmware updates fail if memory consumption is already very high.<!-- -->
+<ul>
+<li class="">Workaround: Reboot the device before performing firmware update.</li>
+</ul>
+</li>
+<li class="">Uninstalling InstallShield does not always remove all registry entries.<!-- -->
+<ul>
+<li class="">Workaround: Use <code>regedit</code> and manually delete the Aurora Focus folder under <code>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Zebra</code>.</li>
+</ul>
+</li>
+</ul>
+<h1>V7.0.48000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-may-2024">RELEASE DATE: MAY 2024<a href="#release-date-may-2024" class="hash-link" aria-label="Direct link to RELEASE DATE: MAY 2024" title="Direct link to RELEASE DATE: MAY 2024" translate="no">​</a></h2>
+<ul>
+<li class="">When editing a job for a camera, editing occurs directly on device and then timing values are more realistic.</li>
+<li class="">Support for the new FS42 camera</li>
+<li class="">Support for Separate (Explicit) TCP start and stop trigger strings</li>
+<li class="">Support for TCP control and outport on same port number.</li>
+<li class="">Connectivity Gateway: Support for backup and restore for configuration (HMI and ZETI)</li>
+<li class="">Connectivity Gateway: Support for level trigger Mode</li>
+<li class="">Connectivity Gateway: Separate start and stop TCP/Serial triggers</li>
+<li class="">Connectivity Gateway: Output at end of level trigger mode</li>
+<li class="">Connectivity Gateway: UI/UX Improvements<!-- -->
+<ul>
+<li class="">Now include helper tips in each section</li>
+<li class="">Debugging tools added to bottom of Setup screen</li>
+</ul>
+</li>
+<li class="">DL-OCR Match string settable by TCP command via ZETI</li>
+<li class="">Debug mode to save images in both level and continuous modes</li>
+<li class="">Support for saving images based on a time interval</li>
+<li class="">ZETI support for ASCII format when sending match string commands</li>
+<li class="">Multiple performance improvements</li>
+<li class="">Multiple Aurora Focus stability changes and enhancements</li>
+<li class="">Miscellaneous Bug Fixes</li>
+</ul>
+<h1>V6.2.70000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-february-2024">RELEASE DATE: FEBRUARY 2024<a href="#release-date-february-2024" class="hash-link" aria-label="Direct link to RELEASE DATE: FEBRUARY 2024" title="Direct link to RELEASE DATE: FEBRUARY 2024" translate="no">​</a></h2>
+<ul>
+<li class="">Support for Liquid Lens focal distance using millimeters or inches.</li>
+<li class="">2D Configuration barcode support to perform Autotune (Focus only)</li>
+<li class="">ZETI Command support to perform Autotune (Focus only)</li>
+</ul>
+<h1>V6.1.70000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-september-2023">RELEASE DATE: SEPTEMBER 2023<a href="#release-date-september-2023" class="hash-link" aria-label="Direct link to RELEASE DATE: SEPTEMBER 2023" title="Direct link to RELEASE DATE: SEPTEMBER 2023" translate="no">​</a></h2>
+<ul>
+<li class="">Performance and Enhancements<!-- -->
+<ul>
+<li class="">Datacode Tool Improvements and Optimizations</li>
+<li class="">Quantized Deep Learning OCR</li>
+<li class="">FTP/SFTP folder storage suffix options</li>
+<li class="">FTP/SFTP option to disable JSON results file</li>
+</ul>
+</li>
+<li class="">ADF Output Enhancements<!-- -->
+<ul>
+<li class="">Support for Function Keys: F1-12</li>
+<li class="">Support for Modifier Keys CTRL and ALT</li>
+</ul>
+</li>
+<li class="">Option to Disable Tune and Trigger hardware buttons</li>
+<li class="">ZETI Interface improvements</li>
+<li class="">Backup and Restore feature improvements</li>
+<li class="">Miscellaneous Bug Fixes</li>
+</ul>
+<h1>V6.0.22000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-july-2023">RELEASE DATE: JULY 2023<a href="#release-date-july-2023" class="hash-link" aria-label="Direct link to RELEASE DATE: JULY 2023" title="Direct link to RELEASE DATE: JULY 2023" translate="no">​</a></h2>
+<ul>
+<li class="">2D Configuration Barcode Generation and Deployment</li>
+<li class="">Advanced Filtering and Formatting of Decode Data</li>
+<li class="">Multi-device management (Up to 5 devices at a time)<!-- -->
+<ul>
+<li class="">Firmware Update</li>
+<li class="">Backup/Restore</li>
+<li class="">Device Log Download</li>
+</ul>
+</li>
+<li class="">Zebra Connectivity Gateway for Leader/Followers scanner configuration</li>
+<li class="">ZETI Command Interface Additional Command Support</li>
+<li class="">Aurora Focus UX Improvements<!-- -->
+<ul>
+<li class="">Improvements to Custom Formatting</li>
+<li class="">Improved Localization</li>
+</ul>
+</li>
+<li class="">Performance and Enhancements<!-- -->
+<ul>
+<li class="">Decode performance improvements.</li>
+<li class="">Enhanced Session Based Triggering with Image Save</li>
+<li class="">Additional Localization Enhancements</li>
+</ul>
+</li>
+</ul>
+<h1>V5.0.13000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-february-2023">RELEASE DATE: FEBRUARY 2023<a href="#release-date-february-2023" class="hash-link" aria-label="Direct link to RELEASE DATE: FEBRUARY 2023" title="Direct link to RELEASE DATE: FEBRUARY 2023" translate="no">​</a></h2>
+<ul>
+<li class="">Technology Previews</li>
+<li class="">Aurora Focus and HMI Language Support - Simplified Chinese, Korean, German, French and Spanish</li>
+<li class="">Expanded ZETI Interface Commands</li>
+<li class="">Tools<!-- -->
+<ul>
+<li class="">Deep Learning Based OCR for Fixed Industrial Scanners - Fully Released and Activated via Licenses</li>
+</ul>
+</li>
+<li class="">Performance<!-- -->
+<ul>
+<li class="">Improvements to deployed job run consistency including Barcode tool timeout, decoding, and trigger timing consistency.</li>
+<li class="">Level Trigger Enhancements</li>
+<li class="">Triggered Image Buffering</li>
+</ul>
+</li>
+<li class="">UX Improvements<!-- -->
+<ul>
+<li class="">Backup/Restore/Firmware Upgrade in Aurora Focus</li>
+</ul>
+</li>
+<li class="">Device Configuration 1D Parameter Barcode Setup</li>
+</ul>
+<h1>V4.0.22000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-december-2022">RELEASE DATE: DECEMBER 2022<a href="#release-date-december-2022" class="hash-link" aria-label="Direct link to RELEASE DATE: DECEMBER 2022" title="Direct link to RELEASE DATE: DECEMBER 2022" translate="no">​</a></h2>
+<ul>
+<li class="">Added Measure Object Tool</li>
+<li class="">Added Flaw Detection Edge and Intensity Tools</li>
+<li class="">Added Object Locate Counting</li>
+<li class="">Added Image Filters: Gradient, Gradient Horizontal, Vertical and Full</li>
+<li class="">MV Output Formatting on Supported Interfaces (Global or Interface Specific)</li>
+<li class="">Added Find and Replace to Barcode Decode Tool</li>
+<li class="">Improved 1D/2D Barcode Decode Performance</li>
+<li class="">Setting Barcode Match String via TCP or Serial input</li>
+<li class="">Added Image Download Capability via HMI</li>
+<li class="">Enhanced Session Based Triggering for Level, Continuous and Presentation Triggers w/Exit Criteria/Aggregation</li>
+<li class="">Technology Preview: Device Backup/Restore Functionality</li>
+<li class="">Performance and Stability Enhancements</li>
+</ul>
+<h1>V3.1.40000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-august-2022">RELEASE DATE: AUGUST 2022<a href="#release-date-august-2022" class="hash-link" aria-label="Direct link to RELEASE DATE: AUGUST 2022" title="Direct link to RELEASE DATE: AUGUST 2022" translate="no">​</a></h2>
+<ul>
+<li class="">Added Reset on Trigger for Do Note Read Same Barcode
+Spanish HID Keyboard support</li>
+<li class="">Performance and Stability Enhancements</li>
+</ul>
+<h1>V3.0.10000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-june-2022">RELEASE DATE: JUNE 2022<a href="#release-date-june-2022" class="hash-link" aria-label="Direct link to RELEASE DATE: JUNE 2022" title="Direct link to RELEASE DATE: JUNE 2022" translate="no">​</a></h2>
+<ul>
+<li class="">Added Edge Counting</li>
+<li class="">Added Deep-Learning Based OCR Tool (<em>in Beta</em>)</li>
+<li class="">Added Circle Find Tool</li>
+<li class="">Added Circle Diameter Measurement Tool</li>
+<li class="">Added a Circle ROI Type</li>
+<li class="">Added Open and Close Filters</li>
+<li class="">Added Erode Filter</li>
+<li class="">Added RS-232 Input Trigger</li>
+<li class="">Additional 2D Barcode Performance Improvements</li>
+<li class="">Added ADF to include Pass/Fail Data Types</li>
+<li class="">Added ADF to include Barcode Quality Metrics Data</li>
+<li class="">Performance and Stability Enhancements</li>
+</ul>
+<h1>V2.0.8000</h1>
+<p><strong>RELEASE DATE: APRIL 2022</strong></p>
+<ul>
+<li class="">Performance and Stability Enhancements</li>
+</ul>
+<h1>V2.0.7000</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-march-2022">RELEASE DATE: MARCH 2022<a href="#release-date-march-2022" class="hash-link" aria-label="Direct link to RELEASE DATE: MARCH 2022" title="Direct link to RELEASE DATE: MARCH 2022" translate="no">​</a></h2>
+<ul>
+<li class="">Performance and Stability Enhancements</li>
+<li class="">1D Barcode Quality Metrics</li>
+<li class="">Added Object Locate Plus</li>
+<li class="">Added Blob Tools</li>
+<li class="">Added Binarize Filter/Tool</li>
+<li class="">Added Dilate Filter/Tool</li>
+<li class="">ImagePerfect(+) fixes &amp; improvements</li>
+<li class="">Added Scale Calibration for Distance tool</li>
+<li class="">Added Advanced Pass/Fail Configuration (AND/OR logic for Job results)
+HID Keyboard Expansion - added French and German KB</li>
+<li class="">Added support for Codabar symbology</li>
+<li class="">Added Encoding type (Text/Base64) for ADF Full String data type and added option to show nonprintable characters as hex values</li>
+<li class="">For xS10/20, added external illumination support</li>
+<li class="">Added &quot;File Path&quot; option when using (S)FTP to Save images</li>
+<li class="">Added Ability to Open a Local Job (created with emulator) On a Real Connected Camera</li>
+</ul>
+<h1>V1.200.2001</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-december-2021">RELEASE DATE: DECEMBER 2021<a href="#release-date-december-2021" class="hash-link" aria-label="Direct link to RELEASE DATE: DECEMBER 2021" title="Direct link to RELEASE DATE: DECEMBER 2021" translate="no">​</a></h2>
+<ul>
+<li class="">Performance and Stability Enhancements</li>
+<li class="">Support for 5MP xS40 and xS70 models</li>
+<li class="">ImagePerfect(+) for FS models</li>
+<li class="">Option to output Barcode Location Co-ordinates</li>
+<li class="">Option to not read last n number of barcodes</li>
+<li class="">Device can be a TCP/IP Client</li>
+<li class="">Configurable RS-232 settings</li>
+<li class="">Ability to configure GPIO Trigger delay</li>
+<li class="">Support for Fast Hardware Trigger (2.3 MP models only)</li>
+<li class="">Ability to set GPIOs to static high or low</li>
+<li class="">Added Job controls to clone, rename and delete jobs</li>
+<li class="">Support for Conditional Regular expressions for Barcode String Match</li>
+<li class="">Barcode String Match Regular expression support for ManyCode</li>
+<li class="">Backwards compatibility of Job files</li>
+<li class="">Decode and MV statistics in Aurora Focus and HMI stored and queried from device</li>
+</ul>
+<h1>V1.148.0001</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-october-2021">RELEASE DATE: OCTOBER 2021<a href="#release-date-october-2021" class="hash-link" aria-label="Direct link to RELEASE DATE: OCTOBER 2021" title="Direct link to RELEASE DATE: OCTOBER 2021" translate="no">​</a></h2>
+<ul>
+<li class="">Performance Enhancements</li>
+<li class="">Stability Improvements</li>
+<li class="">Implementation of licensing error messages in Web HMI</li>
+<li class="">Fixed issue of Job pausing on refresh of Web HMI</li>
+<li class="">Fixed issue of crash when clicking on &quot;Communications&quot; tab
+Fixed inability to &quot;View&quot; active Jobs from Job menu when Job utilizes a trigger that is automatic in nature.</li>
+<li class="">Fixed issue of slow decode rate when &quot;Fast 1D/2D&quot; license is enabled</li>
+<li class="">Added Configurable TCP/IP - results port and trigger string can be configured</li>
+<li class="">Support for GPIO &gt; Hardware trigger (normal speed)</li>
+<li class="">Allow setting a job as Startup / Power up job</li>
+<li class="">Emulators now have license level</li>
+<li class="">Supports a total of 21 emulators</li>
+<li class="">ZJOB backwards compatibility and auto conversion of old job files (Windows only) - Seamless (live) tool changes when Upgrade licenses are applied</li>
+</ul>
+<h1>V1.134.0001 - Initial Product Release</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-date-july-2021">RELEASE DATE: JULY 2021<a href="#release-date-july-2021" class="hash-link" aria-label="Direct link to RELEASE DATE: JULY 2021" title="Direct link to RELEASE DATE: JULY 2021" translate="no">​</a></h2>
+<ul>
+<li class="">Bug Fixes</li>
+<li class="">Stability Improvements</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="components">Components<a href="#components" class="hash-link" aria-label="Direct link to Components" title="Direct link to Components" translate="no">​</a></h2>
+<table> <colgroup> <col> <col> </colgroup> <thead> <tr> <th><strong>SW Component</strong></th> <th><strong>Version</strong></th> </tr> </thead> <tbody> <tr> <td>InstallShield</td> <td>9.0.12</td> </tr> <tr> <td>Aurora Focus™</td> <td>9.0.12</td> </tr> <tr> <td>Aurora Focus Deep Learning Editor</td> <td>9.0.10631</td> </tr> <tr> <td>BSP (xS40/70)</td> <td><strong>9.0.1000011 -</strong> CAAESS00-002-R06</td> </tr> <tr> <td>BSP (FS42)</td> <td><strong>9.0.1000011 -</strong> CAAGGS00-002-R06</td> </tr> <tr> <td>BSP (FS10/xS20)</td> <td><strong>9.0.1000011 -</strong> CAAFFS00-002-R06</td> </tr> <tr> <td>BSP (FS80)</td> <td><strong>9.0.2000013 -</strong> SAAHMS00-001-R04</td> </tr> <tr> <td>Aurora Focus™ HMI</td> <td>9.1.2</td> </tr> <tr> <td>Connectivity Gateway</td> <td>1.2.10</td> </tr> </tbody> </table>
+<p>The components are installed in the following folders:</p>
+<table> <colgroup> <col> <col> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>Application</td> <td>Program Files\Zebra Technologies\Aurora Focus/version</td> </tr> <tr> <td>Job/Configuration Files</td> <td>Users\Public\Documents\ZebraAurora/ModelType\Jobs</td> </tr> <tr> <td>Saved Images</td> <td>Users\Public\Documents\ZebraAurora/Captures/xSxxxxxx Camera</td> </tr> </tbody> </table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="minimum-pc-requirements">Minimum PC Requirements<a href="#minimum-pc-requirements" class="hash-link" aria-label="Direct link to Minimum PC Requirements" title="Direct link to Minimum PC Requirements" translate="no">​</a></h2>
+<table> <colgroup> <col> <col> </colgroup> <thead> <tr> <th><strong>Component</strong></th> <th><strong>Location</strong></th> </tr> </thead> <tbody> <tr> <td>CPU</td> <td>Intel or AMD 64-bit processor</td> </tr> <tr> <td>Random Access Memory Files</td> <td>4 GB | Recommended: 8GB</td> </tr> <tr> <td>GPU</td> <td>GTX 1030, Intel UHD 620 or equivalent</td> </tr> <tr> <td>Graphics Memory</td> <td>2GB | Recommended: 4GB</td> </tr> <tr> <td>Disk Space</td> <td>4GB free disk space</td> </tr> <tr> <td>Monitor Resolution</td> <td>1280 x 800 | Recommended: 1920 x 1080</td> </tr> <tr> <td>Operating System</td> <td>Windows 10</td> </tr> <tr> <td><p>Internet</p> <p>Connection</p></td> <td>Required for software activation</td> </tr> </tbody> </table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="installation">Installation<a href="#installation" class="hash-link" aria-label="Direct link to Installation" title="Direct link to Installation" translate="no">​</a></h2>
+<p><strong>Aurora Focus™ can be launched from the Windows 10 Start button.</strong></p>
+<ul>
+<li class="">Start / All Programs / Zebra Scanner / Zebra Aurora Focus</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/bnc438/zebra-aurora-docs/tree/main/docs/release-notes/rn-af-release-notes-9-0-12.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/zebra-aurora-docs/docs/releases/aurora-focus/9-1-6"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">9.1.6 Release Notes</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zebra-aurora-docs/docs/releases/aurora-focus/7-0-51000"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">7.0.51000 Release Notes</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#release-date-december-2024" class="table-of-contents__link toc-highlight">RELEASE DATE: DECEMBER 2024</a></li><li><a href="#known-issues" class="table-of-contents__link toc-highlight">Known Issues</a></li><li><a href="#release-date-may-2024" class="table-of-contents__link toc-highlight">RELEASE DATE: MAY 2024</a></li><li><a href="#release-date-february-2024" class="table-of-contents__link toc-highlight">RELEASE DATE: FEBRUARY 2024</a></li><li><a href="#release-date-september-2023" class="table-of-contents__link toc-highlight">RELEASE DATE: SEPTEMBER 2023</a></li><li><a href="#release-date-july-2023" class="table-of-contents__link toc-highlight">RELEASE DATE: JULY 2023</a></li><li><a href="#release-date-february-2023" class="table-of-contents__link toc-highlight">RELEASE DATE: FEBRUARY 2023</a></li><li><a href="#release-date-december-2022" class="table-of-contents__link toc-highlight">RELEASE DATE: DECEMBER 2022</a></li><li><a href="#release-date-august-2022" class="table-of-contents__link toc-highlight">RELEASE DATE: AUGUST 2022</a></li><li><a href="#release-date-june-2022" class="table-of-contents__link toc-highlight">RELEASE DATE: JUNE 2022</a></li><li><a href="#release-date-march-2022" class="table-of-contents__link toc-highlight">RELEASE DATE: MARCH 2022</a></li><li><a href="#release-date-december-2021" class="table-of-contents__link toc-highlight">RELEASE DATE: DECEMBER 2021</a></li><li><a href="#release-date-october-2021" class="table-of-contents__link toc-highlight">RELEASE DATE: OCTOBER 2021</a></li><li><a href="#release-date-july-2021" class="table-of-contents__link toc-highlight">RELEASE DATE: JULY 2021</a></li><li><a href="#components" class="table-of-contents__link toc-highlight">Components</a></li><li><a href="#minimum-pc-requirements" class="table-of-contents__link toc-highlight">Minimum PC Requirements</a></li><li><a href="#installation" class="table-of-contents__link toc-highlight">Installation</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
