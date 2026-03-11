@@ -8,20 +8,24 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Zebra Machine Vision',
-  tagline: 'You ship it, we scan it.',
+  tagline: 'Zebra Aurora Focus™ is a single, unified platform that makes it easy to set up, deploy and run all of Zebra’s Fixed Industrial Scanners and Machine Vision Smart Cameras – eliminating the need for different applications.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://bnc438.github.io',
+  url: process.env.DOCUSAURUS_URL || 'https://bnc438.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/zebra-aurora-docs/', // Changed for local development simplicity
+  baseUrl: process.env.DOCUSAURUS_BASE_URL || '/',
 
   // GitHub pages deployment config.
   organizationName: 'bnc438',
   projectName: 'zebra-aurora-docs',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
@@ -66,42 +70,20 @@ const config = {
         title: 'Zebra Aurora Focus',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/z-logo-b.svg',
+          srcDark: 'img/z-logo-bw.svg',
         },
         // THIS 'items' ARRAY IS THE MOST IMPORTANT PART
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'userGuideSidebar',
-            position: 'left',
-            label: 'User Guide',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'JavaScript Developers Guide', // Changed label for clarity
-          },
-          {
-            type: 'doc',
-            docId: 'licensing/index',
+            to: '/docs/licensing/',
             position: 'left',
             label: 'Licensing',
-          },
-          {
-            type: 'doc',
-            docId: 'release-notes/index',
-            position: 'left',
-            label: 'Release Notes',
           },
           {
             to: '/ask-ai',
             position: 'right',
             label: 'Ask AI',
-          },
-          {
-            type: 'search',
-            position: 'right',
           },
         ],
       },

@@ -1,0 +1,64 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Deprovisioning Devices in Aurora Focus'
+description: 'An advanced tutorial on setting up and training a deep learning model
+for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.'
+keywords: ["deep learning OCR", "machine vision", "VS70"]
+sidebar_label: 'Deprovisioning Devices in Aurora Focus'
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '5.3'
+author: 'bnc438'
+sort_order: 50 # Higher number for a more advanced topic
+last_updated: '(Automated by build process)'
+last_reviewed:
+
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+# --- Product & Software Filters ---
+product_name: VS70
+product_family: 'Machine Vision'
+product_series: 'VS Smart Cameras Series'
+protocol: 'PROFINET'
+software_tool: 'Aurora Deep Learning'
+component_type: 'Camera'
+
+# --- : Use Case & Device Filters ---
+use_case: ['Optical Character Recognition (OCR)', 'Assembly Verification']
+license_type: 'Deep Learning OCR'
+device_type: 'Smart Camera'
+
+# --- User-Centric Filters ---
+role: ['Integrator/Developer', 'Controls Engineer']
+task: 'Application Development'
+content_type: 'Tutorial'
+skill_level: 'Advanced'
+---
+
+# Deprovisioning a License from a Device
+
+Devices can be deprovisioned using Aurora Focus and released back to the license server as needed.
+
+1. Go to **View Devices** and ensure that the device is managed by clicking **Manage**.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-licensing-manage-devices.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+2. Go to the **Licensing** tab in **Device Settings** and click **Enable Edit Mode**.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-licensing-enable-edit-mode.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+3. Click ![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-focus-licensing-trash-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg) to release the license back to the server.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-licensing-remove-from-device.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+4. Close the **Device Settings** tab and unmanage the device.
+
+5. Return to the **Device Licensing** tab to confirm that the deprovisioned license was released and returned to the pool of claimed seats.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-licensing-remove-device-settings.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)

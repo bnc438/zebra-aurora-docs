@@ -20,13 +20,13 @@
   /* -- Core Colors -------------------------------------------------------- */
 
   /* Primary Brand Color: Used for links, buttons, and active UI elements. */
-  --ifm-color-primary: #2563eb; /* A modern, accessible blue */
-  --ifm-color-primary-dark: #1d4ed8;
-  --ifm-color-primary-darker: #1e40af;
-  --ifm-color-primary-darkest: #1e3a8a;
-  --ifm-color-primary-light: #3b82f6;
-  --ifm-color-primary-lighter: #60a5fa;
-  --ifm-color-primary-lightest: #93c5fd;
+  --ifm-color-primary: #003fbd; /* A modern, accessible blue */
+  --ifm-color-primary-dark: #0037a6;
+  --ifm-color-primary-darker: #002f8f;
+  --ifm-color-primary-darkest: #002778;
+  --ifm-color-primary-light: #1f58c9;
+  --ifm-color-primary-lighter: #4d77d4;
+  --ifm-color-primary-lightest: #7a96e0;
 
   /* Background Colors */
   --ifm-background-color: #ffffff; /* Page background */
@@ -59,6 +59,9 @@
   --app-outline-stroke-color: #6b7280;
 }
 
+[data-theme='light'] .footer--dark {
+  --ifm-footer-background-color: #003fbd;
+}
 
 /*
  * ============================================================================
@@ -68,14 +71,14 @@
 [data-theme='dark'] {
   /* -- Core Colors -------------------------------------------------------- */
 
-  /* Primary Brand Color: Use a slightly brighter blue for better contrast on dark backgrounds. */
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #60a5fa;
-  --ifm-color-primary-darker: #3b82f6;
-  --ifm-color-primary-darkest: #2563eb;
-  --ifm-color-primary-light: #1d4ed8;
-  --ifm-color-primary-lighter: #1e40af;
-  --ifm-color-primary-lightest: #1e3a8a;
+  /* Primary Brand Color: Use a slightly brighter green for better contrast on dark backgrounds. */
+  --ifm-color-primary: #bdf75f;
+  --ifm-color-primary-dark: #a7e84a;
+  --ifm-color-primary-darker: #9cdf3e;
+  --ifm-color-primary-darkest: #86c22c;
+  --ifm-color-primary-light: #c9f97b;
+  --ifm-color-primary-lighter: #d6fb98;
+  --ifm-color-primary-lightest: #e8fdc5;
 
   /* Background Colors */
   --ifm-background-color: #0d1117; /* Main "off-black" page background */
@@ -107,24 +110,56 @@
  *  DOCS PAGINATION CARDS (PREVIOUS / NEXT)
  * ============================================================================
  */
-.pagination-nav .pagination-nav__link {
+.pagination-nav .pagination-nav__link,
+.download-pdf-link {
   background-color: var(--prism-background-color);
   border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
 }
 
-[data-theme='dark'] .pagination-nav .pagination-nav__link {
+[data-theme='dark'] .pagination-nav .pagination-nav__link,
+[data-theme='dark'] .download-pdf-link {
   background-color: #f6f8fa;
   border: 0.5px solid #6b7280;
 }
 
 .pagination-nav .pagination-nav__link:hover,
+[data-theme='light'] .download-pdf-link:hover,
+[data-theme='dark'] .download-pdf-link:hover,
 [data-theme='dark'] .pagination-nav .pagination-nav__link:hover {
   background-color: #f6f8fa;
   border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
 }
 
+.download-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0 1.25rem;
+  min-width: 14rem;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.download-pdf-link:hover {
+  text-decoration: none;
+}
+
+.download-pdf-link__text {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+.download-pdf-link:hover .download-pdf-link__text {
+  color: var(--ifm-color-primary-dark);
+}
+
 [data-theme='dark'] .pagination-nav .pagination-nav__sublabel {
   color: #374151;
+}
+
+[data-theme='dark'] .pagination-nav .pagination-nav__label,
+[data-theme='dark'] .pagination-nav .pagination-nav__sublabel {
+  color: #000000;
 }
 
 /*
@@ -148,6 +183,16 @@
 [data-theme='light'] .theme-layout-main textarea,
 [data-theme='light'] .theme-layout-main select {
   border: var(--app-outline-stroke-width) solid var(--app-outline-stroke-color);
+}
+
+img {
+  border: 0.2px solid #000;
+  box-sizing: border-box;
+}
+
+img[src*='z-logo-b.svg'],
+img[src*='z-logo-bw.svg'] {
+  border: 0;
 }
 
 /*

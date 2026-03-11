@@ -10,6 +10,14 @@
   overflow: hidden;
 }
 
+:global([data-theme='light']) .homeHeroTitle {
+  color: #ffffff;
+}
+
+:global([data-theme='dark']) .homeHeroTitle {
+  color: #000000;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
@@ -20,4 +28,44 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
+}
+
+.homeCardsSection {
+  padding: 3rem 0;
+}
+
+.homeCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.homeCard {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1.5rem;
+  background-color: var(--ifm-background-surface-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:global([data-theme='light']) .homeCard {
+  border-color: var(--app-outline-stroke-color);
+}
+
+.homeCardTitle {
+  margin-bottom: 0;
+}
+
+.homeCardDescription {
+  margin: 0;
+  flex: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .homeCardsGrid {
+    grid-template-columns: 1fr;
+  }
 }

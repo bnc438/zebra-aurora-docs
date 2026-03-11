@@ -1,0 +1,78 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Activating a License Key in Aurora Focus'
+description: 'An advanced tutorial on setting up and training a deep learning model
+for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.'
+keywords: ["deep learning OCR", "machine vision", "VS70"]
+sidebar_label: 'Activating a License Key in Aurora Focus'
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '5.3'
+author: 'bnc438'
+sort_order: 50 # Higher number for a more advanced topic
+last_updated: '(Automated by build process)'
+last_reviewed:
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+
+# --- Product & Software Filters ---
+product_name: VS70
+product_family: 'Machine Vision'
+product_series: 'VS Smart Cameras Series'
+protocol: 'PROFINET'
+software_tool: 'Aurora Deep Learning'
+component_type: 'Camera'
+
+# --- : Use Case & Device Filters ---
+use_case: ['Optical Character Recognition (OCR)', 'Assembly Verification']
+license_type: 'Deep Learning OCR'
+device_type: 'Smart Camera'
+
+# --- User-Centric Filters ---
+role: ['Integrator/Developer', 'Controls Engineer']
+task: 'Application Development'
+content_type: 'Tutorial'
+skill_level: 'Advanced'
+---
+
+# Activating a License Key in Aurora Focus
+
+Use the **Device Licensing** tab in Aurora Focus to manage licenses and remotely provision them to devices.
+
+:::note
+Activating, deactivating, and syncing operations require access to the Aurora Focus Desktop application with a direct internet connection.
+:::
+
+1. Select **Device Licensing** from the menu in Aurora Focus.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-licensing-menu.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+2. Enter the **PKID** from the Zebra License Notification email and the **Number of Seats to Activate**.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-device-licensing-tab.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+:::note
+The number of seats to activate must be less than or equal to the number of available server seats. The maximum is 25 seats per activation.
+:::
+
+3. Click **Submit License Key**.
+
+4. Click **Sync Now** to view a list of active entitlement IDs and associated devices.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-focus-licensing-list.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+- The **License Key** is a **PKID** and a unique identifier for the license.
+
+- **Available Seats** refers to the number of upstream seats on the server that are available for activation.
+
+- **Claimed** Seats refers to the seats claimed by this instance of Aurora Focus software but not yet provisioned to an FS/VS device.
+
+- **Unsynced Provisioned Seats** refers to the number of seats claimed by Aurora Focus and provisioned to a device.
+
+- **Unclaimed** seats can be released back to the license server or can be used to provision another device.

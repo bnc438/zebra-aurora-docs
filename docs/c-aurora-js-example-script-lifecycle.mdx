@@ -35,40 +35,31 @@ export function onResults(inputResult) {
   }
   console.log("Script loading end");
 }
+```
 
 There are four main stages in the lifecycle of a script:
 
-Deploy the job to initialize the script's execution environment.
+1. Deploy the job to initialize the script's execution environment.
 
-Iteration 1:
+2. Iteration 1:
 
-The code outside the onResults function is executed. The global variables no_match_counter, match_counter, match_string, and counter are created and initialized. The console.log functions are executed. Any syntax errors in the script are reported at this stage, and its execution is performed if errors are detected.
+    - The code outside the onResults function is executed. The global variables no_match_counter, match_counter, match_string, and counter are created and initialized. The console.log functions are executed. Any syntax errors in the script are reported at this stage, and its execution is performed if errors are detected.
+    - The onResults function is executed. Assume that in this iteration, the read code contains a string, e.g., Test String.
+    - Values are set, and logs are sent during this stage.
+    - The following string is sent to all available communication channels: Match count: 1 No match count: 0.
+    - Aurora Focus receives logs in the following order: Script loading begins, Script loading end, onResult called count: 0.
+    - Global variables at the end of the script are as follows: no_match_counter = 0, match_counter = 1, counter = 1.
 
-The onResults function is executed. Assume that in this iteration, the read code contains a string, e.g., Test String.
+3. Iteration 2:
 
-Values are set, and logs are sent during this stage.
+    - No initialization phase.
+    - The onResults function is executed. Assume that in this iteration, the read code contains the string, e.g., Wrong String.
+    - Values are set, and logs are sent during this stage.
+    - The following string is sent to all available communication channels: Match count: 1 No match count: 1.
+    - Aurora Focus receives logs in the following order: onResult called count: 0 and No match string find!. The second log belongs to a different category, as noted in the editor console.
+    - Global variables at the end of the script are as follows: no_match_counter = 1, match_counter = 1, counter = 2.
 
-The following string is sent to all available communication channels: Match count: 1 No match count: 0.
-
-Aurora Focus receives logs in the following order: Script loading begins, Script loading end, onResult called count: 0.
-
-Global variables at the end of the script are as follows: no_match_counter = 0, match_counter = 1, counter = 1.
-
-Iteration 2:
-
-No initialization phase.
-
-The onResults function is executed. Assume that in this iteration, the read code contains the string, e.g., Wrong String.
-
-Values are set, and logs are sent during this stage.
-
-The following string is sent to all available communication channels: Match count: 1 No match count: 1.
-
-Aurora Focus receives logs in the following order: onResult called count: 0 and No match string find!. The second log belongs to a different category, as noted in the editor console.
-
-Global variables at the end of the script are as follows: no_match_counter = 1, match_counter = 1, counter = 2.
-
-Edit the job and unload the script from memory.
+4. Edit the job and unload the script from memory.
 
 :::note
 During the next deployment, the variables from Step 2a are re-initialized.
@@ -77,8 +68,6 @@ During the next deployment, the variables from Step 2a are re-initialized.
 :::note
 Each execution is always the first one when using an emulator or performing jobs on the camera while editing.
 :::
-
-```
 
 ## Monaco Sandbox
 

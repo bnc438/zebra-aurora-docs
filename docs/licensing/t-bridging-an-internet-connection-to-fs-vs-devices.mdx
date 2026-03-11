@@ -1,0 +1,105 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Bridging an Internet Connection to FS/VS Devices'
+description: 'An advanced tutorial on setting up and training a deep learning model
+for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.'
+keywords: ["deep learning OCR", "machine vision", "VS70"]
+sidebar_label: 'Bridging an Internet Connection to FS/VS Devices'
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '5.3'
+author: 'bnc438'
+sort_order: 50 # Higher number for a more advanced topic
+last_updated: '(Automated by build process)'
+last_reviewed:
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+
+# --- Product & Software Filters ---
+product_name: VS70
+product_family: 'Machine Vision'
+product_series: 'VS Smart Cameras Series'
+protocol: 'PROFINET'
+software_tool: 'Aurora Deep Learning'
+component_type: 'Camera'
+
+# --- : Use Case & Device Filters ---
+use_case: ['Optical Character Recognition (OCR)', 'Assembly Verification']
+license_type: 'Deep Learning OCR'
+device_type: 'Smart Camera'
+
+# --- User-Centric Filters ---
+role: ['Integrator/Developer', 'Controls Engineer']
+task: 'Application Development'
+content_type: 'Tutorial'
+skill_level: 'Advanced'
+---
+
+# Bridging an Internet Connection to FS/VS Devices
+
+To add a license to an FS/VS device using an online licensing server, the device must have access to the internet. The device can be connected through a router connected to the internet. But in cases where that is not possible or convenient, the internet connection of a laptop or desktop computer running Windows can be shared with the device. To share internet to a device connected to the computer over USB, these steps must be performed on the device first (does not need to be done for devices connected over Ethernet): 1.
+
+Open Aurora Focus.
+
+Manage the device to which you want to share Internet.
+
+Navigate to the Communication tab.
+
+Click Enable Edit Mode and OK if prompted with a warning about stopping jobs.
+
+Navigate to the USB tab under Network Settings.
+
+Select Enable DHCP, and click Apply.
+
+To share the internet connection to a device when connected over USB or when plugged into a PoE switch that is plugged into the computer or dock's Ethernet port:
+
+1. Navigate to Windows Control Panel \> Network and Sharing Center \> Change adapter settings.
+
+2. Right-click on the connection that provides Internet. This is typically Wi-Fi, but can also be Ethernet.
+
+3. Click Properties.
+
+4. Click the Sharing tab.
+
+5. Select Allow other network users to connect through this computer's internet connection.
+
+6. In the Home networking connection drop-down, select the connection over which you want to share internet, if the option appears. This may be something such as Ethernet or Ethernet 5. If there is only one option for the connection, the drop-down does not display.
+
+7. If there are multiple Ethernet options, to find out which adapter is using the USB RNDIS, open a command prompt and type ipconfig /all. Locate your device's USB IP (it typically matches a DHCP Server, as shown in the screenshot below). Locate the Ethernet adapter name for that section. Select that option in the menu.
+
+8. Click OK.
+
+Reconnect and reboot the device.
+
+To share the internet connection to multiple devices connected over USB and Ethernet simultaneously:
+
+1. Navigate to the Windows Control Panel \> Network and Sharing Center \> Change adapter
+
+settings.
+
+Ctrl-click the USB or Ethernet connections that the devices are connected to so they are highlighted simultaneously.
+
+Right-click any of the highlighted connections and click Bridge connections.
+
+Right-click the connection that is providing Internet.
+
+Click Properties.
+
+Click the Sharing tab.
+
+Select Allow other network users to connect through this computer's internet connection.
+
+On the Home networking connection menu, select the bridged connection you just made if the option appears at all. If there is only one option for the connection, the drop-down will not display.
+
+Click OK.
+
+Reconnect and reboot the device(s). Identifying the DHCP Server![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-internet-bridge.png/_jcr_content/renditions/original)
+
+To test that a device has access to the internet, SSH into it and run ping google.com.
+If the connection to the server is successful, the device can connect to a licensing server over the internet.

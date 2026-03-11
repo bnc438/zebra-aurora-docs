@@ -16,6 +16,18 @@ yarn start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
+With npm:
+
+```bash
+npm run serve
+```
+
+For a static build preview (no hot reload):
+
+```bash
+npm run serve:static
+```
+
 ## Build
 
 ```bash

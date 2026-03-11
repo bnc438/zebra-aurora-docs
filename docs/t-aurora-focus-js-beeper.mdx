@@ -11,17 +11,21 @@ Use the beeper field to control the beeper of the device and the Zebra Integrate
 
 ```javascript
 beeper?: IBeepBeeper | BeeperStatusResult;
+```
 
 Helper Object Beeper Properties
 Value	Description
 Beeper.beep()	This function triggers a beeper with a specified duration, tone, and volume. Helper objects, BeeperVolumeResult, BeeperToneResult, and BeeperDurationResult, can be used to specify these.
 Beeper.off()	Does not trigger the beeper; it’s independent of job_success.
 Beeper.device_settings()	Triggers the beeper with parameters specified in the General Settings tab in Aurora Focus.
+
 :::note
 
 The beeper must be enabled using the General Settings tab in Aurora Focus before being used on the device.
 
 :::
+
+```javascript
 
 /**
  * Beep if the overall grade is not good enough.

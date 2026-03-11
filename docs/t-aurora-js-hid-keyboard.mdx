@@ -9,6 +9,7 @@ Enable the HID keyboard to use the device in HID keyboard mode. Assign a string,
 
 ```typescript
 hid?: (string|(IHIDCombinationResult| IHIDPauseResult|HIDKey|string)[]);
+```
 
 An additional helper object, HID, is available to simplify HID usage. HID properties are described in the following table.
 
@@ -18,6 +19,7 @@ HID.key	Gives access to a list of available keys.
 HID.combination	Allows the creation of a key and a modifier combination.
 HID.pause	Allows a pause between consecutive keystrokes to be created.
 HID.modifier	Gives access to a list of available key modifiers.
+
 :::note
 
 HID.pause argument must be between 0 and 25000 ms.
@@ -31,6 +33,8 @@ Keystroke delay and preferred keyboard layout can be changed through the Communi
 If that property is not assigned, nothing is printed.
 
 :::
+
+```typescript
 
 /**
 * Opens notepad and types into it a decoded barcode value.
@@ -49,4 +53,6 @@ export function onResults(input_result) {
     hid: [...run_command, ...type_notepad, decode.value, HID.key.ENTER]
   };
 }
+
+```
 

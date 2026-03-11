@@ -1,0 +1,100 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'License Types and Toolsets'
+description: 'Available Aurora Focus license part numbers, descriptions, and associated toolsets.'
+keywords: ["license types", "toolsets", "aurora focus licensing"]
+sidebar_label: 'License Types and Toolsets'
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '5.3'
+author: 'bnc438'
+sort_order: 50 # Higher number for a more advanced topic
+last_updated: '(Automated by build process)'
+last_reviewed:
+
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+# --- Product & Software Filters ---
+product_name: VS70
+product_family: 'Machine Vision'
+product_series: 'VS Smart Cameras Series'
+protocol: 'PROFINET'
+software_tool: 'Aurora Deep Learning'
+component_type: 'Camera'
+
+# --- : Use Case & Device Filters ---
+use_case: ['Optical Character Recognition (OCR)', 'Assembly Verification']
+license_type: 'Deep Learning OCR'
+device_type: 'Smart Camera'
+
+# --- User-Centric Filters ---
+role: ['Integrator/Developer', 'Controls Engineer']
+task: 'Application Development'
+content_type: 'Tutorial'
+skill_level: 'Advanced'
+---
+
+# License Types and Toolsets
+
+The following table outlines available licenses and their corresponding part number. Each license is associated with a toolset.
+
+| Part Number | Web HMI Name | Description | Toolset | Applicable Devices |
+| --- | --- | --- | --- | --- |
+| LIC-SEN001-0100 | Sensor Toolset (Machine Vision) | Upgrade to Sensor Toolset. | MV Sensor | FS10, FS20, FS40, FS42, FS70, FS80 |
+| LIC-SEST01-0100 | Standard Toolset (Machine Vision) | Fixed Industrial Scanner toolset upgrade from Sensor to MV toolset. | MV Standard | VS20, VS40/70 |
+| LIC-STD001-0100 | Standard Toolset (Machine Vision) | Fixed Industrial Scanner upgrade to the Standard MV toolset (includes DPM and Fast 2D). | MV Standard | FS10/20, FS40/70, FS42, FS80 |
+| LIC-DPM001-0200 | Fast 1D/2D Decoding with DPM Full | Full DPM (1D/2D/DPM), 60 frames per second. Enables Datacode decoding libraries for DPM reading and enhanced 2D. | Datacode | FS10/20, FS40/70, FS42, FS80; VS20, VS40/70 |
+| LIC-2DF001-0200 | Fast 1D/2D Decoding | Fast 1D/2D, 60 frames per second (DPM not included). | None | FS10/20, FS40/70, FS42, FS80; VS20, VS40/70 |
+| LIC-OCR002-0100 | Deep Learning Based OCR | Deep Learning OCR for VS devices. | Deep Learning OCR and MV Essential | VS20, VS40/70, NS42 |
+| LIC-OCR003-0100 | Deep Learning Based OCR | Deep Learning OCR for FS devices. | Deep Learning OCR and MV Essential | FS40/70, FS42, FS80 |
+| LIC-AD002-0100 | Deep Learning Based Anomaly Detection | Deep Learning based Anomaly Detection upgrade license for NS42 devices. | Deep Learning Anomaly Detection and MV Essential | NS42 |
+| LIC-AD003-0100 | Deep Learning Based Anomaly Detection | Deep Learning based Anomaly Detection upgrade license for FS42 devices. | Deep Learning Anomaly Detection and MV Essential | FS42 |
+| LIC-10LF-0000 | Connectivity Gateway Lite | Gateway Connectivity Lite, for FS10 devices. | None | FS10 |
+| LIC-20LF-0000 | Connectivity Gateway Lite | Gateway Connectivity Lite, for FS20 devices. | None | FS20 |
+| LIC-47LF-0000 | Connectivity Gateway Lite | Gateway Connectivity Lite, for FS40/FS70 smart cameras. | None | FS40, FS42, FS70 (pre-enabled on FS80) |
+| LIC-EXLF-0000 | Connectivity Gateway Full | Gateway Connectivity Full, for FS and VS devices. | None | FS40, FS42, FS70, FS80, VS40, VS70 |
+
+## Toolset List
+
+| Tool | Sensor | Essential | Standard | DL OCR | DL AD | Datacode | License / Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Read Barcode (Standard) |  |  |  |  |  |  | Available on any FS, VS, or NS device without an additional license. |
+| Read DPM |  |  |  |  |  | X | LIC-DPM001-0200 |
+| Read DPM and Barcode |  |  |  |  |  | X | LIC-DPM001-0200 |
+| Datacode |  |  |  |  |  | X | LIC-DPM001-0200 |
+| Deep Learning OCR |  |  |  | X |  |  | LIC-OCR002-0100 or LIC-OCR003-0100 |
+| Locate Object | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Locate Object Plus |  | X | X |  |  |  | Enabled by: LIC-OCR002-0100, LIC-OCR003-0100, LIC-AD002-0100, LIC-AD003-0100, LIC-STD001-0100, LIC-SEST01-0100 |
+| Locate Edge | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Locate Blob |  | X | X |  |  |  | |
+| Locate Circle | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Binarize |  | X | X |  |  |  | |
+| Dilate |  | X | X |  |  |  | |
+| Erode |  | X | X |  |  |  | |
+| Open |  | X | X |  |  |  | |
+| Close |  | X | X |  |  |  | |
+| Gradient Full |  | X | X |  |  |  | |
+| Gradient Horizontal |  | X | X |  |  |  | |
+| Gradient Vertical |  | X | X |  |  |  | |
+| Object P/A | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Object Plus P/A |  | X | X |  |  |  | |
+| Brightness | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Contrast | X | X | X |  |  |  | |
+| Edge Detect | X | X | X |  |  |  | |
+| Blob P/A |  | X | X |  |  |  | |
+| Anomaly Detection |  |  |  |  | X |  | LIC-AD002-0100 or LIC-AD003-0100 |
+| Distance | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Circle Diameter | X | X | X |  |  |  | |
+| Measure Object Width |  | X | X |  |  |  | |
+| Pixel Count | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Blob Count |  | X | X |  |  |  | |
+| Edge Count | X | X | X |  |  |  | Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. |
+| Locate Object Count | X | X | X |  |  |  | |
+| Flaw Detection (Edges) |  | X | X |  |  |  | |
+| Flaw Detection (Intensity) |  | X | X |  |  |  | |

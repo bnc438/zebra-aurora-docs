@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-27T06:02:14.438Z",
+  "generatedAt": "2026-03-11T01:41:50.946Z",
   "records": [
     {
       "title": "Debugging",
@@ -41,7 +41,7 @@
       "title": "Example Script Lifecycle",
       "heading": "Example Script Lifecycle",
       "url": "/docs/c-aurora-js-example-script-lifecycle",
-      "text": "The lifecycle of the script includes four stages: deployment, two iterations, and edit mode. In the deployment stage, the execution environment is prepared without actions. In the first iteration, global variables are initialized, and syntax errors are checked. The onResults function processes the Test String, updates counters, and logs results. The second iteration skips initialization and processes the Wrong String, adjusts counters, and logs accordingly. Finally, the script enters edit mode, unloading from memory, with variables set to reinitialize upon redeployment."
+      "text": "The lifecycle of the script includes four stages: deployment, two iterations, and edit mode. In the deployment stage, the execution environment is prepared without actions. In the first iteration, global variables are initialized, and syntax errors are checked. The onResults function processes the Test String, updates counters, and logs results. The second iteration skips initialization and processes the Wrong String, adjusts counters, and logs accordingly. Finally, the script enters edit mode, unloading from memory, with variables set to reinitialize upon redeployment. There are four main stages in the lifecycle of a script: 1. Deploy the job to initialize the script's execution environment. 2. Iteration 1: - The code outside the onResults function is executed. The global variables no match counter, match counter, match string, and counter are created and initialized. The console.log functions are executed. Any syntax errors in the script are reported at this stage, and its execution is performed if errors are detected. - The onResults function is executed. Assume that in this iteration, the read code contains a string, e.g., Test String. - Values are set, and logs are sent during this stage. - The following string is sent to all available communication channels: Match count: 1 No match count: 0. - Aurora Focus receives logs in the following order: Script loading begins, Scrip"
     },
     {
       "title": "Example Script Lifecycle",
@@ -86,22 +86,112 @@
       "text": "Use the following script to retrieve the device MAC address: <figure <ZoomableImage src={useBaseUrl('/img/g-aurora-js-mac-address.png')} alt=\"device MAC address in console\" style={{width: '580px', maxWidth: '100%', height: 'auto'}} / </figure"
     },
     {
-      "title": "Zebra Aurora Focus JavaScript Programmer's Guide",
-      "heading": "Zebra Aurora Focus JavaScript Programmer's Guide",
-      "url": "/docs/index",
-      "text": "This guide provides information on developing custom scripts for Zebra Aurora Focus using the integrated JavaScript editor. It includes details on the scripting environment, operation modes, debugging techniques, sample scripts, and full interface descriptions for handling inspection results. ---"
+      "title": "JavaScript Developers Guide",
+      "heading": "JavaScript Developers Guide",
+      "url": "/docs/javascript-developers-guide",
+      "text": "import DownloadSectionPdfButton from '@site/src/components/DownloadSectionPdfButton';"
     },
     {
-      "title": "Zebra Aurora Focus JavaScript Programmer's Guide",
+      "title": "JavaScript Developers Guide",
+      "heading": "Zebra Aurora Focus JavaScript Programmer's Guide",
+      "url": "/docs/javascript-developers-guide",
+      "text": "This guide provides information on developing custom scripts for Zebra Aurora Focus using the integrated JavaScript editor. It includes details on the scripting environment, operation modes, debugging techniques, sample scripts, and full interface descriptions for handling inspection results. <DownloadSectionPdfButton fileName=\"javascript-programmers-guide.pdf\" / ---"
+    },
+    {
+      "title": "JavaScript Developers Guide",
       "heading": "Table of Contents",
-      "url": "/docs/index",
+      "url": "/docs/javascript-developers-guide",
       "text": "- About this Guide - JavaScript Environment - Operation Mode - Debugging, Advanced Techniques, and Sample Scripts"
     },
     {
       "title": "Licensing",
       "heading": "Licensing",
       "url": "/docs/licensing",
-      "text": "This section contains licensing information for Zebra Aurora Focus."
+      "text": "import DownloadSectionPdfButton from '@site/src/components/DownloadSectionPdfButton'; This section contains licensing information for Zebra Aurora Focus. <DownloadSectionPdfButton fileName=\"licensing.pdf\" /"
+    },
+    {
+      "title": "Obtaining an Emulator License Key",
+      "heading": "Obtaining an Emulator License Key",
+      "url": "/docs/licensing/t-aurora-acquiring-an-emulator-license-key",
+      "text": "Use Aurora Focus to obtain an emulator license key. 1. Click Help from the top navigation menu in Aurora Focus. 2. Select License from the drop-down menu. 3. Observe the License Activate popup and click the link: 4. Enter your email address. This becomes your User ID. 5. Click Next . 6. Verify your email address by entering the verification code sent to your inbox. 7. Click Next . 8. Enter your name and password, then select your country from the drop-down menu. 9. Click Submit and Continue . 10. Enter your user and company information and provide the number of licenses you are requesting. 11. Click Submit . 12. Enter the Activation ID into the License Key field after registration to activate the license."
+    },
+    {
+      "title": "Activating a License Key in Aurora Focus",
+      "heading": "Activating a License Key in Aurora Focus",
+      "url": "/docs/licensing/t-aurora-activating-a-license-key-in-aurora-focus",
+      "text": "Use the Device Licensing tab in Aurora Focus to manage licenses and remotely provision them to devices. :::note Activating, deactivating, and syncing operations require access to the Aurora Focus Desktop application with a direct internet connection. ::: 1. Select Device Licensing from the menu in Aurora Focus. 2. Enter the PKID from the Zebra License Notification email and the Number of Seats to Activate . :::note The number of seats to activate must be less than or equal to the number of available server seats. The maximum is 25 seats per activation. ::: 3. Click Submit License Key . 4. Click Sync Now to view a list of active entitlement IDs and associated devices. - The License Key is a PKID and a unique identifier for the license. - Available Seats refers to the number of upstream seats on the server that are available for activation. - Claimed Seats refers to the seats claimed by this instance of Aurora Focus software but not yet provisioned to an FS/VS device. - Unsynced Provisioned Seats refers to the number of seats claimed by Aurora Focus and provisioned to a device. - Unclaimed seats can be released back to the license server or can be used to provision another device."
+    },
+    {
+      "title": "Deactivating a License Using the Web HMI",
+      "heading": "Deactivating a License Using the Web HMI",
+      "url": "/docs/licensing/t-aurora-deactivating-a-license-using-the-web-hmi",
+      "text": "Use the Web HMI to deactivate a license on the device while connected to the internet. :::note Only provisioned licenses can be released. ::: 1. Click to release the license back to the license server. 2. Observe that the license is removed from the list of Active Licenses ."
+    },
+    {
+      "title": "Deactivating a License",
+      "heading": "Deactivating a License",
+      "url": "/docs/licensing/t-aurora-deactivating-a-license",
+      "text": "Deactivate a license using Aurora Focus. 1. Click and select Deactivate from the menu. 2. Select the number of seats to deactivate. 3. Click Sync Now to view the updated list of license keys."
+    },
+    {
+      "title": "Deprovisioning Devices in Aurora Focus",
+      "heading": "Deprovisioning a License from a Device",
+      "url": "/docs/licensing/t-aurora-deprovisioning-devices-in-aurora-focus",
+      "text": "Devices can be deprovisioned using Aurora Focus and released back to the license server as needed. 1. Go to View Devices and ensure that the device is managed by clicking Manage . 2. Go to the Licensing tab in Device Settings and click Enable Edit Mode . 3. Click to release the license back to the server. 4. Close the Device Settings tab and unmanage the device. 5. Return to the Device Licensing tab to confirm that the deprovisioned license was released and returned to the pool of claimed seats."
+    },
+    {
+      "title": "Best Practices for Provisioning Devices",
+      "heading": "Best Practices for Provisioning Devices",
+      "url": "/docs/licensing/t-aurora-focus-best-practices-for-provisioning-devices",
+      "text": "Review the following best practices when provisioning a device to a license. - Activate only the required number of seats that you want to use for provisioning devices. - Do not hold on to claimed seats in Aurora Focus longer than needed. - This enables another user to use them to provision other devices. - Syncronize provisioned seats to the license server frequently to ensure you are utilizing the active licenses on the device."
+    },
+    {
+      "title": "Frequently Asked Questions",
+      "heading": "Frequently Asked Questions",
+      "url": "/docs/licensing/t-aurora-licensing-frequenty-asked-questions",
+      "text": "Review the answers to frequently asked questions in this section to understand the licensing procedure. What happens if I update the firmware of an FS/NS/VS device to a version matching Aurora Focus 9.4 or greater? - Factory-applied licenses continue to work, while previously applied device upgrade licenses also continue to work unless a device factory reset operation is performed beforehand with the license storage option selected or the device???s license storage is corrupted. If this occurs, re-activate the license using the information in the Zebra License Manager Migration Notification email. Can I continue to use an FS/NS/VS device with firmware matching Aurora Focus 9.3 or lower after December 31, 2025? - Factory-applied and device upgrade licenses are perpetual, so they will continue to work after both dates. How do I recover from a deleted license storage on a device with firmware matching Aurora Focus 9.3 or lower after December 31, 2025? - If the license was applied using the offline activation method, upgrade the device to firmware matching Aurora Focus 9.4 or greater and re-activate the license using the information provided in the Zebra License Manager Migration Notification email. How do I handle replacing a device with firmware matching Aurora Focus 9.3 or lower with device upgrade licenses activated after the release of Aurora Focus 9.4 with matching device fir"
+    },
+    {
+      "title": "Viewing Active Licenses on the Device",
+      "heading": "Deactivating a License Using the Web HMI",
+      "url": "/docs/licensing/t-aurora-viewing-active-licenses-on-the-device",
+      "text": "Use the Web HMI to deactivate a license on the device while connected to the internet. :::note Only provisioned licenses can be released. ::: 1. Click to release the license back to the license server. 2. Observe that the license is removed from the list of Active Licenses ."
+    },
+    {
+      "title": "Bridging an Internet Connection to FS/VS Devices",
+      "heading": "Bridging an Internet Connection to FS/VS Devices",
+      "url": "/docs/licensing/t-bridging-an-internet-connection-to-fs-vs-devices",
+      "text": "To add a license to an FS/VS device using an online licensing server, the device must have access to the internet. The device can be connected through a router connected to the internet. But in cases where that is not possible or convenient, the internet connection of a laptop or desktop computer running Windows can be shared with the device. To share internet to a device connected to the computer over USB, these steps must be performed on the device first (does not need to be done for devices connected over Ethernet): 1. Open Aurora Focus. Manage the device to which you want to share Internet. Navigate to the Communication tab. Click Enable Edit Mode and OK if prompted with a warning about stopping jobs. Navigate to the USB tab under Network Settings. Select Enable DHCP, and click Apply. To share the internet connection to a device when connected over USB or when plugged into a PoE switch that is plugged into the computer or dock's Ethernet port: 1. Navigate to Windows Control Panel \\ Network and Sharing Center \\ Change adapter settings. 2. Right-click on the connection that provides Internet. This is typically Wi-Fi, but can also be Ethernet. 3. Click Properties. 4. Click the Sharing tab. 5. Select Allow other network users to connect through this computer's internet connection. 6. In the Home networking connection drop-down, select the connection over which you want to share"
+    },
+    {
+      "title": "Acquiring a License from the Online Server",
+      "heading": "Activating a License Using the Web HMI",
+      "url": "/docs/licensing/t-fs-vs-acquiring-a-license-from-the-online-server",
+      "text": "Apply a device license, view available licenses, and deactivate licenses online using the Aurora Focus Web HMI. 1. Open the Aurora Focus Web HMI by entering the device's IP address into a web browser or clicking the IP address link under View Devices in Aurora Focus. 2. If you are logged in as an Operator, click to log in to the HMI as an Admin. 3. Use the default credentials for an Admin account: - Username: admin - Password: admin 4. After you log in as an Admin, click to access the settings menu. 5. Select the Licensing tab. 6. Ensure the following URL is present in the Licensing Server URL form field: https://zebratechnologies.prod.sentinelcloud.com/ems/api/ Enter the Product Key ID (PKID) provided in the email when the license is procured. 7. Click Activate License . 8. The Active Licenses provides the following information: - License Index: displays the license number. - License Description: displays the license's feature or toolset name, for example, Connectivity Gateway Full or FS1D/2D Decoding. - License Type: indicates the type of license and system version on which it was acquired. For example, Fast 1D/2D Decoding with DPM Full. - Upgrade License (Legacy) - an upgrade license activated using the legacy system. For example, Advanced Toolset (Machine Vision). - Upgrade License - an upgrade license using the current system. This license type can be provisioned in Aurora"
+    },
+    {
+      "title": "Acquiring an Activation ID",
+      "heading": "Obtaining an Emulator License Key",
+      "url": "/docs/licensing/t-fs-vs-acquiring-an-activation-id",
+      "text": "Use Aurora Focus to obtain an emulator license key. 1. Click Help from the top navigation menu in Aurora Focus. 2. Select License from the drop-down menu. 3. Observe the License Activate popup and click the link: 4. Enter your email address. This becomes your User ID. 5. Click Next . 6. Verify your email address by entering the verification code sent to your inbox. 7. Click Next . 8. Enter your name and password, then select your country from the drop-down menu. 9. Click Submit and Continue . 10. Enter your user and company information and provide the number of licenses you are requesting. 11. Click Submit . 12. Enter the Activation ID into the License Key field after registration to activate the license."
+    },
+    {
+      "title": "License Types and Toolsets",
+      "heading": "License Types and Toolsets",
+      "url": "/docs/licensing/t-fs-vs-license-types",
+      "text": "The following table outlines available licenses and their corresponding part number. Each license is associated with a toolset. Part Number Web HMI Name Description Toolset Applicable Devices --- --- --- --- --- LIC-SEN001-0100 Sensor Toolset (Machine Vision) Upgrade to Sensor Toolset. MV Sensor FS10, FS20, FS40, FS42, FS70, FS80 LIC-SEST01-0100 Standard Toolset (Machine Vision) Fixed Industrial Scanner toolset upgrade from Sensor to MV toolset. MV Standard VS20, VS40/70 LIC-STD001-0100 Standard Toolset (Machine Vision) Fixed Industrial Scanner upgrade to the Standard MV toolset (includes DPM and Fast 2D). MV Standard FS10/20, FS40/70, FS42, FS80 LIC-DPM001-0200 Fast 1D/2D Decoding with DPM Full Full DPM (1D/2D/DPM), 60 frames per second. Enables Datacode decoding libraries for DPM reading and enhanced 2D. Datacode FS10/20, FS40/70, FS42, FS80; VS20, VS40/70 LIC-2DF001-0200 Fast 1D/2D Decoding Fast 1D/2D, 60 frames per second (DPM not included). None FS10/20, FS40/70, FS42, FS80; VS20, VS40/70 LIC-OCR002-0100 Deep Learning Based OCR Deep Learning OCR for VS devices. Deep Learning OCR and MV Essential VS20, VS40/70, NS42 LIC-OCR003-0100 Deep Learning Based OCR Deep Learning OCR for FS devices. Deep Learning OCR and MV Essential FS40/70, FS42, FS80 LIC-AD002-0100 Deep Learning Based Anomaly Detection Deep Learning based Anomaly Detection upgrade license for NS42 devices. Deep Lea"
+    },
+    {
+      "title": "License Types and Toolsets",
+      "heading": "Toolset List",
+      "url": "/docs/licensing/t-fs-vs-license-types",
+      "text": "Tool Sensor Essential Standard DL OCR DL AD Datacode License / Notes --- --- --- --- --- --- --- --- Read Barcode (Standard) Available on any FS, VS, or NS device without an additional license. Read DPM X LIC-DPM001-0200 Read DPM and Barcode X LIC-DPM001-0200 Datacode X LIC-DPM001-0200 Deep Learning OCR X LIC-OCR002-0100 or LIC-OCR003-0100 Locate Object X X X Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. Locate Object Plus X X Enabled by: LIC-OCR002-0100, LIC-OCR003-0100, LIC-AD002-0100, LIC-AD003-0100, LIC-STD001-0100, LIC-SEST01-0100 Locate Edge X X X Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. Locate Blob X X Locate Circle X X X Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. Binarize X X Dilate X X Erode X X Open X X Close X X Gradient Full X X Gradient Horizontal X X Gradient Vertical X X Object P/A X X X Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. Object Plus P/A X X Brightness X X X Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. Contrast X X X Edge Detect X X X Blob P/A X X Anomaly Detection X LIC-AD002-0100 or LIC-AD003-0100 Distance X X X Available in VS/NS without additional license; available on FS with LIC-SEN001-0100. Circle Diameter X X X Measure Object Width X X Pixel Co"
+    },
+    {
+      "title": "License Upgrade",
+      "heading": "Provisioning a License to a Device",
+      "url": "/docs/licensing/t-fs-vs-license-upgrade",
+      "text": "Use the Device Licensing tab in Aurora Focus to provision licenses to devices remotely. Provisioning licenses to devices without internet access while the devices are connected to Aurora Focus. 1. Click and select Provision from the menu. 2. Select the device to provision the license to and click Done. 3. Observe the Device Successfully Provisioned notification."
     },
     {
       "title": "Icon Conventions",
@@ -155,13 +245,19 @@
       "title": "Release Notes",
       "heading": "Release Notes",
       "url": "/docs/release-notes",
+      "text": "import DownloadSectionPdfButton from '@site/src/components/DownloadSectionPdfButton';"
+    },
+    {
+      "title": "Release Notes",
+      "heading": "Release Notes",
+      "url": "/docs/release-notes",
       "text": "Use this section to track feature updates, bug fixes, and other changes by release."
     },
     {
       "title": "Release Notes",
       "heading": "How to add a new release note",
       "url": "/docs/release-notes",
-      "text": "1. Copy docs/release-notes/ release-notes-template.mdx to a new .md or .mdx file in this folder. 2. Name it with a sortable release identifier where newer releases sort higher (example: 2026-03-01-aurora-focus-10-0-123.mdx). 3. Replace all placeholder values ([Product Name], [Version], etc.) and publish. Release notes are shown in descending file name order, so the most recent release appears at the top."
+      "text": "1. Copy docs/release-notes/ release-notes-template.mdx to a new .md or .mdx file in this folder. 2. Name it with a sortable release identifier where newer releases sort higher (example: 2026-03-01-aurora-focus-10-0-123.mdx). 3. Replace all placeholder values ([Product Name], [Version], etc.) and publish. Release notes are shown in descending file name order, so the most recent release appears at the top. <DownloadSectionPdfButton fileName=\"release-notes.pdf\" /"
     },
     {
       "title": "Release Notes: Aurora Focus 1.200.2001",
@@ -1769,7 +1865,7 @@
       "title": "Beeper",
       "heading": "Beeper",
       "url": "/docs/t-aurora-focus-js-beeper",
-      "text": "Use the beeper field to control the beeper of the device and the Zebra Integrated Multi-Function Light."
+      "text": "Use the beeper field to control the beeper of the device and the Zebra Integrated Multi-Function Light. Helper Object Beeper Properties Value Description Beeper.beep() This function triggers a beeper with a specified duration, tone, and volume. Helper objects, BeeperVolumeResult, BeeperToneResult, and BeeperDurationResult, can be used to specify these. Beeper.off() Does not trigger the beeper; it’s independent of job success. Beeper.device settings() Triggers the beeper with parameters specified in the General Settings tab in Aurora Focus. :::note The beeper must be enabled using the General Settings tab in Aurora Focus before being used on the device. :::"
     },
     {
       "title": "Beeper",
@@ -1835,7 +1931,7 @@
       "title": "HID Keyboard",
       "heading": "HID Keyboard",
       "url": "/docs/t-aurora-js-hid-keyboard",
-      "text": "Enable the HID keyboard to use the device in HID keyboard mode. Assign a string, a single button, a key, and a modifier combination. You can also add a pause between keystrokes. All of these can be leveraged into a single assignment. ```typescript hid?: (string (IHIDCombinationResult IHIDPauseResult HIDKey string)[]); An additional helper object, HID, is available to simplify HID usage. HID properties are described in the following table. Helper Object HID Properties Property Description HID.key Gives access to a list of available keys. HID.combination Allows the creation of a key and a modifier combination. HID.pause Allows a pause between consecutive keystrokes to be created. HID.modifier Gives access to a list of available key modifiers. :::note HID.pause argument must be between 0 and 25000 ms. HID.combination allows you to press, at the same time, a key and up to 8 different modifiers. HID.combination produces a series of consecutive keystrokes with the same modifiers when used with more than one key. Keystroke delay and preferred keyboard layout can be changed through the Communication tab in the device settings. If that property is not assigned, nothing is printed. ::: / Opens notepad and types into it a decoded barcode value. Please do not remove the 'export' keyword or this comment. The onResults function triggers the results of each job run. For more detailed informat"
+      "text": "Enable the HID keyboard to use the device in HID keyboard mode. Assign a string, a single button, a key, and a modifier combination. You can also add a pause between keystrokes. All of these can be leveraged into a single assignment. An additional helper object, HID, is available to simplify HID usage. HID properties are described in the following table. Helper Object HID Properties Property Description HID.key Gives access to a list of available keys. HID.combination Allows the creation of a key and a modifier combination. HID.pause Allows a pause between consecutive keystrokes to be created. HID.modifier Gives access to a list of available key modifiers. :::note HID.pause argument must be between 0 and 25000 ms. HID.combination allows you to press, at the same time, a key and up to 8 different modifiers. HID.combination produces a series of consecutive keystrokes with the same modifiers when used with more than one key. Keystroke delay and preferred keyboard layout can be changed through the Communication tab in the device settings. If that property is not assigned, nothing is printed. :::"
     },
     {
       "title": "Input Data",
@@ -1961,7 +2057,7 @@
       "title": "Using Simulated Data",
       "heading": "Using Simulated Data",
       "url": "/docs/t-aurora-js-using-simulated-data",
-      "text": "If you cannot use real-world results, use simulated data until you can validate with representative data. Assign the data to a variable to simulate an actual result of a camera read. The following example simulates the results of a ManyCode read."
+      "text": "If you cannot use real-world results, use simulated data until you can validate with representative data. Assign the data to a variable to simulate an actual result of a camera read. The following example simulates the results of a ManyCode read. :::warning Simulated data is hardcoded and user-defined. Use this method only for development and initial testing purposes. Conduct final tests using actual results to ensure the code works as intended. :::"
     },
     {
       "title": "Using Simulated Data",
@@ -2034,6 +2130,12 @@
       "heading": "Monaco Sandbox",
       "url": "/docs/t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial",
       "text": "<MonacoSandbox language=\"javascript\" value={export function onResults(input result) { return { tcp ip: \"TCP message\", serial: [0x02, 0x41, 0x42, 0x43, 0x03], cdc: \"USB CDC message\" }; }} /"
+    },
+    {
+      "title": "User Guide",
+      "heading": "User Guide",
+      "url": "/docs/",
+      "text": "import DownloadSectionPdfButton from '@site/src/components/DownloadSectionPdfButton'; This section contains user guide documentation. <DownloadSectionPdfButton fileName=\"user-guide.pdf\" /"
     }
   ]
 }

@@ -1,0 +1,91 @@
+---
+# ===================================================================
+# Docusaurus Control Fields
+# ===================================================================
+title: 'Acquiring a License from the Online Server'
+description: 'An advanced tutorial on setting up and training a deep learning model
+for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.'
+keywords: ["deep learning OCR", "machine vision", "VS70"]
+sidebar_label: 'Acquiring a License from the Online Server'
+
+# ===================================================================
+# Content Management & Display Fields
+# ===================================================================
+status: 'Published'
+version: '5.3'
+author: 'bnc438'
+sort_order: 50 # Higher number for a more advanced topic
+last_updated: '(Automated by build process)'
+last_reviewed:
+# ===================================================================
+# Core Taxonomy Fields (For Filtering)
+# ===================================================================
+
+# --- Product & Software Filters ---
+product_name: VS70
+product_family: 'Machine Vision'
+product_series: 'VS Smart Cameras Series'
+protocol: 'PROFINET'
+software_tool: 'Aurora Deep Learning'
+component_type: 'Camera'
+
+# --- : Use Case & Device Filters ---
+use_case: ['Optical Character Recognition (OCR)', 'Assembly Verification']
+license_type: 'Deep Learning OCR'
+device_type: 'Smart Camera'
+
+# --- User-Centric Filters ---
+role: ['Integrator/Developer', 'Controls Engineer']
+task: 'Application Development'
+content_type: 'Tutorial'
+skill_level: 'Advanced'
+---
+
+# Activating a License Using the Web HMI
+
+Apply a device license, view available licenses, and deactivate licenses online using the Aurora Focus Web HMI.
+
+1. Open the Aurora Focus Web HMI by entering the device's IP address into a web browser or clicking the IP address link under **View Devices** in Aurora Focus.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-focus-view-devices.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+2. If you are logged in as an Operator, click ![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-focus-licensing-profile-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg) to log in to the HMI as an Admin.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-hmi-operator-nav.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+3. Use the default credentials for an Admin account:
+
+- Username: admin
+- Password: admin
+
+4. After you log in as an Admin, click ![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-focus-licensing-gear-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg) to access the settings menu.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-hmi-admin-nav.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+5. Select the Licensing tab.
+
+![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-licensing-hmi-list.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg)
+
+6. Ensure the following URL is present in the Licensing Server URL form field:
+
+https://zebratechnologies.prod.sentinelcloud.com/ems/api/
+
+Enter the **Product Key ID (PKID)** provided in the email when the license is procured.
+
+7. Click **Activate License**.
+
+8. The Active Licenses provides the following information:
+
+- **License Index:** displays the license number.
+
+- **License Description:** displays the license's feature or toolset name, for example, Connectivity Gateway Full or FS1D/2D Decoding.
+
+- **License Type:** indicates the type of license and system version on which it was acquired. For example, Fast 1D/2D Decoding with DPM Full.
+
+    - **Upgrade License (Legacy)** - an upgrade license activated using the legacy system. For example, Advanced Toolset (Machine Vision).
+
+    - **Upgrade License** - an upgrade license using the current system. This license type can be provisioned in Aurora Focus and released in the Web HMI.
+
+- **Activation Type** - licenses applied using the current system are provisioned.
+
+- **Release:** Click ![](https://www.zebra.com/content/dam/techpubs/media/machine-vision/aurora-focus/g-aurora-licensing-hmi-release-ico.png/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg) to release the license back to the device's license server.
