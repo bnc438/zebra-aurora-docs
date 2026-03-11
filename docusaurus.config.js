@@ -99,6 +99,10 @@ const config = {
             position: 'right',
             label: 'Ask AI',
           },
+          {
+            type: 'search',
+            position: 'right',
+          },
         ],
       },
       footer: {
