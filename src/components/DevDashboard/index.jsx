@@ -1,13 +1,21 @@
 /**
  * src/components/DevDashboard/index.jsx
  * ============================================================================
- * Developer Dashboard — 8 panels powered by static/build-report.json.
+ * Developer Dashboard — visually impressive 9-panel build intelligence suite.
  *
- * All charts are pure CSS/SVG (conic-gradient donuts, CSS flex bar charts).
- * Zero external chart libraries required.
+ * Panels:
+ *   1. Build Overview (hero header with health score gauge)
+ *   2. Schema Analytics (device type · role · use case · skill level)
+ *   3. Schema Intelligence (field coverage heatmap + guessing stats)
+ *   4. Date & Freshness Analytics (freshness buckets · monthly velocity)
+ *   5. SEO Health (metadata completeness)
+ *   6. Analytics (GA presence · publish status)
+ *   7. Content Performance (word count distribution)
+ *   8. Ask AI Engine (index statistics)
+ *   9. Content Quality (placeholders · missing metadata table)
  *
- * Portability: drop this component + scripts/generate-build-report.mjs +
- * dashboard.config.js into any Docusaurus repo and the dashboard works.
+ * All charts: pure CSS/SVG (conic-gradient donuts, CSS flex bars).
+ * Zero external chart libraries.
  */
 
 import React, { useEffect, useState } from 'react';
@@ -15,7 +23,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 // ---------------------------------------------------------------------------
-// Zebra Aurora palette – 10 distinguishable colours for taxonomy charts
+// Zebra Aurora palette – 10 distinguishable colours
 // ---------------------------------------------------------------------------
 const PALETTE = [
   '#003fbd', '#bdf75f', '#e67e22', '#9b59b6', '#1abc9c',
@@ -23,23 +31,9 @@ const PALETTE = [
 ];
 
 // ---------------------------------------------------------------------------
-// Helper: build conic-gradient string for donut rings
+// DonutChart — pure CSS conic-gradient with center label
 // ---------------------------------------------------------------------------
-function buildConicGradient(segments) {
-  if (!segments.length) return 'conic-gradient(#ccc 0% 100%)';
-  let cursor = 0;
-  const stops = segments.map(({ pct, color }) => {
-    const start = cursor;
-    cursor += pct;
-    return `${color} ${start.toFixed(1)}% ${cursor.toFixed(1)}%`;
-  });
-  return `conic-gradient(${stops.join(', ')})`;
-}
-
-// ---------------------------------------------------------------------------
-// DonutChart component
-// ---------------------------------------------------------------------------
-function DonutChart({ counts }) {
+function DonutChart({ counts, centerLabel }) {
   const entries = Object.entries(counts || {})
     .filter(([, v]) => v > 0)
     .sort(([, a], [, b]) => b - a)
@@ -54,26 +48,29 @@ function DonutChart({ counts }) {
     color: PALETTE[i % PALETTE.length],
   }));
 
-  const gradient = buildConicGradient(segments);
-  const maskStyle = {
-    background: `radial-gradient(circle, var(--ifm-background-surface-color) 52%, transparent 52%)`,
-  };
+  let cursor = 0;
+  const stops = segments.map(({ pct, color }) => {
+    const start = cursor;
+    cursor += pct;
+    return `${color} ${start.toFixed(1)}% ${cursor.toFixed(1)}%`;
+  });
+  const gradient = `conic-gradient(${stops.join(', ')})`;
 
   return (
     <div className={styles.donutWrap}>
-      <div
-        className={styles.donut}
-        style={{ background: gradient }}
-        title={`Total: ${total}`}
-      >
-        {/* CSS mask to cut out inner hole */}
-        <div style={{ width: '100%', height: '100%', borderRadius: '50%', ...maskStyle }} />
+      <div className={styles.donutContainer}>
+        <div className={styles.donut} style={{ background: gradient }} title={`Total: ${total}`}>
+          <div className={styles.donutHole}>
+            <span className={styles.donutCenter}>{centerLabel ?? total}</span>
+          </div>
+        </div>
       </div>
       <div className={styles.donutLegend}>
-        {segments.map(({ label, count, color }) => (
+        {segments.map(({ label, count, color, pct }) => (
           <div key={label} className={styles.donutLegendItem}>
             <span className={styles.donutLegendSwatch} style={{ background: color }} />
             <span className={styles.donutLegendLabel}>{label}</span>
+            <span className={styles.donutLegendPct}>{pct.toFixed(0)}%</span>
             <span className={styles.donutLegendCount}>{count}</span>
           </div>
         ))}
@@ -83,9 +80,9 @@ function DonutChart({ counts }) {
 }
 
 // ---------------------------------------------------------------------------
-// BarChart component
+// BarChart — CSS flex vertical bars
 // ---------------------------------------------------------------------------
-function BarChart({ counts, maxBars = 10 }) {
+function BarChart({ counts, maxBars = 10, color }) {
   const entries = Object.entries(counts || {})
     .filter(([, v]) => v > 0)
     .sort(([, a], [, b]) => b - a)
@@ -95,18 +92,22 @@ function BarChart({ counts, maxBars = 10 }) {
 
   return (
     <div className={styles.barChart}>
+      {[75, 50, 25].map((pct) => (
+        <div
+          key={pct}
+          className={styles.barChartGridline}
+          style={{ bottom: `calc(${pct}% + 1.4rem)` }}
+        />
+      ))}
       {entries.map(([label, count], i) => {
         const heightPct = Math.max(4, (count / max) * 100);
+        const barColor = color || PALETTE[i % PALETTE.length];
         return (
           <div key={label} className={styles.barWrap} title={`${label}: ${count}`}>
             <span className={styles.barCount}>{count}</span>
             <div
               className={styles.bar}
-              style={{
-                height: `${heightPct}%`,
-                background: PALETTE[i % PALETTE.length],
-                position: 'relative',
-              }}
+              style={{ height: `${heightPct}%`, background: barColor }}
             >
               <span className={styles.barLabel}>{label}</span>
             </div>
@@ -118,7 +119,26 @@ function BarChart({ counts, maxBars = 10 }) {
 }
 
 // ---------------------------------------------------------------------------
-// ProgressList component
+// HorizontalBar — single labelled fill bar for comparisons
+// ---------------------------------------------------------------------------
+function HorizontalBar({ label, value, max, color, subtitle }) {
+  const pct = max > 0 ? Math.round((value / max) * 100) : 0;
+  return (
+    <div className={styles.hBarItem}>
+      <div className={styles.hBarMeta}>
+        <span className={styles.hBarLabel}>{label}</span>
+        <span className={styles.hBarValue}>{value} <span className={styles.hBarPct}>({pct}%)</span></span>
+      </div>
+      <div className={styles.hBarTrack}>
+        <div className={styles.hBarFill} style={{ width: `${pct}%`, background: color }} />
+      </div>
+      {subtitle && <span className={styles.hBarSubtitle}>{subtitle}</span>}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// ProgressList — vertical list of metric progress bars
 // ---------------------------------------------------------------------------
 function ProgressList({ items }) {
   return (
@@ -134,10 +154,10 @@ function ProgressList({ items }) {
           <div key={label} className={styles.progressItem}>
             <div className={styles.progressMeta}>
               <span>{label}</span>
-              <span>{pct}%</span>
+              <span className={pct < 50 ? styles.warnText : styles.okText}>{pct}%</span>
             </div>
             <div className={styles.progressTrack}>
-              <div className={`${styles.progressFill} ${fillClass}`} style={{ width: `${pct}%` }} />
+              <div className={fillClass} style={{ width: `${pct}%` }} />
             </div>
           </div>
         );
@@ -147,7 +167,7 @@ function ProgressList({ items }) {
 }
 
 // ---------------------------------------------------------------------------
-// StatusBadge helper
+// StatusBadge
 // ---------------------------------------------------------------------------
 function StatusBadge({ ok, warn, label }) {
   const cls = ok ? styles.statusOk : warn ? styles.statusWarn : styles.statusError;
@@ -160,64 +180,233 @@ function StatusBadge({ ok, warn, label }) {
 }
 
 // ---------------------------------------------------------------------------
-// Panel 1: Build Overview
+// StatCard — big number highlight with icon and optional trend
 // ---------------------------------------------------------------------------
-function BuildOverviewPanel({ report }) {
-  const { aggregate } = report;
-  const completePct = Math.round(aggregate.avgCompleteness * 100);
-  const stats = [
-    { value: aggregate.totalDocs,   label: 'Total Docs' },
-    { value: aggregate.totalWords.toLocaleString(), label: 'Total Words' },
-    { value: aggregate.avgWords,    label: 'Avg Words/Doc' },
-    { value: `${completePct}%`,     label: 'Avg Completeness' },
-  ];
+function StatCard({ icon, value, label, accent }) {
+  return (
+    <div className={`${styles.statCard} ${accent ? styles.statCardAccent : ''}`}>
+      {icon && <span className={styles.statCardIcon}>{icon}</span>}
+      <div className={styles.statCardValue}>{value}</div>
+      <div className={styles.statCardLabel}>{label}</div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// HealthGauge — semicircle gauge showing overall build health %
+// ---------------------------------------------------------------------------
+function HealthGauge({ score }) {
+  // Score 0–100
+  const pct = Math.max(0, Math.min(100, Math.round(score)));
+  const color =
+    pct >= 75 ? '#2ecc71' :
+    pct >= 50 ? '#f39c12' :
+    '#e74c3c';
+  // The gauge is a half-donut: 180° arc
+  // We use a conic gradient clipped to the top half
+  const filledDeg = (pct / 100) * 180;
+  const gradient = `conic-gradient(from 180deg, ${color} 0deg ${filledDeg}deg, var(--ifm-color-emphasis-200) ${filledDeg}deg 180deg)`;
+  const label =
+    pct >= 75 ? 'Healthy' :
+    pct >= 50 ? 'Fair' :
+    'Needs Work';
 
   return (
-    <div className={styles.panel}>
-      <div className={styles.panelHead}>
-        <span className={styles.panelIcon}>📦</span>
-        <h3 className={styles.panelTitle}>Build Overview</h3>
-      </div>
-      <p className={styles.panelSubtitle}>
-        Generated {new Date(report.generatedAt).toLocaleString()}
-      </p>
-      <div className={styles.statRow}>
-        {stats.map(({ value, label }) => (
-          <div key={label} className={styles.stat}>
-            <div className={styles.statValue}>{value}</div>
-            <div className={styles.statLabel}>{label}</div>
-          </div>
-        ))}
-      </div>
-      <div className={styles.statusRow}>
-        {Object.entries(aggregate.sections || {}).map(([section, count]) => (
-          <StatusBadge key={section} ok label={`${section}: ${count}`} />
-        ))}
+    <div className={styles.gaugeWrap}>
+      <div className={styles.gauge} style={{ background: gradient }}>
+        <div className={styles.gaugeHole}>
+          <span className={styles.gaugeValue} style={{ color }}>{pct}%</span>
+          <span className={styles.gaugeLabel}>{label}</span>
+        </div>
       </div>
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Panel 2: Schema Intelligence
+// FieldCoverageGrid — colour-coded grid of field coverage
 // ---------------------------------------------------------------------------
-function SchemaIntelligencePanel({ report }) {
+function FieldCoverageGrid({ fieldCoveragePercent }) {
+  const entries = Object.entries(fieldCoveragePercent || {});
+  if (!entries.length) return null;
+  return (
+    <div className={styles.coverageGrid}>
+      {entries.map(([field, pct]) => {
+        const pctRound = Math.round(pct * 100);
+        const intensity =
+          pctRound >= 80 ? 'high' :
+          pctRound >= 40 ? 'mid' :
+          'low';
+        return (
+          <div
+            key={field}
+            className={`${styles.coverageCell} ${styles[`coverageCell_${intensity}`]}`}
+            title={`${field}: ${pctRound}%`}
+          >
+            <span className={styles.coverageCellField}>{field.replace(/_/g, ' ')}</span>
+            <span className={styles.coverageCellPct}>{pctRound}%</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 1: Build Overview (hero)
+// ---------------------------------------------------------------------------
+function BuildOverviewPanel({ report }) {
   const { aggregate } = report;
-  const totalDocs = aggregate.totalDocs || 1;
-  const guessing = aggregate.guessing || {};
-  const fieldItems = Object.entries(aggregate.fieldCoveragePercent || {})
-    .map(([key, pct]) => ({ label: key, value: pct, warn: pct < 0.5 }));
+  const completePct = Math.round(aggregate.avgCompleteness * 100);
+
+  // Health score: weighted average of key signals
+  const seo = aggregate.seoHealth || {};
+  const total = aggregate.totalDocs || 1;
+  const seoScore = Math.round(
+    ((seo.hasTitle || 0) / total * 25) +
+    ((seo.hasDescription || 0) / total * 25) +
+    ((seo.hasKeywords || 0) / total * 25) +
+    (completePct / 4)
+  );
+
+  return (
+    <div className={`${styles.panel} ${styles.panelHero}`}>
+      <div className={styles.heroGradient} aria-hidden="true" />
+      <div className={styles.heroContent}>
+        <div className={styles.heroLeft}>
+          <div className={styles.panelHead}>
+            <span className={styles.panelIcon}>📦</span>
+            <h3 className={styles.panelTitle}>Build Overview</h3>
+          </div>
+          <p className={styles.panelSubtitle}>
+            Generated {new Date(report.generatedAt).toLocaleString()}
+            {' · '}Node {report.nodeVersion || process?.version || '≥20'}
+          </p>
+          <div className={styles.heroStats}>
+            <StatCard icon="📄" value={aggregate.totalDocs} label="Total Docs" accent />
+            <StatCard icon="💬" value={aggregate.totalWords.toLocaleString()} label="Total Words" />
+            <StatCard icon="📝" value={aggregate.avgWords} label="Avg Words/Doc" />
+            <StatCard icon="✅" value={`${completePct}%`} label="Completeness" />
+          </div>
+          <div className={styles.statusRow} style={{ marginTop: '0.75rem' }}>
+            {Object.entries(aggregate.sections || {}).map(([section, count]) => (
+              <StatusBadge key={section} ok label={`${section}: ${count}`} />
+            ))}
+          </div>
+        </div>
+        <div className={styles.heroRight}>
+          <HealthGauge score={seoScore} />
+          <p className={styles.gaugeCaption}>Content Health Score</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 2: Schema Analytics (NEW — device · role · use case · skill level)
+// ---------------------------------------------------------------------------
+function SchemaAnalyticsPanel({ report }) {
+  const { aggregate } = report;
+  const tax = aggregate.taxonomy || {};
+
+  const deviceType   = tax.device_type || {};
+  const roleData     = tax.role || {};
+  const useCaseData  = tax.use_case || {};
+  const skillLevel   = tax.skill_level || {};
+  const productName  = tax.product_name || {};
+
+  // Total topics (across all use_case occurrences — each doc can have multiple)
+  const totalUseCaseInstances = Object.values(useCaseData).reduce((s, v) => s + v, 0);
+  const totalRoleInstances    = Object.values(roleData).reduce((s, v) => s + v, 0);
 
   return (
     <div className={`${styles.panel} ${styles.panelWide}`}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>🔬</span>
+        <h3 className={styles.panelTitle}>Schema Analytics</h3>
+      </div>
+      <p className={styles.panelSubtitle}>
+        Taxonomy distribution from frontmatter ·{' '}
+        {aggregate.totalDocs} docs · {totalUseCaseInstances} use-case tags · {totalRoleInstances} role tags
+      </p>
+
+      <div className={styles.schemaGrid}>
+        {/* Device Type */}
+        <div className={styles.schemaSection}>
+          <h4 className={styles.schemaSectionTitle}>📡 Topics by Device Type</h4>
+          <DonutChart counts={deviceType} centerLabel="devices" />
+        </div>
+
+        {/* Role / User */}
+        <div className={styles.schemaSection}>
+          <h4 className={styles.schemaSectionTitle}>👤 Topics by Role / User</h4>
+          <div className={styles.hBarList}>
+            {Object.entries(roleData)
+              .sort(([, a], [, b]) => b - a)
+              .map(([role, count], i) => (
+                <HorizontalBar
+                  key={role}
+                  label={role}
+                  value={count}
+                  max={totalRoleInstances}
+                  color={PALETTE[i % PALETTE.length]}
+                />
+              ))}
+          </div>
+        </div>
+
+        {/* Use Case (most popular) */}
+        <div className={`${styles.schemaSection} ${styles.schemaSectionWide}`}>
+          <h4 className={styles.schemaSectionTitle}>🎯 Topics by Use Case (ranked)</h4>
+          <div className={styles.hBarList}>
+            {Object.entries(useCaseData)
+              .sort(([, a], [, b]) => b - a)
+              .map(([uc, count], i) => (
+                <HorizontalBar
+                  key={uc}
+                  label={uc}
+                  value={count}
+                  max={totalUseCaseInstances}
+                  color={PALETTE[i % PALETTE.length]}
+                />
+              ))}
+          </div>
+        </div>
+
+        {/* Skill Level */}
+        <div className={styles.schemaSection}>
+          <h4 className={styles.schemaSectionTitle}>🎓 Skill Level Distribution</h4>
+          <DonutChart counts={skillLevel} />
+        </div>
+
+        {/* Product Name */}
+        <div className={styles.schemaSection}>
+          <h4 className={styles.schemaSectionTitle}>🏷 Topics by Product</h4>
+          <BarChart counts={productName} maxBars={6} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 3: Schema Intelligence (field coverage heatmap)
+// ---------------------------------------------------------------------------
+function SchemaIntelligencePanel({ report }) {
+  const { aggregate } = report;
+  const guessing = aggregate.guessing || {};
+
+  return (
+    <div className={styles.panel}>
       <div className={styles.panelHead}>
         <span className={styles.panelIcon}>🧬</span>
         <h3 className={styles.panelTitle}>Schema Intelligence</h3>
       </div>
       <p className={styles.panelSubtitle}>
-        Frontmatter field coverage · {guessing.totalGuessedFields || 0} auto-guessed fields across{' '}
-        {guessing.docsWithGuesses || 0} docs{' '}
-        <span className={styles.guessedChip}>guessed</span>
+        Frontmatter field coverage ·{' '}
+        <span className={styles.guessedChip}>{guessing.totalGuessedFields || 0} auto-guessed</span>{' '}
+        across {guessing.docsWithGuesses || 0} docs
       </p>
       <div className={styles.statRow}>
         <div className={styles.stat}>
@@ -229,68 +418,106 @@ function SchemaIntelligencePanel({ report }) {
           <div className={styles.statLabel}>Docs w/ Guesses</div>
         </div>
         <div className={styles.stat}>
-          <div className={styles.statValue}>{totalDocs - (guessing.docsWithGuesses || 0)}</div>
+          <div className={styles.statValue}>
+            {aggregate.totalDocs - (guessing.docsWithGuesses || 0)}
+          </div>
           <div className={styles.statLabel}>Fully Authored</div>
         </div>
       </div>
-      <ProgressList items={fieldItems} />
+      <FieldCoverageGrid fieldCoveragePercent={aggregate.fieldCoveragePercent} />
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Panel 3: Accessibility Live Checks
+// PANEL 4: Date & Freshness Analytics
 // ---------------------------------------------------------------------------
-function AccessibilityPanel({ report }) {
+function DateFreshnessPanel({ report }) {
   const { aggregate, docs } = report;
-  const placeholders = aggregate.placeholders || {};
-  const docsWithIssues = placeholders.docsWithPlaceholders || 0;
-  const byField = placeholders.byField || {};
-  const bodyCount = byField._body || 0;
-  const fieldCount = docsWithIssues - Math.min(bodyCount, docsWithIssues);
+  const da = aggregate.dateAnalytics || {};
+  const total = aggregate.totalDocs || 1;
 
-  // Find docs with missing title (basic a11y)
-  const missingTitle = docs.filter((d) => !d.frontmatter.title).length;
-  const missingDesc = docs.filter((d) => !d.frontmatter.description).length;
+  const buckets = [
+    { label: 'Fresh',   key: 'fresh',  subtitle: '< 30 days', color: '#2ecc71' },
+    { label: 'Recent',  key: 'recent', subtitle: '30–90 days', color: '#3498db' },
+    { label: 'Aging',   key: 'aging',  subtitle: '90–180 days', color: '#f39c12' },
+    { label: 'Stale',   key: 'stale',  subtitle: '> 180 days', color: '#e74c3c' },
+  ];
+
+  // Monthly velocity chart
+  const sortedMonths = Object.entries(da.modifiedByMonth || {}).sort(([a], [b]) => a.localeCompare(b));
+  const monthCounts = Object.fromEntries(sortedMonths.map(([k, v]) => [k.slice(5), v])); // show MM
+
+  // Top 5 most recently modified docs
+  const recentDocs = [...docs]
+    .sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified))
+    .slice(0, 5);
+
+  const reviewCoverage = Math.round((da.lastReviewedCount || 0) / total * 100);
 
   return (
-    <div className={styles.panel}>
+    <div className={`${styles.panel} ${styles.panelWide}`}>
       <div className={styles.panelHead}>
-        <span className={styles.panelIcon}>♿</span>
-        <h3 className={styles.panelTitle}>Accessibility Checks</h3>
+        <span className={styles.panelIcon}>📅</span>
+        <h3 className={styles.panelTitle}>Date &amp; Freshness Analytics</h3>
       </div>
-      <p className={styles.panelSubtitle}>Placeholder detection · missing metadata</p>
-      <div className={styles.statusRow}>
-        <StatusBadge ok={docsWithIssues === 0} warn={docsWithIssues > 0 && docsWithIssues < 10}
-          label={`${docsWithIssues} docs have placeholders`} />
-        <StatusBadge ok={missingTitle === 0} warn={missingTitle > 0}
-          label={`${missingTitle} missing title`} />
-        <StatusBadge ok={missingDesc === 0} warn={missingDesc > 0}
-          label={`${missingDesc} missing description`} />
+      <p className={styles.panelSubtitle}>
+        Content age based on file modification · <code>last_reviewed</code> frontmatter coverage:{' '}
+        <strong>{reviewCoverage}%</strong>
+      </p>
+
+      {/* Freshness buckets */}
+      <div className={styles.freshnessRow}>
+        {buckets.map(({ label, key, subtitle, color }) => {
+          const count = da[key] || 0;
+          const pct = Math.round((count / total) * 100);
+          return (
+            <div key={key} className={styles.freshnessBucket} style={{ borderTopColor: color }}>
+              <div className={styles.freshnessBucketValue} style={{ color }}>{count}</div>
+              <div className={styles.freshnessBucketLabel}>{label}</div>
+              <div className={styles.freshnessBucketSub}>{subtitle} · {pct}%</div>
+            </div>
+          );
+        })}
       </div>
-      <div className={styles.scrollBox}>
-        <table className={styles.docTable}>
-          <thead>
-            <tr><th>Field</th><th># Docs Affected</th></tr>
-          </thead>
-          <tbody>
-            {Object.entries(byField)
-              .sort(([, a], [, b]) => b - a)
-              .map(([field, count]) => (
-                <tr key={field}>
-                  <td>{field === '_body' ? 'Body text' : field}</td>
-                  <td>{count}</td>
+
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+        {/* Monthly velocity */}
+        {Object.keys(monthCounts).length > 0 && (
+          <div style={{ flex: '1 1 200px' }}>
+            <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>
+              Monthly modification velocity
+            </p>
+            <BarChart counts={monthCounts} color="#003fbd" />
+          </div>
+        )}
+        {/* Recently modified */}
+        <div style={{ flex: '2 1 260px' }}>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>
+            5 most recently modified
+          </p>
+          <table className={styles.docTable}>
+            <thead>
+              <tr><th>Title</th><th>Modified</th><th>Section</th></tr>
+            </thead>
+            <tbody>
+              {recentDocs.map((d) => (
+                <tr key={d.filePath}>
+                  <td title={d.title}>{d.title}</td>
+                  <td>{new Date(d.lastModified).toLocaleDateString()}</td>
+                  <td>{d.section}</td>
                 </tr>
               ))}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Panel 4: SEO Health
+// PANEL 5: SEO Health
 // ---------------------------------------------------------------------------
 function SeoHealthPanel({ report }) {
   const { aggregate } = report;
@@ -304,7 +531,14 @@ function SeoHealthPanel({ report }) {
     { label: 'Has Slug',        value: (seo.hasSlug || 0) / total },
   ];
 
-  const seoScore = Math.round(items.reduce((s, i) => s + i.value, 0) / items.length * 100);
+  const seoScore = Math.round(
+    items.reduce((s, i) => s + i.value, 0) / items.length * 100
+  );
+
+  const scoreColor =
+    seoScore >= 75 ? '#2ecc71' :
+    seoScore >= 50 ? '#f39c12' :
+    '#e74c3c';
 
   return (
     <div className={styles.panel}>
@@ -312,11 +546,15 @@ function SeoHealthPanel({ report }) {
         <span className={styles.panelIcon}>🔍</span>
         <h3 className={styles.panelTitle}>SEO Health</h3>
       </div>
-      <p className={styles.panelSubtitle}>Metadata completeness for search engine visibility</p>
+      <p className={styles.panelSubtitle}>Metadata completeness for search visibility</p>
       <div className={styles.statRow}>
         <div className={styles.stat}>
-          <div className={styles.statValue}>{seoScore}%</div>
+          <div className={styles.statValue} style={{ color: scoreColor }}>{seoScore}%</div>
           <div className={styles.statLabel}>SEO Score</div>
+        </div>
+        <div className={styles.stat}>
+          <div className={styles.statValue}>{seo.hasDescription || 0}/{total}</div>
+          <div className={styles.statLabel}>Have Description</div>
         </div>
       </div>
       <ProgressList items={items} />
@@ -325,17 +563,35 @@ function SeoHealthPanel({ report }) {
 }
 
 // ---------------------------------------------------------------------------
-// Panel 5: Analytics
+// PANEL 6: Analytics (GA + publish status)
 // ---------------------------------------------------------------------------
 function AnalyticsPanel({ report }) {
   const { aggregate } = report;
-  // Check if GA is configured (we look for gtag in docusaurus.config – best effort)
-  const gaPresent = false; // Tier 1: static check (no gtag plugin detected in config)
-
   const statusCounts = aggregate.taxonomy?.status || {};
   const publishedCount = statusCounts['Published'] || 0;
   const draftCount = statusCounts['Draft'] || 0;
   const total = aggregate.totalDocs || 1;
+  const publishRate = Math.round((publishedCount / total) * 100);
+
+  // Attempt to detect GA presence in the window (browser-only)
+  const [gaStatus, setGaStatus] = useState('checking…');
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const tag = document.querySelector('script[src*="googletagmanager"]');
+        const dataLayerLen = window.dataLayer?.length ?? 0;
+        if (tag && window.gtag && typeof window.gtag === 'function') {
+          setGaStatus(`Active · ${dataLayerLen} dataLayer events`);
+        } else if (tag) {
+          setGaStatus('Tag present but blocked (adblocker?)');
+        } else {
+          setGaStatus('Not configured');
+        }
+      }
+    } catch {
+      setGaStatus('Unknown');
+    }
+  }, []);
 
   return (
     <div className={styles.panel}>
@@ -343,13 +599,15 @@ function AnalyticsPanel({ report }) {
         <span className={styles.panelIcon}>📊</span>
         <h3 className={styles.panelTitle}>Analytics</h3>
       </div>
-      <p className={styles.panelSubtitle}>GA Tier 1 presence · Tier 2 locked (API key required)</p>
+      <p className={styles.panelSubtitle}>Publish status · GA Tier 1 presence</p>
       <div className={styles.statusRow}>
-        <StatusBadge ok={gaPresent} warn={!gaPresent}
-          label={gaPresent ? 'GA configured' : 'GA not detected'} />
-        <StatusBadge warn label="Tier 2: API key locked" />
+        <StatusBadge
+          ok={gaStatus.startsWith('Active')}
+          warn={!gaStatus.startsWith('Active') && !gaStatus.startsWith('Not')}
+          label={`GA: ${gaStatus}`}
+        />
       </div>
-      <div className={styles.statRow}>
+      <div className={styles.statRow} style={{ marginTop: '0.5rem' }}>
         <div className={styles.stat}>
           <div className={styles.statValue}>{publishedCount}</div>
           <div className={styles.statLabel}>Published</div>
@@ -359,7 +617,12 @@ function AnalyticsPanel({ report }) {
           <div className={styles.statLabel}>Draft</div>
         </div>
         <div className={styles.stat}>
-          <div className={styles.statValue}>{Math.round((publishedCount / total) * 100)}%</div>
+          <div
+            className={styles.statValue}
+            style={{ color: publishRate >= 50 ? '#2ecc71' : '#e67e22' }}
+          >
+            {publishRate}%
+          </div>
           <div className={styles.statLabel}>Publish Rate</div>
         </div>
       </div>
@@ -369,12 +632,11 @@ function AnalyticsPanel({ report }) {
 }
 
 // ---------------------------------------------------------------------------
-// Panel 6: Performance Metrics
+// PANEL 7: Content Performance (word count distribution)
 // ---------------------------------------------------------------------------
-function PerformancePanel({ report }) {
+function ContentPerformancePanel({ report }) {
   const { aggregate, docs } = report;
 
-  // Word count distribution buckets
   const buckets = { '0–100': 0, '101–300': 0, '301–600': 0, '601–1000': 0, '1000+': 0 };
   for (const doc of docs) {
     const w = doc.wordCount;
@@ -385,13 +647,16 @@ function PerformancePanel({ report }) {
     else                buckets['1000+']++;
   }
 
+  const topDocs = [...docs].sort((a, b) => b.wordCount - a.wordCount).slice(0, 5);
+  const thinDocs = docs.filter((d) => d.wordCount < 100).length;
+
   return (
-    <div className={styles.panel}>
+    <div className={`${styles.panel} ${styles.panelWide}`}>
       <div className={styles.panelHead}>
         <span className={styles.panelIcon}>⚡</span>
-        <h3 className={styles.panelTitle}>Performance Metrics</h3>
+        <h3 className={styles.panelTitle}>Content Performance</h3>
       </div>
-      <p className={styles.panelSubtitle}>Word count distribution · docs per section</p>
+      <p className={styles.panelSubtitle}>Word count distribution · thin content detection</p>
       <div className={styles.statRow}>
         <div className={styles.stat}>
           <div className={styles.statValue}>{aggregate.avgWords}</div>
@@ -401,121 +666,23 @@ function PerformancePanel({ report }) {
           <div className={styles.statValue}>{aggregate.totalWords.toLocaleString()}</div>
           <div className={styles.statLabel}>Total Words</div>
         </div>
-      </div>
-      <p className={styles.panelSubtitle} style={{ margin: 0 }}>Word count distribution</p>
-      <BarChart counts={buckets} />
-      <p className={styles.panelSubtitle} style={{ margin: 0 }}>Docs per section</p>
-      <BarChart counts={aggregate.sections || {}} />
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Panel 7: Ask AI Engine Stats
-// ---------------------------------------------------------------------------
-function AskAiPanel({ report }) {
-  const [index, setIndex] = useState(null);
-  const indexUrl = useBaseUrl('/askai-index.json');
-
-  useEffect(() => {
-    fetch(indexUrl)
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => setIndex(data))
-      .catch(() => setIndex(null));
-  }, [indexUrl]);
-
-  const sectionCounts = {};
-  if (index?.records) {
-    for (const rec of index.records) {
-      const url = (rec.url || '').replace(/^\/docs\//, '');
-      const parts = url.split('/');
-      const section = parts.length > 1 ? parts[0] : 'root';
-      sectionCounts[section] = (sectionCounts[section] || 0) + 1;
-    }
-  }
-
-  return (
-    <div className={styles.panel}>
-      <div className={styles.panelHead}>
-        <span className={styles.panelIcon}>🤖</span>
-        <h3 className={styles.panelTitle}>Ask AI Engine</h3>
-      </div>
-      <p className={styles.panelSubtitle}>Search index statistics</p>
-      <div className={styles.statRow}>
         <div className={styles.stat}>
-          <div className={styles.statValue}>{index ? index.records.length : '–'}</div>
-          <div className={styles.statLabel}>Index Records</div>
-        </div>
-        <div className={styles.stat}>
-          <div className={styles.statValue}>{report.aggregate.totalDocs}</div>
-          <div className={styles.statLabel}>Source Docs</div>
-        </div>
-        <div className={styles.stat}>
-          <div className={styles.statValue}>
-            {index
-              ? `~${Math.round(JSON.stringify(index).length / 1024)} KB`
-              : '–'}
+          <div
+            className={styles.statValue}
+            style={{ color: thinDocs > 0 ? '#e74c3c' : '#2ecc71' }}
+          >
+            {thinDocs}
           </div>
-          <div className={styles.statLabel}>Index Size</div>
-        </div>
-      </div>
-      {index
-        ? <BarChart counts={sectionCounts} />
-        : <span className={styles.empty}>Index not loaded</span>}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Panel 8: Content Freshness / Velocity
-// ---------------------------------------------------------------------------
-function FreshnessPanel({ report }) {
-  const { docs } = report;
-
-  const stale = docs.filter((d) => {
-    const rev = d.frontmatter.last_reviewed;
-    return !rev || /\[.*?\]/.test(String(rev));
-  }).length;
-  const reviewed = docs.length - stale;
-
-  // Docs grouped by content_type for velocity view
-  const byContentType = report.aggregate.taxonomy?.content_type || {};
-
-  // Top 5 most-wordy (freshness proxy)
-  const topDocs = [...docs]
-    .sort((a, b) => b.wordCount - a.wordCount)
-    .slice(0, 5);
-
-  return (
-    <div className={`${styles.panel} ${styles.panelWide}`}>
-      <div className={styles.panelHead}>
-        <span className={styles.panelIcon}>🕐</span>
-        <h3 className={styles.panelTitle}>Content Freshness / Velocity</h3>
-      </div>
-      <p className={styles.panelSubtitle}>Review status · content type distribution</p>
-      <div className={styles.statRow}>
-        <div className={styles.stat}>
-          <div className={styles.statValue}>{reviewed}</div>
-          <div className={styles.statLabel}>Reviewed</div>
-        </div>
-        <div className={styles.stat}>
-          <div className={styles.statValue}>{stale}</div>
-          <div className={styles.statLabel}>Needs Review</div>
-        </div>
-        <div className={styles.stat}>
-          <div className={styles.statValue}>
-            {docs.length > 0 ? Math.round((reviewed / docs.length) * 100) : 0}%
-          </div>
-          <div className={styles.statLabel}>Review Coverage</div>
+          <div className={styles.statLabel}>Thin Docs (&lt;100w)</div>
         </div>
       </div>
       <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-        <div style={{ flex: '1 1 180px' }}>
-          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Content type velocity</p>
-          <DonutChart counts={byContentType} />
+        <div style={{ flex: '1 1 200px' }}>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Word count distribution</p>
+          <BarChart counts={buckets} color="#003fbd" />
         </div>
         <div style={{ flex: '2 1 240px' }}>
-          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Top 5 docs by word count</p>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Top 5 docs by length</p>
           <table className={styles.docTable}>
             <thead>
               <tr><th>Title</th><th>Words</th><th>Section</th></tr>
@@ -530,6 +697,193 @@ function FreshnessPanel({ report }) {
               ))}
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 8: Ask AI Engine
+// ---------------------------------------------------------------------------
+function AskAiPanel({ report }) {
+  const [index, setIndex] = useState(null);
+  const [indexErr, setIndexErr] = useState(false);
+  const indexUrl = useBaseUrl('/askai-index.json');
+
+  useEffect(() => {
+    fetch(indexUrl)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => (data ? setIndex(data) : setIndexErr(true)))
+      .catch(() => setIndexErr(true));
+  }, [indexUrl]);
+
+  const sectionCounts = {};
+  if (index?.records) {
+    for (const rec of index.records) {
+      const url = (rec.url || '').replace(/^\/docs\//, '');
+      const parts = url.split('/');
+      const section = parts.length > 1 ? parts[0] : 'root';
+      sectionCounts[section] = (sectionCounts[section] || 0) + 1;
+    }
+  }
+
+  const indexSizeKb = index
+    ? Math.round(JSON.stringify(index).length / 1024)
+    : null;
+
+  const indexCoverage = index && report.aggregate.totalDocs > 0
+    ? Math.round((new Set(index.records.map((r) => r.url)).size / report.aggregate.totalDocs) * 100)
+    : null;
+
+  return (
+    <div className={styles.panel}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>🤖</span>
+        <h3 className={styles.panelTitle}>Ask AI Engine</h3>
+      </div>
+      <p className={styles.panelSubtitle}>Search index statistics · coverage</p>
+      <div className={styles.statusRow}>
+        {indexErr
+          ? <StatusBadge label="Index not found" />
+          : index
+            ? <StatusBadge ok label="Index loaded" />
+            : <StatusBadge warn label="Loading index…" />}
+      </div>
+      <div className={styles.statRow}>
+        <div className={styles.stat}>
+          <div className={styles.statValue}>{index ? index.records.length : '–'}</div>
+          <div className={styles.statLabel}>Records</div>
+        </div>
+        <div className={styles.stat}>
+          <div className={styles.statValue}>{report.aggregate.totalDocs}</div>
+          <div className={styles.statLabel}>Source Docs</div>
+        </div>
+        <div className={styles.stat}>
+          <div className={styles.statValue}>{indexSizeKb != null ? `~${indexSizeKb} KB` : '–'}</div>
+          <div className={styles.statLabel}>Index Size</div>
+        </div>
+        <div className={styles.stat}>
+          <div
+            className={styles.statValue}
+            style={{ color: indexCoverage != null ? (indexCoverage >= 80 ? '#2ecc71' : '#f39c12') : undefined }}
+          >
+            {indexCoverage != null ? `${indexCoverage}%` : '–'}
+          </div>
+          <div className={styles.statLabel}>Doc Coverage</div>
+        </div>
+      </div>
+      {index
+        ? <BarChart counts={sectionCounts} />
+        : <span className={styles.empty}>{indexErr ? 'Run npm run prestart to generate index.' : 'Loading…'}</span>}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 9: Content Quality (placeholders + missing metadata)
+// ---------------------------------------------------------------------------
+function ContentQualityPanel({ report }) {
+  const { aggregate, docs } = report;
+  const placeholders = aggregate.placeholders || {};
+  const docsWithIssues = placeholders.docsWithPlaceholders || 0;
+  const byField = placeholders.byField || {};
+
+  const missingTitle = docs.filter((d) => !d.frontmatter.title).length;
+  const missingDesc = docs.filter((d) => !d.frontmatter.description).length;
+  const missingKeywords = docs.filter((d) => {
+    const kw = d.frontmatter.keywords;
+    return !kw || (Array.isArray(kw) && kw.length === 0);
+  }).length;
+
+  // Top 10 least complete docs
+  const leastComplete = [...docs]
+    .sort((a, b) => a.completenessScore - b.completenessScore)
+    .slice(0, 8);
+
+  return (
+    <div className={`${styles.panel} ${styles.panelWide}`}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>♿</span>
+        <h3 className={styles.panelTitle}>Content Quality</h3>
+      </div>
+      <p className={styles.panelSubtitle}>Placeholder detection · missing metadata · completeness</p>
+      <div className={styles.statusRow}>
+        <StatusBadge
+          ok={docsWithIssues === 0}
+          warn={docsWithIssues > 0 && docsWithIssues < 10}
+          label={`${docsWithIssues} docs have placeholders`}
+        />
+        <StatusBadge
+          ok={missingTitle === 0}
+          warn={missingTitle > 0}
+          label={`${missingTitle} missing title`}
+        />
+        <StatusBadge
+          ok={missingDesc === 0}
+          warn={missingDesc > 0}
+          label={`${missingDesc} missing description`}
+        />
+        <StatusBadge
+          ok={missingKeywords === 0}
+          warn={missingKeywords > 0}
+          label={`${missingKeywords} missing keywords`}
+        />
+      </div>
+
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+        {/* Placeholder by field */}
+        <div style={{ flex: '1 1 200px' }}>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Placeholders by field</p>
+          <div className={styles.scrollBox}>
+            <table className={styles.docTable}>
+              <thead>
+                <tr><th>Field</th><th># Affected</th></tr>
+              </thead>
+              <tbody>
+                {Object.entries(byField)
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([field, count]) => (
+                    <tr key={field}>
+                      <td>{field === '_body' ? 'Body text' : field}</td>
+                      <td>{count}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Least complete docs */}
+        <div style={{ flex: '2 1 260px' }}>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>
+            Docs needing the most attention
+          </p>
+          <div className={styles.scrollBox}>
+            <table className={styles.docTable}>
+              <thead>
+                <tr><th>Title</th><th>Completeness</th><th>Guesses</th></tr>
+              </thead>
+              <tbody>
+                {leastComplete.map((d) => {
+                  const pct = Math.round(d.completenessScore * 100);
+                  const color =
+                    pct >= 75 ? '#2ecc71' :
+                    pct >= 50 ? '#f39c12' :
+                    '#e74c3c';
+                  return (
+                    <tr key={d.filePath}>
+                      <td title={d.title}>{d.title}</td>
+                      <td style={{ color, fontWeight: 600 }}>{pct}%</td>
+                      <td>{d.guessedFields.length > 0
+                        ? <span className={styles.guessedChip}>{d.guessedFields.length} guessed</span>
+                        : '—'}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -559,7 +913,7 @@ export default function DevDashboard() {
       <div className={styles.dashboard}>
         <div className={styles.devNotice}>
           ⚠ Could not load <code>build-report.json</code>: {error}.{' '}
-          Run <code>npm run build-report</code> first.
+          Run <code>npm run build-report</code> first, then restart the dev server.
         </div>
       </div>
     );
@@ -568,7 +922,11 @@ export default function DevDashboard() {
   if (!report) {
     return (
       <div className={styles.dashboard}>
-        <div className={styles.empty}>Loading build report…</div>
+        <div className={styles.loadingShimmer}>
+          <div className={styles.shimmerCard} />
+          <div className={styles.shimmerCard} />
+          <div className={styles.shimmerCard} />
+        </div>
       </div>
     );
   }
@@ -576,27 +934,22 @@ export default function DevDashboard() {
   return (
     <div className={styles.dashboard}>
       <div className={styles.devNotice}>
-        🛠 Developer Dashboard — <strong>dev only</strong>. This page is not visible in production.
+        🛠 Developer Dashboard —{' '}
+        <strong>dev only</strong>. This page is not visible in production.
         Data sourced from <code>static/build-report.json</code>.
       </div>
 
-      <div className={styles.dashboardHeader}>
-        <h1 className={styles.dashboardTitle}>Dev Dashboard</h1>
-        <span className={styles.dashboardBadge}>DEV ONLY</span>
-        <span className={styles.buildMeta}>
-          Report: {new Date(report.generatedAt).toLocaleString()}
-        </span>
-      </div>
+      <BuildOverviewPanel report={report} />
 
       <div className={styles.panelGrid}>
-        <BuildOverviewPanel report={report} />
+        <SchemaAnalyticsPanel report={report} />
         <SchemaIntelligencePanel report={report} />
-        <AccessibilityPanel report={report} />
+        <DateFreshnessPanel report={report} />
         <SeoHealthPanel report={report} />
         <AnalyticsPanel report={report} />
-        <PerformancePanel report={report} />
+        <ContentPerformancePanel report={report} />
         <AskAiPanel report={report} />
-        <FreshnessPanel report={report} />
+        <ContentQualityPanel report={report} />
       </div>
     </div>
   );
