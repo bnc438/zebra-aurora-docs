@@ -8,6 +8,10 @@
 .docusaurus
 .cache-loader
 
+# Generated build artifacts (regenerated on every start/build/deploy)
+/static/build-report.json
+/static/askai-index.json
+
 # Misc
 .DS_Store
 .env.local
