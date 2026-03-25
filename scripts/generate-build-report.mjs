@@ -371,10 +371,23 @@ export function scoreCompleteness(frontMatter, guesses) {
 }
 
 // ---------------------------------------------------------------------------
+// Date parsing helper
+// ---------------------------------------------------------------------------
+/** Parse a date string like YYYY-MM-DD into a timestamp (ms). Returns null if invalid. */
+export function parseDateField(value) {
+  if (!value || typeof value !== 'string') return null;
+  // Skip placeholder patterns like [YYYY-MM-DD]
+  if (/\[/.test(value) || /TODO|TBD/i.test(value)) return null;
+  const ts = Date.parse(value.trim());
+  return Number.isNaN(ts) ? null : ts;
+}
+
+// ---------------------------------------------------------------------------
 // Main: process all docs
 // ---------------------------------------------------------------------------
 const files = walk(docsRoot);
 const docs = [];
+const nowMs = Date.now();
 
 for (const filePath of files) {
   const raw = fs.readFileSync(filePath, 'utf8');
@@ -389,6 +402,14 @@ for (const filePath of files) {
   const completenessScore = scoreCompleteness(frontMatter, guesses);
   const relPath = path.relative(workspaceRoot, filePath).replace(/\\/g, '/');
 
+  // File system last modified date (always available)
+  const stat = fs.statSync(filePath);
+  const lastModified = stat.mtime.toISOString();
+  const lastModifiedMs = stat.mtime.getTime();
+
+  // Parse last_reviewed frontmatter date
+  const lastReviewedMs = parseDateField(frontMatter.last_reviewed);
+
   docs.push({
     filePath: relPath,
     url,
@@ -396,6 +417,10 @@ for (const filePath of files) {
     section,
     wordCount,
     completenessScore,
+    /** ISO string of file's last modification (from filesystem). */
+    lastModified,
+    /** Parsed last_reviewed date as ISO string, or null if missing/placeholder. */
+    lastReviewed: lastReviewedMs ? new Date(lastReviewedMs).toISOString() : null,
     /** Raw frontmatter parsed from the file. */
     frontmatter: frontMatter,
     /**
@@ -488,10 +513,36 @@ for (const d of docs) {
 }
 
 // ---------------------------------------------------------------------------
+// Date analytics (freshness buckets based on file mtime)
+// ---------------------------------------------------------------------------
+const DAY_MS = 86_400_000;
+const dateAnalytics = { fresh: 0, recent: 0, aging: 0, stale: 0 };
+for (const d of docs) {
+  const ageMs = nowMs - new Date(d.lastModified).getTime();
+  const ageDays = ageMs / DAY_MS;
+  if (ageDays < 30)       dateAnalytics.fresh++;
+  else if (ageDays < 90)  dateAnalytics.recent++;
+  else if (ageDays < 180) dateAnalytics.aging++;
+  else                    dateAnalytics.stale++;
+}
+
+// lastReviewed coverage
+const lastReviewedCount = docs.filter((d) => d.lastReviewed).length;
+
+// Docs authored per month (by file mtime)
+const modifiedByMonth = {};
+for (const d of docs) {
+  const date = new Date(d.lastModified);
+  const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+  modifiedByMonth[key] = (modifiedByMonth[key] || 0) + 1;
+}
+
+// ---------------------------------------------------------------------------
 // Output
 // ---------------------------------------------------------------------------
 const report = {
   generatedAt: new Date().toISOString(),
+  nodeVersion: process.version,
   version: '1.0.0',
   aggregate: {
     totalDocs,
@@ -511,6 +562,14 @@ const report = {
     taxonomy,
     seoHealth,
     sections: sectionCounts,
+    dateAnalytics: {
+      ...dateAnalytics,
+      lastReviewedCount,
+      lastReviewedPercent: totalDocs > 0
+        ? Number((lastReviewedCount / totalDocs).toFixed(2))
+        : 0,
+      modifiedByMonth,
+    },
   },
   docs,
 };

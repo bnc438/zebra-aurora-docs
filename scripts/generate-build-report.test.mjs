@@ -26,6 +26,7 @@ import {
   buildGuesses,
   scoreCompleteness,
   walk,
+  parseDateField,
 } from './generate-build-report.mjs';
 
 // ---------------------------------------------------------------------------
@@ -350,5 +351,39 @@ describe('walk', () => {
     assert.ok(Array.isArray(files));
     assert.ok(files.length > 0);
     assert.ok(files.every((f) => f.endsWith('.mdx') || f.endsWith('.md')));
+  });
+});
+
+// ---------------------------------------------------------------------------
+// parseDateField
+// ---------------------------------------------------------------------------
+describe('parseDateField', () => {
+  test('parses a valid ISO date string', () => {
+    const result = parseDateField('2025-06-15');
+    assert.ok(typeof result === 'number');
+    assert.ok(result > 0);
+  });
+
+  test('returns null for placeholder bracket pattern', () => {
+    assert.equal(parseDateField('[YYYY-MM-DD]'), null);
+  });
+
+  test('returns null for TODO/TBD values', () => {
+    assert.equal(parseDateField('TODO'), null);
+    assert.equal(parseDateField('TBD'), null);
+  });
+
+  test('returns null for null input', () => {
+    assert.equal(parseDateField(null), null);
+  });
+
+  test('returns null for an invalid date string', () => {
+    assert.equal(parseDateField('not-a-date'), null);
+  });
+
+  test('parsed timestamp matches expected date', () => {
+    const result = parseDateField('2024-01-01');
+    const expected = new Date('2024-01-01').getTime();
+    assert.equal(result, expected);
   });
 });
