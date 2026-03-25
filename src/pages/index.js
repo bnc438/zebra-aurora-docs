@@ -1,10 +1,18 @@
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
+import { useRef } from 'react';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
+
+const SUGGESTED_PROMPTS = [
+  'How do I configure GPIO in Aurora Focus?',
+  'What changed in Aurora Focus 9.4?',
+  'How do I install and launch Aurora Focus?',
+];
 
 const homepageCards = [
   {
@@ -35,26 +43,50 @@ const homepageCards = [
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  const askAiUrl = useBaseUrl('/ask-ai');
+  const searchInputRef = useRef(null);
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className={clsx('hero__title', styles.homeHeroTitle)}>
-          Zebra Aurora Focus™
+          Zebra Aurora Focus™ Help Portal
         </Heading>
         <p className="hero__subtitle">
           Zebra Aurora Focus™ is a single, unified platform that makes it easy to set up, deploy and run all of Zebra’s Fixed Industrial Scanners and Machine Vision Smart Cameras – eliminating the need for different applications.
         </p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            href="https://www.zebra.com/us/en/support-downloads/software/industrial-machine-vision-and-fixed-scanners-software/aurora/aurora-focus.html#Ta-item-d9ae17aba0-tab">
-            Download the Latest Software
-          </Link>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/">
-            Read the Latest Documentation
-          </Link>
+        <form className={styles.askAiSearchForm} action={askAiUrl} method="get">
+          <input
+            ref={searchInputRef}
+            className={styles.askAiSearchInput}
+            type="search"
+            name="q"
+            placeholder="What do you want to do?"
+            aria-label="Ask AI search"
+          />
+          <button className="button button--secondary" type="submit">
+            Ask AI
+          </button>
+        </form>
+        <div className={styles.suggestedPromptsContainer}>
+          <div className={styles.suggestedPromptsLabel}>Try asking:</div>
+          <div className={styles.suggestedPromptsGrid}>
+            {SUGGESTED_PROMPTS.map((prompt) => (
+              <button
+                key={prompt}
+                type="button"
+                className={styles.suggestedPromptButton}
+                onClick={() => {
+                  if (searchInputRef.current) {
+                    searchInputRef.current.value = prompt;
+                    searchInputRef.current.focus();
+                  }
+                }}
+                title="Click to populate the search box"
+              >
+                {prompt}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </header>

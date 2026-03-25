@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
+import {createHash} from 'node:crypto';
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
@@ -12,6 +13,7 @@ const repoRoot = path.resolve(__dirname, '..');
 const buildDir = path.join(repoRoot, 'build');
 const outputDir = path.join(repoRoot, 'static', 'pdf');
 const tempDir = path.join(buildDir, '_pdf_tmp');
+const pdfAssetDir = path.join(buildDir, '_pdf_assets');
 const DEFAULT_PORT = Number(process.env.PDF_PORT || 4277);
 const HOST = '127.0.0.1';
 
@@ -92,17 +94,39 @@ function docIdToRoute(docId) {
   return `/docs/${docId}`;
 }
 
-function buildDocRouteMapFromMetadata() {
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function buildCoverConfig(sectionTitle, frontMatter = {}) {
+  const title = frontMatter.pdf_cover_title || `Zebra ${sectionTitle}`;
+  return {
+    title,
+    subtitle: frontMatter.pdf_cover_subtitle || 'Product Reference Guide',
+    partNumber: frontMatter.pdf_cover_part_number || 'MN-000000-0EN Rev A',
+    copyrightHeader: frontMatter.pdf_cover_copyright_header || 'Copyright',
+    copyrightText:
+      frontMatter.pdf_cover_copyright_text ||
+      'This PDF is generated from Zebra product documentation and is intended for internal use. All specifications and information are subject to change without notice.',
+  };
+}
+
+function buildDocMetaMapFromMetadata() {
   const docsMetaDir = path.join(
     repoRoot,
     '.docusaurus',
     'docusaurus-plugin-content-docs',
     'default'
   );
-  const routeMap = new Map();
+  const metaMap = new Map();
 
   if (!fs.existsSync(docsMetaDir)) {
-    return routeMap;
+    return metaMap;
   }
 
   for (const fileName of fs.readdirSync(docsMetaDir)) {
@@ -114,14 +138,18 @@ function buildDocRouteMapFromMetadata() {
     try {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       if (typeof data.id === 'string' && typeof data.permalink === 'string') {
-        routeMap.set(data.id, data.permalink);
+        metaMap.set(data.id, {
+          permalink: data.permalink,
+          title: data.title,
+          frontMatter: data.frontMatter || {},
+        });
       }
     } catch (error) {
       console.warn(`[PDF] Warning: Could not parse ${fileName}: ${error.message}`);
     }
   }
 
-  return routeMap;
+  return metaMap;
 }
 
 async function listenWithPortFallback(server, host, startPort, attempts = 20) {
@@ -155,6 +183,7 @@ async function listenWithPortFallback(server, host, startPort, attempts = 20) {
 function buildSectionsFromSidebar() {
   const tutorialSidebar = sidebars.tutorialSidebar || [];
   const userGuideCategory = getCategoryFromSidebar(tutorialSidebar, 'User Guide');
+  const jsGuideCategory = getCategoryFromSidebar(tutorialSidebar, 'JavaScript Developers Guide');
   const licensingCategory = getCategoryFromSidebar(tutorialSidebar, 'Licensing');
   const releaseNotesCategory = getCategoryFromSidebar(tutorialSidebar, 'Release Notes');
 
@@ -162,15 +191,7 @@ function buildSectionsFromSidebar() {
   const licensingIds = licensingCategory ? flattenSidebarDocIds(licensingCategory.items) : ['licensing/index'];
   const releaseNotesIds = releaseNotesCategory ? flattenSidebarDocIds(releaseNotesCategory.items) : ['release-notes/index'];
 
-  const jsAll = flattenSidebarDocIds(tutorialSidebar);
-  const jsGuideIds = unique(
-    jsAll.filter(
-      (id) =>
-        !id.startsWith('user-guide/') &&
-        !id.startsWith('licensing/') &&
-        !id.startsWith('release-notes/')
-    )
-  );
+  const jsGuideIds = jsGuideCategory ? unique(flattenSidebarDocIds(jsGuideCategory.items)) : ['index'];
 
   return [
     {
@@ -202,6 +223,140 @@ function buildSectionsFromSidebar() {
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, {recursive: true});
+}
+
+function hashString(value) {
+  return createHash('sha256').update(value).digest('hex').slice(0, 20);
+}
+
+function extensionFromContentType(contentType) {
+  const normalized = String(contentType || '').split(';')[0].trim().toLowerCase();
+  return {
+    'image/jpeg': '.jpg',
+    'image/jpg': '.jpg',
+    'image/png': '.png',
+    'image/gif': '.gif',
+    'image/webp': '.webp',
+    'image/svg+xml': '.svg',
+    'image/x-icon': '.ico',
+  }[normalized] || '';
+}
+
+function extensionFromUrl(value) {
+  try {
+    const pathname = new URL(value).pathname;
+    const ext = path.extname(pathname).toLowerCase();
+    return ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico'].includes(ext) ? ext : '';
+  } catch {
+    return '';
+  }
+}
+
+function replaceAttributeValue(tag, attribute, newValue) {
+  const pattern = new RegExp(`\\b${attribute}=(['"])(.*?)\\1`, 'i');
+  if (pattern.test(tag)) {
+    return tag.replace(pattern, `${attribute}="${escapeHtml(newValue)}"`);
+  }
+
+  const closeIndex = tag.endsWith('/>') ? tag.length - 2 : tag.length - 1;
+  return `${tag.slice(0, closeIndex)} ${attribute}="${escapeHtml(newValue)}"${tag.slice(closeIndex)}`;
+}
+
+function removeAttribute(tag, attribute) {
+  const pattern = new RegExp(`\\s+${attribute}=(['"])(.*?)\\1`, 'ig');
+  return tag.replace(pattern, '');
+}
+
+function buildMissingImagePlaceholder(src, alt = '') {
+  const label = alt.trim() || 'Image';
+  return `<span class="pdf-image-placeholder"><strong>${escapeHtml(label)}</strong><span>Unable to embed remote asset during PDF export.</span><code>${escapeHtml(src)}</code></span>`;
+}
+
+async function cacheRemoteAsset(assetUrl, assetCache) {
+  const cached = assetCache.get(assetUrl);
+  if (cached) {
+    return cached;
+  }
+
+  const response = await fetch(assetUrl, {
+    redirect: 'follow',
+    headers: {
+      Accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+      'User-Agent':
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+
+  const contentType = response.headers.get('content-type') || '';
+  if (!contentType.toLowerCase().startsWith('image/')) {
+    throw new Error(`Unexpected content type: ${contentType || 'unknown'}`);
+  }
+
+  const bytes = Buffer.from(await response.arrayBuffer());
+  const ext = extensionFromContentType(contentType) || extensionFromUrl(assetUrl) || '.img';
+  const fileName = `${hashString(assetUrl)}${ext}`;
+  const diskPath = path.join(pdfAssetDir, fileName);
+  const publicPath = `/_pdf_assets/${fileName}`;
+
+  if (!fs.existsSync(diskPath)) {
+    fs.writeFileSync(diskPath, bytes);
+  }
+
+  const result = {diskPath, publicPath};
+  assetCache.set(assetUrl, result);
+  return result;
+}
+
+async function localizeHtmlImages(html, siteUrl, assetCache) {
+  const siteOrigin = new URL(siteUrl).origin;
+  const imgPattern = /<img\b[^>]*>/gi;
+  const matches = [...html.matchAll(imgPattern)];
+
+  if (matches.length === 0) {
+    return html;
+  }
+
+  let localizedHtml = '';
+  let lastIndex = 0;
+
+  for (const match of matches) {
+    const [tag] = match;
+    const index = match.index ?? 0;
+    localizedHtml += html.slice(lastIndex, index);
+    lastIndex = index + tag.length;
+
+    const srcMatch = tag.match(/\bsrc=(['"])(.*?)\1/i);
+    if (!srcMatch) {
+      localizedHtml += tag;
+      continue;
+    }
+
+    const altMatch = tag.match(/\balt=(['"])(.*?)\1/i);
+    const absoluteSrc = new URL(srcMatch[2], siteUrl).toString();
+    const isRemote = new URL(absoluteSrc).origin !== siteOrigin;
+
+    if (!isRemote) {
+      localizedHtml += replaceAttributeValue(tag, 'src', absoluteSrc);
+      continue;
+    }
+
+    try {
+      const cachedAsset = await cacheRemoteAsset(absoluteSrc, assetCache);
+      let localizedTag = replaceAttributeValue(tag, 'src', cachedAsset.publicPath);
+      localizedTag = removeAttribute(localizedTag, 'srcset');
+      localizedHtml += localizedTag;
+    } catch (error) {
+      console.warn(`[PDF] Warning: Could not cache remote image ${absoluteSrc}: ${error.message}`);
+      localizedHtml += buildMissingImagePlaceholder(absoluteSrc, altMatch?.[2] || '');
+    }
+  }
+
+  localizedHtml += html.slice(lastIndex);
+  return localizedHtml;
 }
 
 function createStaticServer(rootDir, host, portRef) {
@@ -254,19 +409,24 @@ function createStaticServer(rootDir, host, portRef) {
   });
 }
 
-function sectionHtml({sectionTitle, cssHrefs, docs}) {
+function sectionHtml({cssHrefs, docs, coverConfig}) {
   const cssLinks = cssHrefs.map((href) => `<link rel="stylesheet" href="${href}">`).join('\n');
-  const body = docs
+  const toc = docs
     .map(
       (doc, index) => `
-        <section class="pdf-doc-block ${index > 0 ? 'pdf-page-break' : ''}">
-          <header class="pdf-doc-header">
-            <h1>${doc.title}</h1>
-            <p class="pdf-doc-url">${doc.route}</p>
-          </header>
-          <article class="pdf-doc-content">${doc.html}</article>
-        </section>
+        <li>
+          <span class="pdf-toc-index">${index + 1}.</span>
+          <span class="pdf-toc-title">${doc.title}</span>
+        </li>
       `
+    )
+    .join('\n');
+  const body = docs
+    .map(
+      (doc) => `
+        <section class="pdf-doc-block">
+          <article class="pdf-doc-content">${doc.html}</article>
+        </section>`
     )
     .join('\n');
 
@@ -275,41 +435,152 @@ function sectionHtml({sectionTitle, cssHrefs, docs}) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${sectionTitle}</title>
+    <title>${escapeHtml(coverConfig.title)}</title>
     ${cssLinks}
     <style>
       :root {
-        --pdf-muted: #5f6b7a;
-        --pdf-border: #d7dde5;
+        --pdf-muted: #525f70;
+        --pdf-border: #d2d8e2;
+        --pdf-brand: #0b4fc2;
+        --pdf-brand-dark: #0a214f;
+        --pdf-title: #0e2f80;
       }
       body {
         margin: 0;
-        padding: 20px 24px;
+        padding: 0;
         background: #fff;
+        color: #1b2330;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.45;
+      }
+      .pdf-cover {
+        min-height: 268mm;
+        padding: 18mm 16mm 16mm;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+      .pdf-cover h1 {
+        margin: 0;
+        color: var(--pdf-title);
+        font-size: 56px;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.6px;
+      }
+      .pdf-cover-subtitle {
+        margin-top: 44mm;
+        font-size: 54px;
+        line-height: 1.08;
+        color: #111;
+        font-weight: 700;
+      }
+      .pdf-cover-meta {
+        margin-top: auto;
+        padding-top: 4mm;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 6mm;
+        align-items: end;
+      }
+      .pdf-logo {
+        width: 34mm;
+        max-width: 100%;
+        height: auto;
+      }
+      .pdf-cover-company {
+        font-size: 10px;
+        color: #303843;
+        text-align: right;
+      }
+      .pdf-part-number {
+        margin-top: 2mm;
+        font-size: 9px;
+        color: #4b5564;
+        text-align: right;
+      }
+      .pdf-legal-panel {
+        margin-bottom: 10mm;
+      }
+      .pdf-legal-title {
+        background: var(--pdf-brand);
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 6px 10px;
+      }
+      .pdf-legal-body {
+        padding: 10px 12px;
+        font-size: 9px;
+        color: #343f4f;
+      }
+      .pdf-toc-page {
+        padding: 18mm 16mm;
+      }
+      .pdf-toc-page h2 {
+        color: var(--pdf-title);
+        font-size: 36px;
+        margin: 0 0 10mm;
+      }
+      .pdf-toc-page ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .pdf-toc-page li {
+        display: flex;
+        gap: 8px;
+        padding: 7px 0;
+        font-size: 12px;
+      }
+      .pdf-toc-index {
+        color: var(--pdf-muted);
+        width: 28px;
+        flex: 0 0 auto;
+      }
+      .pdf-toc-title {
+        font-weight: 600;
+      }
+      .pdf-content {
+        padding: 0 16mm 10mm;
       }
       .pdf-doc-block {
         margin: 0;
+      }
+      .pdf-doc-block + .pdf-doc-block {
+        margin-top: 8mm;
+        padding-top: 6mm;
+      }
+      .pdf-doc-content hr {
+        display: none;
       }
       .pdf-page-break {
         page-break-before: always;
         break-before: page;
       }
-      .pdf-doc-header {
-        border-bottom: 1px solid var(--pdf-border);
-        margin-bottom: 18px;
-        padding-bottom: 10px;
-      }
-      .pdf-doc-header h1 {
-        margin: 0 0 6px;
-      }
-      .pdf-doc-url {
-        margin: 0;
-        color: var(--pdf-muted);
-        font-size: 12px;
-      }
       .pdf-doc-content img {
         max-width: 100%;
         height: auto;
+      }
+      .pdf-image-placeholder {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 10px 0;
+        padding: 10px 12px;
+        border: 1px dashed #c17500;
+        background: #fff8ec;
+        color: #613f00;
+        font-size: 10px;
+      }
+      .pdf-image-placeholder strong {
+        font-size: 11px;
+      }
+      .pdf-image-placeholder code {
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 9px;
       }
       .pdf-doc-content table {
         width: 100%;
@@ -329,13 +600,50 @@ function sectionHtml({sectionTitle, cssHrefs, docs}) {
         break-after: avoid-page;
         page-break-after: avoid;
       }
+      .pdf-doc-content h1,
+      .pdf-doc-content h2,
+      .pdf-doc-content h3 {
+        color: var(--pdf-brand-dark);
+      }
+      .pdf-doc-content p,
+      .pdf-doc-content li,
+      .pdf-doc-content td,
+      .pdf-doc-content th {
+        font-size: 11px;
+      }
+      .pdf-doc-content table th {
+        background: #f4f7fb;
+      }
       @page {
-        margin: 16mm;
+        margin: 10mm;
       }
     </style>
   </head>
   <body>
-    ${body}
+    <section class="pdf-cover">
+      <h1>${escapeHtml(coverConfig.title)}</h1>
+      <p class="pdf-cover-subtitle">${escapeHtml(coverConfig.subtitle)}</p>
+      <div class="pdf-cover-meta">
+        <img class="pdf-logo" src="/img/z-logo-b.svg" alt="Zebra" />
+        <div>
+          <div class="pdf-cover-company">Zebra Technologies | 3 Overlook Point | Lincolnshire, IL 60069 USA<br/>zebra.com</div>
+          <div class="pdf-part-number">${escapeHtml(coverConfig.partNumber)}</div>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-toc-page pdf-page-break">
+      <section class="pdf-legal-panel">
+        <div class="pdf-legal-title">${escapeHtml(coverConfig.copyrightHeader)}</div>
+        <div class="pdf-legal-body">${escapeHtml(coverConfig.copyrightText)}</div>
+      </section>
+      <h2>Contents</h2>
+      <ol>
+        ${toc}
+      </ol>
+    </section>
+    <main class="pdf-content pdf-page-break">
+      ${body}
+    </main>
   </body>
 </html>`;
 }
@@ -354,6 +662,13 @@ async function collectDocHtml(browser, route, siteUrl) {
       }
 
       const clone = contentNode.cloneNode(true);
+
+      clone.querySelectorAll('[data-no-pdf], [data-no-pdf="true"]').forEach((node) => {
+        node.remove();
+      });
+
+      const cloneTitleNode = clone.querySelector('h1, h2, h3, h4');
+      const hasContent = Boolean(clone.textContent && clone.textContent.trim().length > 0);
 
       clone.querySelectorAll('img').forEach((img) => {
         const src = img.getAttribute('src');
@@ -383,8 +698,9 @@ async function collectDocHtml(browser, route, siteUrl) {
         .map((href) => new URL(href, window.location.href).pathname);
 
       return {
-        title: titleNode?.textContent?.trim() || document.title,
+        title: cloneTitleNode?.textContent?.trim() || titleNode?.textContent?.trim() || document.title,
         html: clone.innerHTML,
+        hasContent,
         styles,
       };
     });
@@ -392,6 +708,30 @@ async function collectDocHtml(browser, route, siteUrl) {
     return data;
   } finally {
     await page.close();
+  }
+}
+
+async function waitForImagesToLoad(page, timeoutMs = 30000) {
+  await page.waitForFunction(
+    () => {
+      const imgs = Array.from(document.images || []);
+      if (imgs.length === 0) {
+        return true;
+      }
+      return imgs.every((img) => img.complete);
+    },
+    null,
+    {timeout: timeoutMs}
+  );
+
+  const brokenImages = await page.evaluate(() =>
+    Array.from(document.images || [])
+      .filter((img) => img.complete && img.naturalWidth === 0)
+      .map((img) => img.currentSrc || img.src)
+  );
+
+  if (brokenImages.length > 0) {
+    throw new Error(`Broken images detected in PDF page: ${brokenImages.slice(0, 5).join(', ')}`);
   }
 }
 
@@ -406,10 +746,11 @@ async function generate() {
     DOCUSAURUS_URL: siteUrl(),
   });
 
-  const docRouteMap = buildDocRouteMapFromMetadata();
-  console.log(`[PDF] Loaded ${docRouteMap.size} doc route mappings from metadata.`);
+  const docMetaMap = buildDocMetaMapFromMetadata();
+  console.log(`[PDF] Loaded ${docMetaMap.size} doc route mappings from metadata.`);
 
   ensureDir(tempDir);
+  ensureDir(pdfAssetDir);
 
   const sections = buildSectionsFromSidebar();
   const server = createStaticServer(buildDir, HOST, portRef);
@@ -417,6 +758,7 @@ async function generate() {
   console.log(`[PDF] Serving build output at ${siteUrl()}`);
 
   const browser = await chromium.launch({headless: true});
+  const assetCache = new Map();
 
   try {
     for (const section of sections) {
@@ -424,14 +766,32 @@ async function generate() {
       const docs = [];
       const styleSet = new Set();
 
+      const coverMeta =
+        section.docIds
+          .map((docId) => docMetaMap.get(docId))
+          .find((docMeta) => Boolean(docMeta?.frontMatter?.pdf_cover_template)) ||
+        docMetaMap.get(section.docIds[0]);
+
+      const coverConfig = buildCoverConfig(section.title, coverMeta?.frontMatter || {});
+
       for (const docId of section.docIds) {
-        const route = docRouteMap.get(docId) || docIdToRoute(docId);
+        const docMeta = docMetaMap.get(docId);
+        if (docMeta?.frontMatter?.pdf_cover_template === true) {
+          continue;
+        }
+
+        const route = docMeta?.permalink || docIdToRoute(docId);
         try {
           const docData = await collectDocHtml(browser, route, siteUrl());
+          if (!docData.hasContent) {
+            console.log(`[PDF] Skipping ${route} after web-only content stripping (no printable content).`);
+            continue;
+          }
+
           docs.push({
             route,
             title: docData.title,
-            html: docData.html,
+            html: await localizeHtmlImages(docData.html, siteUrl(), assetCache),
           });
           docData.styles.forEach((styleHref) => styleSet.add(styleHref));
         } catch (error) {
@@ -447,9 +807,9 @@ async function generate() {
       }
 
       const html = sectionHtml({
-        sectionTitle: section.title,
         cssHrefs: [...styleSet],
         docs,
+        coverConfig,
       });
 
       const htmlPath = path.join(tempDir, `${section.key}.html`);
@@ -458,6 +818,7 @@ async function generate() {
       const printPage = await browser.newPage();
       try {
         await printPage.goto(`${siteUrl()}/_pdf_tmp/${section.key}.html`, {waitUntil: 'networkidle'});
+        await waitForImagesToLoad(printPage);
         await printPage.emulateMedia({media: 'print'});
         await printPage.pdf({
           path: path.join(outputDir, section.outputFile),

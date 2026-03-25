@@ -31,6 +31,104 @@
   gap: 0.75rem;
 }
 
+.askAiSearchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.askAiSearchInput {
+  min-width: 320px;
+  max-width: 640px;
+  width: min(100%, 640px);
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  font-size: 1rem;
+}
+
+:global([data-theme='light']) .askAiSearchInput {
+  background: #ffffff;
+  color: #111111;
+}
+
+:global([data-theme='dark']) .askAiSearchInput {
+  background: #ffffff;
+  color: #111111;
+}
+
+@media screen and (max-width: 996px) {
+  .askAiSearchInput {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+.suggestedPromptsContainer {
+  margin-top: 2rem;
+}
+
+.suggestedPromptsLabel {
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.suggestedPromptsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.suggestedPromptButton {
+  padding: 0.5rem 0.875rem;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-color-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  line-height: 1.4;
+  max-width: 200px;
+}
+
+.suggestedPromptButton:hover {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-600);
+  color: var(--ifm-color-primary-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestedPromptButton:active {
+  transform: scale(0.98);
+}
+
+:global([data-theme='light']) .suggestedPromptButton {
+  border-color: var(--app-outline-stroke-color);
+}
+
+:global([data-theme='dark']) .suggestedPromptButton {
+  background-color: #f9f7f2;
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-emphasis-600);
+}
+
+:global([data-theme='dark']) .suggestedPromptButton:hover {
+  background-color: #f9f7f2;
+  border-color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-primary-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 .homeCardsSection {
   padding: 3rem 0;
 }
@@ -55,8 +153,17 @@
   border-color: var(--app-outline-stroke-color);
 }
 
+:global([data-theme='dark']) .homeCard {
+  background-color: #f9f7f2;
+  color: #111111;
+}
+
 .homeCardTitle {
   margin-bottom: 0;
+}
+
+:global([data-theme='dark']) .homeCardTitle {
+  color: #111111;
 }
 
 .homeCardDescription {

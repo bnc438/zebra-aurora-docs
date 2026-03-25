@@ -42,8 +42,6 @@ skill_level: 'All'
 
 ---
 
-# Release Notes: Zebra Aurora Focus 10.0.15
-
 This release of Zebra Aurora Focus (V10.0.15) introduces significant enhancements, including the ability to save intermediate images, view timestamps in the results log, decode multiple 1D barcodes simultaneously, and adds support for the Zebra Integrated Multi-Function Light (ZIML) on FS42 2MP devices. It also features improvements to JavaScript capabilities and overall system stability.
 
 ## Important Notes

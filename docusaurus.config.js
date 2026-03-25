@@ -4,6 +4,9 @@
 const {themes} = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
+const enableInternalAnalytics =
+  process.env.ASKAI_INTERNAL_ANALYTICS === 'true'
+  || process.env.NODE_ENV !== 'production';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,6 +40,10 @@ const config = {
     locales: ['en'],
   },
 
+  customFields: {
+    enableInternalAnalytics,
+  },
+
   presets: [
     [
       'classic',
@@ -47,6 +54,9 @@ const config = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/bnc438/zebra-aurora-docs/tree/main/',
+        },
+        pages: {
+          exclude: enableInternalAnalytics ? [] : ['**/ask-ai-insights.{js,jsx,ts,tsx,md,mdx}'],
         },
         blog: false, // We disabled the blog.
         theme: {
@@ -71,6 +81,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       navbar: {
         title: 'Zebra Aurora Focus',
         logo: {
@@ -81,6 +96,11 @@ const config = {
         // THIS 'items' ARRAY IS THE MOST IMPORTANT PART
         items: [
           {
+            to: '/docs/t-aurora-focus-getting-started-and-mdx-summary',
+            position: 'left',
+            label: 'Getting Started',
+          },
+          {
             to: '/docs/licensing/',
             position: 'left',
             label: 'Licensing',
@@ -90,6 +110,15 @@ const config = {
             position: 'right',
             label: 'Ask AI',
           },
+          ...(enableInternalAnalytics
+            ? [
+                {
+                  to: '/ask-ai-insights',
+                  position: 'right',
+                  label: 'AskAI Insights',
+                },
+              ]
+            : []),
         ],
       },
       footer: {

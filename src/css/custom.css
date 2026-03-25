@@ -63,6 +63,13 @@
   --ifm-footer-background-color: #003fbd;
 }
 
+[data-theme='dark'] .footer--dark {
+  --ifm-footer-background-color: #000000;
+  --ifm-footer-color: #ffffff;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-title-color: #ffffff;
+}
+
 /*
  * ============================================================================
  *  DARK THEME
@@ -193,6 +200,13 @@ img {
 img[src*='z-logo-b.svg'],
 img[src*='z-logo-bw.svg'] {
   border: 0;
+}
+
+/* Hide auto-generated docs table of contents globally */
+.theme-doc-toc-desktop,
+.theme-doc-toc-mobile,
+.table-of-contents {
+  display: none !important;
 }
 
 /*

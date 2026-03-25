@@ -45,6 +45,11 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Getting Started',
+      items: ['t-aurora-focus-getting-started-and-mdx-summary'],
+    },
+    {
+      type: 'category',
       label: 'JavaScript Developers Guide',
       collapsible: true,
       collapsed: true,

@@ -5,8 +5,6 @@ title: 'Input Data'
 
 import MonacoSandbox from '@site/src/components/MonacoSandbox';
 
-# Input Data
-
 The function `onResults` takes only one argument. This argument contains the output structure of all tools in the current job.
 
 The `tool_results` and `tool_results_by_names` fields contain tools that display in the job but allow access to them differently. For example, `tool_results` is a list of tools where each index already has a defined tool type. In cases where the engine does not yet support the tools, the index takes the value `null`. The tools are sorted in the order they display in the job.
@@ -329,6 +327,8 @@ interface ILineArguments {
 
 ```
 
+<div data-no-pdf="true">
+
 ## Monaco Sandbox
 
 <MonacoSandbox
@@ -339,3 +339,6 @@ interface ILineArguments {
     };
 }`}
 />
+
+</div>
+

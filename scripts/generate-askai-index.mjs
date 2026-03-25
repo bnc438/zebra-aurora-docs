@@ -4,6 +4,7 @@ import path from 'node:path';
 const workspaceRoot = process.cwd();
 const docsRoot = path.join(workspaceRoot, 'docs');
 const outputPath = path.join(workspaceRoot, 'static', 'askai-index.json');
+const SKIPPED_HEADINGS = new Set(['monaco sandbox']);
 
 function walk(dirPath) {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
@@ -44,16 +45,41 @@ function parseFrontMatter(content) {
 
 function stripMarkdown(text) {
   return text
+    .replace(/^import\s.+$/gm, ' ')
+    .replace(/^export\s+default\s.+$/gm, ' ')
     .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/```[a-z0-9-]*|```/gi, ' ')
+    .replace(/<MonacoSandbox[\s\S]*?\/?>/g, ' ')
+    .replace(/<ZoomableImage[\s\S]*?\/?>/g, ' ')
+    .replace(/<DownloadSectionPdfButton[\s\S]*?\/?>/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
     .replace(/`([^`]+)`/g, '$1')
     .replace(/!\[[^\]]*\]\([^\)]*\)/g, ' ')
     .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
+    .replace(/^:::[^\n]*$/gm, ' ')
+    .replace(/^---$/gm, ' ')
     .replace(/^\s{0,3}#{1,6}\s+/gm, '')
     .replace(/[>*_~]/g, ' ')
     .replace(/\|/g, ' ')
-    .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function inferCategory(url) {
+  if (url.startsWith('/docs/releases/') || url.startsWith('/docs/release-notes')) {
+    return 'release-notes';
+  }
+  if (url.startsWith('/docs/licensing')) {
+    return 'licensing';
+  }
+  if (
+    url.startsWith('/docs/javascript-developers-guide')
+    || url.includes('/aurora-js-')
+    || url.includes('/scripting-')
+  ) {
+    return 'javascript';
+  }
+  return 'general';
 }
 
 function buildDocUrl(filePath, frontMatter) {
@@ -77,7 +103,7 @@ function splitSections(body, fallbackTitle) {
 
   const flush = () => {
     const cleaned = stripMarkdown(buffer.join('\n'));
-    if (cleaned.length > 60) {
+    if (!SKIPPED_HEADINGS.has(String(heading || '').trim().toLowerCase()) && cleaned.length > 60) {
       sections.push({ heading, text: cleaned.slice(0, 1400) });
     }
     buffer = [];
@@ -111,6 +137,8 @@ for (const filePath of files) {
       heading: section.heading,
       url,
       text: section.text,
+      contentType: frontMatter.content_type || '',
+      category: inferCategory(url),
     });
   }
 }
