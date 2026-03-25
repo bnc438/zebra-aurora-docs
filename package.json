@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "prestart": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
+    "prestart:dev": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
     "prebuild": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
     "predeploy": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "start:dev": "ASKAI_INTERNAL_ANALYTICS=true docusaurus start",
     "build": "docusaurus build",
     "build:customer": "docusaurus build",
     "build:dev": "ASKAI_INTERNAL_ANALYTICS=true docusaurus build",
