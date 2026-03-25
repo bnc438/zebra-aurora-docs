@@ -2,6 +2,26 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
+## Opening in VS Code
+
+1. Clone the repository and open the folder in VS Code:
+
+   ```bash
+   git clone https://github.com/bnc438/zebra-aurora-docs.git
+   code zebra-aurora-docs
+   ```
+
+   Or, if you already have the repo cloned, open the folder from **File → Open Folder…** (or run `code .` from the repo root).
+
+2. When prompted, install the **recommended extensions** (MDX language support, ESLint, Prettier). You can also install them manually from the Extensions view by filtering with `@recommended`.
+
+3. Install dependencies and start the dev server:
+
+   ```bash
+   npm install
+   npm start
+   ```
+
 ## Installation
 
 ```bash
