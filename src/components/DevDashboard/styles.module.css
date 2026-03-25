@@ -345,9 +345,9 @@
   border-color: #f5a0a0;
 }
 
-[data-theme='dark'] .statusOk  { background: #0d2e0d; color: #7ed87e; border-color: #2a5a2a; }
-[data-theme='dark'] .statusWarn { background: #2a2100; color: #f0c040; border-color: #5a4500; }
-[data-theme='dark'] .statusError{ background: #2a0000; color: #f5a0a0; border-color: #5a0000; }
+[data-theme='dark'] .statusOk  { background: #0a2e0a; color: #9ef09e; border-color: #2e6b2e; }
+[data-theme='dark'] .statusWarn { background: #2a1f00; color: #ffd357; border-color: #6b5000; }
+[data-theme='dark'] .statusError{ background: #2e0808; color: #ff9a9a; border-color: #6b1414; }
 
 /* ---------------------------------------------------------------------------
  * Doc table (compact)

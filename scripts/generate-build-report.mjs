@@ -226,6 +226,11 @@ export function guessDeviceType(title, body) {
   return null;
 }
 
+/** Returns true when the text context suggests job deployment content (but not CI deploy). */
+function isJobDeploymentContext(text) {
+  return /deploy|job/i.test(text) && !/deploy.*build/i.test(text);
+}
+
 /** Guess use_case from title/body keywords. */
 export function guessUseCase(title, body) {
   const text = `${title} ${body.slice(0, 2000)}`.toLowerCase();
@@ -238,7 +243,7 @@ export function guessUseCase(title, body) {
   if (/tcp|serial|usb.?cdc|ethernet|rs.?232/i.test(text)) cases.push('Communication / Integration');
   if (/licens/i.test(text)) cases.push('Licensing');
   if (/anomaly|deep.?learning|ai\b/i.test(text)) cases.push('Deep Learning / Anomaly Detection');
-  if (/deploy|job/i.test(text) && !/deploy.*build/i.test(text)) cases.push('Job Deployment');
+  if (isJobDeploymentContext(text)) cases.push('Job Deployment');
   return cases.length > 0 ? cases : null;
 }
 
@@ -472,16 +477,15 @@ for (const doc of docs) {
   }
 }
 
-// SEO health
-const seoHealth = {
-  hasTitle:       docs.filter((d) => !!d.frontmatter.title).length,
-  hasDescription: docs.filter((d) => !!d.frontmatter.description).length,
-  hasKeywords:    docs.filter((d) => {
-    const kw = d.frontmatter.keywords;
-    return kw && !(Array.isArray(kw) && kw.length === 0);
-  }).length,
-  hasSlug:        docs.filter((d) => !!d.frontmatter.slug).length,
-};
+// SEO health (single pass)
+const seoHealth = { hasTitle: 0, hasDescription: 0, hasKeywords: 0, hasSlug: 0 };
+for (const d of docs) {
+  if (d.frontmatter.title) seoHealth.hasTitle++;
+  if (d.frontmatter.description) seoHealth.hasDescription++;
+  const kw = d.frontmatter.keywords;
+  if (kw && !(Array.isArray(kw) && kw.length === 0)) seoHealth.hasKeywords++;
+  if (d.frontmatter.slug) seoHealth.hasSlug++;
+}
 
 // ---------------------------------------------------------------------------
 // Output

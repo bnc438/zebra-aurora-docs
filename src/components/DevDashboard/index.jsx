@@ -427,7 +427,8 @@ function AskAiPanel({ report }) {
   const sectionCounts = {};
   if (index?.records) {
     for (const rec of index.records) {
-      const parts = (rec.url || '').replace('/docs/', '').split('/');
+      const url = (rec.url || '').replace(/^\/docs\//, '');
+      const parts = url.split('/');
       const section = parts.length > 1 ? parts[0] : 'root';
       sectionCounts[section] = (sectionCounts[section] || 0) + 1;
     }
@@ -473,7 +474,7 @@ function FreshnessPanel({ report }) {
 
   const stale = docs.filter((d) => {
     const rev = d.frontmatter.last_reviewed;
-    return !rev || rev === null || /\[.*?\]/.test(String(rev));
+    return !rev || /\[.*?\]/.test(String(rev));
   }).length;
   const reviewed = docs.length - stale;
 
