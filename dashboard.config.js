@@ -42,6 +42,39 @@ const dashboardConfig = {
   placeholderPattern: /\[.*?\]|TODO|TBD|placeholder|\(Automated by build process\)/i,
 
   /**
+   * Optional JIRA integration configuration.
+   * When jiraBaseUrl + jiraToken are set (or passed as env vars JIRA_BASE_URL / JIRA_TOKEN),
+   * generate-build-report.mjs will call the JIRA REST API v3 to populate live epic data.
+   * Leave blank to use the built-in mock seed data.
+   *
+   *   jiraBaseUrl  – e.g. "https://your-org.atlassian.net"
+   *   projectKey   – e.g. "AURORA"
+   *   epicKey      – e.g. "AURORA-42"  (current sprint epic)
+   *   ghOwner      – GitHub owner for PR↔ticket linkage
+   *   ghRepo       – GitHub repo  for PR↔ticket linkage
+   */
+  jira: {
+    jiraBaseUrl: process.env.JIRA_BASE_URL || '',
+    projectKey:  process.env.JIRA_PROJECT_KEY || 'AURORA',
+    epicKey:     process.env.JIRA_EPIC_KEY    || '',
+    ghOwner:     process.env.GH_OWNER         || '',
+    ghRepo:      process.env.GH_REPO          || '',
+  },
+
+  /**
+   * Optional Microsoft Clarity integration configuration.
+   * When CLARITY_API_KEY env var is set, generate-build-report.mjs will call
+   * the Clarity Data Export API to populate live UX metrics.
+   * Leave blank to use the built-in mock seed data.
+   *
+   *   clarityProjectId – found in the Clarity project settings URL
+   */
+  clarity: {
+    clarityProjectId: process.env.CLARITY_PROJECT_ID || '',
+    clarityApiKey:    process.env.CLARITY_API_KEY     || '',
+  },
+
+  /**
    * Taxonomy fields whose unique values are enumerated in the aggregate report.
    * Must reference keys that exist in the `fields` array above.
    */
