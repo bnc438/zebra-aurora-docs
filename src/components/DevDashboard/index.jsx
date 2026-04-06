@@ -1112,8 +1112,8 @@ function JiraLinkagePanel({ jira }) {
               <tr key={`${row.jiraKey}-${row.prNumber}`}>
                 <td>
                   <span className={styles.linkageKey}>
-                    {row.prUrl
-                      ? <a href={row.prUrl} target="_blank" rel="noopener noreferrer">{row.jiraKey}</a>
+                    {row.jiraUrl
+                      ? <a href={row.jiraUrl} target="_blank" rel="noopener noreferrer">{row.jiraKey}</a>
                       : row.jiraKey}
                   </span>
                 </td>

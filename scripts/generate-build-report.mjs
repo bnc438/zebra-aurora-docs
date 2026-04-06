@@ -540,6 +540,8 @@ for (const d of docs) {
 // ---------------------------------------------------------------------------
 // JIRA section — live fetch when env vars present, otherwise mock seed data
 // ---------------------------------------------------------------------------
+// Regex for extracting JIRA ticket keys from PR titles/bodies
+const JIRA_TICKET_RE = /([A-Z]+-\d+)/g;
 /**
  * buildJiraSection()
  *
@@ -570,9 +572,10 @@ for (const d of docs) {
 async function buildJiraSection(config) {
   const { jiraBaseUrl, projectKey, epicKey, ghOwner, ghRepo } = config?.jira || {};
   const jiraToken = process.env.JIRA_TOKEN || '';
+  const jiraEmail = process.env.JIRA_EMAIL || '';
   const ghToken   = process.env.GH_TOKEN   || '';
 
-  const canUseLive = jiraBaseUrl && jiraToken && epicKey;
+  const canUseLive = jiraBaseUrl && jiraToken && jiraEmail && epicKey;
 
   // ── Shared service-request placeholder (always mock for now) ──────────────
   const serviceRequest = {
@@ -607,6 +610,7 @@ async function buildJiraSection(config) {
           jiraKey: `${projectKey || 'AURORA'}-43`,
           summary: 'Update licensing documentation',
           status:  'In Progress',
+          jiraUrl:  null,
           prNumber: 87,
           prTitle: 'docs: update licensing page',
           prUrl:   `https://github.com/${ghOwner || 'org'}/${ghRepo || 'repo'}/pull/87`,
@@ -616,6 +620,7 @@ async function buildJiraSection(config) {
           jiraKey: `${projectKey || 'AURORA'}-44`,
           summary: 'Add SDK quick-start guide',
           status:  'Done',
+          jiraUrl:  null,
           prNumber: 91,
           prTitle: 'docs: sdk quick-start',
           prUrl:   `https://github.com/${ghOwner || 'org'}/${ghRepo || 'repo'}/pull/91`,
@@ -625,6 +630,7 @@ async function buildJiraSection(config) {
           jiraKey: `${projectKey || 'AURORA'}-45`,
           summary: 'Refresh API reference for v3',
           status:  'Open',
+          jiraUrl:  null,
           prNumber: null,
           prTitle: null,
           prUrl:   null,
@@ -634,6 +640,7 @@ async function buildJiraSection(config) {
           jiraKey: `${projectKey || 'AURORA'}-46`,
           summary: 'Fix broken anchors in security guide',
           status:  'Done',
+          jiraUrl:  null,
           prNumber: 94,
           prTitle: 'fix: broken anchors in security guide',
           prUrl:   `https://github.com/${ghOwner || 'org'}/${ghRepo || 'repo'}/pull/94`,
@@ -643,6 +650,7 @@ async function buildJiraSection(config) {
           jiraKey: `${projectKey || 'AURORA'}-47`,
           summary: 'Add glossary for scanner terminology',
           status:  'Open',
+          jiraUrl:  null,
           prNumber: null,
           prTitle: null,
           prUrl:   null,
@@ -654,7 +662,7 @@ async function buildJiraSection(config) {
   }
 
   // ── Live JIRA fetch ───────────────────────────────────────────────────────
-  const authHeader = `Basic ${Buffer.from(`user:${jiraToken}`).toString('base64')}`;
+  const authHeader = `Basic ${Buffer.from(`${jiraEmail}:${jiraToken}`).toString('base64')}`;
   const headers    = { Authorization: authHeader, Accept: 'application/json' };
 
   async function jiraGet(path) {
@@ -694,7 +702,6 @@ async function buildJiraSection(config) {
 
   // JIRA ↔ PR linkage via GitHub API (optional)
   const jiraLinks = [];
-  const ticketPattern = new RegExp(`([A-Z]+-\\d+)`, 'g');
   if (ghOwner && ghRepo && ghToken) {
     const ghHeaders = { Authorization: `token ${ghToken}`, Accept: 'application/vnd.github+json' };
     const prsRes = await fetch(
@@ -703,9 +710,19 @@ async function buildJiraSection(config) {
     );
     if (prsRes.ok) {
       const prs = await prsRes.json();
+      // Build a map of ticket key → JIRA details from the already-fetched epic tickets
+      const ticketCache = {};
+      for (const t of allTickets) {
+        ticketCache[t.key] = {
+          summary: t.fields.summary,
+          status:  t.fields.status?.name || 'Unknown',
+        };
+      }
       for (const pr of prs) {
         const body  = `${pr.title || ''} ${pr.body || ''}`;
-        const keys  = [...new Set([...body.matchAll(ticketPattern)].map((m) => m[1]))];
+        // Reset lastIndex before each use since the regex is stateful
+        JIRA_TICKET_RE.lastIndex = 0;
+        const keys  = [...new Set([...body.matchAll(JIRA_TICKET_RE)].map((m) => m[1]))];
         if (!keys.length) continue;
         const filesRes = await fetch(
           `https://api.github.com/repos/${ghOwner}/${ghRepo}/pulls/${pr.number}/files`,
@@ -715,18 +732,24 @@ async function buildJiraSection(config) {
           ? (await filesRes.json()).map((f) => f.filename)
           : [];
         for (const key of keys) {
-          // Resolve JIRA details for each key
+          // Use cached details; fall back to a single API call only for tickets outside the epic
           let summary = key;
           let status  = 'Unknown';
-          try {
-            const issue = await jiraGet(`issue/${key}?fields=summary,status`);
-            summary = issue.fields.summary;
-            status  = issue.fields.status?.name || 'Unknown';
-          } catch { /* skip if ticket not accessible */ }
+          if (ticketCache[key]) {
+            ({ summary, status } = ticketCache[key]);
+          } else {
+            try {
+              const issue = await jiraGet(`issue/${key}?fields=summary,status`);
+              summary = issue.fields.summary;
+              status  = issue.fields.status?.name || 'Unknown';
+              ticketCache[key] = { summary, status };
+            } catch { /* skip if ticket not accessible */ }
+          }
           jiraLinks.push({
             jiraKey:  key,
             summary,
             status,
+            jiraUrl:  `${jiraBaseUrl}/browse/${key}`,
             prNumber: pr.number,
             prTitle:  pr.title,
             prUrl:    pr.html_url,

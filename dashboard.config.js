@@ -43,8 +43,9 @@ const dashboardConfig = {
 
   /**
    * Optional JIRA integration configuration.
-   * When jiraBaseUrl + jiraToken are set (or passed as env vars JIRA_BASE_URL / JIRA_TOKEN),
-   * generate-build-report.mjs will call the JIRA REST API v3 to populate live epic data.
+   * When jiraBaseUrl + jiraToken + jiraEmail are set (or passed as env vars
+   * JIRA_BASE_URL / JIRA_TOKEN / JIRA_EMAIL), generate-build-report.mjs will call
+   * the JIRA REST API v3 to populate live epic data.
    * Leave blank to use the built-in mock seed data.
    *
    *   jiraBaseUrl  – e.g. "https://your-org.atlassian.net"
