@@ -86,7 +86,7 @@ const config = {
       navbar: {
         title: 'Zebra Aurora Focus',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Zebra Technologies',
           src: 'img/z-logo-b.svg',
           srcDark: 'img/z-logo-bw.svg',
         },
@@ -121,7 +121,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Zebra Technologies Corp. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
