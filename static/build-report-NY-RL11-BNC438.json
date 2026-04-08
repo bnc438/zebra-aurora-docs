@@ -1,0 +1,5148 @@
+{
+  "generatedAt": "2026-03-25T23:46:03.257Z",
+  "nodeVersion": "v24.14.0",
+  "version": "1.0.0",
+  "dashboardConfig": {
+    "sourceFile": "dashboard.config.js",
+    "trackedFields": [
+      {
+        "key": "title",
+        "label": "Title",
+        "required": true,
+        "isArray": false,
+        "chartType": "progress"
+      },
+      {
+        "key": "description",
+        "label": "Description",
+        "required": true,
+        "isArray": false,
+        "chartType": "progress"
+      },
+      {
+        "key": "status",
+        "label": "Status",
+        "required": true,
+        "isArray": false,
+        "chartType": "donut"
+      },
+      {
+        "key": "author",
+        "label": "Author",
+        "required": false,
+        "isArray": false,
+        "chartType": "bar"
+      },
+      {
+        "key": "content_type",
+        "label": "Content Type",
+        "required": true,
+        "isArray": false,
+        "chartType": "donut"
+      },
+      {
+        "key": "device_type",
+        "label": "Device Type",
+        "required": false,
+        "isArray": false,
+        "chartType": "bar"
+      },
+      {
+        "key": "use_case",
+        "label": "Use Case",
+        "required": false,
+        "isArray": true,
+        "chartType": "bar"
+      },
+      {
+        "key": "role",
+        "label": "Role",
+        "required": false,
+        "isArray": true,
+        "chartType": "bar"
+      },
+      {
+        "key": "keywords",
+        "label": "Keywords",
+        "required": false,
+        "isArray": true,
+        "chartType": "progress"
+      },
+      {
+        "key": "product_name",
+        "label": "Product Name",
+        "required": false,
+        "isArray": false,
+        "chartType": "bar"
+      },
+      {
+        "key": "product_family",
+        "label": "Product Family",
+        "required": false,
+        "isArray": false,
+        "chartType": "donut"
+      },
+      {
+        "key": "last_reviewed",
+        "label": "Last Reviewed",
+        "required": false,
+        "isArray": false,
+        "chartType": "progress"
+      },
+      {
+        "key": "version",
+        "label": "Version",
+        "required": false,
+        "isArray": false,
+        "chartType": "bar"
+      },
+      {
+        "key": "task",
+        "label": "Task",
+        "required": false,
+        "isArray": false,
+        "chartType": "bar"
+      },
+      {
+        "key": "skill_level",
+        "label": "Skill Level",
+        "required": false,
+        "isArray": false,
+        "chartType": "donut"
+      },
+      {
+        "key": "slug",
+        "label": "Slug",
+        "required": false,
+        "isArray": false,
+        "chartType": "progress"
+      }
+    ],
+    "taxonomyFields": [
+      "status",
+      "content_type",
+      "device_type",
+      "use_case",
+      "role",
+      "author",
+      "product_family",
+      "skill_level",
+      "task",
+      "product_name"
+    ],
+    "dashboardTiles": {
+      "buildOverview": {
+        "description": "High-level snapshot of documentation scale and metadata health.",
+        "metrics": {
+          "totalDocs": {
+            "label": "Total Docs",
+            "tooltip": "Measures the total number of documentation files included in the report. Optimal: steadily increasing with real product scope and no orphan/stub pages."
+          },
+          "totalWords": {
+            "label": "Total Words",
+            "tooltip": "Measures total written content volume across all docs. Optimal: sufficient depth for all topics, without unnecessary filler."
+          },
+          "avgWords": {
+            "label": "Avg Words/Doc",
+            "tooltip": "Measures average document length (total words divided by total docs). Optimal: typically 300+ words for substantive docs, with exceptions for quick references."
+          },
+          "completeness": {
+            "label": "Completeness",
+            "tooltip": "Measures percent of required frontmatter fields populated across docs. Optimal: 95-100%."
+          },
+          "healthScore": {
+            "label": "Content Health Score",
+            "tooltip": "Measures weighted health based on key metadata completeness signals. Optimal: 75%+ (green), ideally 90%+."
+          }
+        }
+      },
+      "schemaAnalytics": {
+        "description": "Taxonomy distribution across devices, roles, use cases, skill levels, and products.",
+        "metrics": {
+          "deviceType": {
+            "label": "Topics by Device Type",
+            "tooltip": "Measures how docs are distributed by device_type taxonomy. Optimal: balanced coverage aligned to supported device portfolio."
+          },
+          "roleUser": {
+            "label": "Topics by Role / User",
+            "tooltip": "Measures distribution of docs by intended user role/persona. Optimal: strong representation for all priority personas."
+          },
+          "useCase": {
+            "label": "Topics by Use Case",
+            "tooltip": "Measures distribution of docs by tagged use_case values. Optimal: coverage across all critical customer workflows, not clustered in only a few tags."
+          },
+          "skillLevel": {
+            "label": "Skill Level Distribution",
+            "tooltip": "Measures beginner/intermediate/advanced balance. Optimal: mix aligned with audience needs, with clear on-ramp for beginners."
+          },
+          "productName": {
+            "label": "Topics by Product",
+            "tooltip": "Measures doc count by product_name. Optimal: documentation depth proportional to product priority and complexity."
+          }
+        }
+      },
+      "schemaIntelligence": {
+        "description": "Field coverage and auto-generated metadata quality signals.",
+        "metrics": {
+          "guessedFields": {
+            "label": "Guessed Fields",
+            "tooltip": "Measures total frontmatter fields auto-populated by heuristics. Optimal: as low as possible, ideally 0."
+          },
+          "docsWithGuesses": {
+            "label": "Docs w/ Guesses",
+            "tooltip": "Measures number of docs containing at least one guessed field. Optimal: 0 or near 0."
+          },
+          "fullyAuthored": {
+            "label": "Fully Authored",
+            "tooltip": "Measures docs with no guessed fields. Optimal: as high as possible, ideally all docs."
+          },
+          "fieldCoverage": {
+            "label": "Field Coverage",
+            "tooltip": "Measures per-field completion percentages across the corpus. Optimal: all required fields in green (>=80%), ideally >=95%."
+          }
+        }
+      },
+      "dateFreshness": {
+        "description": "Content recency and update cadence across the documentation set.",
+        "metrics": {
+          "fresh": {
+            "label": "Fresh",
+            "tooltip": "Measures docs updated in the last 30 days. Optimal: healthy share for actively changing areas."
+          },
+          "recent": {
+            "label": "Recent",
+            "tooltip": "Measures docs updated in 30-90 days. Optimal: substantial share indicating regular maintenance."
+          },
+          "aging": {
+            "label": "Aging",
+            "tooltip": "Measures docs updated in 90-180 days. Optimal: moderate and monitored."
+          },
+          "stale": {
+            "label": "Stale",
+            "tooltip": "Measures docs not updated for 180+ days. Optimal: as low as possible."
+          },
+          "lastReviewedCoverage": {
+            "label": "Last Reviewed Coverage",
+            "tooltip": "Measures percent of docs with last_reviewed populated. Optimal: 95-100%."
+          },
+          "velocityChart": {
+            "label": "Monthly Velocity",
+            "tooltip": "Measures monthly update activity. Optimal: consistent update cadence, avoiding long flat periods."
+          },
+          "recentlyModified": {
+            "label": "Recently Modified",
+            "tooltip": "Measures the latest updated docs list for quick triage. Optimal: reflects intentional, active maintenance."
+          }
+        }
+      },
+      "seoHealth": {
+        "description": "Search discoverability readiness based on key metadata fields.",
+        "metrics": {
+          "seoScore": {
+            "label": "SEO Score",
+            "tooltip": "Measures aggregate metadata readiness (title, description, keywords, slug). Optimal: 75%+ minimum, ideally 90%+."
+          },
+          "hasDescription": {
+            "label": "Have Description",
+            "tooltip": "Measures docs with description frontmatter populated. Optimal: 100%."
+          },
+          "hasTitle": {
+            "label": "Has Title",
+            "tooltip": "Measures docs with title populated. Optimal: 100%."
+          },
+          "hasKeywords": {
+            "label": "Has Keywords",
+            "tooltip": "Measures docs with keywords populated. Optimal: near 100% for important pages."
+          },
+          "hasSlug": {
+            "label": "Has Slug",
+            "tooltip": "Measures docs with explicit slug metadata. Optimal: near 100% for stable, curated URLs."
+          }
+        }
+      },
+      "analytics": {
+        "description": "Publication status and analytics instrumentation health.",
+        "metrics": {
+          "gaStatus": {
+            "label": "GA Status",
+            "tooltip": "Measures whether Google Analytics is detected and active. Optimal: Active in environments where analytics is expected."
+          },
+          "published": {
+            "label": "Published",
+            "tooltip": "Measures count of docs marked Published. Optimal: high count for mature documentation sets."
+          },
+          "draft": {
+            "label": "Draft",
+            "tooltip": "Measures count of docs still marked Draft. Optimal: low and actively decreasing."
+          },
+          "publishRate": {
+            "label": "Publish Rate",
+            "tooltip": "Measures Published divided by total docs. Optimal: >=95% for production-ready repositories."
+          }
+        }
+      },
+      "contentPerformance": {
+        "description": "Content depth distribution and thin-page detection.",
+        "metrics": {
+          "avgWords": {
+            "label": "Avg Words",
+            "tooltip": "Measures average doc length. Optimal: generally 300+ words for deep topics, with concise exceptions."
+          },
+          "totalWords": {
+            "label": "Total Words",
+            "tooltip": "Measures total corpus size. Optimal: reflects complete coverage for all supported features."
+          },
+          "thinDocs": {
+            "label": "Thin Docs (<100w)",
+            "tooltip": "Measures docs with fewer than 100 words. Optimal: 0 or very low."
+          },
+          "distribution": {
+            "label": "Word Distribution",
+            "tooltip": "Measures how docs are spread across length buckets. Optimal: majority in mid/deep buckets, fewer ultra-short docs."
+          },
+          "topDocs": {
+            "label": "Top 5 by Length",
+            "tooltip": "Measures longest docs for visibility and possible split/refactor review. Optimal: long docs are intentional and well-structured."
+          }
+        }
+      },
+      "askai": {
+        "description": "Ask AI index size, source coverage, and section distribution.",
+        "metrics": {
+          "records": {
+            "label": "Records",
+            "tooltip": "Measures total indexed search records/chunks. Optimal: complete indexing of all intended content."
+          },
+          "sourceDocs": {
+            "label": "Source Docs",
+            "tooltip": "Measures docs contributing to the Ask AI index. Optimal: near total documentation count."
+          },
+          "indexSize": {
+            "label": "Index Size",
+            "tooltip": "Measures serialized index size in KB. Optimal: as small as practical while retaining full answer quality."
+          },
+          "docCoverage": {
+            "label": "Doc Coverage",
+            "tooltip": "Measures percent of docs represented in the index. Optimal: 100% or near 100%."
+          },
+          "sectionBreakdown": {
+            "label": "By Section",
+            "tooltip": "Measures indexed records per section. Optimal: distribution aligned with section content volume and priority."
+          }
+        }
+      },
+      "contentQuality": {
+        "description": "Placeholder hygiene and metadata completeness quality checks.",
+        "metrics": {
+          "placeholders": {
+            "label": "Docs with Placeholders",
+            "tooltip": "Measures docs containing placeholder-style text patterns. Optimal: 0."
+          },
+          "missingTitle": {
+            "label": "Missing Title",
+            "tooltip": "Measures docs missing title frontmatter. Optimal: 0."
+          },
+          "missingDescription": {
+            "label": "Missing Description",
+            "tooltip": "Measures docs missing description frontmatter. Optimal: 0."
+          },
+          "missingKeywords": {
+            "label": "Missing Keywords",
+            "tooltip": "Measures docs missing keywords frontmatter. Optimal: 0 or very low for non-reference pages."
+          },
+          "placeholdersByField": {
+            "label": "Placeholders by Field",
+            "tooltip": "Measures placeholder concentration by field for cleanup prioritization. Optimal: all fields at 0."
+          },
+          "needsAttention": {
+            "label": "Needs Attention",
+            "tooltip": "Measures lowest-quality docs by completeness/guessing. Optimal: list shrinks over time as docs are remediated."
+          }
+        }
+      },
+      "accessibility": {
+        "description": "Static accessibility signal tracking for inclusive documentation quality.",
+        "metrics": {
+          "a11yScore": {
+            "label": "A11y Score",
+            "tooltip": "Measures aggregate accessibility quality based on common issue frequency. Optimal: 90%+."
+          },
+          "docsWithIssues": {
+            "label": "Docs with Issues",
+            "tooltip": "Measures docs with at least one accessibility issue. Optimal: 0."
+          },
+          "imagesNoAlt": {
+            "label": "Images No Alt",
+            "tooltip": "Measures image references missing alt text. Optimal: 0."
+          },
+          "vagueLinks": {
+            "label": "Vague Links",
+            "tooltip": "Measures non-descriptive link text instances. Optimal: 0."
+          },
+          "headingSkips": {
+            "label": "Heading Skips",
+            "tooltip": "Measures heading hierarchy skip occurrences. Optimal: 0."
+          },
+          "emptyHeadings": {
+            "label": "Empty Headings",
+            "tooltip": "Measures headings without text. Optimal: 0."
+          }
+        }
+      },
+      "buildStability": {
+        "description": "Structural and metadata integrity checks that can impact build and UX reliability.",
+        "metrics": {
+          "stabilityScore": {
+            "label": "Stability Score",
+            "tooltip": "Measures overall stability after penalizing critical and warning-level issues. Optimal: 90%+."
+          },
+          "criticalIssues": {
+            "label": "Critical Issues",
+            "tooltip": "Measures critical problems like duplicate slugs and broken images. Optimal: 0."
+          },
+          "warnings": {
+            "label": "Warnings",
+            "tooltip": "Measures warning-level issues such as missing required metadata and invalid dates. Optimal: 0."
+          },
+          "duplicateSlugs": {
+            "label": "Duplicate Slugs",
+            "tooltip": "Measures conflicting URL slug occurrences. Optimal: 0."
+          },
+          "brokenImages": {
+            "label": "Broken Images",
+            "tooltip": "Measures broken/missing image references. Optimal: 0."
+          },
+          "missingRequired": {
+            "label": "Missing Required",
+            "tooltip": "Measures docs missing required frontmatter fields. Optimal: 0."
+          },
+          "duplicateTitles": {
+            "label": "Duplicate Titles",
+            "tooltip": "Measures repeated titles across docs. Optimal: 0 or intentionally rare."
+          }
+        }
+      },
+      "dashboardConfig": {
+        "description": "Runtime view of the active dashboard configuration used to generate report data.",
+        "metrics": {
+          "trackedFields": {
+            "label": "Tracked Fields",
+            "tooltip": "Measures total configured frontmatter fields analyzed by the report pipeline. Optimal: includes all metadata fields you care about enforcing."
+          },
+          "requiredFields": {
+            "label": "Required Fields",
+            "tooltip": "Measures configured fields marked required for completeness scoring. Optimal: includes all mandatory publishing metadata and excludes optional taxonomy-only fields."
+          },
+          "taxonomyFields": {
+            "label": "Taxonomy Fields",
+            "tooltip": "Measures fields used for taxonomy breakdown charts and distributions. Optimal: includes stable categorization keys used for planning and content gaps."
+          }
+        }
+      }
+    },
+    "placeholderPattern": "\\[.*?\\]|TODO|TBD|placeholder|\\(Automated by build process\\)"
+  },
+  "aggregate": {
+    "totalDocs": 66,
+    "totalWords": 45689,
+    "avgWords": 692,
+    "avgCompleteness": 0,
+    "guessing": {
+      "totalGuessedFields": 359,
+      "docsWithGuesses": 66
+    },
+    "placeholders": {
+      "docsWithPlaceholders": 54,
+      "byField": {
+        "_body": 54
+      }
+    },
+    "fieldCoverage": {
+      "title": 0,
+      "description": 0,
+      "status": 0,
+      "author": 0,
+      "content_type": 0,
+      "device_type": 0,
+      "use_case": 0,
+      "role": 0,
+      "keywords": 0,
+      "product_name": 0,
+      "product_family": 0,
+      "last_reviewed": 0,
+      "version": 0,
+      "task": 0,
+      "skill_level": 0,
+      "slug": 0
+    },
+    "fieldCoveragePercent": {
+      "title": 0,
+      "description": 0,
+      "status": 0,
+      "author": 0,
+      "content_type": 0,
+      "device_type": 0,
+      "use_case": 0,
+      "role": 0,
+      "keywords": 0,
+      "product_name": 0,
+      "product_family": 0,
+      "last_reviewed": 0,
+      "version": 0,
+      "task": 0,
+      "skill_level": 0,
+      "slug": 0
+    },
+    "taxonomy": {
+      "status": {
+        "Draft": 45,
+        "Published": 21
+      },
+      "content_type": {
+        "Concept": 6,
+        "Guide": 1,
+        "Index": 4,
+        "Tutorial": 34,
+        "Reference": 2,
+        "Release Notes": 17
+      },
+      "device_type": {
+        "Smart Camera": 26,
+        "Smart Camera / Fixed Scanner": 19,
+        "Fixed Scanner": 1
+      },
+      "use_case": {
+        "GPIO Control": 26,
+        "Application Development": 58,
+        "Communication / Integration": 9,
+        "Job Deployment": 18,
+        "Deep Learning / Anomaly Detection": 17,
+        "Barcode Reading": 9,
+        "Licensing": 34,
+        "Optical Character Recognition (OCR)": 14,
+        "Assembly Verification": 13
+      },
+      "role": {
+        "Integrator/Developer": 60,
+        "Controls Engineer": 7,
+        "System Administrator": 17
+      },
+      "author": {},
+      "product_family": {},
+      "skill_level": {
+        "Advanced": 2,
+        "Beginner": 34,
+        "All": 21,
+        "Intermediate": 2
+      },
+      "task": {},
+      "product_name": {}
+    },
+    "seoHealth": {
+      "hasTitle": 0,
+      "hasDescription": 0,
+      "hasKeywords": 0,
+      "hasSlug": 0
+    },
+    "sections": {
+      "root": 32,
+      "licensing": 14,
+      "release-notes": 19,
+      "user-guide": 1
+    },
+    "dateAnalytics": {
+      "fresh": 66,
+      "recent": 0,
+      "aging": 0,
+      "stale": 0,
+      "lastReviewedCount": 0,
+      "lastReviewedPercent": 0,
+      "modifiedByMonth": {
+        "2026-03": 66
+      }
+    },
+    "a11yStats": {
+      "docsWithIssues": 9,
+      "imgNoAlt": 30,
+      "nonDescriptiveLinks": 0,
+      "headingSkips": 1,
+      "emptyHeadings": 0
+    },
+    "buildStability": {
+      "docsWithIssues": 66,
+      "docsWithMissingRequired": 66,
+      "brokenImageRefs": 0,
+      "invalidDateFormats": 0,
+      "duplicateSlugsCount": 0,
+      "duplicateSlugs": [],
+      "duplicateTitlesCount": 1,
+      "duplicateTitles": [
+        "index"
+      ]
+    }
+  },
+  "docs": [
+    {
+      "filePath": "docs/c-aurora-js-debugging.mdx",
+      "url": "/docs/c-aurora-js-debugging",
+      "title": "c-aurora-js-debugging",
+      "section": "root",
+      "wordCount": 560,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.929Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Concept",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Communication / Integration",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer",
+            "Controls Engineer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Advanced",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/c-aurora-js-environment.mdx",
+      "url": "/docs/c-aurora-js-environment",
+      "title": "c-aurora-js-environment",
+      "section": "root",
+      "wordCount": 203,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.936Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Concept",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Communication / Integration",
+            "Deep Learning / Anomaly Detection",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer",
+            "Controls Engineer"
+          ],
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 4
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "heading_skip",
+          "count": 1
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/c-aurora-js-example-script-lifecycle.mdx",
+      "url": "/docs/c-aurora-js-example-script-lifecycle",
+      "title": "c-aurora-js-example-script-lifecycle",
+      "section": "root",
+      "wordCount": 523,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.945Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Concept",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer",
+            "Controls Engineer"
+          ],
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/c-aurora-js-program-structure.mdx",
+      "url": "/docs/c-aurora-js-program-structure",
+      "title": "c-aurora-js-program-structure",
+      "section": "root",
+      "wordCount": 46,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.951Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Concept",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer",
+            "Controls Engineer"
+          ],
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/c-aurora-js-text-encoding.mdx",
+      "url": "/docs/c-aurora-js-text-encoding",
+      "title": "c-aurora-js-text-encoding",
+      "section": "root",
+      "wordCount": 117,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.957Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Concept",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "Application Development"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer",
+            "Controls Engineer"
+          ],
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/c-service-information.mdx",
+      "url": "/docs/c-service-information",
+      "title": "c-service-information",
+      "section": "root",
+      "wordCount": 152,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.962Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Concept",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Communication / Integration"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer",
+            "Controls Engineer"
+          ],
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 2
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/g-aurora-js-obtaining-the-device-mac-address.mdx",
+      "url": "/docs/g-aurora-js-obtaining-the-device-mac-address",
+      "title": "g-aurora-js-obtaining-the-device-mac-address",
+      "section": "root",
+      "wordCount": 70,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.970Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Guide",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer",
+            "Controls Engineer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/index.mdx",
+      "url": "/docs/index",
+      "title": "index",
+      "section": "root",
+      "wordCount": 178,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.976Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Index",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/index.mdx",
+      "url": "/docs/licensing",
+      "title": "index",
+      "section": "licensing",
+      "wordCount": 20,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.987Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Index",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-acquiring-an-emulator-license-key.mdx",
+      "url": "/docs/licensing/t-aurora-acquiring-an-emulator-license-key",
+      "title": "t-aurora-acquiring-an-emulator-license-key",
+      "section": "licensing",
+      "wordCount": 310,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.992Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 9
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-activating-a-license-key-in-aurora-focus.mdx",
+      "url": "/docs/licensing/t-aurora-activating-a-license-key-in-aurora-focus",
+      "title": "t-aurora-activating-a-license-key-in-aurora-focus",
+      "section": "licensing",
+      "wordCount": 372,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:06.999Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 7
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 3
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-deactivating-a-license-using-the-web-hmi.mdx",
+      "url": "/docs/licensing/t-aurora-deactivating-a-license-using-the-web-hmi",
+      "title": "t-aurora-deactivating-a-license-using-the-web-hmi",
+      "section": "licensing",
+      "wordCount": 215,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.005Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 7
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 3
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-deactivating-a-license.mdx",
+      "url": "/docs/licensing/t-aurora-deactivating-a-license",
+      "title": "t-aurora-deactivating-a-license",
+      "section": "licensing",
+      "wordCount": 194,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.011Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 4
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-deprovisioning-devices-in-aurora-focus.mdx",
+      "url": "/docs/licensing/t-aurora-deprovisioning-devices-in-aurora-focus",
+      "title": "t-aurora-deprovisioning-devices-in-aurora-focus",
+      "section": "licensing",
+      "wordCount": 260,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.019Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 9
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 5
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-focus-best-practices-for-provisioning-devices.mdx",
+      "url": "/docs/licensing/t-aurora-focus-best-practices-for-provisioning-devices",
+      "title": "t-aurora-focus-best-practices-for-provisioning-devices",
+      "section": "licensing",
+      "wordCount": 234,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.026Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 4
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-licensing-frequenty-asked-questions.mdx",
+      "url": "/docs/licensing/t-aurora-licensing-frequenty-asked-questions",
+      "title": "t-aurora-licensing-frequenty-asked-questions",
+      "section": "licensing",
+      "wordCount": 619,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.026Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 4
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-aurora-viewing-active-licenses-on-the-device.mdx",
+      "url": "/docs/licensing/t-aurora-viewing-active-licenses-on-the-device",
+      "title": "t-aurora-viewing-active-licenses-on-the-device",
+      "section": "licensing",
+      "wordCount": 221,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.039Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 7
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 3
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-bridging-an-internet-connection-to-fs-vs-devices.mdx",
+      "url": "/docs/licensing/t-bridging-an-internet-connection-to-fs-vs-devices",
+      "title": "t-bridging-an-internet-connection-to-fs-vs-devices",
+      "section": "licensing",
+      "wordCount": 656,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.045Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 4
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 1
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-fs-vs-acquiring-a-license-from-the-online-server.mdx",
+      "url": "/docs/licensing/t-fs-vs-acquiring-a-license-from-the-online-server",
+      "title": "t-fs-vs-acquiring-a-license-from-the-online-server",
+      "section": "licensing",
+      "wordCount": 439,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.052Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 9
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 7
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-fs-vs-acquiring-an-activation-id.mdx",
+      "url": "/docs/licensing/t-fs-vs-acquiring-an-activation-id",
+      "title": "t-fs-vs-acquiring-an-activation-id",
+      "section": "licensing",
+      "wordCount": 314,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.059Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-fs-vs-license-types.mdx",
+      "url": "/docs/licensing/t-fs-vs-license-types",
+      "title": "t-fs-vs-license-types",
+      "section": "licensing",
+      "wordCount": 1133,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.067Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 4
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/licensing/t-fs-vs-license-upgrade.mdx",
+      "url": "/docs/licensing/t-fs-vs-license-upgrade",
+      "title": "t-fs-vs-license-upgrade",
+      "section": "licensing",
+      "wordCount": 221,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.073Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Assembly Verification",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [
+        {
+          "type": "img_no_alt",
+          "count": 4
+        }
+      ],
+      "hasA11yIssues": true,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/r-icon-conventions.mdx",
+      "url": "/docs/r-icon-conventions",
+      "title": "r-icon-conventions",
+      "section": "root",
+      "wordCount": 123,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.079Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Reference",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Intermediate",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/r-notational-conventions.mdx",
+      "url": "/docs/r-notational-conventions",
+      "title": "r-notational-conventions",
+      "section": "root",
+      "wordCount": 109,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.085Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Reference",
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Intermediate",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/index.mdx",
+      "url": "/docs/release-notes",
+      "title": "index",
+      "section": "release-notes",
+      "wordCount": 119,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.099Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Index",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 3
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-1-200-2001.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-1-200-2001",
+      "title": "rn-af-release-notes-1-200-2001",
+      "section": "release-notes",
+      "wordCount": 1204,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.110Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-2-0-8000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-2-0-8000",
+      "title": "rn-af-release-notes-2-0-8000",
+      "section": "release-notes",
+      "wordCount": 1192,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.119Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-3-0-10000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-3-0-10000",
+      "title": "rn-af-release-notes-3-0-10000",
+      "section": "release-notes",
+      "wordCount": 1212,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.124Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-3-1-40000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-3-1-40000",
+      "title": "rn-af-release-notes-3-1-40000",
+      "section": "release-notes",
+      "wordCount": 1364,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.132Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-4-0-23000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-4-0-23000",
+      "title": "rn-af-release-notes-4-0-23000",
+      "section": "release-notes",
+      "wordCount": 1399,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.136Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-5-0-13000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-5-0-13000",
+      "title": "rn-af-release-notes-5-0-13000",
+      "section": "release-notes",
+      "wordCount": 1843,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.142Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-6-0-22000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-6-0-22000",
+      "title": "rn-af-release-notes-6-0-22000",
+      "section": "release-notes",
+      "wordCount": 1719,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.152Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-6-1-70000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-6-1-70000",
+      "title": "rn-af-release-notes-6-1-70000",
+      "section": "release-notes",
+      "wordCount": 1858,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.214Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-6-2-70000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-6-2-70000",
+      "title": "rn-af-release-notes-6-2-70000",
+      "section": "release-notes",
+      "wordCount": 1912,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.222Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-7-0-48000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-7-0-48000",
+      "title": "rn-af-release-notes-7-0-48000",
+      "section": "release-notes",
+      "wordCount": 1928,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.229Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-7-0-51000.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-7-0-51000",
+      "title": "rn-af-release-notes-7-0-51000",
+      "section": "release-notes",
+      "wordCount": 1986,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.236Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-9-0-12.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-9-0-12",
+      "title": "rn-af-release-notes-9-0-12",
+      "section": "release-notes",
+      "wordCount": 2578,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.242Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-9-1-6.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-9-1-6",
+      "title": "rn-af-release-notes-9-1-6",
+      "section": "release-notes",
+      "wordCount": 2579,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.249Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-9-2-7.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-9-2-7",
+      "title": "rn-af-release-notes-9-2-7",
+      "section": "release-notes",
+      "wordCount": 2882,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.257Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-9-3.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-9-3",
+      "title": "rn-af-release-notes-9-3",
+      "section": "release-notes",
+      "wordCount": 3273,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.265Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-af-release-notes-9-4.mdx",
+      "url": "/docs/release-notes/rn-af-release-notes-9-4",
+      "title": "rn-af-release-notes-9-4",
+      "section": "release-notes",
+      "wordCount": 1397,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.272Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 8
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/rn-aurora-focus-release-notes-10-en.md",
+      "url": "/docs/release-notes/rn-aurora-focus-release-notes-10-en",
+      "title": "rn-aurora-focus-release-notes-10-en",
+      "section": "release-notes",
+      "wordCount": 825,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.279Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Release Notes",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "GPIO Control",
+            "Application Development",
+            "Licensing",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "System Administrator",
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 6
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/release-notes/_release-notes-template.mdx",
+      "url": "/docs/release-notes/_release-notes-template",
+      "title": "_release-notes-template",
+      "section": "release-notes",
+      "wordCount": 455,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.096Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "device_type": {
+          "value": "Smart Camera / Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing"
+          ],
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "device_type",
+        "use_case",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 34
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-focus-getting-started-and-mdx-summary.mdx",
+      "url": "/docs/t-aurora-focus-getting-started-and-mdx-summary",
+      "title": "t-aurora-focus-getting-started-and-mdx-summary",
+      "section": "root",
+      "wordCount": 1017,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.284Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Licensing",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 39
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-focus-js-beeper.mdx",
+      "url": "/docs/t-aurora-focus-js-beeper",
+      "title": "t-aurora-focus-js-beeper",
+      "section": "root",
+      "wordCount": 228,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.289Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "GPIO Control",
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-focus-js-gpio-ports.mdx",
+      "url": "/docs/t-aurora-focus-js-gpio-ports",
+      "title": "t-aurora-focus-js-gpio-ports",
+      "section": "root",
+      "wordCount": 304,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.293Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 4
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-about-this-guide.mdx",
+      "url": "/docs/t-aurora-js-about-this-guide",
+      "title": "t-aurora-js-about-this-guide",
+      "section": "root",
+      "wordCount": 46,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.303Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "Application Development",
+            "Deep Learning / Anomaly Detection"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 3
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-constant-data.mdx",
+      "url": "/docs/t-aurora-js-constant-data",
+      "title": "t-aurora-js-constant-data",
+      "section": "root",
+      "wordCount": 173,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.307Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Communication / Integration",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-ftp-control.mdx",
+      "url": "/docs/t-aurora-js-ftp-control",
+      "title": "t-aurora-js-ftp-control",
+      "section": "root",
+      "wordCount": 211,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.315Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-hid-keyboard.mdx",
+      "url": "/docs/t-aurora-js-hid-keyboard",
+      "title": "t-aurora-js-hid-keyboard",
+      "section": "root",
+      "wordCount": 287,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.320Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "GPIO Control",
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 4
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-input-data.mdx",
+      "url": "/docs/t-aurora-js-input-data",
+      "title": "t-aurora-js-input-data",
+      "section": "root",
+      "wordCount": 1774,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.329Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Optical Character Recognition (OCR)",
+            "Barcode Reading",
+            "GPIO Control",
+            "Application Development",
+            "Deep Learning / Anomaly Detection",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-limitations.mdx",
+      "url": "/docs/t-aurora-js-limitations",
+      "title": "t-aurora-js-limitations",
+      "section": "root",
+      "wordCount": 137,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.336Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-managing-execution-time.mdx",
+      "url": "/docs/t-aurora-js-managing-execution-time",
+      "title": "t-aurora-js-managing-execution-time",
+      "section": "root",
+      "wordCount": 109,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.342Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-operation-mode.mdx",
+      "url": "/docs/t-aurora-js-operation-mode",
+      "title": "t-aurora-js-operation-mode",
+      "section": "root",
+      "wordCount": 76,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.348Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Communication / Integration",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 14
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-output-data.mdx",
+      "url": "/docs/t-aurora-js-output-data",
+      "title": "t-aurora-js-output-data",
+      "section": "root",
+      "wordCount": 123,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.355Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Communication / Integration",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 6
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-sample-scripts-advanced-techniques-and-debugging.mdx",
+      "url": "/docs/t-aurora-js-sample-scripts-advanced-techniques-and-debugging",
+      "title": "t-aurora-js-sample-scripts-advanced-techniques-and-debugging",
+      "section": "root",
+      "wordCount": 47,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.361Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Advanced",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 5
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-sample-scripts.mdx",
+      "url": "/docs/t-aurora-js-sample-scripts",
+      "title": "t-aurora-js-sample-scripts",
+      "section": "root",
+      "wordCount": 479,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.367Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "GPIO Control",
+            "Application Development",
+            "Communication / Integration",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-script-invocation.mdx",
+      "url": "/docs/t-aurora-js-script-invocation",
+      "title": "t-aurora-js-script-invocation",
+      "section": "root",
+      "wordCount": 118,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.376Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 2
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-using-custom-templates.mdx",
+      "url": "/docs/t-aurora-js-using-custom-templates",
+      "title": "t-aurora-js-using-custom-templates",
+      "section": "root",
+      "wordCount": 149,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.382Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-using-simulated-data.mdx",
+      "url": "/docs/t-aurora-js-using-simulated-data",
+      "title": "t-aurora-js-using-simulated-data",
+      "section": "root",
+      "wordCount": 208,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.387Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Fixed Scanner",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Communication / Integration"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 2
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-using-the-editor-for-a-deployed-job.mdx",
+      "url": "/docs/t-aurora-js-using-the-editor-for-a-deployed-job",
+      "title": "t-aurora-js-using-the-editor-for-a-deployed-job",
+      "section": "root",
+      "wordCount": 64,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.395Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 1
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-js-using-the-javascript-editor.mdx",
+      "url": "/docs/t-aurora-js-using-the-javascript-editor",
+      "title": "t-aurora-js-using-the-javascript-editor",
+      "section": "root",
+      "wordCount": 595,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.400Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "device_type": {
+          "value": "Smart Camera",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control",
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "device_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-scripting-job-status.mdx",
+      "url": "/docs/t-aurora-scripting-job-status",
+      "title": "t-aurora-scripting-job-status",
+      "section": "root",
+      "wordCount": 201,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.404Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "GPIO Control",
+            "Application Development",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial.mdx",
+      "url": "/docs/t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial",
+      "title": "t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial",
+      "section": "root",
+      "wordCount": 293,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.413Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Tutorial",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "Barcode Reading",
+            "GPIO Control",
+            "Application Development",
+            "Communication / Integration",
+            "Job Deployment"
+          ],
+          "_guessed": true
+        },
+        "role": {
+          "value": [
+            "Integrator/Developer"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "Beginner",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "role",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [
+        {
+          "field": "_body",
+          "count": 6
+        }
+      ],
+      "hasPlaceholders": true,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/test-file.mdx",
+      "url": "/docs/test-file",
+      "title": "test-file",
+      "section": "root",
+      "wordCount": 16,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.416Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "status": {
+          "value": "Draft",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    },
+    {
+      "filePath": "docs/user-guide/index.mdx",
+      "url": "/docs/user-guide",
+      "title": "index",
+      "section": "user-guide",
+      "wordCount": 20,
+      "completenessScore": 0,
+      "lastModified": "2026-03-25T15:31:07.431Z",
+      "lastReviewed": null,
+      "frontmatter": {},
+      "guesses": {
+        "content_type": {
+          "value": "Index",
+          "_guessed": true
+        },
+        "use_case": {
+          "value": [
+            "GPIO Control"
+          ],
+          "_guessed": true
+        },
+        "skill_level": {
+          "value": "All",
+          "_guessed": true
+        },
+        "status": {
+          "value": "Published",
+          "_guessed": true
+        }
+      },
+      "guessedFields": [
+        "content_type",
+        "use_case",
+        "skill_level",
+        "status"
+      ],
+      "placeholders": [],
+      "hasPlaceholders": false,
+      "a11yIssues": [],
+      "hasA11yIssues": false,
+      "buildIssues": [
+        {
+          "type": "missing_required",
+          "fields": [
+            "title",
+            "description",
+            "status",
+            "content_type"
+          ]
+        }
+      ],
+      "hasBuildIssues": true
+    }
+  ]
+}

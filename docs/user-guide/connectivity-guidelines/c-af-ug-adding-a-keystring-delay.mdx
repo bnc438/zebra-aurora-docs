@@ -1,0 +1,26 @@
+---
+title: Adding a Keystring Delay
+description: ''
+slug: /connectivity-guidelines/c-af-ug-adding-a-keystring-delay
+sidebar_label: Adding a Keystring Delay
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+
+
+Sometimes data is sent over USB faster than the receiving application receives them. This is commonly seen with some remote applications where latency is a factor. Compensate for this by adding a keystroke delay, where a certain pause (typically in ms) is inserted between each character so no characters (data) are missed.

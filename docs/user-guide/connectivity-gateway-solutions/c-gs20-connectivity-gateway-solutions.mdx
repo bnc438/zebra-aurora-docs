@@ -1,0 +1,35 @@
+---
+title: Connectivity Gateway Solutions
+description: The Zebra Connectivity Gateway provides asynchronous passthrough and
+  synchronized leader-follower solutions for use cases requiring high-speed scan tunnels,
+  sorting facilities, and multi-point or multi-side barcode scanning for parcels and
+  boxes.
+slug: /connectivity-gateway-solutions/c-gs20-connectivity-gateway-solutions
+sidebar_label: Connectivity Gateway Solutions
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+The Zebra Connectivity Gateway provides asynchronous passthrough and synchronized leader-follower solutions for use cases requiring high-speed scan tunnels, sorting facilities, and multi-point or multi-side barcode scanning for parcels and boxes.
+
+When assembling the Connectivity Gateway with the Gateway License, consider the following device characteristics before determining which device acts as a leader or follower.
+- Fixed Scanning and Gateway devices enable USB HID mode as output. However, GS20 devices do not natively support a USB port.
+- Fixed Scanning and Gateway devices support up to 9 total GPIO. GS20 devices have 4 total GPIO.
+- It is recommended that no more than four followers be implemented in a given Connectivity Gateway solution. This implies that the Fixed Scanning and Gateway devices may act as follower and leader devices simultaneously. If this is implemented in your system, expect a slight degradation in read rate performance in the device acting in both modes.
+Fixed Scanning and Gateway devices enable USB HID mode as output. However, GS20 devices do not natively support a USB port.
+Fixed Scanning and Gateway devices support up to 9 total GPIO. GS20 devices have 4 total GPIO.
+It is recommended that no more than four followers be implemented in a given Connectivity Gateway solution. This implies that the Fixed Scanning and Gateway devices may act as follower and leader devices simultaneously. If this is implemented in your system, expect a slight degradation in read rate performance in the device acting in both modes.

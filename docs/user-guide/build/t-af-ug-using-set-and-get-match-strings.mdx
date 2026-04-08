@@ -1,0 +1,46 @@
+---
+title: Using Set and Get Match Strings
+description: Match Strings are configurable in Aurora Focus for Datacode, Deep Learning
+  OCR, and Read Barcode tools.
+slug: /build/t-af-ug-using-set-and-get-match-strings
+sidebar_label: Using Set and Get Match Strings
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Match Strings are configurable in Aurora Focus for Datacode, Deep Learning OCR, and Read Barcode tools.
+Add the tool in
+FlowBuilder
+using the
+Build
+tab to view match string options.
+Select the
+Barcode String Match
+mode from the drop-down menu.
+- Disabled (Default) - no match string is used, and every string is accepted.
+- Exact string - the result must match the exact string provided.
+- String Contains - the result must contain the given string.
+- Regex - result acceptance follows the given regex rule.
+Disabled (Default) - no match string is used, and every string is accepted.
+Exact string - the result must match the exact string provided.
+String Contains - the result must contain the given string.
+Regex - result acceptance follows the given regex rule.
+Barcode String Match
+mode is disabled by default and the match string value is empty. In this case, the tool accepts all read codes.
+Click
+Last Decode
+to use the last successful read string as the current match string value.

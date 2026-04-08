@@ -1,0 +1,29 @@
+---
+title: Enabling HID Keyboard
+description: ''
+slug: /connectivity-guidelines/c-af-ug-enabling-hid-keyboard
+sidebar_label: Enabling HID Keyboard
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+
+
+Checking this setting will enable USB-HID output. Job result/output will be streamed over a USB connection to the host PC as if the device was a keyboard. The output streams into any field with focus, such as notepad, excel, or other host-based apps.
+
+
+When this setting is applied, the device will automatically reboot. If USB is your sole way of communicating with the device (as opposed to via ethernet cable) and you have a job that automatically starts on startup, it may be difficult to communicate with the device if the job is running and sending output over the USB simultaneously. Ensure that you have de-selected the other options before enabling HID.

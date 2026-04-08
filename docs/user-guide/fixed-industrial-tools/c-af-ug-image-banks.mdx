@@ -1,0 +1,34 @@
+---
+title: Image Banks
+description: ''
+slug: /fixed-industrial-tools/c-af-ug-image-banks
+sidebar_label: Image Banks
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+
+
+All available image banks display on the left side of the table. The right side of the table provides a top-down sequence of image capture acquisition banks that are used for an
+ImagePerfect
+job.
+Image banks are taken in sequential order, starting from the top. After a barcode is successfully decoded, the sequence stops. For example, if there are four banks and the first two decode attempts fail, but the third one decodes successfully, the fourth acquisition attempt does not occur.
+
+ImagePerfect provides multiple banks for a single job run and is commonly used for applications that require different focus levels in the same Field of View (FoV).
+
+For example, two barcodes in the same FoV,  one 12” away from the camera and the other 36” away from the camera. These barcodes require two different focus levels to be clear enough to read. ImagePerfect multiple-acquisition-bank functionality makes this possible.
+

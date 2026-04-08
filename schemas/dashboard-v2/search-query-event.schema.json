@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dashboard-v2/search-query-event.schema.json",
+  "title": "Search Query Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "eventId",
+    "eventTimestamp",
+    "snapshotDate",
+    "source",
+    "queryText",
+    "queryNormalized",
+    "zeroResultFlag",
+    "environment"
+  ],
+  "properties": {
+    "eventId": { "type": "string", "minLength": 1 },
+    "eventTimestamp": { "type": "string", "format": "date-time" },
+    "snapshotDate": { "type": "string", "format": "date" },
+    "source": { "type": "string", "enum": ["local_search", "ask_ai"] },
+    "queryText": { "type": "string", "minLength": 1 },
+    "queryNormalized": { "type": "string", "minLength": 1 },
+    "zeroResultFlag": { "type": "boolean" },
+    "resultCount": { "type": "integer", "minimum": 0 },
+    "topClickedUrl": { "type": "string" },
+    "topicCandidate": { "type": "string" },
+    "sessionId": { "type": "string" },
+    "environment": { "type": "string", "enum": ["dev", "prod"] }
+  }
+}

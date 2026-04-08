@@ -1,0 +1,81 @@
+---
+title: Run Mode
+description: The Connectivity Gateway operates in Single Shot, Continuous, or Level
+  mode.
+slug: /connectivity-gateway-solutions/t-af-ug-run-mode
+sidebar_label: Run Mode
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+The Connectivity Gateway operates in Single Shot, Continuous, or Level mode.
+Navigate to the
+Configuration
+screen from the
+Home
+screen using the left navigation menu.
+Use the bottom right
+Run Mode
+section on the
+Configuration
+screen to change between
+Single Shot
+,
+Continuous
+and
+Level
+modes.
+Click
+Config
+to edit
+Run Mode
+settings.
+Configure the required trigger settings:
+- Level Mode - determines how a level starts and stops. The default setting is
+- Grace Period - the amount of time to wait after a level stop signal is received to accept incoming barcodes before rejecting them.
+- Stop Mode - determines how the level session stops. The default setting is
+- Output Mode - determines how barcodes are output over all configurable host interfaces while running in level mode. The default setting is
+- Output Delimiter - determine the delimiting characters separating the barcode output after a level session when running in
+Level Mode - determines how a level starts and stops. The default setting is
+Active
+. When set to
+Active
+, the level starts/stops on active high or low. Set this value to
+Pulse
+to start or stop a level when the trigger tag goes high or low twice. This can increase workflow efficiency by terminating data capture processes once a successful decode is achieved, preventing unnecessary resource usage.
+Grace Period - the amount of time to wait after a level stop signal is received to accept incoming barcodes before rejecting them.
+Stop Mode - determines how the level session stops. The default setting is
+Normal
+. When set to
+Normal
+, the application waits for the stop trigger signal from the host or GPIO and forwards the data to the followers. When set to
+On Decode
+, the application immediately sends the stop trigger to the followers upon the first decode.
+Output Mode - determines how barcodes are output over all configurable host interfaces while running in level mode. The default setting is
+As Received
+. When set to
+As Received
+, barcodes are sent as received. When set to
+Level End
+, barcodes are combined into a single payload separated by the output delimiter.
+Output Delimiter - determine the delimiting characters separating the barcode output after a level session when running in
+Level End
+output mode.
+Click
+Update
+for the changes to take effect.
+Observe the warning screen indicating that scan data is erased after the changes are implemented. Acknowledge the warning to proceed with your changes.

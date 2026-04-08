@@ -1,0 +1,51 @@
+---
+title: Using Accelerated Tools
+description: Deep Learning OCR and Anomaly Detection tools can be accelerated to speed
+  up a specified tool during job execution and reduce overall tool time.
+slug: /machine-vision-tools/t-af-ug-using-accelerated-tools
+sidebar_label: Using Accelerated Tools
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+
+Acceleration is available on FS42 and NS42 devices only.
+1. Enable acceleration by sliding the
+2. After
+3. All accelerated tools are marked on the
+Enable acceleration by sliding the
+Accelerate
+toggle to the right.
+In this mode, the Region of Interest (ROI) can be moved or rotated but not resized. Tool settings
+Average Character Height
+and
+Character Width Scale %
+are not editable while in Accelerate mode. Move the slider to the left to disable Accelerated mode and edit tool settings.
+After
+Accelerate
+is enabled, the
+Optimization
+overlay displays, and all settings are blocked and transferred to the device.
+For optimal performance, jobs should contain only one accelerated tool. Jobs containing more than one accelerated tool can negatively impact performance and increase execution time.
+All accelerated tools are marked on the
+FlowBuilder
+by the green
+Accelerated
+indication.
+If a job is saved with the
+Accelerate
+setting enabled and later opened on a device that does not support this setting, it is automatically switched back to its standard state without acceleration.

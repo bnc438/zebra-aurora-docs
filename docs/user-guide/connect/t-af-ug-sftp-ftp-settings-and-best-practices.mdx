@@ -1,0 +1,51 @@
+---
+title: SFTP/FTP Settings and Best Practices
+description: Configure SFTP/FTP settings including hostname, port, username, password,
+  file path, read timeout and connection retry.
+slug: /connect/t-af-ug-sftp-ftp-settings-and-best-practices
+sidebar_label: SFTP/FTP Settings and Best Practices
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Select the Save Location (SFTP/FTP or on the device) for the images and populate the form fields with the required information.
+
+
+
+
+Storage on the server the device does not work as expected when special characters are present in the SFTP/FTP username.
+
+The following restrictions on special characters in the SFTP/FTP username and FTP filename configuration are in place to ensure proper naming conventions are maintained.
+- SFTP/FTP username:
+- Linux filenames:
+- FTP filenames:
+SFTP/FTP username:
+- Only upper and lower case letters, numbers, and underscores are permitted in the username.
+Only upper and lower case letters, numbers, and underscores are permitted in the username.
+Linux filenames:
+- Avoid the following characters:
+Avoid the following characters:
+- * ? | & > < .. : ; ~ !
+* ? | & > < .. : ; ~ !
+FTP filenames:
+- Avoid the following characters in the FTP path:
+Avoid the following characters in the FTP path:
+- : * ? | < > " &
+: * ? | < > " &
+Use JavaScript formatting to override the default file name formatting for saved images and manage the output data. For additional information on developing custom scripts using the JavaScript editor, refer to the
+[Aurora Focus JavaScript Developer's Guide](https://docs.zebra.com/us/en/machine-vision/aurora/bm-aurora-focus-scripting-guide-ditamap/c-aurora-focus-javascript-programmer-s-guide.html)
+.

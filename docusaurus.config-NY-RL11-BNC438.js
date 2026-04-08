@@ -107,8 +107,13 @@ const config = {
             position: 'right',
             label: 'Ask AI',
           },
-          ...(process.env.ASKAI_INTERNAL_ANALYTICS === 'true'
+          ...(enableInternalAnalytics
             ? [
+                {
+                  to: '/dev-dashboard',
+                  position: 'right',
+                  label: 'Dev Dashboard',
+                },
                 {
                   to: '/ask-ai-insights',
                   position: 'right',

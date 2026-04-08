@@ -1,0 +1,79 @@
+---
+title: Available Commands
+description: Parameters are preceded with two strings that inform what action should
+  be performed and which job parameter it applies to.
+slug: /build/t-af-ug-available-get-set-commands
+sidebar_label: Available Commands
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+The first string informs whether the command should get
+GetJobParameter
+a parameter or set
+UpdateJobParameter
+a parameter as the value. The second string informs which job parameter should be updated (in this case, use
+matchstring
+).
+
+Provide the parameters in the following command line format:
+
+```
+--parameter_name parameter_value
+ 
+```
+
+
+For string parameter values, use double quotes:
+
+
+
+```
+GetJobParameter matchstring 
+```
+
+--toolname “Datacode 1”
+
+For boolean parameter values, use true or false:
+
+
+
+```
+UpdateJobParameter matchstring --value "XYZ" 
+```
+
+-- persistent true
+
+For enum parameter values, enter the parameter value without quotes:
+
+
+
+```
+GetJobParameter matchstring 
+```
+
+--format plain
+
+In cases where arguments do not take any value, only provide the parameter name:
+
+
+
+```
+GetJobParameter matchstring --
+```
+
+help

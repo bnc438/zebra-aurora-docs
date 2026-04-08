@@ -1,0 +1,49 @@
+---
+title: Measure Object Width
+description: "The Measure Object Width tool measures the\_width of an object present\
+  \ in an image."
+slug: /machine-vision-tools/c-af-ug-neasure-object-width
+sidebar_label: Measure Object Width
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+The Measure Object Width tool measures the width of an object present in an image.
+
+The tool performs a series of scans along Scan Count parallel scan segments constructed from Measure Object Width Region of Interest (ROI). The obtained points are then used for computing two parallel segments using a slightly modified segment-fitting routine. The Outlier Suppression parameter supports the process. Finally, the stripe widths and fitted segments' direction compute the object width.
+
+
+
+
+## Measure Object Width Settings
+
+Setting
+Description
+Scan Direction
+Set the direction that the tool uses when searching for edges.
+Object Polarity
+Determine the contrast type for the target object.
+Stripe Sorting
+Determine the mode of selection for the edges of the object.
+Minimum Edge Magnitude
+Set the minimum contrast value used to define object edges.
+Edge Profile
+Displays the contrast score of the features across the Region of Interest (ROI).
+Distance Limit
+Configure the minimum and maximum distance values.
+Scale Calibration
+Calibrate scale values to engineering units.

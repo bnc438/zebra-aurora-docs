@@ -1,0 +1,533 @@
+{
+  "generatedAt": "2026-03-25T22:24:16.596Z",
+  "records": [
+    {
+      "title": "c-aurora-js-debugging",
+      "heading": "c-aurora-js-debugging",
+      "url": "/docs/c-aurora-js-debugging",
+      "text": "sidebar position: 26 title: 'Debugging' After you have mounted the camera, you can use basic script debugging features. The device always sends script execution data when in deploy mode. The editor has a console at the bottom that displays the following data: The console displays the results returned by the onResults function. The results must match the expected field names of the structure. Data that does not match the schema is skipped. Use of the console object display in the console. Syntactic or runtime issues are reported to the console, as well as all JavaScript exceptions. The object console provides the following methods for the logs category: console.log, console.warn, console.error, and console.debug. They work similarly to the console.log function found in environments such as web browsers. The function accepts any number of arguments that can be concatenated into a single string. The objects passed are converted to text strings according to the standard rules of the JavaScript language. Chained instructions, multiple reassignments, nested loops, and other complex expressions might be challenging to understand without providing insight into how the data is transformed. The following code snippet does not sufficiently explain its function. Decodes are transformed when the console object is valid. Split the steps to separate assignments and log the actual values on th",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "c-aurora-js-environment",
+      "heading": "c-aurora-js-environment",
+      "url": "/docs/c-aurora-js-environment",
+      "text": "sidebar position: 6 title: 'Using the JavaScript Environment' JavaScript Environment JavaScript formatting provides the capability of post-processing inspection results, changing job status or FTP path, and sending manipulated results to different communication channels (HID, Serial, CDC, TCP). Aurora Focus provides an execution environment based on the ECMAScript 2024 standard. For additional information, go to tc39.es/ecma262/2024/. Minor environmental restrictions are present. Using the JavaScript features available in Aurora Focus is analogous to those available in web browsers such as Chrome or Edge and standalone JavaScript environments. In most cases, it is possible to rely on online tutorials and the help of AI assistants without any specific code customization. The JavaScript runtime in Aurora Focus provides the following features: Just-in-Time Compilation - the script is optimized during execution, generating efficient machine code after several iterations, as if written in C or C++. Dedicated Scripting Environment - separation of the scripting environment from the vision runtime environment ensures that problems with the scripting environment do not cause significant problems with job execution. This ensures that scripting problems should not break the acquisition environment. See Also - Using the JavaScript Editor - Using the Editor for a Deployed Job - Limitations",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "c-aurora-js-example-script-lifecycle",
+      "heading": "c-aurora-js-example-script-lifecycle",
+      "url": "/docs/c-aurora-js-example-script-lifecycle",
+      "text": "sidebar position: 22 title: 'Example Script Lifecycle' The lifecycle of the script includes four stages: deployment, two iterations, and edit mode. In the deployment stage, the execution environment is prepared without actions. In the first iteration, global variables are initialized, and syntax errors are checked. The onResults function processes the Test String, updates counters, and logs results. The second iteration skips initialization and processes the Wrong String, adjusts counters, and logs accordingly. Finally, the script enters edit mode, unloading from memory, with variables set to reinitialize upon redeployment. There are four main stages in the lifecycle of a script: 1. Deploy the job to initialize the script's execution environment. 2. Iteration 1: - The code outside the onResults function is executed. The global variables no match counter, match counter, match string, and counter are created and initialized. The console.log functions are executed. Any syntax errors in the script are reported at this stage, and its execution is performed if errors are detected. - The onResults function is executed. Assume that in this iteration, the read code contains a string, e.g., Test String. - Values are set, and logs are sent during this stage. - The following string is sent to all available communication channels: Match count: 1 No match count: 0. - Aurora Focus receives lo",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "c-aurora-js-program-structure",
+      "heading": "c-aurora-js-program-structure",
+      "url": "/docs/c-aurora-js-program-structure",
+      "text": "sidebar position: 11 title: 'Program Structure' Every script must contain the function onResults. This function takes one argument as a data structure and returns the structure. The onResults function must be marked as export as in the following example: export function onResults(inputResult) { }",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "c-aurora-js-text-encoding",
+      "heading": "c-aurora-js-text-encoding",
+      "url": "/docs/c-aurora-js-text-encoding",
+      "text": "sidebar position: 24 title: 'Text Encoding' The read content of the barcode, data code, or other tools offering output as text is treated as a single-byte encoding in accordance with ISO-8859-1. In the script, assume that you receive an array of bytes as they display within the string. Output data to communication channels is sent in the same form as presented in the script, byte by byte, without any encoding. Use data visualization to display the output structure within the console object with ASCII encoding. All non-printable characters are printed as \\\\ . For example, the code 0x8F in hexadecimal notation (not a valid ASCII character) is displayed as \\\\ . See Also - Operation Mode",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "c-service-information",
+      "heading": "c-service-information",
+      "url": "/docs/c-service-information",
+      "text": "sidebar position: 5 title: 'Service Information' If you have a problem with your equipment, contact Zebra Global Customer Support for your region. Contact information is available at: zebra.com/support. When contacting support, please have the following information available: - Serial number of the unit - Model number or product name - Software/firmware type and version number Zebra responds to calls by email, telephone, or fax within the time limits set forth in support agreements. If your problem cannot be solved by Zebra Customer Support, you may need to return your equipment for servicing and will be given specific directions. Zebra is not responsible for any damages incurred during shipment if the approved shipping container is not used. Shipping the units improperly can possibly void the warranty. If you purchased your Zebra business product from a Zebra business partner, contact that business partner for support. See Also - About this Guide",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "g-aurora-js-obtaining-the-device-mac-address",
+      "heading": "g-aurora-js-obtaining-the-device-mac-address",
+      "url": "/docs/g-aurora-js-obtaining-the-device-mac-address",
+      "text": "sidebar position: 29 title: 'Obtaining the Device MAC Address' Use the Aurora Focus JavaScript functionality to obtain the device's MAC address. Prerequisite Use the following script to retrieve the device MAC address:",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "index",
+      "heading": "index",
+      "url": "/docs/index",
+      "text": "sidebar position: 1 title: \"JavaScript Developers Guide\" hide title: true slug: /javascript-developers-guide pdf cover title: Zebra Aurora Focus pdf cover subtitle: JavaScript Programmer's Guide pdf cover part number: MN-005497-01EN Rev A pdf cover copyright header: Copyright pdf cover copyright text: - The Zebra wordmark and logo are trademarks of Zebra Technologies Corp., registered in many jurisdictions worldwide. All other trademarks are the property of their respective owners. ©2026 Zebra Technologies Corp. and/or its affiliates. Information in this document is subject to change without notice. The software described in this document is furnished under a license agreement or nondisclosure agreement. The software may be used or copied only in accordance with the terms of those agreements. For further information regarding legal and proprietary statements, please go to: SOFTWARE: zebra.com/informationpolicy. COPYRIGHTS: zebra.com/copyright. PATENTS: ip.zebra.com. WARRANTY: zebra.com/warranty. END USER LICENSE AGREEMENT: zebra.com/eula. JavaScript Developers Guide This guide provides information on developing custom scripts for Zebra Aurora Focus using the integrated JavaScript editor. It includes details on the scripting environment, operation modes, debugging techniques, sample scripts, and full interface descriptions for handling inspection results.",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "index",
+      "heading": "index",
+      "url": "/docs/licensing",
+      "text": "title: Licensing This section contains licensing information for Zebra Aurora Focus.",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-acquiring-an-emulator-license-key",
+      "heading": "t-aurora-acquiring-an-emulator-license-key",
+      "url": "/docs/licensing/t-aurora-acquiring-an-emulator-license-key",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Obtaining an Emulator License Key' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Obtaining an Emulator License Key' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- User-Centric ",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-activating-a-license-key-in-aurora-focus",
+      "heading": "t-aurora-activating-a-license-key-in-aurora-focus",
+      "url": "/docs/licensing/t-aurora-activating-a-license-key-in-aurora-focus",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Activating a License Key in Aurora Focus' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Activating a License Key in Aurora Focus' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' ---",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-deactivating-a-license-using-the-web-hmi",
+      "heading": "t-aurora-deactivating-a-license-using-the-web-hmi",
+      "url": "/docs/licensing/t-aurora-deactivating-a-license-using-the-web-hmi",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Deactivating a License Using the Web HMI' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Deactivating a License Using the Web HMI' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' ---",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-deactivating-a-license",
+      "heading": "t-aurora-deactivating-a-license",
+      "url": "/docs/licensing/t-aurora-deactivating-a-license",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Deactivating a License' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Deactivating a License' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- User-Centric Filters --- role: ['In",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-deprovisioning-devices-in-aurora-focus",
+      "heading": "t-aurora-deprovisioning-devices-in-aurora-focus",
+      "url": "/docs/licensing/t-aurora-deprovisioning-devices-in-aurora-focus",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Deprovisioning Devices in Aurora Focus' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Deprovisioning Devices in Aurora Focus' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- Use",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-focus-best-practices-for-provisioning-devices",
+      "heading": "t-aurora-focus-best-practices-for-provisioning-devices",
+      "url": "/docs/licensing/t-aurora-focus-best-practices-for-provisioning-devices",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Best Practices for Provisioning Devices' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Best Practices for Provisioning Devices' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- U",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-licensing-frequenty-asked-questions",
+      "heading": "t-aurora-licensing-frequenty-asked-questions",
+      "url": "/docs/licensing/t-aurora-licensing-frequenty-asked-questions",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Frequently Asked Questions' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Frequently Asked Questions' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- User-Centric Filters --- ro",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-aurora-viewing-active-licenses-on-the-device",
+      "heading": "t-aurora-viewing-active-licenses-on-the-device",
+      "url": "/docs/licensing/t-aurora-viewing-active-licenses-on-the-device",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Viewing Active Licenses on the Device' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Viewing Active Licenses on the Device' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- User-",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-bridging-an-internet-connection-to-fs-vs-devices",
+      "heading": "t-bridging-an-internet-connection-to-fs-vs-devices",
+      "url": "/docs/licensing/t-bridging-an-internet-connection-to-fs-vs-devices",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Bridging an Internet Connection to FS/VS Devices' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Bridging an Internet Connection to FS/VS Devices' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'S",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-fs-vs-acquiring-a-license-from-the-online-server",
+      "heading": "t-fs-vs-acquiring-a-license-from-the-online-server",
+      "url": "/docs/licensing/t-fs-vs-acquiring-a-license-from-the-online-server",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Acquiring a License from the Online Server' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Acquiring a License from the Online Server' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera'",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-fs-vs-acquiring-an-activation-id",
+      "heading": "t-fs-vs-acquiring-an-activation-id",
+      "url": "/docs/licensing/t-fs-vs-acquiring-an-activation-id",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Acquiring an Activation ID' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'Acquiring an Activation ID' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- User-Centric Filters --- ro",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-fs-vs-license-types",
+      "heading": "t-fs-vs-license-types",
+      "url": "/docs/licensing/t-fs-vs-license-types",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'License Types and Toolsets' description: 'Available Aurora Focus license part numbers, descriptions, and associated toolsets.' keywords: [\"license types\", \"toolsets\", \"aurora focus licensing\"] sidebar label: 'License Types and Toolsets' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- User-Centric Filters --- role: ['Integrator/Developer', 'Controls Engineer'] task: 'Appli",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "t-fs-vs-license-upgrade",
+      "heading": "t-fs-vs-license-upgrade",
+      "url": "/docs/licensing/t-fs-vs-license-upgrade",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'License Upgrade' description: 'An advanced tutorial on setting up and training a deep learning model for challenging Optical Character Recognition (OCR) tasks with a VS70 Smart Camera.' keywords: [\"deep learning OCR\", \"machine vision\", \"VS70\"] sidebar label: 'License Upgrade' =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.3' author: 'bnc438' sort order: 50 # Higher number for a more advanced topic last updated: '(Automated by build process)' last reviewed: =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: VS70 product family: 'Machine Vision' product series: 'VS Smart Cameras Series' protocol: 'PROFINET' software tool: 'Aurora Deep Learning' component type: 'Camera' --- : Use Case & Device Filters --- use case: ['Optical Character Recognition (OCR)', 'Assembly Verification'] license type: 'Deep Learning OCR' device type: 'Smart Camera' --- User-Centric Filters --- role: ['Integrator/Devel",
+      "contentType": "",
+      "category": "licensing"
+    },
+    {
+      "title": "r-icon-conventions",
+      "heading": "r-icon-conventions",
+      "url": "/docs/r-icon-conventions",
+      "text": "sidebar position: 4 title: 'Icon Conventions' The documentation set is designed to give the reader more visual clues. The following visual indicators are used throughout the documentation set. The text here indicates information that is supplemental for the user to know and that is not required to complete a task. The text here indicates information that is important for the user to know. If the precaution is not heeded, the user could receive a minor or moderate injury. If danger is not avoided, the user CAN be seriously injured or killed. If danger is not avoided, the user WILL be seriously injured or killed. See Also - About this Guide",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "r-notational-conventions",
+      "heading": "r-notational-conventions",
+      "url": "/docs/r-notational-conventions",
+      "text": "sidebar position: 3 title: 'Notational Conventions' The following notational conventions make the content of this document easy to navigate. - Bold text is used to highlight the following: - Dialog box, window, and screen names - Dropdown list and list box names - Checkbox and radio button names - Icons on a screen - Key names on a keypad - Button names on a screen - Bullets (•) indicate: - Action items - List of alternatives - Lists of required steps that are not necessarily sequential - Sequential lists (for example, those that describe step-by-step procedures) appear as numbered lists. See Also - About this Guide",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "index",
+      "heading": "index",
+      "url": "/docs/release-notes",
+      "text": "title: Release Notes sidebar position: 1 pdf cover title: Zebra CV70 pdf cover subtitle: Product Reference Guide pdf cover part number: MN-005426-0EN Rev A pdf cover copyright header: Copyright pdf cover copyright text: This document contains proprietary information and is intended for internal use only. Use this section to track feature updates, bug fixes, and other changes by release. How to add a new release note 1. Copy docs/release-notes/ release-notes-template.mdx to a new .md or .mdx file in this folder. 2. Name it with a sortable release identifier where newer releases sort higher (example: 2026-03-01-aurora-focus-10-0-123.mdx). 3. Replace all placeholder values ([Product Name], [Version], etc.) and publish. Release notes are shown in descending file name order, so the most recent release appears at the top.",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-1-200-2001",
+      "heading": "rn-af-release-notes-1-200-2001",
+      "url": "/docs/release-notes/rn-af-release-notes-1-200-2001",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 1.200.2001' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 1.200.2001.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"1.200.2001\"] sidebar label: '1.200.2001 Release Notes' slug: /releases/aurora-focus/1-200-2001 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '1.200.2001' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Fi",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-2-0-8000",
+      "heading": "rn-af-release-notes-2-0-8000",
+      "url": "/docs/release-notes/rn-af-release-notes-2-0-8000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 2.0.8000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 2.0.8000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"2.0.8000\"] sidebar label: '2.0.8000 Release Notes' slug: /releases/aurora-focus/2-0-8000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '2.0.8000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters --- Ad",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-3-0-10000",
+      "heading": "rn-af-release-notes-3-0-10000",
+      "url": "/docs/release-notes/rn-af-release-notes-3-0-10000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 3.0.10000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 3.0.10000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"3.0.10000\"] sidebar label: '3.0.10000 Release Notes' slug: /releases/aurora-focus/3-0-10000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '3.0.10000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-3-1-40000",
+      "heading": "rn-af-release-notes-3-1-40000",
+      "url": "/docs/release-notes/rn-af-release-notes-3-1-40000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 3.1.40000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 3.1.40000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"3.1.40000\"] sidebar label: '3.1.40000 Release Notes' slug: /releases/aurora-focus/3-1-40000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '3.1.40000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-4-0-23000",
+      "heading": "rn-af-release-notes-4-0-23000",
+      "url": "/docs/release-notes/rn-af-release-notes-4-0-23000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 4.0.23000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 4.0.23000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"4.0.23000\"] sidebar label: '4.0.23000 Release Notes' slug: /releases/aurora-focus/4-0-23000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '4.0.23000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-5-0-13000",
+      "heading": "rn-af-release-notes-5-0-13000",
+      "url": "/docs/release-notes/rn-af-release-notes-5-0-13000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 5.0.13000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 5.0.13000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"5.0.13000\"] sidebar label: '5.0.13000 Release Notes' slug: /releases/aurora-focus/5-0-13000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '5.0.13000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-6-0-22000",
+      "heading": "rn-af-release-notes-6-0-22000",
+      "url": "/docs/release-notes/rn-af-release-notes-6-0-22000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 6.0.22000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 6.0.22000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"6.0.22000\"] sidebar label: '6.0.22000 Release Notes' slug: /releases/aurora-focus/6-0-22000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '6.0.22000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-6-1-70000",
+      "heading": "rn-af-release-notes-6-1-70000",
+      "url": "/docs/release-notes/rn-af-release-notes-6-1-70000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 6.1.70000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 6.1.70000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"6.1.70000\"] sidebar label: '6.1.70000 Release Notes' slug: /releases/aurora-focus/6-1-70000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '6.1.70000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-6-2-70000",
+      "heading": "rn-af-release-notes-6-2-70000",
+      "url": "/docs/release-notes/rn-af-release-notes-6-2-70000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 6.2.70000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 6.2.70000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"6.2.70000\"] sidebar label: '6.2.70000 Release Notes' slug: /releases/aurora-focus/6-2-70000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '6.2.70000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-7-0-48000",
+      "heading": "rn-af-release-notes-7-0-48000",
+      "url": "/docs/release-notes/rn-af-release-notes-7-0-48000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 7.0.48000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 7.0.48000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"7.0.48000\"] sidebar label: '7.0.48000 Release Notes' slug: /releases/aurora-focus/7-0-48000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '7.0.48000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-7-0-51000",
+      "heading": "rn-af-release-notes-7-0-51000",
+      "url": "/docs/release-notes/rn-af-release-notes-7-0-51000",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 7.0.51000' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 7.0.51000.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"7.0.51000\"] sidebar label: '7.0.51000 Release Notes' slug: /releases/aurora-focus/7-0-51000 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '7.0.51000' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters ",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-9-0-12",
+      "heading": "rn-af-release-notes-9-0-12",
+      "url": "/docs/release-notes/rn-af-release-notes-9-0-12",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 9.0.12' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 9.0.12.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"9.0.12\"] sidebar label: '9.0.12 Release Notes' slug: /releases/aurora-focus/9-0-12 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '9.0.12' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters --- Add relevant u",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-9-1-6",
+      "heading": "rn-af-release-notes-9-1-6",
+      "url": "/docs/release-notes/rn-af-release-notes-9-1-6",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 9.1.6' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 9.1.6.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"9.1.6\"] sidebar label: '9.1.6 Release Notes' slug: /releases/aurora-focus/9-1-6 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '9.1.6' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters --- Add relevant use cas",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-9-2-7",
+      "heading": "rn-af-release-notes-9-2-7",
+      "url": "/docs/release-notes/rn-af-release-notes-9-2-7",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 9.2.7' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 9.2.7.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"9.2.7\"] sidebar label: '9.2.7 Release Notes' slug: /releases/aurora-focus/9-2-7 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '9.2.7' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters --- Add relevant use cas",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-9-3",
+      "heading": "rn-af-release-notes-9-3",
+      "url": "/docs/release-notes/rn-af-release-notes-9-3",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 9.3' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 9.3.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"9.3\"] sidebar label: '9.3 Release Notes' slug: /releases/aurora-focus/9-3 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '9.3' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters --- Add relevant use cases or licens",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-af-release-notes-9-4",
+      "heading": "rn-af-release-notes-9-4",
+      "url": "/docs/release-notes/rn-af-release-notes-9-4",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Aurora Focus 9.4' description: 'A summary of new features, fixes, and known issues for Aurora Focus version 9.4.' keywords: [\"release notes\", \"Aurora Focus\", \"[Relevant Technology]\", \"9.4\"] sidebar label: '9.4 Release Notes' slug: /releases/aurora-focus/9-4 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '9.4' # e.g., 10.0.xxx author: 'bnc438' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' # e.g., Aurora Focus product family: 'Machine Vision' # e.g., Machine Vision product series: 'VS Smart Cameras Series' # e.g., VS Smart Cameras Series software tool: 'Aurora Focus' # e.g., Aurora Focus component type: 'Firmware' --- Use Case & Device Filters --- Add relevant use cases or licens",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "rn-aurora-focus-release-notes-10-en",
+      "heading": "rn-aurora-focus-release-notes-10-en",
+      "url": "/docs/release-notes/rn-aurora-focus-release-notes-10-en",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: Zebra Aurora Focus 10.0.15' description: 'A summary of new features, fixes, and other updates for Zebra Aurora Focus version 10.0.15.' keywords: [\"release notes\", \"Aurora Focus\", \"Machine Vision\", \"10.0.15\"] sidebar label: '10.0.15 Release Notes' slug: /releases/aurora-focus/10.0.15 =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '10.0.15' author: '[Author ID]' sort order: 100 last updated: '(Automated by build process)' last reviewed: '2024-05-21' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: 'Aurora Focus' product family: 'Machine Vision' product series: 'FS10, FS20, GS20, xS20, xS40, FS42, NS42, xS70, FS70, VS70, FS80' software tool: 'Aurora Focus' component type: 'Firmware' --- Use Case & Device Filters --- use case: ['Deep Learning', 'Barcode Decoding', 'System Maintenance', 'Image Processing'] license type: '[License Type]' device type: 'Smart Camera, Fixed Scanner' -",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "_release-notes-template",
+      "heading": "_release-notes-template",
+      "url": "/docs/release-notes/_release-notes-template",
+      "text": "=================================================================== Docusaurus Control Fields =================================================================== title: 'Release Notes: [Product Name] [Version]' description: 'A summary of new features, fixes, and known issues for [Product Name] version [Version].' keywords: [\"release notes\", \"[Product Name]\", \"[Relevant Technology]\", \"[Version]\"] sidebar label: '[Version] Release Notes' slug: /releases/[product-name-slug]/[version-slug] =================================================================== Content Management & Display Fields =================================================================== status: 'Published' version: '[Version]' # e.g., 10.0.xxx author: '[Author ID]' # e.g., bnc438 sort order: 100 # Use a descending order for releases (100 for latest, 99 for previous, etc.) last updated: '(Automated by build process)' last reviewed: '[YYYY-MM-DD]' =================================================================== Core Taxonomy Fields (For Filtering) =================================================================== --- Product & Software Filters --- product name: '[Product Name]' # e.g., Aurora Focus product family: '[Product Family]' # e.g., Machine Vision product series: '[Product Series]' # e.g., VS Smart Cameras Series software tool: '[Associated Software]' # e.g., Aurora Focus component type: 'Firmware' -",
+      "contentType": "",
+      "category": "release-notes"
+    },
+    {
+      "title": "t-aurora-focus-getting-started-and-mdx-summary",
+      "heading": "t-aurora-focus-getting-started-and-mdx-summary",
+      "url": "/docs/t-aurora-focus-getting-started-and-mdx-summary",
+      "text": "title: 'Getting Started with Zebra Aurora Focus' hide title: true Getting Started with Zebra Aurora Focus This page gives you a fast way to start working in Aurora Focus and a complete summary map of every other MDX page in this repository. Suggested First-Week Reading Path - Day 1: About this Guide, Using the JavaScript Environment, Using the JavaScript Editor. - Day 2: Operation Mode, Program Structure, Input Data, Output Data. - Day 3: Script Invocation, Example Script Lifecycle, Managing Execution Time. - Day 4: Debugging, Using Simulated Data, Sample Scripts. - Day 5: Licensing, Activating a License Key in Aurora Focus, Release Notes. Getting Started in Aurora Focus Follow this sequence when you are new to scripting and deployment in Aurora Focus: 1. Learn the guide layout and conventions. - Read JavaScript Developers Guide, About this Guide, Notational Conventions, and Icon Conventions. 2. Confirm the runtime and editor context. - Read Using the JavaScript Environment, Using the JavaScript Editor, and Using the Editor for a Deployed Job. 3. Understand execution behavior before writing logic. - Read Operation Mode, Program Structure, Script Invocation, Example Script Lifecycle, and Managing Execution Time. 4. Build your first script around data flow. - Read Input Data, Constant Data, Output Data, Job Status, and Text Encoding. 5. Add device and interface controls as needed",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-focus-js-beeper",
+      "heading": "t-aurora-focus-js-beeper",
+      "url": "/docs/t-aurora-focus-js-beeper",
+      "text": "sidebar position: 20 title: 'Beeper' Use the beeper field to control the beeper of the device and the Zebra Integrated Multi-Function Light. Helper Object Beeper Properties Value Description Beeper.beep() This function triggers a beeper with a specified duration, tone, and volume. Helper objects, BeeperVolumeResult, BeeperToneResult, and BeeperDurationResult, can be used to specify these. Beeper.off() Does not trigger the beeper; it’s independent of job success. Beeper.device settings() Triggers the beeper with parameters specified in the General Settings tab in Aurora Focus. The beeper must be enabled using the General Settings tab in Aurora Focus before being used on the device. Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-focus-js-gpio-ports",
+      "heading": "t-aurora-focus-js-gpio-ports",
+      "url": "/docs/t-aurora-focus-js-gpio-ports",
+      "text": "sidebar position: 19 title: 'GPIO Ports' Use the gpio field to send a pulse to available ports. Parameters of the pulse, such as length and delay, can be specified in the GPIO Mapping menu in General Settings. Pulse polarity can be set through the script, using one of the three values of the helper GpioPolarityResult enum object. Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-about-this-guide",
+      "heading": "t-aurora-js-about-this-guide",
+      "url": "/docs/t-aurora-js-about-this-guide",
+      "text": "sidebar position: 2 title: 'About this Guide' This document provides information on using JavaScript within Zebra Aurora Focus, including debugging techniques, sample scripts, and interface descriptions for barcode and anomaly detection results. See Also - Notational Conventions - Icon Conventions - Service Information",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-constant-data",
+      "heading": "t-aurora-js-constant-data",
+      "url": "/docs/t-aurora-js-constant-data",
+      "text": "sidebar position: 13 title: 'Constant Data' Each script has a global variable called DEVICE that is available from anywhere in the code. They contain constant data about the current device. When using an emulator, this variable contains applicable messages about a lack of support. DEVICE is described by the following type: Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-ftp-control",
+      "heading": "t-aurora-js-ftp-control",
+      "url": "/docs/t-aurora-js-ftp-control",
+      "text": "sidebar position: 18 title: 'FTP Control' The ftp field controls FTP output if enabled in the job. If the ftp field is not set, explicitly set to undefined, or set to null, then default behavior and names are used, as set in the FTP tab for the job. If the ftp field is set to an object, the resulting file names and whether they are sent depend on the field's values. If img file name is set to a single string, the resulting image names are set to that name with the image bank name and number appended to the end. If it is set to an array of strings, the resulting image names are set to the names of the strings (the first image takes the first string name, and so on). If common file name is set, but img file name is not set, the name used with the image bank index is appended to the end. If neither is set, images are not sent over FTP. If json file name is set, and the resulting JSON file name is set to that name. If common file name is set but json file name is not set, the common file name is used. If neither is set, JSON is not sent over FTP. See Also - Operation Mode",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-hid-keyboard",
+      "heading": "t-aurora-js-hid-keyboard",
+      "url": "/docs/t-aurora-js-hid-keyboard",
+      "text": "sidebar position: 17 title: 'HID Keyboard' Enable the HID keyboard to use the device in HID keyboard mode. Assign a string, a single button, a key, and a modifier combination. You can also add a pause between keystrokes. All of these can be leveraged into a single assignment. An additional helper object, HID, is available to simplify HID usage. HID properties are described in the following table. Helper Object HID Properties Property Description HID.key Gives access to a list of available keys. HID.combination Allows the creation of a key and a modifier combination. HID.pause Allows a pause between consecutive keystrokes to be created. HID.modifier Gives access to a list of available key modifiers. HID.pause argument must be between 0 and 25000 ms. HID.combination allows you to press, at the same time, a key and up to 8 different modifiers. HID.combination produces a series of consecutive keystrokes with the same modifiers when used with more than one key. Keystroke delay and preferred keyboard layout can be changed through the Communication tab in the device settings. If that property is not assigned, nothing is printed.",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-input-data",
+      "heading": "t-aurora-js-input-data",
+      "url": "/docs/t-aurora-js-input-data",
+      "text": "sidebar position: 12 title: 'Input Data' The function onResults takes only one argument. This argument contains the output structure of all tools in the current job. The tool results and tool results by names fields contain tools that display in the job but allow access to them differently. For example, tool results is a list of tools where each index already has a defined tool type. In cases where the engine does not yet support the tools, the index takes the value null. The tools are sorted in the order they display in the job. tool results by names allows access to tools by their name, using dot notation, and support from IntelliSense, so tool results by names.my tool is the correct syntax. In tool results by names, only currently supported tools display after their names. When FlowBuilder uses multiple tools, each tool is accessible by its friendly name. A friendly name might contain characters that are not valid as part of a JavaScript variable name. In this case, all invalid characters are replaced with underscore characters. In some instances, two tools might have the same JavaScript name (for example, friendly names were tool! and tool@ and both got translated to tool ). In this case, the red triangle with an exclamation mark displays on the top right side of the editor (right before the script enabling switch). The warning sign explains which tools have a naming collis",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-limitations",
+      "heading": "t-aurora-js-limitations",
+      "url": "/docs/t-aurora-js-limitations",
+      "text": "sidebar position: 9 title: 'Limitations' Understand the current limitations of the script editor and strategize so you do not encounter any issues. - The ability to use external modules using the import keyword and the required functions is disabled. - Asynchronous functions are not supported. Helper functions necessary to implement asynchronous functions, such as setTimeout, are not present. - Network or file system IO functions are not supported. - If memory usage exceeds a specific limit, the scripting environment restarts (including restarting global variables). This is no different from other runtime errors, except for refreshing the state and the time it takes to restart the environment. This can occur if you create a global variable in an array and add elements in every iteration, but do not remove them. See Also - JavaScript Environment",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-managing-execution-time",
+      "heading": "t-aurora-js-managing-execution-time",
+      "url": "/docs/t-aurora-js-managing-execution-time",
+      "text": "sidebar position: 25 title: 'Managing Execution Time' The JavaScript execution time may be unstable at times. Avoid instability by understanding its sources, just-in-time compiler operation, and garbage collector usage. While smaller scripts typically do not result in instability, observed irregularities in script execution times result from two primary sources: - Just-in-time compiler operation. When developing a script, subsequent iterations after the initial script are accelerated. - The JavaScript memory model uses a garbage collector. Scripts that use a lot of memory must periodically use the garbage collector to clean up unused memory during execution, reducing the time it takes to execute. See Also - Operation Mode",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-operation-mode",
+      "heading": "t-aurora-js-operation-mode",
+      "url": "/docs/t-aurora-js-operation-mode",
+      "text": "sidebar position: 10 title: 'Operation Mode' Use the Aurora Focus JavaScript environment to handle input/output data, interact with hardware, and utilize job status logic. See Also - Program Structure - Input Data - Constant Data - Output Data - Job Status - TCPIP, RS232, and USB CDC Serial - HID Keyboard - FTP Control - GPIO Ports - Beeper - Script Invocation - Example Script Lifecycle - Managing Execution Time - Text Encoding",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-output-data",
+      "heading": "t-aurora-js-output-data",
+      "url": "/docs/t-aurora-js-output-data",
+      "text": "sidebar position: 14 title: 'Output Data' Control the device’s output function by using onResults to return a specific and straightforward structure. Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-sample-scripts-advanced-techniques-and-debugging",
+      "heading": "t-aurora-js-sample-scripts-advanced-techniques-and-debugging",
+      "url": "/docs/t-aurora-js-sample-scripts-advanced-techniques-and-debugging",
+      "text": "sidebar position: 25 title: 'Debugging, Advanced Techniques, and Sample Scripts' This section includes debugging tactics and sample scripts to implement into your workflow. See Also - Debugging - Using Simulated Data - Using Custom Templates - Obtaining the Device MAC Address - Sample Scripts",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-sample-scripts",
+      "heading": "t-aurora-js-sample-scripts",
+      "url": "/docs/t-aurora-js-sample-scripts",
+      "text": "sidebar position: 30 title: 'Sample Scripts' The following sample scripts demonstrate different scenarios and editor features. Click Edit on the top menu bar in the Use template section to use additional sample scripts. Each template has comments that describe the general purpose and blocks of code. Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-script-invocation",
+      "heading": "t-aurora-js-script-invocation",
+      "url": "/docs/t-aurora-js-script-invocation",
+      "text": "sidebar position: 21 title: 'Script Invocation' The script executes at the end of each job when results are available. Its execution time includes the job's execution time. The onResults function executes new arguments at the end of each job iteration. If there are any errors in the script, a standard JavaScript exception is thrown and propagated to Aurora Focus with no outputs set. For more information, refer to Debugging. During the first iteration, the script execution may take longer because script code not enclosed in functions is executed first, such as initializing global variables. All other forms of result formatting are disabled when JavaScript is enabled. See Also - Operation Mode",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-using-custom-templates",
+      "heading": "t-aurora-js-using-custom-templates",
+      "url": "/docs/t-aurora-js-using-custom-templates",
+      "text": "sidebar position: 28 title: 'Using Custom Templates' Integrate your own JavaScript templates into Aurora Focus. Create your template in a file with a .js extension, locate the Aurora Focus folder (where the application is installed), and save it in the resources\\\\public\\\\js editor templates subfolder. After restarting the application, the template is available in the Use template section under Edit in the top navigation bar. The custom template you create is only available in that instance of Aurora Focus. If the file is deleted, the template is no longer available. See Also - Debugging, Advanced Techniques, and Sample Scripts Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-using-simulated-data",
+      "heading": "t-aurora-js-using-simulated-data",
+      "url": "/docs/t-aurora-js-using-simulated-data",
+      "text": "sidebar position: 27 title: 'Using Simulated Data' If you cannot use real-world results, use simulated data until you can validate with representative data. Assign the data to a variable to simulate an actual result of a camera read. The following example simulates the results of a ManyCode read. Simulated data is hardcoded and user-defined. Use this method only for development and initial testing purposes. Conduct final tests using actual results to ensure the code works as intended. Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-using-the-editor-for-a-deployed-job",
+      "heading": "t-aurora-js-using-the-editor-for-a-deployed-job",
+      "url": "/docs/t-aurora-js-using-the-editor-for-a-deployed-job",
+      "text": "sidebar position: 8 title: 'Using the Editor for a Deployed Job' Click Open Editor in the Current Results section while running a job in Aurora Focus to run the JavaScript editor. See Also - JavaScript Environment",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-js-using-the-javascript-editor",
+      "heading": "t-aurora-js-using-the-javascript-editor",
+      "url": "/docs/t-aurora-js-using-the-javascript-editor",
+      "text": "sidebar position: 7 title: 'Using the JavaScript Editor' Access Script Formatting from the Connect tab to create custom scripts. JavaScript Formatting is supported on Aurora Focus version 9 and above. 1. Enable Script Formatting from the menu and click Open Editor to open a new editor window. 2. While in the editor, observe the UI elements: the navigation menu, the run job button, and the script formatting slider. JavaScript Editor UI Elements UI Element Description :--- :--- Navigation Menu The top navigation menu provides access to File , Edit , and View functions for the application. Open an existing file with JavaScript code and save JavaScript to an external file from the File menu. JavaScript, by default, is saved in a job file when saving a whole job or deploying a job to the device. Use templates and snippets to quickly develop new JavaScript code that is specific to your use case from the Edit menu. Adjust the editor font size from the View menu. Run Job Button Click Run Job on the control bar to validate test code in the editor by running a job on an image in the Filmstrip in Aurora Focus. You can also trigger a job by pressing F5 while in the editor. Script Formatting Disable JavaScript formatting by using the Script Formatting toggle in the top-right corner of the editor window. 3. Press F1 while inside the editor for a list of all functionalities. 4. Use IntelliSen",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-scripting-job-status",
+      "heading": "t-aurora-scripting-job-status",
+      "url": "/docs/t-aurora-scripting-job-status",
+      "text": "sidebar position: 15 title: 'Job Status' The job success property redefines the inspection Pass/Fail status based on a user-defined logic. If assigned with true or false values, the inspection status is pass or fail. It does not change if the value is not specified. It is possible to access the inspection status with the onResults function argument. The property is named job success as well. Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial",
+      "heading": "t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial",
+      "url": "/docs/t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial",
+      "text": "sidebar position: 18 title: 'TCPIP, RS232, and USB CDC Serial' Use the JavaScript feature to write data to TCP/IP, RS232, and USB CDC-Serial external interfaces. Monaco Sandbox",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "test-file",
+      "heading": "test-file",
+      "url": "/docs/test-file",
+      "text": "title: Test File sidebar position: 99 If you can see this, it is working!",
+      "contentType": "",
+      "category": "general"
+    },
+    {
+      "title": "index",
+      "heading": "index",
+      "url": "/docs/user-guide",
+      "text": "title: User Guide slug: / This section contains user guide documentation.",
+      "contentType": "",
+      "category": "general"
+    }
+  ]
+}

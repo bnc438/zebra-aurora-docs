@@ -1,0 +1,317 @@
+---
+title: Symbologies
+description: "Configure the settings of each symbology\_based on your use case."
+slug: /fixed-industrial-tools/c-af-ug-symbologies
+sidebar_label: Symbologies
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Configure the settings of each symbology based on your use case.
+
+
+
+
+Setting
+Description
+Code 39
+
+Configurable settings include:
+- Trioptic - Trioptic Code 39 is a variant of Code 39 used in the marking of computer tape cartridges. Trioptic Code 39 symbols always contain six characters.
+- Full ASCII Conversion - Code 39 Full ASCII is a variant of Code 39 that pairs characters to encode the full ASCII character set.
+- Set lengths for Code 39 to any length, one or two discrete lengths, or lengths within a specific range.
+- Check Digit Verification - enable to check the integrity of all Code 39 symbols to verify that the data complies with the specified check digit algorithm. Only Code 39 symbols that include a modulo 43 check digit are decoded.
+- Convert to Code 32 - Code 32 is a variant of Code 39 used by the Italian pharmaceutical industry.
+Trioptic - Trioptic Code 39 is a variant of Code 39 used in the marking of computer tape cartridges. Trioptic Code 39 symbols always contain six characters.
+Full ASCII Conversion - Code 39 Full ASCII is a variant of Code 39 that pairs characters to encode the full ASCII character set.
+Trioptic Code 39 and Code 39 Full ASCII cannot be enabled simultaneously.
+Set lengths for Code 39 to any length, one or two discrete lengths, or lengths within a specific range.
+If Code 39 Full ASCII is enabled, Length Within a Range or Any Length are the preferred options.
+Check Digit Verification - enable to check the integrity of all Code 39 symbols to verify that the data complies with the specified check digit algorithm. Only Code 39 symbols that include a modulo 43 check digit are decoded.
+Check Digit Verification is useful when the Code 39 symbols contain a Modulo 43 check digit.
+Convert to Code 32 - Code 32 is a variant of Code 39 used by the Italian pharmaceutical industry.
+Code 39 must be enabled for this parameter to function.
+Code 128
+
+Configurable settings include:
+- Enable GS1128
+- ISBT 128 - ISBT 128 is a variant of Code 128 used in the blood bank industry.
+- Set lengths for Code 128 to any length, one or two discrete lengths, or lengths within a specific range.
+- ISBT Concatenation Redundancy - if ISBT Concatenation is set to Autodiscriminate, use this parameter to set the number of times the device must decode an ISBT symbol before determining that there is no additional symbol.
+- Emulate UCC128
+- Select ISBT Concatenation - select an option for concatenating pairs of ISBT code types.
+- Ignore Code128 FNC4 - enable to strip the Code 128 (FNC4) character from the decode data.
+Enable GS1128
+ISBT 128 - ISBT 128 is a variant of Code 128 used in the blood bank industry.
+If necessary, the host must perform the concatenation of the ISBT data.
+Set lengths for Code 128 to any length, one or two discrete lengths, or lengths within a specific range.
+When setting lengths, enter a leading zero for single-digit numbers.
+ISBT Concatenation Redundancy - if ISBT Concatenation is set to Autodiscriminate, use this parameter to set the number of times the device must decode an ISBT symbol before determining that there is no additional symbol.
+Emulate UCC128
+Select ISBT Concatenation - select an option for concatenating pairs of ISBT code types.
+- Disable ISBT Concatenation - the device does not concatenate pairs of ISBT codes it encounters.
+- Enable ISBT Concatenation - there must be two ISBT codes in order for the device to decode and perform concatenation. The device does not decode single ISBT symbols.
+- Autodiscriminate ISBT Concatenation - the digital scanner decodes and concatenates pairs of ISBT codes immediately. If only a single ISBT symbol is present, the digital scanner must decode the symbol the number of times set in ISBT Concatenation Redundancy.
+Disable ISBT Concatenation - the device does not concatenate pairs of ISBT codes it encounters.
+Enable ISBT Concatenation - there must be two ISBT codes in order for the device to decode and perform concatenation. The device does not decode single ISBT symbols.
+Autodiscriminate ISBT Concatenation - the digital scanner decodes and concatenates pairs of ISBT codes immediately. If only a single ISBT symbol is present, the digital scanner must decode the symbol the number of times set in ISBT Concatenation Redundancy.
+Ignore Code128 FNC4 - enable to strip the Code 128 (FNC4) character from the decode data.
+Interleaved 2 of 5 (I 2 of 5)
+
+Configurable settings include:
+- Set lengths for I 2 of 5 to any length, one or two discrete lengths, or lengths within a specific range.
+- Check Digit Verification - check the integrity of all I 2 of 5 symbols to verify the data complies with either the specified Uniform Symbology Specification (USS), or the Optical Product Code Council (OPCC) check digit algorithm.
+- Transmit Check Digit - scan the appropriate barcode to transmit I 2 of 5 data with or without the check digit.
+- Convert Interleaved 2 of 5 Length to EAN13 - convert 14-character I 2 of 5 codes to EAN-13 and transmit them to the host as EAN-13.
+- Febraban (Interleaved 2 of 5 Length) - Febraban is an I 2 of 5 barcode of length 44 that requires special check characters to be inserted in the transmitted data stream. When enabled, the I 2 of 5 internal check digit calculation and transmission is disabled.
+Set lengths for I 2 of 5 to any length, one or two discrete lengths, or lengths within a specific range.
+When setting lengths, enter a leading zero for single-digit numbers.
+Check Digit Verification - check the integrity of all I 2 of 5 symbols to verify the data complies with either the specified Uniform Symbology Specification (USS), or the Optical Product Code Council (OPCC) check digit algorithm.
+Transmit Check Digit - scan the appropriate barcode to transmit I 2 of 5 data with or without the check digit.
+Convert Interleaved 2 of 5 Length to EAN13 - convert 14-character I 2 of 5 codes to EAN-13 and transmit them to the host as EAN-13.
+To accomplish this, the I 2 of 5 code must be enabled, and the code must have a leading zero and a valid EAN-13 check digit.
+Febraban (Interleaved 2 of 5 Length) - Febraban is an I 2 of 5 barcode of length 44 that requires special check characters to be inserted in the transmitted data stream. When enabled, the I 2 of 5 internal check digit calculation and transmission is disabled.
+Data Matrix
+
+Configurable settings include:
+- Decode Data Matrix Mirror Images - use one of the following barcodes to select an option for decoding mirror image Data Matrix barcodes:
+- Inverse Data Matrix - sets the Data Matrix inverse decoder setting.
+- Enable or Disable GS1 Datamatrix.
+Decode Data Matrix Mirror Images - use one of the following barcodes to select an option for decoding mirror image Data Matrix barcodes:
+- Regular Only - decodes regular images only.
+- Mirrored Only - decodes mirrored images only.
+- Both Regular and Mirrored - decodes both regular and mirrored images.
+Regular Only - decodes regular images only.
+Mirrored Only - decodes mirrored images only.
+Both Regular and Mirrored - decodes both regular and mirrored images.
+Inverse Data Matrix - sets the Data Matrix inverse decoder setting.
+- Regular Only - decodes regular Data Matrix barcodes only.
+- Inverse Only - decodes inverse Data Matrix barcodes only.
+- Both Regular and Inverse - decodes regular and inverse Data Matrix barcodes.
+Regular Only - decodes regular Data Matrix barcodes only.
+Inverse Only - decodes inverse Data Matrix barcodes only.
+Both Regular and Inverse - decodes regular and inverse Data Matrix barcodes.
+Enable or Disable GS1 Datamatrix.
+PDF417
+
+Configurable settings include:
+- Enable MicroPDF.
+Enable MicroPDF.
+QR Code
+
+Configurable settings include:
+- Enable MicroQR (Enabled by Default).
+- Enable GS1 QR.
+- Select Linked QR Mode - use one of the following barcodes to select a linked QR mode.
+Enable MicroQR (Enabled by Default).
+Enable GS1 QR.
+Select Linked QR Mode - use one of the following barcodes to select a linked QR mode.
+- Linked QR Only - does not decode individual QRs from a set of linked QR codes.
+- Individual QR With Headers - decodes individual QR codes from a set of linked QR codes, preserving the header information and data.
+- Individual QR No Headers - decodes individual QRs from a set of linked QR codes and transmits data only without header information.
+Linked QR Only - does not decode individual QRs from a set of linked QR codes.
+Individual QR With Headers - decodes individual QR codes from a set of linked QR codes, preserving the header information and data.
+Individual QR No Headers - decodes individual QRs from a set of linked QR codes and transmits data only without header information.
+UPC/EAN
+
+General UPC/EAN settings include:
+- Select UPC/EAN/JAN Supplementals.
+- 2 Digital Supplemental.
+- 5 Digital Supplemental.
+Select UPC/EAN/JAN Supplementals.
+2 Digital Supplemental.
+5 Digital Supplemental.
+
+Configurable UPC-A settings include:
+- Enable UPC-A - preamble characters are part of the UPC symbol, and include Country Code and System Character.
+- Select UPC-A Preamble - select the appropriate option to transmit a UPC-E preamble compatible with the host system.
+- Transmit UPC-A Check Digit - transmits data with or without the UPC-A check digit.
+Enable UPC-A - preamble characters are part of the UPC symbol, and include Country Code and System Character.
+Select UPC-A Preamble - select the appropriate option to transmit a UPC-E preamble compatible with the host system.
+Transmit UPC-A Check Digit - transmits data with or without the UPC-A check digit.
+
+Configurable UPC-E settings include:
+- Enable UPC-E - preamble characters are part of the UPC symbol, and include Country Code and System Character.
+- Select UPC-E Preamble - select the appropriate option for transmitting a UPC-E preamble to match the host system.
+- Transmit UPC-E Check Digit - transmits data with or without the UPC-E check digit.
+- Convert UPC-E to UPC-A - converts UPC-E (zero suppressed) decoded data to UPC-A format before transmission.
+Enable UPC-E - preamble characters are part of the UPC symbol, and include Country Code and System Character.
+Select UPC-E Preamble - select the appropriate option for transmitting a UPC-E preamble to match the host system.
+Transmit UPC-E Check Digit - transmits data with or without the UPC-E check digit.
+Convert UPC-E to UPC-A - converts UPC-E (zero suppressed) decoded data to UPC-A format before transmission.
+
+Configurable UPC-E1 settings include:
+- Enable UPC-E1.
+- Select UPC-E1 Preamble - the preamble parameter that transmits the system character and country code applies to the converted barcode.
+- Transmit UPC-E1 Check Digit - transmits the data with the UPC-E1 check digit.
+- Convert UPC-E1 Check Digit to UPC-A - converts UPC-E1 (zero suppressed) decoded data to UPC-A format before transmission.
+Enable UPC-E1.
+Select UPC-E1 Preamble - the preamble parameter that transmits the system character and country code applies to the converted barcode.
+Transmit UPC-E1 Check Digit - transmits the data with the UPC-E1 check digit.
+Convert UPC-E1 Check Digit to UPC-A - converts UPC-E1 (zero suppressed) decoded data to UPC-A format before transmission.
+
+Configurable EAN-13/JAN-13 settings include:
+- Enable EAN-13/JAN13
+Enable EAN-13/JAN13
+
+Configurable EAN-8/JAN8 settings include:
+- Enable or Disable EAN-8/JAN8
+- Enable EAN-8/JAN8 Extend
+Enable or Disable EAN-8/JAN8
+Enable EAN-8/JAN8 Extend
+Code 93
+
+Configurable settings include:
+- Select Code 93 Length - the length of a code refers to the number of characters (for example, human-readable characters), including check digit(s) the code contains. Set lengths for Code 93 to any length, one or two discrete lengths, or lengths within a specific range.
+Select Code 93 Length - the length of a code refers to the number of characters (for example, human-readable characters), including check digit(s) the code contains. Set lengths for Code 93 to any length, one or two discrete lengths, or lengths within a specific range.
+When setting lengths, enter a leading zero for single-digit numbers.
+DotCode
+
+Configurable settings include:
+- Select DotCode Inverse - scan one of the following barcodes to select a DotCode Inverse decoder setting. Setting options are:
+- Select DotCode Mirror - use one of the following barcodes to select a DotCode Mirror decoder setting:
+- Determine DotCode ECC Erasure - set the maximum number of erasures in DotCode codewords before passing the codewords for error correction.
+Select DotCode Inverse - scan one of the following barcodes to select a DotCode Inverse decoder setting. Setting options are:
+- Regular Only - decodes DotCode barcodes with normal reflectance only.
+- Inverse Only - decodes DotCode barcodes with inverse reflectance only.
+- Both Regular and Inverse - decodes both regular and inverse DotCode barcodes.
+Regular Only - decodes DotCode barcodes with normal reflectance only.
+Inverse Only - decodes DotCode barcodes with inverse reflectance only.
+Both Regular and Inverse - decodes both regular and inverse DotCode barcodes.
+Select DotCode Mirror - use one of the following barcodes to select a DotCode Mirror decoder setting:
+- Never - decodes non-mirrored DotCode barcodes only.
+- Always - decodes mirrored DotCode barcodes only.
+- Auto - decodes both mirrored and non-mirrored DotCode barcodes.
+Never - decodes non-mirrored DotCode barcodes only.
+Always - decodes mirrored DotCode barcodes only.
+Auto - decodes both mirrored and non-mirrored DotCode barcodes.
+Determine DotCode ECC Erasure - set the maximum number of erasures in DotCode codewords before passing the codewords for error correction.
+The value range is from 4 to 20. The default value is 10. A higher value means DotCode barcodes are easier to decode, but the chance of a decode error is higher.
+MaxiCode
+
+There are no configurable settings for Maxicode.
+Mailmark
+Enable or disable Mailmark.
+Aztec
+
+Configurable settings include:
+- Select Inverse Aztec - set the Aztec inverse decoder setting, options include:
+Select Inverse Aztec - set the Aztec inverse decoder setting, options include:
+- Regular Only - decodes regular Aztec barcodes only.
+- Inverse Only - decodes inverse Aztec barcodes only.
+- Both Regular and Inverse - decodes both regular and inverse Aztec barcodes.
+Regular Only - decodes regular Aztec barcodes only.
+Inverse Only - decodes inverse Aztec barcodes only.
+Both Regular and Inverse - decodes both regular and inverse Aztec barcodes.
+MSI
+
+Configurable settings include:
+- Select MSI Length - the length of a code refers to the number of characters (for example, human-readable characters), including check digit(s) the code contains. Set MSI lengths to any length, a single discrete length, or a range of lengths.
+- MSI Check Digits - when using MSI symbols, one check digit is mandatory and always verified by the device. The second check digit is optional. If the MSI codes include two check digits, scan the Two MSI Check Digits barcode to verify the second check digit.
+- Transmit Check Digit - transmit MSI data with or without the check digit.
+- Select MSI Check Algorithm: two algorithms are available for verifying the second MSI check digit. Select the parameter that corresponds to the algorithm used to encode the check digit.
+- MSI Reduced Quiet Zone - enable or disable decoding MSI barcodes with reduced quiet zones
+Select MSI Length - the length of a code refers to the number of characters (for example, human-readable characters), including check digit(s) the code contains. Set MSI lengths to any length, a single discrete length, or a range of lengths.
+When setting lengths, enter a leading zero for single-digit numbers.
+MSI Check Digits - when using MSI symbols, one check digit is mandatory and always verified by the device. The second check digit is optional. If the MSI codes include two check digits, scan the Two MSI Check Digits barcode to verify the second check digit.
+Transmit Check Digit - transmit MSI data with or without the check digit.
+Select MSI Check Algorithm: two algorithms are available for verifying the second MSI check digit. Select the parameter that corresponds to the algorithm used to encode the check digit.
+MSI Reduced Quiet Zone - enable or disable decoding MSI barcodes with reduced quiet zones
+CODABAR
+
+Configurable settings include:
+- Select Codabar Length - the length of a code refers to the number of characters (for example, human-readable characters), including check digit(s) the code contains. Set Codabar lengths to any length, a single discrete length, or a range.
+- CLSI Editing - enable to strip the start and stop characters and insert a space after the first, fifth, and tenth characters of a 14-character Codabar symbol. This parameter is helpful if the host system requires this specific data format.
+- NOTIS Editing - enable this parameter to strip the start and stop characters from a decoded Codabar symbol. This parameter is helpful if the host system requires this specific data format.
+- Upper or Lower Case Start/Stop Characters - select whether to detect upper case or lower case Codabar start/stop characters.
+- Select Security Level - the device offers four levels of decode security for delta bar codes, including UPC/EAN and Code 93. Select increasing levels of security for decreasing levels of barcode quality.
+- Mod 16 Check Digit Verification - check the Codabar Mod 16 check digit to verify that the data complies with the specified check digit algorithm.
+- Transmit Codabar Check Digit - select whether or not to transmit the Codabar check digit(s).
+Select Codabar Length - the length of a code refers to the number of characters (for example, human-readable characters), including check digit(s) the code contains. Set Codabar lengths to any length, a single discrete length, or a range.
+When setting lengths, enter a leading zero for single-digit numbers.
+CLSI Editing - enable to strip the start and stop characters and insert a space after the first, fifth, and tenth characters of a 14-character Codabar symbol. This parameter is helpful if the host system requires this specific data format.
+Symbol length does not include start and stop characters.
+NOTIS Editing - enable this parameter to strip the start and stop characters from a decoded Codabar symbol. This parameter is helpful if the host system requires this specific data format.
+Upper or Lower Case Start/Stop Characters - select whether to detect upper case or lower case Codabar start/stop characters.
+Select Security Level - the device offers four levels of decode security for delta bar codes, including UPC/EAN and Code 93. Select increasing levels of security for decreasing levels of barcode quality.
+There is an inverse relationship between security and the aggressiveness of the scanner; choose only the level of security necessary for any given application.
+Mod 16 Check Digit Verification - check the Codabar Mod 16 check digit to verify that the data complies with the specified check digit algorithm.
+Transmit Codabar Check Digit - select whether or not to transmit the Codabar check digit(s).
+Discrete 2 of 5
+
+Select Length
+
+
+- Any
+- Discrete
+- Range (4-55)
+Any
+Discrete
+Range (4-55)
+GS1 Databar
+
+Configurable settings include:
+- Omnidirectional
+- Limited
+- Expanded
+- Transmit Codabar Check Digit - select whether or not to transmit the Codabar check digit(s).
+Omnidirectional
+Limited
+Expanded
+Transmit Codabar Check Digit - select whether or not to transmit the Codabar check digit(s).
+
+Options:
+- Convert GS1 Databar to UPC/EAN/JAN
+- Limited Margin Check
+- Security Level
+Convert GS1 Databar to UPC/EAN/JAN
+Limited Margin Check
+- Level 1 - this setting does not require a clear margin and complies with the original GS1 standard, yet can result in a misdecode of DataBar limited barcodes when scanning UPC symbols that start with digits 9 and 7.
+- Level 2 - this setting automatically detects risks. This level of margin check can result in a misdecode of Databar Limited barcodes when scanning UPC symbols. If a misdecode occurs, the scanner operates in Level 1 or 3.
+- Level 3 - this setting reflects the newly proposed GS1 standard and requires a five-times trailing clear margin.
+- Level 4 - this setting extends beyond the standard GS1 requirement.
+Level 1 - this setting does not require a clear margin and complies with the original GS1 standard, yet can result in a misdecode of DataBar limited barcodes when scanning UPC symbols that start with digits 9 and 7.
+Level 2 - this setting automatically detects risks. This level of margin check can result in a misdecode of Databar Limited barcodes when scanning UPC symbols. If a misdecode occurs, the scanner operates in Level 1 or 3.
+Level 3 - this setting reflects the newly proposed GS1 standard and requires a five-times trailing clear margin.
+Level 4 - this setting extends beyond the standard GS1 requirement.
+Security Level
+- Level 0 - the scanner operates in its most aggressive state while providing sufficient security in decoding most in-spec barcodes.
+- Level 1 - this setting eliminates most misdecodes.
+- Level 2 - this setting applies greater barcode security requirements if Security Level 1 does not sufficiently eliminate misdecodes.
+- Level 3 - this setting applies the highest security requirements.
+Level 0 - the scanner operates in its most aggressive state while providing sufficient security in decoding most in-spec barcodes.
+Level 1 - this setting eliminates most misdecodes.
+Level 2 - this setting applies greater barcode security requirements if Security Level 1 does not sufficiently eliminate misdecodes.
+Level 3 - this setting applies the highest security requirements.
+This option is an extreme measure against misdecodes and significantly impairs the scanner's decoding ability. If this level of security is required, it is recommended to use high-quality barcodes.
+Pharmacode
+
+Configurable settings include:
+- Bar Count (3-16)
+- Orientation
+- Direction
+Bar Count (3-16)
+Orientation
+- Horizontal
+- Vertical
+Horizontal
+Vertical
+Direction
+- Normal
+- Reverse
+Normal
+Reverse

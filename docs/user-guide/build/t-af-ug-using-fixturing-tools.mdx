@@ -1,0 +1,34 @@
+---
+title: Using Fixturing Tools
+description: Use fixturing tools to focus on a specific symbology in environments
+  where codes are processed rapidly and may be presented in different orientations.
+slug: /build/t-af-ug-using-fixturing-tools
+sidebar_label: Using Fixturing Tools
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Use fixturing tools to focus on a specific symbology in environments where codes are processed rapidly and may be presented in different orientations.
+
+
+All 1D and 2D symbologies are compatible with fixturing tools.
+Create a new job.
+Add the Read Barcode tool to the FlowBuilder.
+Add an additional tool, such as Deep Learning OCR.
+Ensure that Manycode is disabled before using fixturing.
+Select the first tool (Read Barcode) from the Fixture drop-down list.
+Deploy the job and move the test image. Observe the Deep Learning OCR tool's ROI following the Barcode tool results.

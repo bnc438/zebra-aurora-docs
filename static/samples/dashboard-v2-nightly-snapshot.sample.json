@@ -1,0 +1,158 @@
+{
+  "snapshotDate": "2026-03-25",
+  "generatedAt": "2026-03-25T23:46:03.736Z",
+  "releaseFact": [
+    {
+      "snapshotDate": "2026-03-25",
+      "snapshotTimestamp": "2026-03-25T23:46:03.736Z",
+      "versionRaw": "1.0.0",
+      "versionCanonical": "1.0.0",
+      "versionParseConfidence": 0.5,
+      "docCount": 66,
+      "docCompletenessPct": 0,
+      "prCount": 0,
+      "prLinkCoveragePct": 0,
+      "jiraEpicCount": 0,
+      "jiraOpenCount": 0,
+      "jiraInProgressCount": 0,
+      "jiraClosedCount": 0,
+      "jiraClosureRatePct": 0,
+      "releaseCoverageCompletenessPct": 0,
+      "buildStabilityScore": 0,
+      "pdfStabilityScore": 0,
+      "releaseReadinessIndex": 0
+    }
+  ],
+  "searchQueryEvent": [],
+  "monacoTelemetryEvent": [],
+  "pdfValidationResult": [],
+  "dashboardAggregateV2": {
+    "schemaVersion": "2.0.0",
+    "generatedAt": "2026-03-25T23:46:03.736Z",
+    "snapshotDate": "2026-03-25",
+    "presetOptions": [
+      "all",
+      "content_team",
+      "product_owner",
+      "leadership"
+    ],
+    "globalStability": {
+      "score": 0,
+      "status": "red",
+      "criticalAlertCount": 0,
+      "warningAlertCount": 75,
+      "thresholds": {
+        "greenMin": 90,
+        "amberMin": 75
+      }
+    },
+    "tiles": {
+      "releaseIntelligence": {
+        "metrics": {
+          "releaseReadinessIndex": 0,
+          "jiraClosureRatePct": 0
+        }
+      },
+      "contentIntelligence": {
+        "metrics": {
+          "requiredFieldDebt": 66,
+          "metadataQualityScore": 0
+        }
+      },
+      "userBehavior": {
+        "metrics": {
+          "pageviews": 0,
+          "uniqueUsers": 0,
+          "engagedSessions": 0,
+          "avgEngagementTimeSec": 0,
+          "topicPopularityScore": 0
+        },
+        "weights": {
+          "pageviews": 0.35,
+          "uniqueUsers": 0.25,
+          "engagedSessions": 0.25,
+          "avgEngagementTimeSec": 0.15
+        }
+      },
+      "searchInsights": {
+        "metrics": {
+          "localQueryVolume": 0,
+          "localZeroResultRatePct": 0,
+          "askAiQueryVolume": 0,
+          "unifiedContentGapScore": 0
+        }
+      },
+      "platformStability": {
+        "metrics": {
+          "monacoStabilityScore": 0,
+          "pdfRenderSuccessRatePct": 100,
+          "pdfOutputValidityRatePct": 100
+        }
+      },
+      "operationalHealth": {
+        "metrics": {
+          "nightlySnapshotSuccessRatePct": 100,
+          "dataFreshnessLagHours": 0
+        }
+      }
+    },
+    "thresholds": {
+      "global": {
+        "greenMin": 90,
+        "amberMin": 75
+      },
+      "metricSpecific": {
+        "localZeroResultRatePct": {
+          "greenMax": 10,
+          "amberMax": 20
+        },
+        "requiredFieldDebt": {
+          "greenMax": 0,
+          "amberMax": 5
+        }
+      }
+    },
+    "tooltips": {
+      "releaseReadinessIndex": {
+        "definition": "Weighted readiness score combining doc completeness, PR coverage, Jira closure rate, and PDF stability.",
+        "formula": "0.30 * docCompletenessPct + 0.25 * prLinkCoveragePct + 0.25 * jiraClosureRatePct + 0.20 * pdfStabilityScore",
+        "thresholds": {
+          "greenMin": 85,
+          "amberMin": 65
+        },
+        "owner": "Content + Product",
+        "updatedAt": "2026-03-25T23:46:03.736Z"
+      },
+      "metadataQualityScore": {
+        "definition": "Average frontmatter completeness across all docs as a percentage.",
+        "formula": "avg(completenessScore per doc) × 100",
+        "thresholds": {
+          "greenMin": 85,
+          "amberMin": 65
+        },
+        "owner": "Content Team",
+        "updatedAt": "2026-03-25T23:46:03.736Z"
+      },
+      "buildStabilityScore": {
+        "definition": "Percentage of docs with no build issues (missing required fields, broken image refs, invalid dates).",
+        "formula": "(1 − docsWithIssues / totalDocs) × 100",
+        "thresholds": {
+          "greenMin": 90,
+          "amberMin": 75
+        },
+        "owner": "Content Team",
+        "updatedAt": "2026-03-25T23:46:03.736Z"
+      },
+      "pdfStabilityScore": {
+        "definition": "Percentage of PDF sections that rendered successfully and passed validation.",
+        "formula": "passedSections / totalSections × 100",
+        "thresholds": {
+          "greenMin": 95,
+          "amberMin": 80
+        },
+        "owner": "Engineering",
+        "updatedAt": "2026-03-25T23:46:03.736Z"
+      }
+    }
+  }
+}

@@ -2,13 +2,76 @@ const fs = require('fs');
 const path = require('path');
 
 const userGuideDir = path.join(__dirname, 'docs', 'user-guide');
-const userGuideItems = fs
-  .readdirSync(userGuideDir)
-  .filter((fileName) => fileName.endsWith('.mdx'))
+
+function getDocFileInfo(dirPath) {
+  return fs
+    .readdirSync(dirPath, {withFileTypes: true})
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((fileName) => fileName.endsWith('.mdx'))
+    .filter((fileName) => !fileName.startsWith('_'))
+    .sort((a, b) => a.localeCompare(b));
+}
+
+const userGuideTopLevelItems = getDocFileInfo(userGuideDir)
   .filter((fileName) => fileName !== 'index.mdx')
-  .filter((fileName) => !fileName.startsWith('_'))
-  .sort((a, b) => a.localeCompare(b))
   .map((fileName) => `user-guide/${fileName.replace(/\.mdx$/, '')}`);
+
+const userGuideSectionOrder = [
+  'about-this-guide',
+  'aurora-focus-overview',
+  'connectivity-gateway-solutions',
+  'aurora-focus-web-hmi',
+  'fixed-industrial-tools',
+  'machine-vision-tools',
+  'connectivity-guidelines',
+  'troubleshooting',
+  'regex',
+  'zeti',
+];
+
+const userGuideSectionItems = fs
+  .readdirSync(userGuideDir, {withFileTypes: true})
+  .filter((entry) => entry.isDirectory())
+  .filter((entry) => !entry.name.startsWith('_'))
+  .sort((a, b) => {
+    const indexA = userGuideSectionOrder.indexOf(a.name);
+    const indexB = userGuideSectionOrder.indexOf(b.name);
+    if (indexA === -1 && indexB === -1) return a.name.localeCompare(b.name);
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+    return indexA - indexB;
+  })
+  .map((entry) => {
+    const sectionName = entry.name;
+    const sectionDir = path.join(userGuideDir, sectionName);
+    const files = getDocFileInfo(sectionDir);
+    const sectionIndexExists = files.includes('index.mdx');
+    const sectionDocItems = files
+      .filter((fileName) => fileName !== 'index.mdx')
+      .map((fileName) => `user-guide/${sectionName}/${fileName.replace(/\.mdx$/, '')}`);
+
+    if (!sectionIndexExists && sectionDocItems.length === 0) {
+      return null;
+    }
+
+    return {
+      type: 'category',
+      label: sectionName
+        .split('-')
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' '),
+      ...(sectionIndexExists
+        ? {link: {type: 'doc', id: `user-guide/${sectionName}/index`}}
+        : {}),
+      collapsible: true,
+      collapsed: true,
+      items: sectionDocItems,
+    };
+  })
+  .filter(Boolean);
+
+const userGuideItems = [...userGuideTopLevelItems, ...userGuideSectionItems];
 
 const licensingDir = path.join(__dirname, 'docs', 'licensing');
 const licensingItems = fs
@@ -40,13 +103,14 @@ const sidebars = {
   tutorialSidebar: [
     {
       type: 'category',
-      label: 'User Guide',
-      items: ['user-guide/index', ...userGuideItems],
+      label: 'Getting Started',
+      link: {type: 'doc', id: 'js-guide/t-aurora-focus-getting-started-and-mdx-summary'},
+      items: ['js-guide/t-aurora-focus-getting-started-and-mdx-summary'],
     },
     {
       type: 'category',
-      label: 'Getting Started',
-      items: ['t-aurora-focus-getting-started-and-mdx-summary'],
+      label: 'User Guide',
+      items: ['user-guide/index', ...userGuideItems],
     },
     {
       type: 'category',
@@ -54,62 +118,62 @@ const sidebars = {
       collapsible: true,
       collapsed: true,
       items: [
-        'index',
+        'js-guide/index',
         {
           type: 'category',
           label: 'About this Guide',
-          link: {type: 'doc', id: 't-aurora-js-about-this-guide'},
+          link: {type: 'doc', id: 'js-guide/t-aurora-js-about-this-guide'},
           collapsible: true,
           collapsed: true,
-          items: ['r-notational-conventions', 'r-icon-conventions', 'c-service-information'],
+          items: ['js-guide/r-notational-conventions', 'js-guide/r-icon-conventions', 'js-guide/c-service-information'],
         },
         {
           type: 'category',
           label: 'Using the JavaScript Environment',
-          link: {type: 'doc', id: 'c-aurora-js-environment'},
+          link: {type: 'doc', id: 'js-guide/c-aurora-js-environment'},
           collapsible: true,
           collapsed: true,
           items: [
-            't-aurora-js-using-the-javascript-editor',
-            't-aurora-js-using-the-editor-for-a-deployed-job',
-            't-aurora-js-limitations',
+            'js-guide/t-aurora-js-using-the-javascript-editor',
+            'js-guide/t-aurora-js-using-the-editor-for-a-deployed-job',
+            'js-guide/t-aurora-js-limitations',
           ],
         },
         {
           type: 'category',
           label: 'Operation Mode',
-          link: {type: 'doc', id: 't-aurora-js-operation-mode'},
+          link: {type: 'doc', id: 'js-guide/t-aurora-js-operation-mode'},
           collapsible: true,
           collapsed: true,
           items: [
-            'c-aurora-js-program-structure',
-            't-aurora-js-input-data',
-            't-aurora-js-constant-data',
-            't-aurora-js-output-data',
-            't-aurora-scripting-job-status',
-            't-aurora-scripting-tcpip-rs323-and-usb-cdc-serial',
-            't-aurora-js-hid-keyboard',
-            't-aurora-js-ftp-control',
-            't-aurora-focus-js-gpio-ports',
-            't-aurora-focus-js-beeper',
-            't-aurora-js-script-invocation',
-            'c-aurora-js-example-script-lifecycle',
-            't-aurora-js-managing-execution-time',
-            'c-aurora-js-text-encoding',
+            'js-guide/c-aurora-js-program-structure',
+            'js-guide/t-aurora-js-input-data',
+            'js-guide/t-aurora-js-constant-data',
+            'js-guide/t-aurora-js-output-data',
+            'js-guide/t-aurora-scripting-job-status',
+            'js-guide/t-aurora-scripting-tcpip-rs323-and-usb-cdc-serial',
+            'js-guide/t-aurora-js-hid-keyboard',
+            'js-guide/t-aurora-js-ftp-control',
+            'js-guide/t-aurora-focus-js-gpio-ports',
+            'js-guide/t-aurora-focus-js-beeper',
+            'js-guide/t-aurora-js-script-invocation',
+            'js-guide/c-aurora-js-example-script-lifecycle',
+            'js-guide/t-aurora-js-managing-execution-time',
+            'js-guide/c-aurora-js-text-encoding',
           ],
         },
         {
           type: 'category',
           label: 'Debugging, Advanced Techniques, and Sample Scripts',
-          link: {type: 'doc', id: 't-aurora-js-sample-scripts-advanced-techniques-and-debugging'},
+          link: {type: 'doc', id: 'js-guide/t-aurora-js-sample-scripts-advanced-techniques-and-debugging'},
           collapsible: true,
           collapsed: true,
           items: [
-            'c-aurora-js-debugging',
-            't-aurora-js-using-simulated-data',
-            't-aurora-js-using-custom-templates',
-            'g-aurora-js-obtaining-the-device-mac-address',
-            't-aurora-js-sample-scripts',
+            'js-guide/c-aurora-js-debugging',
+            'js-guide/t-aurora-js-using-simulated-data',
+            'js-guide/t-aurora-js-using-custom-templates',
+            'js-guide/g-aurora-js-obtaining-the-device-mac-address',
+            'js-guide/t-aurora-js-sample-scripts',
           ],
         },
       ],

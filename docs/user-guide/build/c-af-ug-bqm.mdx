@@ -1,0 +1,35 @@
+---
+title: Barcode Quality Metrics
+description: "Barcode Quality Metrics (BQM) are used to\_verify the quality of your\
+  \ printed barcode, so you know you can count on it to perform as expected in its\
+  \ intended setting. Enabling BQM reports an overall grade for the decoded barcode\
+  \ and grading based on various sub-components."
+slug: /build/c-af-ug-bqm
+sidebar_label: Barcode Quality Metrics
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Barcode Quality Metrics (BQM) are used to verify the quality of your printed barcode, so you know you can count on it to perform as expected in its intended setting. Enabling BQM reports an overall grade for the decoded barcode and grading based on various sub-components.
+
+
+The BQM mechanism in Aurora Focus implements the ISO 15415/ISO 15416 standard. Per ISO specifications, the optical reference arrangement requires high resolution, such as an effective resolution with a minimum of 10 pixels per module in width and height. For additional information, refer to ISO 15415.
+BQM supports 1D (Code 128 and Code 39) symbologies developed in accordance with ISO/IEC 15416:2016 and 2D (Datamatrix) symbologies developed in accordance with ISO/IEC 15415:2011. BQM current does not support QR codes.
+
+Zebra BQM measures the barcode quality in the captured image, not the barcode itself. BQM score stability depends on image quality stability. To calculate the quality of the barcode, measure it in a strictly controlled manner using an image acquisition procedure.
+
+BQM in Aurora Focus uses coarse grading. For example, the score step size is 1, per the ISO specs. A specific score of 2.9 is graded as 2 (C), although it is close to 3 (B).

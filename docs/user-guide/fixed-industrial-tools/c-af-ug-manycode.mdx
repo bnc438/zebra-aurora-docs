@@ -1,0 +1,73 @@
+---
+title: Using ManyCode
+description: Use ManyCode to decode multiple barcodes simultaneously and determine
+  their sorting arrangement.
+slug: /fixed-industrial-tools/c-af-ug-manycode
+sidebar_label: Using ManyCode
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Use ManyCode to decode multiple barcodes simultaneously and determine their sorting arrangement.
+
+
+
+
+## ManyCode Tools
+
+Setting
+Description
+ManyCode (Disable/Enable)
+
+Enabling this setting allows the barcode to read multiple barcodes in a single iteration.
+Total Number of Barcodes to Decode
+
+Limits the number of barcodes to attempt during a single ManyCode scan iteration. For example, if you have eight barcodes in your field of view but set this to five, only the first five barcodes read are decoded, and the scan iteration ends.
+Decode All
+
+Explicitly defines no limit for the number of barcodes to attempt to read in a single scan iteration.
+Sorting Type
+
+Define how barcode results are sorted:
+
+
+- Alphabetical
+- First Decoded
+- Top to Bottom
+- Left to Right
+Alphabetical
+First Decoded
+Top to Bottom
+Left to Right
+
+
+Expand String Match to Entire Payload
+
+The tool searches for a string match in the entire payload when enabled.
+Enable Partial Results
+
+If the number of decodes is less than the
+Total Number of Barcodes to Decode
+setting, enabling this setting still outputs these barcodes.
+Enable Decode of Identical Symbols
+
+By default, identical (duplicate) barcodes are only read once.   When enabled, all duplicate barcodes are read.
+Exhaustive Search Attempt
+
+Sets the underlying ManyCode barcode algorithm to prioritize read performance over speed.
+Apply Across Level Selection
+This option is only active in Level Continuous mode while Read Multiple Barcodes is enabled.

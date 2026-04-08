@@ -1,0 +1,62 @@
+---
+title: Advanced FIS Tools
+description: The Advanced tab provides access to additional Fixed Industrial Scanning
+  tool settings.
+slug: /fixed-industrial-tools/c-af-ug-advanced
+sidebar_label: Advanced FIS Tools
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+The Advanced tab provides access to additional Fixed Industrial Scanning tool settings.
+
+
+
+
+All Advanced detection methods apply to both 1D and 2D barcodes.
+## Advanced Fixed Industrial Scanning Tool Settings
+
+Setting
+Description
+Decode Strategy
+
+Changes the variables to alter the balance of speed and performance.
+- Fast – This strategy is designed to be fast but may not find a barcode if it is hard to find.
+- Moderate - This strategy is helpful for most use cases with a moderate increase in analysis times.
+- Exhaustive – This strategy does an exhaustive search to identify hard to find barcodes. This method can sometimes lengthen analysis time significantly.
+Fast – This strategy is designed to be fast but may not find a barcode if it is hard to find.
+Moderate - This strategy is helpful for most use cases with a moderate increase in analysis times.
+Exhaustive – This strategy does an exhaustive search to identify hard to find barcodes. This method can sometimes lengthen analysis time significantly.
+Detection Method
+
+Determine the preferred method for detecting the data:
+
+
+- Uniform—uses a splatter pattern to analyze the whole image uniformly. This is helpful for 1D and 2D barcodes with a lot of noise. If you are looking for a random pattern, favor the center of the image slightly.
+- Quiet Zone - specialized to find 2D barcodes fast and helpful when over 8 pixels of buffer zone around the barcode is expected. This setting may not be helpful for use cases when the buffer area is less than 4 pixels or 1D barcodes.
+- Finder Pattern - uses a contrast map that finds patterns with little or no noise. This method is applicable to 1D and 2D barcodes.
+Uniform—uses a splatter pattern to analyze the whole image uniformly. This is helpful for 1D and 2D barcodes with a lot of noise. If you are looking for a random pattern, favor the center of the image slightly.
+Quiet Zone - specialized to find 2D barcodes fast and helpful when over 8 pixels of buffer zone around the barcode is expected. This setting may not be helpful for use cases when the buffer area is less than 4 pixels or 1D barcodes.
+Finder Pattern - uses a contrast map that finds patterns with little or no noise. This method is applicable to 1D and 2D barcodes.
+Allow Rectangular Codes
+
+Allows the reading of 2D rectangular barcodes in addition to square 2D barcodes.
+Expected Module Size (Pixels)
+
+Define the range (pixels) you expect a module to be in given barcodes to help increase read performance.
+
+A module is the smallest divisible unit of a barcode; for 1D, typically the width of a single thin line; for 2D, the pixel size. This setting serves as a general guidance to increase performance, but is not a strict threshold.

@@ -1,0 +1,101 @@
+---
+title: Set Match String Commands
+description: If an optional argument is not provided, use the default value.
+slug: /build/t-af-ug-set-match-string-commands
+sidebar_label: Set Match String Commands
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+Skipping a required parameter results in command failure.
+
+Set Match String Command:
+
+
+
+```
+UpdateJobParameter matchstring --value “match string value” [optional parameters]
+ 
+```
+
+## Set Match String Command Parameters
+
+Parameter
+Argument
+Optional
+Description
+help
+N/A
+Yes
+Produce a help message with a description of all commands. If provided, other arguments are ignored, and only the help output is returned.
+toolname
+string (
+**empty string**
+by default)
+Yes
+
+Friendly name of a tool. If provided, the match string is applied only to the tool with the given tool name; otherwise, it is applied to all tools supporting the match string.
+If this parameter is omitted or an empty string, other parameters are applied to all tools supporting the match string.
+format
+enum (
+**plain**
+/ base64)
+Yes
+
+Format of provided match string. Setting the format to base64 makes the value parameter to be interpreted as base64.
+This applies only to the value you insert in the command and doesn’t influence the way of storing match strings internally by Aurora Focus.
+persistent
+bool (
+**true**
+/ false)
+Yes
+If true, setting the match string will be persistent (saved in the database). Otherwise, it will only be applied to a currently deployed job.
+match_mode
+enum string (
+**unknown**
+/ disabled / string_contains / string_exact / regex)
+Yes
+
+Match mode:
+- unknown - either previous mode from job is used or string_contains, if it was not set;
+- disabled - every match string is accepted, regardless of set value;
+- string_contains - result must contain given match string in any place;
+- string_exact - result must exactly match the given match string;
+- regex - result acceptance follows the given regex rule.
+unknown - either previous mode from job is used or string_contains, if it was not set;
+disabled - every match string is accepted, regardless of set value;
+string_contains - result must contain given match string in any place;
+string_exact - result must exactly match the given match string;
+regex - result acceptance follows the given regex rule.
+value
+string
+No
+Match string value. If the format parameter is set to base64, then the value is interpreted as base64; otherwise, it is plain text.
+
+Example Input:
+
+```
+UpdateJobParameter matchstring --value "XYZ"
+```
+
+
+Example Result:
+
+
+
+```
+[UpdateJobParameter result] Set match string, success
+```

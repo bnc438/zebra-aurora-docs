@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dashboard-v2/monaco-telemetry-event.schema.json",
+  "title": "Monaco Telemetry Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "eventId",
+    "eventTimestamp",
+    "snapshotDate",
+    "environment",
+    "eventType",
+    "sessionId"
+  ],
+  "properties": {
+    "eventId": { "type": "string", "minLength": 1 },
+    "eventTimestamp": { "type": "string", "format": "date-time" },
+    "snapshotDate": { "type": "string", "format": "date" },
+    "environment": { "type": "string", "enum": ["dev"] },
+    "eventType": {
+      "type": "string",
+      "enum": ["load_success", "load_failure", "runtime_exception", "freeze_detected"]
+    },
+    "sessionId": { "type": "string", "minLength": 1 },
+    "docUrl": { "type": "string" },
+    "editorInitMs": { "type": "integer", "minimum": 0 },
+    "exceptionName": { "type": "string" },
+    "exceptionMessage": { "type": "string" },
+    "freezeDurationMs": { "type": "integer", "minimum": 0 }
+  }
+}

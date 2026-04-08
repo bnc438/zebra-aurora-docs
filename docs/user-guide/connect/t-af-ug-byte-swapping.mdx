@@ -1,0 +1,44 @@
+---
+title: Byte Swap Configuration
+description: Configure a byte swap in the Ethernet/IP protocol to toggle byte order
+  and ensure the connected PLC correctly interprets string data.
+slug: /connect/t-af-ug-byte-swapping
+sidebar_label: Byte Swap Configuration
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Configure a byte swap in the Ethernet/IP protocol to toggle byte order and ensure the connected PLC correctly interprets string data.
+The default setting maintains the camera's native byte order (no swap), ensuring backward compatibility.
+
+
+In Aurora Focus, the Industrial Ethernet boolean fields have a fixed size of 1 byte. This can cause misalignment of received data on the PLC side when a boolean field follows a float or an integer field, both of which are 4 bytes in length. In order to avoid misalignment of data, boolean fields should be added as the last field in the Industrial Ethernet data configuration.
+Configure the PLC Protocol by selecting Ethernet/IP or Modbus TCP in Device Settings.
+A manual reboot is required for PLC protocol changes to take effect.
+Go to the
+Connect
+tab and click
+Edit
+in the
+Results Data
+to edit the Results Data Configuration.
+Select two fields or more to
+Byte Swap
+.
+Click
+Submit
+.

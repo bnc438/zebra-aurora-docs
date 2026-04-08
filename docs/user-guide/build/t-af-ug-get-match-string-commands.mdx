@@ -1,0 +1,74 @@
+---
+title: Get Match String Commands
+description: If an optional argument is not provided, use the default value.
+slug: /build/t-af-ug-get-match-string-commands
+sidebar_label: Get Match String Commands
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+Skipping a required parameter results in command failure.
+
+Get Match String command:
+
+
+
+```
+GetJobParameter matchstring [optional parameters]
+```
+
+
+Parameters:
+## Get/Set Command Parameters
+
+Parameter
+Argument
+Optional
+Description
+help
+no argument
+Yes
+Produce a help message with a description of all commands. If provided, other arguments are ignored, and only the help output is returned.
+toolname
+string (
+**empty string**
+by default)
+Yes
+Friendly name of a tool. If provided, the result will contain only data for the given tool (and only if the given tool is found and supports a match string). Otherwise, the result contains data for all tools.
+format
+enum (
+**plain**
+/ base64)
+Yes
+The format used to present the match string in the result.
+
+Example input:
+
+
+
+```
+GetJobParameter matchstring --format plain
+ 
+```
+
+
+Example result:
+
+
+
+```
+[GetJobParameter result] Get match string result: ["GetMatchStringEntries",[{"MatchMode":"STRING_EXACT","MatchString":"ABC","Toolname":"Datacode 1"}]]
+```

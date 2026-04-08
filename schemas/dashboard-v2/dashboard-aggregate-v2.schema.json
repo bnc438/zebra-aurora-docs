@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dashboard-v2/dashboard-aggregate-v2.schema.json",
+  "title": "Dashboard Aggregate V2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "snapshotDate",
+    "presetOptions",
+    "globalStability",
+    "tiles",
+    "thresholds",
+    "tooltips"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "snapshotDate": { "type": "string", "format": "date" },
+    "presetOptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["all", "content_team", "product_owner", "leadership"]
+      },
+      "minItems": 4
+    },
+    "globalStability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "status", "criticalAlertCount", "warningAlertCount", "thresholds"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "status": { "type": "string", "enum": ["green", "amber", "red"] },
+        "criticalAlertCount": { "type": "integer", "minimum": 0 },
+        "warningAlertCount": { "type": "integer", "minimum": 0 },
+        "thresholds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["greenMin", "amberMin"],
+          "properties": {
+            "greenMin": { "type": "number" },
+            "amberMin": { "type": "number" }
+          }
+        }
+      }
+    },
+    "tiles": { "type": "object" },
+    "thresholds": { "type": "object" },
+    "tooltips": { "type": "object" }
+  }
+}

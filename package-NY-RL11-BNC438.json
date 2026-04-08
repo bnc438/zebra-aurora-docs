@@ -1,0 +1,68 @@
+{
+  "name": "my-api-docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prestart": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
+    "prestart:dev": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
+    "prebuild": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
+    "predeploy": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && node scripts/generate-section-pdfs.mjs",
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "start:dev": "ASKAI_INTERNAL_ANALYTICS=true docusaurus start",
+    "start:fast": "docusaurus clear && node scripts/generate-askai-index.mjs && node scripts/generate-build-report.mjs && docusaurus start",
+    "build": "docusaurus build",
+    "build:customer": "docusaurus build",
+    "build:dev": "ASKAI_INTERNAL_ANALYTICS=true docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "npm run start",
+    "serve:static": "npm run build && docusaurus serve",
+    "pdf": "node scripts/generate-section-pdfs.mjs",
+    "build-report": "node scripts/generate-build-report.mjs && node scripts/validate-dashboard-v2-contracts.mjs",
+    "build-report:full": "node scripts/generate-build-report.mjs && node scripts/validate-dashboard-v2-contracts.mjs && node scripts/generate-v2-snapshot.mjs",
+    "ingest:github": "node scripts/ingest-github-prs.mjs",
+    "ingest:jira": "node scripts/ingest-jira-epics.mjs",
+    "ingest:all": "node scripts/ingest-github-prs.mjs && node scripts/ingest-jira-epics.mjs",
+    "v2-snapshot": "node scripts/generate-v2-snapshot.mjs",
+    "v2-snapshot:full": "npm run ingest:all && node scripts/generate-build-report.mjs && node scripts/generate-v2-snapshot.mjs",
+    "validate:dashboard-v2": "node scripts/validate-dashboard-v2-contracts.mjs",
+    "test": "node --test scripts/generate-build-report.test.mjs",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.0",
+    "@mdx-js/react": "^3.0.0",
+    "@monaco-editor/react": "^4.7.0",
+    "clsx": "^2.0.0",
+    "minisearch": "^7.2.0",
+    "monaco-editor": "^0.55.1",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "playwright": "^1.53.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
+}

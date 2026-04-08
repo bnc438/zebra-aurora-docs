@@ -1,0 +1,59 @@
+---
+title: Using Automation Wedge
+description: Automation Wedge transmits data captured by the smart camera to an application
+  running on a Zebra mobile computer. Use Automation Wedge to enhance productivity
+  by streamlining the process of collecting and utilizing data from physical sources.
+slug: /build/t-af-ug-using-ssi-mode
+sidebar_label: Using Automation Wedge
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Automation Wedge transmits data captured by the smart camera to an application running on a Zebra mobile computer. Use Automation Wedge to enhance productivity by streamlining the process of collecting and utilizing data from physical sources.
+Enable Unrestricted USB power when using USB for communication and power. This is a required step.
+Connect the USB cable from an FS40 or FS42 device to the USB power on the docking station.
+In Aurora Focus, navigate to the
+Communication
+section in
+Device Settings
+.
+Click
+Enable SSI communication over USB
+under
+Automation Wedge
+in the
+USB Settings
+section.
+SSI mode can only be enabled if HID results, CDC results, and CDC Control options are disabled.
+Navigate to job settings and configure.
+Source
+and
+Job Mode
+settings from the drop-down menu on the
+Triggers
+tab.
+Only auto modes are supported in job settings when SSI mode is enabled. The job starts when the device receives the enable command.
+- Supported Trigger Sources: Auto/Self
+- Supported Trigger Modes: Presentation, Continuous, and Periodic Single Shot
+Supported Trigger Sources: Auto/Self
+Supported Trigger Modes: Presentation, Continuous, and Periodic Single Shot
+Ensure that
+Aim Code Identifier
+is enabled when creating a new job in SSI mode.
+An
+Aim Code Identifier
+is required for decoded data to be transmitted correctly. If it is not enabled, the first three characters may get removed from the barcode data sent to the device.

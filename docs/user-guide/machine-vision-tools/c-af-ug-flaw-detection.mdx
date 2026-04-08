@@ -1,0 +1,34 @@
+---
+title: Flaw Detection
+description: "Flaw Detection tools perform a pixel-to-pixel comparison of two images.\
+  \ This is helpful\_for cases where the object's surface or shape is complex."
+slug: /machine-vision-tools/c-af-ug-flaw-detection
+sidebar_label: Flaw Detection
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Flaw Detection tools perform a pixel-to-pixel comparison of two images. This is helpful for cases where the object's surface or shape is complex.
+
+
+- Edges - comparison based on objects' edges. This method is helpful when defects occur on the object's edge, pixel comparisons fail due to different light reflections, or when checking the object's surface is unnecessary.
+- Intensity - comparison based on pixel intensity. Using this method, two images are compared pixel-by-pixel, and the defect is classified based on pixel intensity differences. This technique helps find defects like smudges or scratches.
+Edges - comparison based on objects' edges. This method is helpful when defects occur on the object's edge, pixel comparisons fail due to different light reflections, or when checking the object's surface is unnecessary.
+Intensity - comparison based on pixel intensity. Using this method, two images are compared pixel-by-pixel, and the defect is classified based on pixel intensity differences. This technique helps find defects like smudges or scratches.
+
+The model uses a previously prepared image to compare images from the device. This technique provides a quick comparison inspection when specific conditions are met, such as stable lighting conditions, camera position, and precise object positioning.
+

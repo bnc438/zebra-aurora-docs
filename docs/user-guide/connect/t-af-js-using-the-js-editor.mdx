@@ -1,0 +1,112 @@
+---
+title: Using the JavaScript Editor
+description: The Aurora Focus JavaScript Editor consists of menu bar, control bar,
+  code editor and console.
+slug: /connect/t-af-js-using-the-js-editor
+sidebar_label: Using the JavaScript Editor
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+The Aurora Focus JavaScript Editor consists of menu bar, control bar, code editor and console.
+
+
+## JavaScript Editor UI Elements
+
+UI Element
+Description
+
+Top Navigation Menu
+
+
+
+The top navigation menu provides access to
+File
+,
+Edit
+, and
+View
+functions for the application.
+- Open an existing file with JavaScript code and save JavaScript to an external file from the
+- Use templates and snippets to quickly develop new JavaScript code that is specific to your use case from the
+- Adjust editor font size from the
+Open an existing file with JavaScript code and save JavaScript to an external file from the
+File
+menu. JavaScript by default is saved in job file when saving a whole job or deploying a job to the device.
+Use templates and snippets to quickly develop new JavaScript code that is specific to your use case from the
+Edit
+menu.
+Adjust editor font size from the
+View
+menu.
+
+Run Job
+
+
+
+Click
+Run Job
+on the control bar to validate test code in the editor by running a job on an image in the Filmstrip in Aurora Focus. You can also trigger a job by pressing F5 while in the editor.
+
+Script Formatting
+
+
+Disable JavaScript formatting by using the
+Script Formatting
+toggle in top-right corner of the editor window.
+
+Press F1 while inside the editor for a list of all functionalities.
+
+Use IntelliSense for script recommendations to enable code-completion. When a function has JSDoc documentation, the editor assumes its variable types and provides a recommendation for object properties. IntelliSense is also useful for standard JavaScript interfaces like JSON or Date. It is recommended to keep JSDoc comments for the
+`onResult`
+function. This is necessary to receive recommendations for input and output objects.
+
+
+
+The console below the code editor displays logs. The log icon and color change depending on the log category. For example, warnings are on a yellow background, errors and result object.
+## Console Log UI Elements
+
+UI Element
+Description
+
+
+Save the console logs to a file or clear the console.
+
+
+Minimize the console.
+
+
+Only the latest 100 entries display on the console, older ones are automatically deleted.
+
+The code editor is powered by Monaco Editor that uses Visual Studio Code and integrates functionalities such as formatting, undo/redo, renaming symbols and find & replace. The following code snippet is a basic script that copies the first detected barcode from the first tool to the output.
+
+
+
+```
+
+/** Returns the OutputResult type object
+* @param {InputResult} inputResult
+* @returns {OutputResult}
+*/
+export function onResults(inputResult) {
+return {
+ common: inputResult.tool_results[0].decodes[0].value
+
+};
+}
+ 
+```

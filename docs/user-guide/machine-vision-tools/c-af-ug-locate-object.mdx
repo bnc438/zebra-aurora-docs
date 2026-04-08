@@ -1,0 +1,47 @@
+---
+title: Locate Object
+description: Locate Object finds a specific pattern in a filmstrip based on an edge
+  inside a user-defined region of interest.
+slug: /machine-vision-tools/c-af-ug-locate-object
+sidebar_label: Locate Object
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+Locate Object finds a specific pattern in a filmstrip based on an edge inside a user-defined region of interest.
+Aurora Focus imposes a 1GB size limit on all models.
+
+If the total size of all models within a specific region exceeds this limit, use one of the following strategies to reduce the size:
+- 
+- Increase edge contrast to keep only the most important edges (reduce noisy edges).
+- Reduce scale (if possible)
+- Reduce rotation (if possible)
+Increase edge contrast to keep only the most important edges (reduce noisy edges).
+Reduce scale (if possible)
+Reduce rotation (if possible)
+
+
+
+
+## Locate Object Settings
+
+Setting
+Description
+Acceptance Threshold
+Determines the minimum score of the valid object occurrence.
+Candidate Threshold
+Filters out objects below the acceptable threshold in the intermediate phases of the algorithm execution. Note that increasing value can improve performance. However, low-quality objects may not be found.

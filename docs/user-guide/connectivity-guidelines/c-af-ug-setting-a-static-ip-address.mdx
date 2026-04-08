@@ -1,0 +1,55 @@
+---
+title: Setting a Static IP Address
+description: ''
+slug: /connectivity-guidelines/c-af-ug-setting-a-static-ip-address
+sidebar_label: Setting a Static IP Address
+product_name: aurora focus
+product_family: aurora
+software_tool: na
+user_guide: developer_guide
+developer_guide: na
+knowledge_article: na
+article_type: na
+developer_apis: na
+code_language: na
+early_access: false
+sort_order: 0
+author: bnc438
+last_updated: (Automated by build process)
+last_reviewed: ''
+exclude_from_search: false
+---
+
+
+
+
+
+DHCP is the default mode for IP addressing.
+
+
+1. Disable the
+2. Change the network-related settings based on your network configuration. For example:
+3. Click
+Disable the
+Enable DHCP
+checkbox.
+Change the network-related settings based on your network configuration. For example:
+1. Open a command prompt.
+2. Type the command: ipconfig
+3. Identify a valid network interface:
+4. In Aurora Focus, enter the following values:
+Open a command prompt.
+Type the command: ipconfig
+1. All TCP/IP network configuration values display on the host PC.
+All TCP/IP network configuration values display on the host PC.
+Identify a valid network interface:
+In Aurora Focus, enter the following values:
+1. IP Address: 192.168.4.xxx (where xxx is any value from 1-255)
+2. Subnet Mask: 255.255.252.0
+3. Default Gateway: 192.168.4.1
+IP Address: 192.168.4.xxx (where xxx is any value from 1-255)
+Subnet Mask: 255.255.252.0
+Default Gateway: 192.168.4.1
+Click
+Apply
+when complete. The device reboots with the new static IP address.
