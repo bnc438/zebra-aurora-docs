@@ -1,6 +1,6 @@
 ---
 title: Using Machine Vision Tools
-description: ''
+description: Machine Vision tools in Aurora Focus enable automated optical inspection by combining multiple tool types into a single job workflow using the FlowBuilder.
 slug: /machine-vision-tools/c-af-ug-using-machine-vision-tools
 sidebar_label: Using Machine Vision Tools
 product_name: aurora focus
@@ -19,5 +19,27 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
+Machine Vision tools in Aurora Focus enable automated optical inspection by combining multiple tool types into a single job workflow using the FlowBuilder. Use QuickDraw to streamline tool creation, or manually configure individual tools for precise control.
 
+## Tool Categories
 
+Aurora Focus organizes Machine Vision tools into the following categories:
+
+- **Identification Tools** — Read Barcode, Read DPM, Read DPM & Barcode, Datacode, and Deep Learning OCR for reading and decoding symbologies and text.
+- **Locate Tools** — Locate Object, Locate Object Plus, Locate Blob, Locate Circle, Locate Edge, and Locate Object Count for finding patterns, shapes, and edges in the image.
+- **Measurement Tools** — Distance, Circle Diameter, and Measure Object Width for dimensional measurements.
+- **Counting Tools** — Blob Count, Edge Count, and Pixel Count for counting objects or features.
+- **Presence/Absence Tools** — Object Presence Absence, Object Plus Presence Absence, and Blob Presence Absence for verifying whether objects exist in the region of interest.
+- **Filter Tools** — Binarize, Dilate, Erode, Open, Close, Gradient (Horizontal, Vertical, Full), Edges, Brightness, Contrast, Intensity, and Flaw Detection for image preprocessing and analysis.
+
+## Common Settings
+
+Many Machine Vision tools share common settings such as ROI Type, Histogram, Timeout, and Inverse Pass/Fail. Refer to [Common Machine Vision Tool Settings](./c-af-ug-common-mv-tool-settings) for details.
+
+## Deploying Jobs
+
+To build and deploy a Machine Vision job, select a tool from the toolbox and drag it onto the FlowBuilder. Stack additional tools onto the workflow, configure tool settings and the region of interest, then deploy the job to the device. Refer to [Deploying Machine Vision Jobs](./c-af-ug-deploying-vs-jobs) for the full procedure.
+
+## Acceleration
+
+Deep Learning OCR and Anomaly Detection tools can be accelerated on FS42 and NS42 devices to reduce tool execution time. Refer to [Using Accelerated Tools](./t-af-ug-using-accelerated-tools) for configuration details.

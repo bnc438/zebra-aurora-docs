@@ -1,0 +1,13 @@
+.languageDropdown {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  color: #333;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+.languageDropdown option[disabled] {
+  color: #aaa;
+  background: #eee;
+}

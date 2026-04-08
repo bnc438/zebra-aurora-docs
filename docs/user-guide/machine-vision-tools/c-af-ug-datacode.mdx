@@ -1,8 +1,6 @@
 ---
 title: Datacode
-description: "Configure Datacode settings such as No Read String, Module Size, or\
-  \ Search Strategy.\_This tool is helpful for reading 2D barcodes that are difficult\
-  \ to decode and 1D codes with selected symbology."
+description: 'Configure Datacode settings such as No Read String, Module Size, or Search Strategy.'
 slug: /machine-vision-tools/c-af-ug-datacode
 sidebar_label: Datacode
 product_name: aurora focus
@@ -21,199 +19,45 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 Configure Datacode settings such as No Read String, Module Size, or Search Strategy. This tool is helpful for reading 2D barcodes that are difficult to decode and 1D codes with selected symbology.
 ## General Datacode Decode Settings
 
-
 General Datacode decode settings include defining timeouts, symbologies, no-read string, module size, contrast threshold, polarity, and string match.
-
-
-
 
 ## General Datacode Decode Settings
 
-Setting
-Description
-Timeout
-Set a time limit to stop the execution of the inspection tool, resulting in a failure.
-No Read String
-Determine the string that is shown when there are no decoded values.
-Module Size
-The minimum and maximum module sizes.
-Contrast Threshold
-The threshold used for Datacode.By default, this is set to 10.
-Polarity
-Select a polarity for the decode:
-- Any
-- Bright
-- Dark
-Any
-Bright
-Dark
-Barcode String Match
-
-Define a string that must be exact or contained within the barcode or datacode output for the tool to pass:
-
-
-- Disabled - no match string.
-- Exact String - string must match the exact string provided.
-- String Contains - code must contain the match string.
-- RegEx - enable to input complex match string conditions.
-Disabled - no match string.
-Exact String - string must match the exact string provided.
-String Contains - code must contain the match string.
-RegEx - enable to input complex match string conditions.
+| Setting | Description |
+| --- | --- |
+| Timeout | Set a time limit to stop the execution of the inspection tool, resulting in a failure. |
+| No Read String | Determine the string that is shown when there are no decoded values. |
+| Module Size | The minimum and maximum module sizes. |
+| Contrast Threshold | The threshold used for Datacode.By default, this is set to 10. |
+| Polarity | Select a polarity for the decode: - Any - Bright - Dark |
+| Any Bright Dark Barcode String Match | Define a string that must be exact or contained within the barcode or datacode output for the tool to pass: - Disabled - no match string. - Exact String - string must match the exact string provided. - String Contains - code must contain the match string. - RegEx - enable to input complex match string conditions. |
 ## Advanced Datacode Decode Settings
-
 
 Advanced Datacode decode settings include four sections: Detection, Matrix Codes, DPM, and Linear Codes. Detection settings include defining a detection strategy, a decoding strategy, a detection method, a finder tradeoff, allowing distortion, a perspective level, a code slant, background suppression, and codes with broken edges. Matrix Codes settings include defining code sizes (row and column count), mirrored codes, rectangular codes, and codes with broken corners. DPM settings include defining a mixed polarity, grid-based detection. Linear Codes settings include defining a length, high confidence, high blur, damage, no quiet zone, and addons.
 
-
 ## Advanced Datacode Decode Settings
 
-Setting
-Description
-Detection Strategy
-
-Specify the step of image downsampling used for finding codes at different scales:
-
-
-- Super Fast
-- Fast
-- Precise
-- Strict
-- Extended
-Super Fast
-Fast
-Precise
-Strict
-Extended
-Decoding Strategy
-Specify the precision of outline detection:
-
-
-- Super Fast
-- Fast
-- Precise
-- Strict
-- Extended
-Super Fast
-Fast
-Precise
-Strict
-Extended
-Detection Method
-
-Specify how code candidates are located:
-
-
-- Finder Pattern
-- Finder Edges
-Finder Pattern
-Finder Edges
-Finder Tradeoff
-Decide how to optimize parameters for weak or jagged edges:
-- Extra Sensitive
-- Sensitive
-- Balanced
-- Robust
-- Extra Robust
-Extra Sensitive
-Sensitive
-Balanced
-Robust
-Extra Robust
-Allow Distortion
-
-Specify a distortion level:
-
-
-- None
-- Low
-- Medium
-- High
-- Auto (slower)
-None
-Low
-Medium
-High
-Auto (slower)
-Perspective Level
-
-Specify a perspective distortion of the code grid:
-
-
-- None
-- Low
-- High
-None
-Low
-High
-Maximum Code Slant
-Specify the maximum deviation from the right angle in the corner of the Finder Pattern.
-Expected Gap Size
-
-Specify the distance between neighboring modules.
-
-
-- Zero
-- Small
-- Medium
-- Large
-Zero
-Small
-Medium
-Large
-Maximum Code Slant
-Specify the maximum deviation from the right angle in the corner of the Finder Pattern.
-Allow Broken Edges
-Employs an extended edge tracker that is able to skip missing pixels. Applies primarily to the FinderEdges method.
-Background Suppression
-Turns on an additional preprocessing step that removes low-contrast background areas.
-Code Sizes
-Limit the number of Data Matrix modules in a row and column.
-Allow Mirrored
-Allows codes to be mirrored/transposed.
-Allow Rectangular
-Allows codes to be rectangular
-Allow Broken Corner
-Tries to create a candidate even if the bottom-left corner of a Data Matrix code is occluded.
-Enable DPM
-Enables an algorithm for direct part marking.
-Allow Mixed Polarity
-Enables reading modules with both bright and dark pixels simultaneously.
-Grid-based Detection
-Enables reading codes with highly damaged Fixed Pattern (slow)
-Dot Size
-
-Optimizes the algorithm parameters for small, medium, or large dots, or for fully-printed (normal) codes. Applies to DotGrid and FinderPattern methods. Available options:
-- Small
-- Medium
-- Large
-- Full
-- Auto
-Small
-Medium
-Large
-Full
-Auto
-Length
-Barcode Length:
-- Any
-- Discrete - select a specific number as the barcode length.
-- Range - select a range of numbers as the barcode length.
-Any
-Discrete - select a specific number as the barcode length.
-Range - select a range of numbers as the barcode length.
-Extra High Confidence
-Enables filtering out detected codes with low score.
-Allow High Blur
-Enables high-blur digitizer.
-Allow Damage
-Enables reading of barcodes with dirt, holes or occlusions.
-Allow No Quiet Zone
-Enables reading codes without the obligatory empty areas before and after the bars.
-Allow Add ons
-Enables EAN and UPC add-ons 2 and 5
+| Setting | Description |
+| --- | --- |
+| Detection Strategy | Specify the step of image downsampling used for finding codes at different scales: - Super Fast - Fast - Precise - Strict - Extended |
+| Fast Precise Strict Extended Decoding Strategy | Specify the precision of outline detection: - Super Fast - Fast - Precise - Strict - Extended |
+| Fast Precise Strict Extended Detection Method | Specify how code candidates are located: - Finder Pattern - Finder Edges |
+| Finder Tradeoff |  |
+| Decide how to optimize parameters for weak or jagged edges: | - Extra Sensitive - Sensitive - Balanced - Robust - Extra Robust |
+| Sensitive Balanced Robust | Allow Distortion Specify a distortion level: - None - Low - Medium - High - Auto (slower) |
+| None Low Medium High Perspective Level | Specify a perspective distortion of the code grid: - None - Low - High |
+| None Low High Maximum Code Slant | Specify the maximum deviation from the right angle in the corner of the Finder Pattern. |
+| Expected Gap Size | Specify the distance between neighboring modules. - Zero - Small - Medium - Large |
+| Zero Small Medium Large Maximum Code Slant | Specify the maximum deviation from the right angle in the corner of the Finder Pattern. Allow Broken Edges Employs an extended edge tracker that is able to skip missing pixels. Applies primarily to the FinderEdges method. |
+| Background Suppression | Turns on an additional preprocessing step that removes low-contrast background areas. |
+| Code Sizes | Limit the number of Data Matrix modules in a row and column. Allow Mirrored Allows codes to be mirrored/transposed. Allow Rectangular Allows codes to be rectangular Allow Broken Corner Tries to create a candidate even if the bottom-left corner of a Data Matrix code is occluded. Enable DPM Enables an algorithm for direct part marking. Allow Mixed Polarity Enables reading modules with both bright and dark pixels simultaneously. |
+| Grid-based Detection |  |
+| Enables reading codes with highly damaged Fixed Pattern (slow) |  |
+| Dot Size | Optimizes the algorithm parameters for small, medium, or large dots, or for fully-printed (normal) codes. Applies to DotGrid and FinderPattern methods. Available options: - Small - Medium - Large - Full - Auto |
+| Small Medium Large Full Auto Length Barcode Length: | - Any - Discrete - select a specific number as the barcode length. - Range - select a range of numbers as the barcode length. |
+| Any Extra High Confidence | Enables filtering out detected codes with low score. Allow High Blur |
+| Enables high-blur digitizer. | Allow Damage Enables reading of barcodes with dirt, holes or occlusions. Allow No Quiet Zone Enables reading codes without the obligatory empty areas before and after the bars. Allow Add ons |
+| Enables EAN and UPC add-ons 2 and 5 |  |

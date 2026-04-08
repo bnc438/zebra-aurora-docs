@@ -584,7 +584,7 @@
 .donutLegendCount { font-weight: 700; color: var(--ifm-heading-color); }
 
 /* ---------------------------------------------------------------------------
- * Schema Analytics
+ * Metadata Schema Analytics
  * --------------------------------------------------------------------------- */
 .schemaGrid {
   display: grid;

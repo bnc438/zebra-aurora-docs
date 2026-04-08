@@ -1,7 +1,6 @@
 ---
 title: Split Codes
-description: Configure follower devices for Split Code functionality using Zebra Aurora
-  Focus.
+description: 'Configure follower devices for Split Code functionality to decode multiple barcodes from a single item using Zebra Aurora Focus.'
 slug: /connectivity-gateway-solutions/t-af-ug-split-codes
 sidebar_label: Split Codes
 product_name: aurora focus
@@ -22,74 +21,32 @@ exclude_from_search: false
 ---
 
 
+1. Create a new job for the follower device and navigate to the Build tab in Zebra Aurora.
 
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
+2. Navigate to the **Symbologies** section. Ensure that only the symbologies necessary for the application are enabled.
 
-Create a new job for the follower device and navigate to the Build tab in Zebra Aurora.
+3. Navigate to the **ManyCode** tab. Configure the total number of Barcodes to Decode (3 max). Sort by symbology and enable partial results.
 
-Navigate to the
-**Symbologies**
-section. Ensure that only the symbologies necessary for the application are enabled.
+4. Navigate to the **Data Formatting** tab and select **Advanced Formatting**.
 
-Navigate to the
-**ManyCode**
-tab. Configure the total number of Barcodes to Decode (3 max). Sort by symbology and enable partial results.
+5. Select **ManyCode** and input the following:
 
-Navigate to the
-**Data Formatting**
-tab and select
-**Advanced Formatting**
-.
+   - Prefix: None
+   - Data: Many Code String
+   - Custom String: "~~$$~~"
+   - Suffix: None
+   - Delimiter
+     - Data Type: None
+     - End: None
+     - ManyCode String: None
 
-Select
-**ManyCode**
-and input the following:
+6. Select **All Symbologies** and input the following:
 
-
-- Prefix: None
-- Data
-- Suffix: None
-- Delimiter
-Prefix: None
-Data
-- Many Code String
-- Custom String "~~$$~~"
-Many Code String
-Custom String "~~$$~~"
-Suffix: None
-Delimiter
-- Data Type: None
-- End: None
-- ManyCode String: None
-Data Type: None
-End: None
-ManyCode String: None
-
-Select All Symbologies
-
-
-- Prefix: None
-- Data
-- Suffix: None
-- Delimiter
-Prefix: None
-Data
-- Symbology
-- Custom String ","
-- Full String: Base 64
-- Custom String: "~~##~~"
-Symbology
-Custom String ","
-Full String: Base 64
-Custom String: "~~##~~"
-Suffix: None
-Delimiter
-- Data Type: None
-- End: None
-Data Type: None
-End: None
+   - Prefix: None
+   - Data: Symbology, Custom String ","
+   - Full String: Base 64
+   - Custom String: "~~##~~"
+   - Suffix: None
+   - Delimiter
+     - Data Type: None
+     - End: None

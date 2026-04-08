@@ -22,31 +22,12 @@ exclude_from_search: false
 
 
 Set up follower devices for the Connectivity Gateway using the Web HMI.
-Navigate to the
-Setup
-screen using the left menu on the
-Home
-screen.
-- If you are in triggered mode and intend to update the port that the device is monitoring for an incoming trigger string, enter the required port into the Trigger Input field (0 to 65535) and click
-- To configure the IP and Port address of the host, enter the required IP address and port into the Output IP and Output Result fields. Click
-- To set up the TCP port to act as a Server, select this option from the
-If you are in triggered mode and intend to update the port that the device is monitoring for an incoming trigger string, enter the required port into the Trigger Input field (0 to 65535) and click
-Update
-.
-To configure the IP and Port address of the host, enter the required IP address and port into the Output IP and Output Result fields. Click
-Update
-for the changes to update the field values.
-To set up the TCP port to act as a Server, select this option from the
-Mode
-menu and click the icon above the menu to edit the server settings.
-Click
-Update
-to enable the changes and update the field values. Select
-Server
-to use the TCP port as a server.
+1. Navigate to the **Setup** screen using the left menu on the **Home** screen.
+2. If you are in triggered mode and intend to update the port that the device is monitoring for an incoming trigger string, enter the required port into the Trigger Input field (0 to 65535) and click **Update**.
+3. To configure the IP and Port address of the host, enter the required IP address and port into the Output IP and Output Result fields. Click **Update** for the changes to update the field values.
+4. To set up the TCP port to act as a Server, select this option from the **Mode** menu and click the icon above the menu to edit the server settings.
+Click **Update** to enable the changes and update the field values. Select **Server** to use the TCP port as a server.
 When the Leader to Host port acts as a Server, a timeout occurs after five seconds of inactivity. In some cases, you may need to set up a heartbeat to keep the connection alive by sending a string (for example, HB) from the host machine to the device IP address and the specified server port with a frequency higher than every five seconds.
-Once the form fields are populated, click
-Commit Changes
-.
+Once the form fields are populated, click **Commit Changes**.
 Observe the message and wait for at least two minutes before sending the next trigger to the Connectivity Gateway.
 Inactivity Timeout is the time the device waits for the next TCP message before the connection is lost. This setting is only applicable when the leader device operates in Server mode. The default setting of one day is helpful for stable network connections. However, lower timeout options should be used along with a heartbeat from the host to recognize dropped connections quickly on unstable networks. If your network is unstable, set up a heartbeat to maintain the connection by sending a string (for example, HB) from the host machine to the leader’s device IP address and specifying the server port with a frequency higher than the inactivity timeout.

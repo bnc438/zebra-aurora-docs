@@ -35,7 +35,7 @@
   /* -- Typography --------------------------------------------------------- */
 
   /* Font Stack & Colors */
-  --ifm-font-family-base: 'Inter', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  --ifm-font-family-base: 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
   --ifm-font-color-base: #24292f; /* Main body text color (dark gray) */
   --ifm-heading-color: #1c2128; /* Slightly darker for headings */
   --ifm-font-family-monospace: 'SFMono-Regular', 'Menlo', 'Consolas', 'Courier New', monospace;
@@ -244,7 +244,12 @@ img[src*='z-logo-bw.svg'] {
 }
 
 [data-theme='light'] .theme-doc-markdown table thead th {
-  background-color: #8e8e93;
+  background-color: #003fbd;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .theme-doc-markdown table thead th {
+  background-color: #000000;
   color: #ffffff;
 }
 

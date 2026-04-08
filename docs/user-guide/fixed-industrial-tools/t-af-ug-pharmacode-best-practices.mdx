@@ -1,7 +1,6 @@
 ---
 title: Best Practices for Using Pharmacode
-description: Pharmacode (Laetus) is a highly sensitive barcode that is prone to false
-  positives when scanned from an image captured by a barcode reader.
+description: 'Pharmacode is a highly sensitive barcode prone to false positives. Follow these best practices to ensure accurate scanning.'
 slug: /fixed-industrial-tools/t-af-ug-pharmacode-best-practices
 sidebar_label: Best Practices for Using Pharmacode
 product_name: aurora focus
@@ -22,40 +21,34 @@ exclude_from_search: false
 ---
 
 
+:::important
+Pharmacode (Laetus) is a highly sensitive barcode that is prone to false positives when scanned from an image captured by a barcode reader.
+:::
 
-- Disable other Barcode Symbolgies
-- Minimize Background in the Scan Area
-- Keep the Barcode Area Clear of Text and Graphics
-- Implement Verification Algorithms
-- Avoid Excessive Light and Reflections
-- Ensure Proper Printing Quality
-- Optimize Scan Resolution
-Disable other Barcode Symbolgies
-- Pharmacode can easily be misinterpreted if multiple barcode symbologies are enabled simultaneously. It is advisable to disable all other symbologies when scanning Pharmacode to prevent interference and misreadings.
+## Disable Other Barcode Symbologies
+
 Pharmacode can easily be misinterpreted if multiple barcode symbologies are enabled simultaneously. It is advisable to disable all other symbologies when scanning Pharmacode to prevent interference and misreadings.
-Minimize Background in the Scan Area
-- Avoid capturing unnecessary background elements, as random patterns, text, or lines may be mistakenly identified as a valid Pharmacode.
-- Ensure high contrast between the barcode and its background for better recognition.
-Avoid capturing unnecessary background elements, as random patterns, text, or lines may be mistakenly identified as a valid Pharmacode.
-Ensure high contrast between the barcode and its background for better recognition.
-Keep the Barcode Area Clear of Text and Graphics
-- Nearby text, lines, or graphical elements may be misinterpreted as part of the barcode, leading to incorrect readings.
-- Maintain a quiet zone around the barcode to enhance scanning accuracy.
-Nearby text, lines, or graphical elements may be misinterpreted as part of the barcode, leading to incorrect readings.
-Maintain a quiet zone around the barcode to enhance scanning accuracy.
-Implement Verification Algorithms
-- Use software validation checks to ensure that the scanned value matches expected parameters (fox example, specific length, numerical range.
-Use software validation checks to ensure that the scanned value matches expected parameters (fox example, specific length, numerical range.
-Avoid Excessive Light and Reflections
-- Glossy or reflective surfaces (for example, laminated packaging) can cause distortions in the barcode image, leading to scanning errors.
-- Adjust the angle of illumination to reduce glare and improve readability.
-Glossy or reflective surfaces (for example, laminated packaging) can cause distortions in the barcode image, leading to scanning errors.
-Adjust the angle of illumination to reduce glare and improve readability.
-Ensure Proper Printing Quality
-- Poorly printed Pharmacodes with smudges, inconsistent bar widths, or faded ink can lead to scanning failures.
-- Print Pharmacodes using high-precision techniques and verify compliance with Laetus specifications.
-Poorly printed Pharmacodes with smudges, inconsistent bar widths, or faded ink can lead to scanning failures.
-Print Pharmacodes using high-precision techniques and verify compliance with Laetus specifications.
-Optimize Scan Resolution
-- Avoid blurry or low-quality images, as they can cause false positives or incorrect readings.
+
+## Minimize Background in the Scan Area
+
+Avoid capturing unnecessary background elements, as random patterns, text, or lines may be mistakenly identified as a valid Pharmacode. Ensure high contrast between the barcode and its background for better recognition.
+
+## Keep the Barcode Area Clear of Text and Graphics
+
+Nearby text, lines, or graphical elements may be misinterpreted as part of the barcode, leading to incorrect readings. Maintain a quiet zone around the barcode to enhance scanning accuracy.
+
+## Implement Verification Algorithms
+
+Use software validation checks to ensure that the scanned value matches expected parameters (for example, specific length, numerical range).
+
+## Avoid Excessive Light and Reflections
+
+Glossy or reflective surfaces (for example, laminated packaging) can cause distortions in the barcode image, leading to scanning errors. Adjust the angle of illumination to reduce glare and improve readability.
+
+## Ensure Proper Printing Quality
+
+Poorly printed Pharmacodes with smudges, inconsistent bar widths, or faded ink can lead to scanning failures. Print Pharmacodes using high-precision techniques and verify compliance with Laetus specifications.
+
+## Optimize Scan Resolution
+
 Avoid blurry or low-quality images, as they can cause false positives or incorrect readings.

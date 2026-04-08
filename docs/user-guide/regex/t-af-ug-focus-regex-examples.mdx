@@ -1,7 +1,6 @@
 ---
 title: RegEx Examples
-description: "RegEx refers to a\_regular expression sequence of characters that specifies\
-  \ a pattern for the application to identify in the image."
+description: This section provides examples of common RegEx use cases and outlines the procedure to utilize them in Aurora Focus.
 slug: /regex/t-af-ug-focus-regex-examples
 sidebar_label: RegEx Examples
 product_name: aurora focus
@@ -20,873 +19,145 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 This section provides examples of common RegEx use cases and outlines the procedure to utilize them in Aurora Focus.
 
-For a full list of filtering commands to identify various data types, characters, and fixed positions or serial use of specific data, refer to
-[rexegg.com/regex-quickstart.html](https://www.rexegg.com/regex-quickstart.html)
-.
-Ensure that Manycode and Expand String Match to Entire Payload are enabled in settings on the Manycode tab. You have to start every filter with “\” and then add what you are looking for.
+For a full list of filtering commands to identify various data types, characters, and fixed positions or serial use of specific data, refer to [rexegg.com/regex-quickstart.html](https://www.rexegg.com/regex-quickstart.html).
 
+:::note
+Ensure that Manycode and Expand String Match to Entire Payload are enabled in settings on the Manycode tab. You have to start every filter with "\" and then add what you are looking for.
+:::
 
 ## No Filter
-
 
 All five codes were read without a filter:
 
 
-## No Filter
-
-
-
 ## Filter (\w) for all strings
-
 
 Filter (\w) for all strings that include matches any word character (equivalent to [a-zA-Z0-9_]):
 
 
-## Filter (\w) for all strings that include matches any word character (equivalent to [a-zA-Z0-9_]):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Filter (\d) for all images
-
 
 Filter (\d) for all images with at least one number:
 
 
-## Filter (\d) for all images with at least one number:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Filter (\d0) to all numbers
-
 
 Filter (\d0) to all numbers that are followed by zero:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Filter (\d1) to all numbers
-
 
 Filter (\d1) to all numbers followed by the number one:
 
 
-## Filter (\d1) to all numbers followed by the number one:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Filter (\d$) to every code
 
-
 Filter (\d$) to every code with a number as its last digit:
-## Filter (\d$) to every code with a number as its last digit:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Filter (^\d) to get any code
-
 
 Filter (^\d) to get any code with a number at the beginning:
 
 
-## Filter (^\d) to get any code with a number at the beginning:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Filter (\C) for a string
-
 
 Filter (\C) for a string that has the letter C:
 
 
-## Filter (\C) for a string that has the letter C:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Filter [DU] by a list
-
 
 Filter [DU] by a list. This example is the letter D or U:
 
 
-## Filter [DU] by a list. This example is the letter D or U:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Look for a specific string in the code
-
 
 Look for a specific string in the code (\USB):
 
 
-## Look for a specific string in the code (\USB):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Look for any data filter
-
 
 Look for any data filter (\*):
 
 
-## Look for any data filter
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Look for two specific prefix data filters
-
 
 Look for two specific prefix data filters (^78|^S2):
 
-
-- 
-- 
-^
-sets the anchor to the first character or string in the code
-|
-is the logical OR
-
-
-## Look for two specific prefix data filters (^78|^S2):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- `^` sets the anchor to the first character or string in the code
+- `|` is the logical OR
 
 
 ## Look for a minimum code length
 
-
 Look for a minimum code length (.{11}):
 
-
-- 
-- 
-.
-allows any sign
-{11}
-is the number of signs needed for the result to be true. All orange codes are shorter than 11 signs.
-
-
-## Look for a minimum code length (.{11}):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- `.` allows any sign
+- `{11}` is the number of signs needed for the result to be true. All orange codes are shorter than 11 signs.
 
 
 ## Look for a code length range
 
-
 Look for a code length range (^.{3,12}$):
-
 
 - “^” anchor at the start of the code.
 - “$” anchor at the end of the code.
-“^” anchor at the start of the code.
-“$” anchor at the end of the code.
 
 Specify the desired output by providing the information inside the brackets:
 
-
-- 
-- 
-.
-allows any sign.
-{3,12}
-the first number is the minimum number of signs needed to be true, and the second number represents the maximum.
+- `.` allows any sign.
+- `{3,12}` the first number is the minimum number of signs needed to be true, and the second number represents the maximum.
 
 All codes with two or fewer signs are ignored, such as the TW on top of the PDF417 code. Codes with a length of 13 or more signs are also ignored.
 
 
-## Look for a code length range (^.{3,12}$):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Look for a code length range and an identifier
-
 
 Look for a code length range and an identifier (^78.{3,12}$:
 
-
-- 
-- 
-^
-anchor at the start of the code.
-$
-anchor at the end of the code.
+- `^` anchor at the start of the code.
+- `$` anchor at the end of the code.
 
 Specify the desired output by providing the information inside the brackets:
 
-
-- 
-- 
-- 
-.
-allows any sign.
-$78
-is the identifier needs to be at the beginning of the string.
-{3,12}
-the first number is the minimum number of signs needed to be true, and the second number represents the maximum.
+- `.` allows any sign.
+- `$78` is the identifier needs to be at the beginning of the string.
+- `{3,12}` the first number is the minimum number of signs needed to be true, and the second number represents the maximum.
 
 All codes with two or fewer signs are ignored, such as the TW on top of the PDF417 code. Codes with a length of 13 or more signs are ignored as well.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Look for any sign, then look for a code length range and an identifier
-
 
 Look for anything else, then look for a code length range and an identifier (^(?!^78.{3,12}$).) with inverse logic:
 
-
-- 
-- 
-^
-allows any sign.
-$
-is the identifier needs to be at the beginning of the string.
+- `^` allows any sign.
+- `$` is the identifier needs to be at the beginning of the string.
 
 Specify the desired output by providing the information inside the brackets.
 
-
-- 
-- 
-- 
-.
-allows any sign.
-78
-is the identifier needs to be at the beginning of the string.
-{3,12}
-the first number is the minimum number of signs needed to be true, and the second number represents the maximum.
-
-
+- `.` allows any sign.
+- `78` is the identifier needs to be at the beginning of the string.
+- `{3,12}` the first number is the minimum number of signs needed to be true, and the second number represents the maximum.
 
 Use the syntax ^(?!pattern). where the pattern is the pattern for negative pattern matching:
 
-
 ## Look for any sign then look for a code length range and an identifier with inverse logic
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Look for a numeric code with a length of 13 that starts with a four or a numeric code with a length of 20
 
-
 Look for a numeric code with a length of 13 and starts with a four or a numeric code with a length of 20 that starts with a 0 (^4\d{12}|^0\d{19}):
 
-
-- 
-- 
-- 
-- 
-^
-anchor at the start of code ^4 means the specific number 4 needs to be the first number in the code.
-\d
-allows numbers only (0-9).
-{12}
-number of signs needed to be true, and the second number represents the maximum. It’s one less than the code length because the full string consists of the fixed first number + 12 numbers.
-|
-is the logical OR.
-
+- `^` anchor at the start of code. ^4 means the specific number 4 needs to be the first number in the code.
+- `\d` allows numbers only (0-9).
+- `{12}` number of signs needed to be true, and the second number represents the maximum. It's one less than the code length because the full string consists of the fixed first number + 12 numbers.
+- `|` is the logical OR.
 
 ## Look for a numeric code with a length of 13 and starts with a four
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Find the serial number field
-
 
 Find the serial number field of the FIS/MV Zebra Boxes (^S\d{13}):
 
+- `^` anchor at the start of the code.
+- `\d` allows numbers only (0-9).
+- `{13}` number of signs needed.
 
-- 
-- 
-- 
-^
-\d
-allows numbers only (0-9).
-{13}
-
-
-## Find the serial number field of the FIS/MV Zebra Boxes

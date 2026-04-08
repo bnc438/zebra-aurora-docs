@@ -1,0 +1,133 @@
+{
+  "timestamp": "2026-03-27T04:43:58.144Z",
+  "metrics": {
+    "window": {
+      "startDate": "2026-02-25T04:43:58.124Z",
+      "endDate": "2026-03-27T04:43:58.143Z",
+      "days": 30
+    },
+    "summary": {
+      "totalEvents": 250,
+      "totalSessions": 25,
+      "uniqueDocuments": 6,
+      "eventsByType": {
+        "page_view": 36,
+        "pdf_button_click": 31,
+        "monaco_editor_open": 37,
+        "scroll_depth": 39,
+        "content_request": 45,
+        "code_copy": 28,
+        "session_end": 34
+      }
+    },
+    "engagement": {
+      "codeExecution": {
+        "monacoOpens": 37,
+        "codeCopies": 28,
+        "topLanguages": {
+          "json": 20,
+          "python": 11,
+          "javascript": 29,
+          "xml": 5
+        }
+      },
+      "pdfGeneration": {
+        "requests": 31,
+        "topDocuments": {
+          "/docs/js-guide/t-aurora-js-getting-started/": 6,
+          "/docs/js-guide/": 4,
+          "/docs/release-notes/": 4,
+          "/docs/user-guide/": 6,
+          "/docs/licensing/": 5,
+          "/docs/js-guide/t-aurora-js-using-the-javascript-editor/": 6
+        }
+      },
+      "contentRequests": {
+        "total": 45,
+        "topRequests": [
+          {
+            "request": "How do I debug JavaScript in the editor?",
+            "count": 12
+          },
+          {
+            "request": "Example for FTP file transfer",
+            "count": 12
+          },
+          {
+            "request": "More info on GPIO port control",
+            "count": 11
+          },
+          {
+            "request": "Troubleshooting Monaco editor issues",
+            "count": 10
+          }
+        ],
+        "byDocument": {
+          "/docs/release-notes/": 8,
+          "/docs/user-guide/": 10,
+          "/docs/licensing/": 10,
+          "/docs/js-guide/": 7,
+          "/docs/js-guide/t-aurora-js-getting-started/": 5,
+          "/docs/js-guide/t-aurora-js-using-the-javascript-editor/": 5
+        }
+      },
+      "executionRate": 267
+    },
+    "navigation": {
+      "pageViews": 36,
+      "topDocuments": [
+        {
+          "document": "/docs/user-guide/",
+          "views": 9
+        },
+        {
+          "document": "/docs/licensing/",
+          "views": 7
+        },
+        {
+          "document": "/docs/js-guide/",
+          "views": 6
+        },
+        {
+          "document": "/docs/js-guide/t-aurora-js-using-the-javascript-editor/",
+          "views": 6
+        },
+        {
+          "document": "/docs/release-notes/",
+          "views": 5
+        },
+        {
+          "document": "/docs/js-guide/t-aurora-js-getting-started/",
+          "views": 3
+        }
+      ],
+      "sessionDuration": {
+        "average": 344,
+        "total": 34,
+        "samples": [],
+        "median": 408
+      }
+    },
+    "performance": {
+      "scrollDepth": {
+        "average": 58,
+        "distribution": {
+          "0-25%": 11,
+          "25-50%": 11,
+          "50-75%": 10,
+          "75-100%": 7
+        }
+      },
+      "timeOnPage": {
+        "average": 344,
+        "median": 408
+      }
+    },
+    "ces": {
+      "score": 10,
+      "totalRequests": 45,
+      "interpretation": "Needs attention"
+    }
+  },
+  "notes": "User satisfaction metrics based on event tracking from doc pages."
+}

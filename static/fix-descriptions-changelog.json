@@ -1,0 +1,1089 @@
+{
+  "generatedAt": "2026-04-05T21:36:39.940Z",
+  "dryRun": false,
+  "totalFiles": 152,
+  "filesModified": 135,
+  "totalFixes": 135,
+  "fixes": [
+    {
+      "file": "docs/user-guide/connect/t-af-js-using-the-js-editor.mdx",
+      "oldDescription": "The Aurora Focus JavaScript Editor consists of menu bar, control bar,\r\n  code editor and console.",
+      "newDescription": "The Aurora Focus JavaScript Editor consists of menu bar, control bar, code editor and console.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-alarms.mdx",
+      "oldDescription": "Enable alerts to understand the timeout intervals of the follower and\r\n  leader devices or if the re",
+      "newDescription": "Enable alerts to understand the timeout intervals of the follower and leader devices or if the read ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/c-af-ug-advanced-filtering-and-formatting.mdx",
+      "oldDescription": "''",
+      "newDescription": "The following functionalities are not supported in Aurora Focus: - Non-standard, customer-specific c",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/c-af-ug-aurora-output-formatting.mdx",
+      "oldDescription": "\"Use\\_Output Formatting to customize data output from identification\\\r\n  \\ and Machine Vision Tools.",
+      "newDescription": "Use Output Formatting to customize data output from identification and Machine Vision Tools.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/c-af-ug-ftp-file-saving-in-aurora.mdx",
+      "oldDescription": "''",
+      "newDescription": "Determine the IP address of the host computer where the FTP resides.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-string-filtering.mdx",
+      "oldDescription": "The device supports string filtering modes such as exclude and include\r\n  and string filters such as",
+      "newDescription": "The device supports string filtering modes such as exclude and include and string filters such as ex",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/regex/t-af-ug-focus-regex-examples.mdx",
+      "oldDescription": "\"RegEx refers to a\\_regular expression sequence of characters that specifies\\\r\n  \\ a pattern for the",
+      "newDescription": "This section provides examples of common RegEx use cases and outlines the procedure to utilize them ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/capture/c-af-ug-capture.mdx",
+      "oldDescription": "The Capture tab configures",
+      "newDescription": "The Capture tab configures Sensor Settings , Triggers and Acquisition Settings for Fixed Industrial ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/t-af-ug-applying-a-simplified-ftp-folder-structure.mdx",
+      "oldDescription": "If the default folder structure is not necessary, disable the default\r\n  folder structure and apply ",
+      "newDescription": "If the default folder structure is not necessary, disable the default folder structure and apply a s",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-triggering.mdx",
+      "oldDescription": "Define a pulse width for the signal to trigger a device over the input\r\n  of your choice.",
+      "newDescription": "Define a pulse width for the signal to trigger a device over the input of your choice.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-zeti-with-followers.mdx",
+      "oldDescription": "Use Zebra Easy Text Interface (ZETI) to execute specific commands and\r\n  retrieve a response.",
+      "newDescription": "Use Zebra Easy Text Interface (ZETI) to execute specific commands and retrieve a response.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-a-static-ip-address.mdx",
+      "oldDescription": "''",
+      "newDescription": "DHCP is the default mode for IP addressing. 1.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/device-discovery/t-fs10-xs20-Setting-an-IP-Address.mdx",
+      "oldDescription": "Connect to a camera by manually entering its IP address and clicking",
+      "newDescription": "Connect to a camera by manually entering its IP address and clicking Add Via IP Address in the botto",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/t-af-ug-deploying-fs-jobs.mdx",
+      "oldDescription": "To set up a Fixed Scanning (FS) job, set decoder parameters, symbologies,\r\n  OCR settings, code qual",
+      "newDescription": "To set up a Fixed Scanning (FS) job, set decoder parameters, symbologies, OCR settings, code quality",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/t-af-ug-focus-using-pharmacode.mdx",
+      "oldDescription": "Pharmacode, also known as the pharmaceutical binary code, is primarily\r\n  used in the pharmaceutical",
+      "newDescription": "Pharmacode, also known as the pharmaceutical binary code, is primarily used in the pharmaceutical in",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-using-image-types.mdx",
+      "oldDescription": "''",
+      "newDescription": "When using the Image Type drop-down menu to use a filter or tool output as the source image, the ROI",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/troubleshooting/t-af-ug-configuring-the-firewall.mdx",
+      "oldDescription": "If there is no communication between the smart camera and the FTP Server\r\n  application, add the FTP",
+      "newDescription": "If there is no communication between the smart camera and the FTP Server application, add the FTP se",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/t-af-ug-available-get-set-commands.mdx",
+      "oldDescription": "Parameters are preceded with two strings that inform what action should\r\n  be performed and which jo",
+      "newDescription": "The first string informs whether the command should get GetJobParameter a parameter or set UpdateJob",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/t-af-ug-using-set-and-get-match-strings.mdx",
+      "oldDescription": "Match Strings are configurable in Aurora Focus for Datacode, Deep Learning\r\n  OCR, and Read Barcode ",
+      "newDescription": "Match Strings are configurable in Aurora Focus for Datacode, Deep Learning OCR, and Read Barcode too",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/t-af-ug-using-ssi-mode.mdx",
+      "oldDescription": "Automation Wedge transmits data captured by the smart camera to an application\r\n  running on a Zebra",
+      "newDescription": "Automation Wedge transmits data captured by the smart camera to an application running on a Zebra mo",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/t-af-ug-using-undo-redo.mdx",
+      "oldDescription": "Use Undo or Redo to go back to the previous step in a job deployment\r\n  or configuration.",
+      "newDescription": "Use Undo or Redo to go back to the previous step in a job deployment or configuration.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/t-af-js-accessing-the-script-editor.mdx",
+      "oldDescription": "Access",
+      "newDescription": "Access Script Formatting from the Connect tab. JavaScript Formatting is supported on Aurora Focus ve",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/t-af-ug-focus-saving-good-reads.mdx",
+      "oldDescription": "Both No Reads and Good Reads use the same process to configure the file\r\n  format for saved images.",
+      "newDescription": "Both No Reads and Good Reads use the same process to configure the file format for saved images.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/t-af-ug-saving-a-series-of-images-in-burst-mode.mdx",
+      "oldDescription": "\"Images collected using\\_Series\\_or\\_Burst\\_mode are saved to the FTP\\\r\n  \\ server.\"",
+      "newDescription": "Images collected using Series or Burst mode are saved to the FTP server. Get the Burst Count and dis",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-follower-devices.mdx",
+      "oldDescription": "''",
+      "newDescription": "Click Config on the Home screen to configure GPIO, Filtering, Triggering, Timeout, and Run Mode sett",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-run-mode.mdx",
+      "oldDescription": "The Connectivity Gateway operates in Single Shot, Continuous, or Level\r\n  mode.",
+      "newDescription": "The Connectivity Gateway operates in Single Shot, Continuous, or Level mode. Navigate to the Configu",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-setting-up-a-network.mdx",
+      "oldDescription": "Configure network settings, including the hostname, IP address, subnet,\r\n  gateway, and DNS server.",
+      "newDescription": "Configure network settings, including the hostname, IP address, subnet, gateway, and DNS server.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-gs20-leader-follower-licensing.mdx",
+      "oldDescription": "Manage licenses for the Connectivity Gateway solution using the Licensing\r\n  tab in the Web HMI.",
+      "newDescription": "Click the Licensing tab to activate a new license and view active licenses. GS20 devices include a l",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-changing-the-hostname.mdx",
+      "oldDescription": "''",
+      "newDescription": "To change the hostname on the device: 1. Locate the hostname field.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-hid-keyboard.mdx",
+      "oldDescription": "''",
+      "newDescription": "Checking this setting will enable USB-HID output. Job result/output will be streamed over a USB conn",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-rs-232-output-.mdx",
+      "oldDescription": "''",
+      "newDescription": "TCP/IP output is disabled by default and must be explicitly enabled in the device’s settings.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-tcp-ip-output-in-device-settings.mdx",
+      "oldDescription": "''",
+      "newDescription": "TCP/IP output is disabled by default and must be explicitly enabled in the device's settings.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/t-af-ug-setting-up-rs-232-hardware.mdx",
+      "oldDescription": "''",
+      "newDescription": "The following accessories are necessary for a serial interface connection: - Power/GPIO Flying Leads",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/device-discovery/t-aurora-updating-firmware-on-multiple-devices.mdx",
+      "oldDescription": "''",
+      "newDescription": "Select devices on the View Devices list to perform a firmware update. Update devices using a file st",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/device-discovery/t-fs10-xs20-Device-Discovery.mdx",
+      "oldDescription": "Emulated devices are accessible under",
+      "newDescription": "Emulated devices are accessible under Virtual Devices on the Setup New Device screen.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/c-af-ug-using-bqm-for-fixed-scanning-jobs.mdx",
+      "oldDescription": "''",
+      "newDescription": "Barcode Quality Metrics are enabled on the Settings tab for FIS jobs. After the Minimum BQM Grade is",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-read-barcode.mdx",
+      "oldDescription": "Configure barcode decode settings such as Inverse 1D, ROI overlap, or\n  ROI search.",
+      "newDescription": "Configure barcode decode settings such as Inverse 1D, ROI overlap, or ROI search.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/regex/c-af-ug-regex-overview.mdx",
+      "oldDescription": "RegEx is used to filter code to identify specific objects. This section\r\n  provides details on what ",
+      "newDescription": "RegEx is used to filter code to identify specific objects. This section provides details on what to ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/ui-overview/t-aurora-job-management-settings.mdx",
+      "oldDescription": "Configure fixturing, image capture, filmstrip management settings, and\r\n  sensor cropping settings.",
+      "newDescription": "Configure the following application settings using the General tab in Settings: - Machine Vision Job",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/about-this-guide/c-aurora-about-this-guide.mdx",
+      "oldDescription": "This guide details using Zebra Aurora Focus to configure, deploy, and\r\n  manage Fixed Industrial Sca",
+      "newDescription": "This guide details using Zebra Aurora Focus to configure, deploy, and manage Fixed Industrial Scanni",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/about-this-guide/c-Service-Information.mdx",
+      "oldDescription": "'If you have a problem with your equipment, contact Zebra Global Customer\r\n  Support for your region",
+      "newDescription": "If you have a problem with your equipment, contact Zebra Global Customer Support for your region.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/about-this-guide/r-notational-conventions.mdx",
+      "oldDescription": "The following notational conventions make the content of this document\r\n  easy to navigate.",
+      "newDescription": "The following notational conventions make the content of this document easy to navigate.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-overview/t-fs10-xs20-Zebra-Aurora-Software-Overview.mdx",
+      "oldDescription": "Zebra Aurora Focus is a unified platform with an intuitive interface\r\n  for setting up, deploying, a",
+      "newDescription": "Zebra Aurora Focus is a unified platform with an intuitive interface for setting up, deploying, and ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/t-af-ug-using-fixturing-tools.mdx",
+      "oldDescription": "Use fixturing tools to focus on a specific symbology in environments\r\n  where codes are processed ra",
+      "newDescription": "Use fixturing tools to focus on a specific symbology in environments where codes are processed rapid",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/t-af-ug-zebra-automation-wedge-solutions.mdx",
+      "oldDescription": "The following Zebra devices can be implemented with Fixed Industrial\r\n  Scanners to form an end-to-e",
+      "newDescription": "Supported Zebra Mobile Computers must have Android 11 or higher and support Zebra USB Scanner within",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/capture/c-af-ug-triggered-buffering.mdx",
+      "oldDescription": "''",
+      "newDescription": "When Triggered Image Buffering is enabled, there is an image processing event and one buffer event b",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/capture/c-af-ug-using-imageperfect-plus.mdx",
+      "oldDescription": "ImagePerfect+ is an intuitive functionality used to grab additional images\r\n  from the same trigger ",
+      "newDescription": "ImagePerfect+ is an intuitive functionality used to grab additional images from the same trigger usi",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/configuring-jobs/t-aurora-job-slot-management.mdx",
+      "oldDescription": "Use the Jobs tab in Device Settings to manage job slots, rename, or delete\r\n  jobs.",
+      "newDescription": "Use the Jobs tab in Device Settings to manage job slots, rename, or delete jobs.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/t-af-ug-byte-swapping.mdx",
+      "oldDescription": "Configure a byte swap in the Ethernet/IP protocol to toggle byte order\r\n  and ensure the connected P",
+      "newDescription": "Configure a byte swap in the Ethernet/IP protocol to toggle byte order and ensure the connected PLC ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/t-af-ug-sftp-ftp-settings-and-best-practices.mdx",
+      "oldDescription": "Configure SFTP/FTP settings including hostname, port, username, password,\r\n  file path, read timeout",
+      "newDescription": "Select the Save Location (SFTP/FTP or on the device) for the images and populate the form fields wit",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/c-af-ug-compatable-plc-devices.mdx",
+      "oldDescription": "The Connectivity Gateway supports communication to and from the following\r\n  PLC models.",
+      "newDescription": "The Connectivity Gateway supports communication to and from the following PLC models.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/c-gs20-asynchronic-passthrough.mdx",
+      "oldDescription": "In asynchronous leader-follower use cases, multiple devices send result\r\n  data to a single leader d",
+      "newDescription": "In asynchronous leader-follower use cases, multiple devices send result data to a single leader devi",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/c-gs20-synchronized-leader-follower.mdx",
+      "oldDescription": "In synchronized leader-follower use cases, the leader receives a trigger,\r\n  activates the follower ",
+      "newDescription": "In synchronized leader-follower use cases, the leader receives a trigger, activates the follower dev",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-administrator-settings.mdx",
+      "oldDescription": "''",
+      "newDescription": "Accessible administrator settings include network, GPIO, PLC, ZETI, database, and alerts.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-mirroring.mdx",
+      "oldDescription": "Use the HMI to turn GPIO Mirroring on or off and inverse the mirroring\r\n  to allow Input 0 and Input",
+      "newDescription": "Use the HMI to turn GPIO Mirroring on or off and inverse the mirroring to allow Input 0 and Input 1 ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-tcp-ip-triggering.mdx",
+      "oldDescription": "Before setting up TCP/IP triggering on the device, configure the Host\r\n  to Leader port and follower",
+      "newDescription": "Before setting up TCP/IP triggering on the device, configure the Host to Leader port and follower de",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-adding-a-keystring-delay.mdx",
+      "oldDescription": "''",
+      "newDescription": "Sometimes data is sent over USB faster than the receiving application receives them.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-connectivity-guidelines.mdx",
+      "oldDescription": "''",
+      "newDescription": "Connectivity options are configurable in Device Settings. To access Device Settings, select a device",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-plc-protocol.mdx",
+      "oldDescription": "''",
+      "newDescription": "For specific details on Industrial Ethernet, EtherNet/IP, PROFINET Interface, and Modbus TCP industr",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-up-rs-232-triggering-.mdx",
+      "oldDescription": "Follow the steps in this section to enable RS-232 output in device settings\r\n  or configure a job on",
+      "newDescription": "Follow the steps in this section to enable RS-232 output in device settings or configure a job on th",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-up-tcp-ip-triggering.mdx",
+      "oldDescription": "''",
+      "newDescription": "To set up TCP/IP triggering, follow the steps to enable TCP/IP output in device settings, configure ",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/c-af-ug-usb-settings.mdx",
+      "oldDescription": "Configure USB settings such as enabling a HID Keyboard or adding a Keystring\r\n  Delay.",
+      "newDescription": "Configure USB settings such as enabling a HID Keyboard or adding a Keystring Delay.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/g-af-ug-network-communication.mdx",
+      "oldDescription": "Follow the procedures in this section to set a static IP address or change\r\n  the hostname.",
+      "newDescription": "Follow the procedures in this section to set a static IP address or change the hostname.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/t-af-ug-listening-for-usb-cdc-output-events.mdx",
+      "oldDescription": "To set USB CDC-Serial Results as job output, enable USB CDC-Serial Output\r\n  in",
+      "newDescription": "To set USB CDC-Serial Results as job output, enable USB CDC-Serial Output in Device Settings using t",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/device-mgmt-network-setup/c-aurora-multi-device-management.mdx",
+      "oldDescription": "Manage multiple cameras from Aurora Focus using",
+      "newDescription": "Manage multiple cameras from Aurora Focus using View Devices list.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/c-af-ug-using-fis-tools.mdx",
+      "oldDescription": "Use Fixed Industral Scanning symbologies and tools and set image banks\r\n  and format data.",
+      "newDescription": "Use Fixed Industral Scanning symbologies and tools and set image banks and format data.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/c-af-ug-using-the-job-toolstrip.mdx",
+      "oldDescription": "The Jobs Toolstrip provides access to available devices or emulators\n  to apply the job to, the barc",
+      "newDescription": "The Jobs Toolstrip provides access to available devices or emulators to apply the job to, the barcod",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/getting-started/c-aurora-localization.mdx",
+      "oldDescription": "Use Aurora Focus in other languages by selecting the desired language\r\n  from the menu in the upper ",
+      "newDescription": "Use Aurora Focus in other languages by selecting the desired language from the menu in the upper rig",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/getting-started/t-aurora-additional-help-and-resources.mdx",
+      "oldDescription": "''",
+      "newDescription": "Access additional help and resources by clicking Help from the top menu.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/getting-started/t-aurora-focus-getting-started.mdx",
+      "oldDescription": "This section provides information on requirements, installation, and\r\n  supported languages for the ",
+      "newDescription": "This section provides information on requirements, installation, and supported languages for the app",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-circle-diameter.mdx",
+      "oldDescription": "The Circle Diameter tool measures the diameter of a circle located in\n  the Region of Interest (ROI)",
+      "newDescription": "The Circle Diameter tool measures the diameter of a circle located in the Region of Interest (ROI).",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-close.mdx",
+      "oldDescription": "The Close tool increases the image's overall brightness and enhances\n  the remaining dark features b",
+      "newDescription": "The Close tool increases the image's overall brightness and enhances the remaining dark features by ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-counting-tools.mdx",
+      "oldDescription": "Counting tools determine the instances of particular objects within the\r\n  Region of Interest (ROI).",
+      "newDescription": "Counting tools determine the instances of particular objects within the Region of Interest (ROI).",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-deploying-vs-jobs.mdx",
+      "oldDescription": "To build and deploy a vision scanning (VS) job, start by selecting a\r\n  machine vision tool and drag",
+      "newDescription": "To build and deploy a vision scanning (VS) job, start by selecting a machine vision tool and draggin",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-edge-count.mdx",
+      "oldDescription": "The Edge Count tool identifies transitions based on the highest contrast\n  level in a Region of Inte",
+      "newDescription": "The Edge Count tool identifies transitions based on the highest contrast level in a Region of Intere",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-edge-detect.mdx",
+      "oldDescription": "The Edge Detect tool identifies transitions based on the highest contrast\n  in a Region of Interest ",
+      "newDescription": "The Edge Detect tool identifies transitions based on the highest contrast in a Region of Interest (R",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-edges.mdx",
+      "oldDescription": "The Edge tool compares edges given input image with an image stored in\n  a model created in the Trai",
+      "newDescription": "The Edge tool compares edges given input image with an image stored in a model created in the Traini",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-filter-tools.mdx",
+      "oldDescription": "\"Filter Tools are facilitated by the use of a kernel. A kernel is\\_repeatedly\\\r\n  \\ centered at each",
+      "newDescription": "Filter Tools are facilitated by the use of a kernel. A kernel is repeatedly centered at each pixel w",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-identification-tools.mdx",
+      "oldDescription": "Use the Identification Tools to read barcodes, DPM, Datacode, and Deep\r\n  Learning OCR.",
+      "newDescription": "Use the Identification Tools to read barcodes, DPM, Datacode, and Deep Learning OCR.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-intensity.mdx",
+      "oldDescription": "The intensity tool detects edges given input image with an image stored\n  in a model created in the ",
+      "newDescription": "The intensity tool detects edges given input image with an image stored in a model created in the Tr",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-locate-blob.mdx",
+      "oldDescription": "A blob is a set of connected light-or dark-colored pixels. The Locate\r\n  Blob tool detects blobs tha",
+      "newDescription": "A blob is a set of connected light-or dark-colored pixels. The Locate Blob tool detects blobs that p",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-locate-circle.mdx",
+      "oldDescription": "Locate Circle finds a circle model inside a user-defined region of interest\r\n  that fits the specifi",
+      "newDescription": "Locate Circle finds a circle model inside a user-defined region of interest that fits the specified ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-locate-edge.mdx",
+      "oldDescription": "Locate Edge identifies transitions based on the highest contract in a\r\n  user-defined region of inte",
+      "newDescription": "Locate Edge identifies transitions based on the highest contract in a user-defined region of interes",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-locate-object-plus.mdx",
+      "oldDescription": "Locate Object Plus finds specific patterns in a specified region of interest\r\n  and evaluates them b",
+      "newDescription": "Locate Object Plus finds specific patterns in a specified region of interest and evaluates them base",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-locate-object.mdx",
+      "oldDescription": "Locate Object finds a specific pattern in a filmstrip based on an edge\n  inside a user-defined regio",
+      "newDescription": "Locate Object finds a specific pattern in a filmstrip based on an edge inside a user-defined region ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-locate-tools.mdx",
+      "oldDescription": "Locate tools find a single occurrence of a predefined template on an\r\n  image by comparing object ed",
+      "newDescription": "Locate tools find a single occurrence of a predefined template on an image by comparing object edges",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-measurement-tools.mdx",
+      "oldDescription": "\"Use measurement tools to measure the distance between two\\_objects,\\\r\n  \\ the width of an object, o",
+      "newDescription": "Use measurement tools to measure the distance between two objects, the width of an object, or the di",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-neasure-object-width.mdx",
+      "oldDescription": "\"The Measure Object Width tool measures the\\_width of an object present\\\n  \\ in an image.\"",
+      "newDescription": "The Measure Object Width tool measures the width of an object present in an image.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-presence-absense-tools.mdx",
+      "oldDescription": "\"Use Presence/Absence tools to detect specific objects\\_or patterns within\\\r\n  \\ a Region of Interes",
+      "newDescription": "Use Presence/Absence tools to detect specific objects or patterns within a Region of Interest (ROI).",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-read-dpm-barcode.mdx",
+      "oldDescription": "Configure DPM and barcode decode settings such as Inverse 1D, a no-read\n  string, or barcode string ",
+      "newDescription": "Configure DPM and barcode decode settings such as Inverse 1D, a no-read string, or barcode string ma",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-read-dpm.mdx",
+      "oldDescription": "Configure DPM decode settings such as Inverse 1D, barcode string match,\n  or ROI search.",
+      "newDescription": "Configure DPM decode settings such as Inverse 1D, barcode string match, or ROI search.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-using-bqm-for-identification-tools.mdx",
+      "oldDescription": "''",
+      "newDescription": "To access and output various BQM statistics using the Advanced Data Formatting configuration: 1.",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-using-machine-vision-tools.mdx",
+      "oldDescription": "''",
+      "newDescription": "Machine Vision tools in Aurora Focus enable automated optical inspection by combining multiple tool ",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/t-af-ug-mint-using-anomaly-detection.mdx",
+      "oldDescription": "Aurora Deep Learning Editor is required to run Anomaly Detection in Aurora\r\n  Focus. It requires a l",
+      "newDescription": "Anomaly Detection is available on FS42 and NS42 devices only.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/troubleshooting/c-af-ug-troubleshooting.mdx",
+      "oldDescription": "This section describes potential issues that may occur while using the\n  application and solutions t",
+      "newDescription": "This section describes potential issues that may occur while using the application and solutions tha",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/zeti/c-aurora-using-zebra-easy-text-interface.mdx",
+      "oldDescription": "''",
+      "newDescription": "Zebra Easy Text Interface (ZETI) is a set of commands used to retrieve information from the device o",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-overview/Zebra-Aurora-Features.mdx",
+      "oldDescription": "Zebra Aurora Focus provides several differentiating features to rapidly\r\n  process, evaluate and com",
+      "newDescription": "Features include: - QuickDraw – enables the user to draw right on an image to create a tool with min",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-aurora-viewing-result-history.mdx",
+      "oldDescription": "The Results History tab provides job result information, such as status,\n  execution time, and date.",
+      "newDescription": "The Results History tab provides job result information, such as status, execution time, and date.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-fs10-xs20-live-monitoring-web-hmi.mdx",
+      "oldDescription": "The Live Monitoring feature allows users to view decode results as they\n  occur in real time by clic",
+      "newDescription": "The Live Monitoring feature allows users to view decode results as they occur in real time by clicki",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-viewing-the-activity-log.mdx",
+      "oldDescription": "The Activity Log provides information on specific actions taken by the\n  device, a live view of the ",
+      "newDescription": "The Activity Log provides information on specific actions taken by the device, a live view of the de",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-viewing-the-job-list.mdx",
+      "oldDescription": "\"The job list provides information on the currently active jobs that\\\n  \\ can be run on the device. ",
+      "newDescription": "The job list provides information on the currently active jobs that can be run on the device.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-web-hmi-dashboard.mdx",
+      "oldDescription": "\"The Web HMI dashboard provides insight into the\\_device's details, such\\\n  \\ as resource utilizatio",
+      "newDescription": "The Web HMI dashboard provides insight into the device's details, such as resource utilization, upti",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-web-hmi-top-menu.mdx",
+      "oldDescription": "''",
+      "newDescription": "The Web HMI provides access to the following options using the menu in the top right of the applicat",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-firmware-update-user-guide.mdx",
+      "oldDescription": "The device must be connected to a PC using a USB or Ethernet cable or\r\n  from Ethernet to a router (",
+      "newDescription": "Conduct a Factory Reset after applying a firmware update to a Connectivity Gateway license-enabled d",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-usb-a-to-usb-c-hardware-setup.mdx",
+      "oldDescription": "''",
+      "newDescription": "Required hardware: - Windows 10 or higher PC with USB-A or USB-C port - USB-A to USB-C cable, Zebra ",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/build/c-af-ug-bqm.mdx",
+      "oldDescription": "\"Barcode Quality Metrics (BQM) are used to\\_verify the quality of your\\\r\n  \\ printed barcode, so you",
+      "newDescription": "Barcode Quality Metrics (BQM) are used to verify the quality of your printed barcode, so you know yo",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/configuring-jobs/c-aurora-jobs.mdx",
+      "oldDescription": "Configuration and deployment of FIS or MV jobs are facilitated using\r\n  the Capture, Build, and Conn",
+      "newDescription": "Configuration and deployment of FIS or MV jobs are facilitated using the Capture, Build, and Connect",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connect/c-af-ug-connect.mdx",
+      "oldDescription": "The Connect tab provides access to Industrial Ethernet, Output Formatting,\n  Script Formatting, GPIO",
+      "newDescription": "The Connect tab provides access to Industrial Ethernet, Output Formatting, Script Formatting, GPIO m",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-gateway-solutions/c-gs20-connectivity-gateway-solutions.mdx",
+      "oldDescription": "The Zebra Connectivity Gateway provides asynchronous passthrough and\r\n  synchronized leader-follower",
+      "newDescription": "The Zebra Connectivity Gateway provides asynchronous passthrough and synchronized leader-follower so",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/connectivity-guidelines/t-af-ug-listening-over-usb-cdc-serial-connection.mdx",
+      "oldDescription": "''",
+      "newDescription": "The process of listening over USB CDC-Serial connections is similar to the RS-232 setup outlined in ",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/device-mgmt-network-setup/t-fs10-xs20-Network-Setup.mdx",
+      "oldDescription": "\"Aurora Focus can connect the device via Ethernet or USB-C-to-A (or C;\\\r\n  \\ host-side) cable to the",
+      "newDescription": "There are three options to connect a device to be discoverable in Zebra Aurora Focus: 1.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/c-af-ug-advanced.mdx",
+      "oldDescription": "The Advanced tab provides access to additional Fixed Industrial Scanning\n  tool settings.",
+      "newDescription": "The Advanced tab provides access to additional Fixed Industrial Scanning tool settings.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/c-af-ug-image-banks.mdx",
+      "oldDescription": "''",
+      "newDescription": "All available image banks display on the left side of the table. The right side of the table provide",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/c-af-ug-manycode.mdx",
+      "oldDescription": "Use ManyCode to decode multiple barcodes simultaneously and determine\n  their sorting arrangement.",
+      "newDescription": "Use ManyCode to decode multiple barcodes simultaneously and determine their sorting arrangement.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/fixed-industrial-tools/c-af-ug-settings.mdx",
+      "oldDescription": "\"Configure Fixed Industrial Scanning settings such as timeout, adaptive\\\n  \\ ROI search, barcode str",
+      "newDescription": "Configure Fixed Industrial Scanning settings such as timeout, adaptive ROI search, barcode string ma",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/getting-started/c-aurora-installation.mdx",
+      "oldDescription": "''",
+      "newDescription": "Zebra Aurora Focus is available for download on the Zebra website: Zebra Aurora Focus Software Downl",
+      "issueTypes": [
+        "EMPTY_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-blob-count.mdx",
+      "oldDescription": "The Blob Count tool counts the number of blobs that pass certain filter\n  parameters within a Region",
+      "newDescription": "The Blob Count tool counts the number of blobs that pass certain filter parameters within a Region o",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-blob-presence-absence.mdx",
+      "oldDescription": "The Blob Presence/Absence tool verifies a blob's presence or absence\n  within a Region of Interest (",
+      "newDescription": "The Blob Presence/Absence tool verifies a blob's presence or absence within a Region of Interest (RO",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-brightness.mdx",
+      "oldDescription": "The Brightness tool calculates the average pixel brightness value in\n  a Region of Interest (ROI).",
+      "newDescription": "The Brightness tool calculates the average pixel brightness value in a Region of Interest (ROI).",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-common-mv-tool-settings.mdx",
+      "oldDescription": "Some machine vision tools share common settings. Refer to the table below\n  to understand how to con",
+      "newDescription": "Some machine vision tools share common settings. Refer to the table below to understand how to confi",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-contrast.mdx",
+      "oldDescription": "The Contrast tool calculates the maximum and minimum pixel intensity\n  difference in a Region of Int",
+      "newDescription": "The Contrast tool calculates the maximum and minimum pixel intensity difference in a Region of Inter",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-datacode.mdx",
+      "oldDescription": "\"Configure Datacode settings such as No Read String, Module Size, or\\\n  \\ Search Strategy.\\_This too",
+      "newDescription": "Configure Datacode settings such as No Read String, Module Size, or Search Strategy.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-dilate.mdx",
+      "oldDescription": "The Dilate tool replaces each pixel with a maximum of pixels within the\n  kernel. This tool also thi",
+      "newDescription": "The Dilate tool replaces each pixel with a maximum of pixels within the kernel. This tool also thick",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-distance.mdx",
+      "oldDescription": "The Distance tool determines the space between two specifically defined\n  objects or patterns in an ",
+      "newDescription": "The Distance tool determines the space between two specifically defined objects or patterns in an im",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-erode.mdx",
+      "oldDescription": "The operation replaces each pixel with the darkest pixel in its neighborhood,\n  thus shrinking brigh",
+      "newDescription": "The operation replaces each pixel with the darkest pixel in its neighborhood, thus shrinking bright ",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-flaw-detection.mdx",
+      "oldDescription": "\"Flaw Detection tools perform a pixel-to-pixel comparison of two images.\\\r\n  \\ This is helpful\\_for ",
+      "newDescription": "Flaw Detection tools perform a pixel-to-pixel comparison of two images. This is helpful for cases wh",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-general-locate-object-count-settings.mdx",
+      "oldDescription": "Use the Locate Object Count tool to find a pattern in the image and set\n  a match threshold for a ca",
+      "newDescription": "Use the Locate Object Count tool to find a pattern in the image and set a match threshold for a cand",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-gradient-full.mdx",
+      "oldDescription": "The Gradient Full tool brightens horizontal and vertical edges within\n  the defined area of interest",
+      "newDescription": "The Gradient Full tool brightens horizontal and vertical edges within the defined area of interest.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-gradient-vertical.mdx",
+      "oldDescription": "The Gradient Vertical tool brightens vertical edges within the defined\n  region of interest.",
+      "newDescription": "The Gradient Vertical tool brightens vertical edges within the defined region of interest.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-object-pa.mdx",
+      "oldDescription": "The Object Presence Absence tool verifies the presence or absence of\n  a specific pattern or object ",
+      "newDescription": "The Object Presence Absence tool verifies the presence or absence of a specific pattern or object wi",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-object-plus-pa.mdx",
+      "oldDescription": "The Object Plus Presence Absence tool finds specific patterns in a Region\n  of Interest (ROI) and ev",
+      "newDescription": "The Object Plus Presence Absence tool finds specific patterns in a Region of Interest (ROI) and eval",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-open.mdx",
+      "oldDescription": "The Open tool decreases the image's overall brightness and enhances the\n  remaining bright features ",
+      "newDescription": "The Open tool decreases the image's overall brightness and enhances the remaining bright features by",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/c-af-ug-pixel-count.mdx",
+      "oldDescription": "The Pixel Count tool provides the number of pixels of a user-specified\n  value (0-255) within a Regi",
+      "newDescription": "The Pixel Count tool provides the number of pixels of a user-specified value (0-255) within a Region",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/machine-vision-tools/g-af-ug-gradient-horizontal.mdx",
+      "oldDescription": "The Gradient Horizontal tool brightens horizontal edges within the defined\n  region of interest.",
+      "newDescription": "The Gradient Horizontal tool brightens horizontal edges within the defined region of interest.",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    },
+    {
+      "file": "docs/user-guide/ui-overview/r-aurora-hid-keyboard-localization.mdx",
+      "oldDescription": "'Zebra Aurora Focus supports the following HID keyboard languages:'",
+      "newDescription": "Zebra Aurora Focus supports the following HID keyboard languages: - English (North America) - French",
+      "issueTypes": [
+        "TRUNCATED_DESCRIPTION"
+      ]
+    }
+  ]
+}

@@ -1,8 +1,6 @@
 ---
 title: Intensity
-description: The intensity tool detects edges given input image with an image stored
-  in a model created in the Training tab and then, as a result, creates a region containing
-  only pixels where edges are different.
+description: 'The intensity tool detects edges given input image with an image stored in a model created in the Training tab and then, as a result, creates a region...'
 slug: /machine-vision-tools/c-af-ug-intensity
 sidebar_label: Intensity
 product_name: aurora focus
@@ -21,34 +19,15 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 The intensity tool detects edges given input image with an image stored in a model created in the Training tab and then, as a result, creates a region containing only pixels where edges are different.
 
 This method is especially useful for finding defects in the object's shape. Due to its invulnerability to color changes, it may be used in appliances with changing light conditions. Parameter Maximum Distance defines the maximal distances of two edges that should be treated as the same edge.
 
-The
-Edge Threshold
-and
-Edge Hysteresis
-parameters in the
-Inspection
-tab should have the same value as in the
-Training
-tab. The values should be changed, however, if the input image's brightness is significantly different from the brightness of the golden image used in the
-Training
-tab. The
-Edge Threshold
-can also be decreased slightly if one wants to concentrate on missing edges or increased to concentrate on excessive edges.
-
-
-
+The **Edge Threshold** and **Edge Hysteresis** parameters in the **Inspection** tab should have the same value as in the **Training** tab. The values should be changed, however, if the input image's brightness is significantly different from the brightness of the golden image used in the **Training** tab. The **Edge Threshold** can also be decreased slightly if one wants to concentrate on missing edges or increased to concentrate on excessive edges.
 
 ## Intensity Settings
 
-Setting
-Description
-Edge Threshold
-Determine the minimum strength of the edges on the model where comparison is not performed.
-Edge Dilation
-Define how far from the detected edges comparison should not be performed.
+| Setting | Description |
+| --- | --- |
+| Edge Threshold | Determine the minimum strength of the edges on the model where comparison is not performed. |
+| Edge Dilation | Define how far from the detected edges comparison should not be performed. |

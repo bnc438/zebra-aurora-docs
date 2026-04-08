@@ -1,0 +1,65 @@
+name: ENG-15 Epic Release Gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      epic_key:
+        description: 'Epic key (e.g. DOC-123)'
+        required: true
+        type: string
+      release_fix_version:
+        description: 'Release fix version (e.g. 9.4.0)'
+        required: false
+        type: string
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  epic-release-gate:
+    runs-on: ubuntu-latest
+    name: Epic Closure + Release Metrics Gate
+
+    env:
+      EPIC_KEY: ${{ github.event.inputs.epic_key || vars.EPIC_KEY }}
+      RELEASE_FIX_VERSION: ${{ github.event.inputs.release_fix_version || vars.RELEASE_FIX_VERSION }}
+      # Multi-site placeholder. Store as repository variable/secret and replace sample values.
+      JIRA_SITES_JSON: ${{ vars.JIRA_SITES_JSON }}
+      JIRA_BOARD_FILTER_JQL: ${{ vars.JIRA_BOARD_FILTER_JQL }}
+      JIRA_RAPID_VIEW_ID: ${{ vars.JIRA_RAPID_VIEW_ID }}
+      JIRA_ZEBRA_EMAIL: ${{ secrets.JIRA_ZEBRA_EMAIL }}
+      JIRA_ZEBRA_TOKEN: ${{ secrets.JIRA_ZEBRA_TOKEN }}
+      JIRA_DONE_STATUSES: Closed
+      JIRA_SUPPORT_ISSUE_TYPES: Incident,Service Request,Support Ticket
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate epic release metrics
+        run: npm run epic-metrics
+
+      - name: Generate build report with epic metrics
+        run: npm run build-report
+
+      - name: Enforce release gate (critical checks)
+        run: |
+          node -e "const fs=require('fs');const p='static/data/epic-release-metrics.json';const d=JSON.parse(fs.readFileSync(p,'utf8'));if(d.skipped){console.error('[ENG-15] Epic metrics skipped: '+(d.reason||'unknown reason'));process.exit(1);}const status=d.releaseGate?.status||'warn';console.log('[ENG-15] Release gate status:',status);if(status==='fail'){console.error('[ENG-15] Critical release gate checks failed.');process.exit(1);}"
+
+      - name: Upload epic metrics artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: epic-release-metrics
+          path: |
+            static/data/epic-release-metrics.json
+            static/build-report.json
+          retention-days: 30

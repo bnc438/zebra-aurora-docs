@@ -30,16 +30,16 @@ const config = {
     },
   },
 
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
 
   customFields: {
     /** True during `docusaurus start` (development), false in production builds. */
     isDev: process.env.NODE_ENV !== 'production',
     enableInternalAnalytics,
   },
+
+  stylesheets: [
+    'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
+  ],
 
   presets: [
     [
@@ -57,22 +57,17 @@ const config = {
         },
         blog: false, // We disabled the blog.
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('@orama/wc-components/dist/orama-ui/orama-ui.css'),
+          ],
         },
       }),
     ],
   ],
 
   plugins: [
-    [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
-      {
-        hashed: true,
-        docsRouteBasePath: ['/docs'],
-        indexBlog: false,
-        indexPages: true,
-      },
-    ],
+    '@orama/plugin-docusaurus-v3',
   ],
 
   themeConfig:
@@ -86,14 +81,14 @@ const config = {
       navbar: {
         title: 'Zebra Aurora Focus',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Zebra Technologies Logo',
           src: 'img/z-logo-b.svg',
           srcDark: 'img/z-logo-bw.svg',
         },
         // THIS 'items' ARRAY IS THE MOST IMPORTANT PART
         items: [
           {
-            to: '/docs/t-aurora-focus-getting-started-and-mdx-summary',
+            to: '/docs/js-guide/t-aurora-focus-getting-started-and-mdx-summary',
             position: 'left',
             label: 'Getting Started',
           },
@@ -107,12 +102,12 @@ const config = {
             position: 'right',
             label: 'Ask AI',
           },
-          ...(process.env.ASKAI_INTERNAL_ANALYTICS === 'true'
+          ...(enableInternalAnalytics
             ? [
                 {
-                  to: '/ask-ai-insights',
+                  to: '/dev-dashboard',
                   position: 'right',
-                  label: 'AskAI Insights',
+                  label: 'Dev Dashboard',
                 },
               ]
             : []),
@@ -121,7 +116,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Zebra Technologies Corp. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -21,102 +21,46 @@ exclude_from_search: false
 ---
 
 
-The following table lists the ports used by Zebra Aurora Focus.
-
 
 ## Zebra Aurora Focus Communication Port Usage
 
-Port
-TCP
-UDP
-FTP - Data
-20
-FTP - Communication
-21
-DHCP Server
-67
-DHCP Client
-68
-Web HMI
-80
-443
-NTP
-123
-Modbus
-502
-502
-EtherNet/IP
-2222
-Discovery Port
-3702
-3702
-TCP Port
-4444
-mDNS
-5353
-mDNS Responder
-5354
-Listening Port
-5555
-5555
-Communication Port
-5556
-5556
-Output Image
-7722
-7722
-Image Live View
-7777
-7777
-Discovery Port (2)
-8889
-Discovery Port (3)
-9876
-Raw TCP Data
-25250
-Profinet RT Unicast
-34962
-34962
-Profinet RT Multicast
-34963
-34963
-Profinet RT CM
-34964
-34964
-EtherNet/IP
-44818
-44818
-Profinet
-49152
-Reserved for Gateway Functionality
-4012
-4012
-Reserved for Gateway Functionality
-4009
-4009
-Reserved for Gateway Functionality
-8080
-8080
-Listening to Raw TCP Data from Follower Devices
-25250
-25250
-TCP Port (Host to Leader)
-25256
-25256
-MQTT
-8883
-8883
-Reserved for Gateway Functionality
-25170
-25170
-Management Port
-5554
-DA Licensing Port
-54212
-ZETI
-23
-Raw TCP Data
-25250
-TCP Control Port (if enabled)
-107
+| Port | TCP | UDP |
+|---|---|---|
+| FTP - Data | 20 | |
+| FTP - Communication | 21 | |
+| DHCP Server | | 67 |
+| DHCP Client | | 68 |
+| Web HMI | 80, 443 | |
+| NTP | | 123 |
+| Modbus | 502 | 502 |
+| EtherNet/IP | 2222 | |
+| Discovery Port | 3702 | 3702 |
+| TCP Port | 4444 | |
+| mDNS | | 5353 |
+| mDNS Responder | | 5354 |
+| Listening Port | 5555 | 5555 |
+| Communication Port | 5556 | 5556 |
+| Output Image | 7722 | 7722 |
+| Image Live View | 7777 | 7777 |
+| Discovery Port (2) | | 8889 |
+| Discovery Port (3) | | 9876 |
+| Raw TCP Data | 25250 | |
+| Profinet RT Unicast | 34962 | 34962 |
+| Profinet RT Multicast | 34963 | 34963 |
+| Profinet RT CM | 34964 | 34964 |
+| EtherNet/IP | 44818 | 44818 |
+| Profinet | 49152 | |
+| Reserved for Gateway Functionality | 4012 | 4012 |
+| Reserved for Gateway Functionality | 4009 | 4009 |
+| Reserved for Gateway Functionality | 8080 | 8080 |
+| Listening to Raw TCP Data from Follower Devices | 25250 | 25250 |
+| TCP Port (Host to Leader) | 25256 | 25256 |
+| MQTT | 8883 | 8883 |
+| Reserved for Gateway Functionality | 25170 | 25170 |
+| Management Port | 5554 | |
+| DA Licensing Port | 54212 | |
+| ZETI | 23 | |
+| Raw TCP Data | 25250 | |
+| TCP Control Port (if enabled) | 107 | |
+
 TCP Port and Raw TCP Data are user-configurable ports.

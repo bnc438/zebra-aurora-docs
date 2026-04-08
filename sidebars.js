@@ -3,25 +3,72 @@ const path = require('path');
 
 const userGuideDir = path.join(__dirname, 'docs', 'user-guide');
 
-function getDocFileInfo(dirPath) {
-  return fs
-    .readdirSync(dirPath, {withFileTypes: true})
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .filter((fileName) => fileName.endsWith('.mdx'))
-    .filter((fileName) => !fileName.startsWith('_'))
-    .sort((a, b) => a.localeCompare(b));
-}
+/**
+ * Recursively build sidebar items for a directory.
+ * - .mdx files become doc links
+ * - Sub-directories become collapsible categories (with recursive children)
+ * - index.mdx in a directory becomes the category link
+ * @param {string} dirPath  Absolute path to scan
+ * @param {string} docPrefix  Docusaurus doc-id prefix (e.g. 'user-guide/about-this-guide')
+ * @param {string[]|null} orderHint  Optional ordered list of directory names for sorting
+ */
+function buildSidebarItems(dirPath, docPrefix, orderHint) {
+  const entries = fs.readdirSync(dirPath, {withFileTypes: true});
 
-const userGuideTopLevelItems = getDocFileInfo(userGuideDir)
-  .filter((fileName) => fileName !== 'index.mdx')
-  .map((fileName) => `user-guide/${fileName.replace(/\.mdx$/, '')}`);
+  const files = entries
+    .filter((e) => e.isFile() && e.name.endsWith('.mdx') && !e.name.startsWith('_') && e.name !== 'index.mdx')
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((e) => `${docPrefix}/${e.name.replace(/\.mdx$/, '')}`);
+
+  const dirs = entries
+    .filter((e) => e.isDirectory() && !e.name.startsWith('_'))
+    .sort((a, b) => {
+      if (!orderHint) return a.name.localeCompare(b.name);
+      const iA = orderHint.indexOf(a.name);
+      const iB = orderHint.indexOf(b.name);
+      if (iA === -1 && iB === -1) return a.name.localeCompare(b.name);
+      if (iA === -1) return 1;
+      if (iB === -1) return -1;
+      return iA - iB;
+    })
+    .map((e) => {
+      const childDir = path.join(dirPath, e.name);
+      const childPrefix = `${docPrefix}/${e.name}`;
+      const hasIndex = fs.existsSync(path.join(childDir, 'index.mdx'));
+      const childItems = buildSidebarItems(childDir, childPrefix, null);
+
+      if (!hasIndex && childItems.length === 0) return null;
+
+      return {
+        type: 'category',
+        label: e.name
+          .split('-')
+          .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+          .join(' '),
+        ...(hasIndex ? {link: {type: 'doc', id: `${childPrefix}/index`}} : {}),
+        collapsible: true,
+        collapsed: true,
+        items: childItems,
+      };
+    })
+    .filter(Boolean);
+
+  return [...files, ...dirs];
+}
 
 const userGuideSectionOrder = [
   'about-this-guide',
   'aurora-focus-overview',
+  'getting-started',
+  'ui-overview',
+  'device-discovery',
+  'device-mgmt-network-setup',
   'connectivity-gateway-solutions',
+  'connect',
   'aurora-focus-web-hmi',
+  'configuring-jobs',
+  'build',
+  'capture',
   'fixed-industrial-tools',
   'machine-vision-tools',
   'connectivity-guidelines',
@@ -30,48 +77,7 @@ const userGuideSectionOrder = [
   'zeti',
 ];
 
-const userGuideSectionItems = fs
-  .readdirSync(userGuideDir, {withFileTypes: true})
-  .filter((entry) => entry.isDirectory())
-  .filter((entry) => !entry.name.startsWith('_'))
-  .sort((a, b) => {
-    const indexA = userGuideSectionOrder.indexOf(a.name);
-    const indexB = userGuideSectionOrder.indexOf(b.name);
-    if (indexA === -1 && indexB === -1) return a.name.localeCompare(b.name);
-    if (indexA === -1) return 1;
-    if (indexB === -1) return -1;
-    return indexA - indexB;
-  })
-  .map((entry) => {
-    const sectionName = entry.name;
-    const sectionDir = path.join(userGuideDir, sectionName);
-    const files = getDocFileInfo(sectionDir);
-    const sectionIndexExists = files.includes('index.mdx');
-    const sectionDocItems = files
-      .filter((fileName) => fileName !== 'index.mdx')
-      .map((fileName) => `user-guide/${sectionName}/${fileName.replace(/\.mdx$/, '')}`);
-
-    if (!sectionIndexExists && sectionDocItems.length === 0) {
-      return null;
-    }
-
-    return {
-      type: 'category',
-      label: sectionName
-        .split('-')
-        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-        .join(' '),
-      ...(sectionIndexExists
-        ? {link: {type: 'doc', id: `user-guide/${sectionName}/index`}}
-        : {}),
-      collapsible: true,
-      collapsed: true,
-      items: sectionDocItems,
-    };
-  })
-  .filter(Boolean);
-
-const userGuideItems = [...userGuideTopLevelItems, ...userGuideSectionItems];
+const userGuideItems = buildSidebarItems(userGuideDir, 'user-guide', userGuideSectionOrder);
 
 const licensingDir = path.join(__dirname, 'docs', 'licensing');
 const licensingItems = fs

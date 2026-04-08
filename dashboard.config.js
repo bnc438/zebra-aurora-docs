@@ -37,8 +37,8 @@ const dashboardConfig = {
 
   /**
    * Regex that matches placeholder text in frontmatter values or body content.
-   * Flags text like [Use Case 1], [YYYY-MM-DD], (Automated by build process), TODO, TBD.
-   */
+  * Flags placeholder or incomplete text for build validation.
+  */
   placeholderPattern: /\[.*?\]|TODO|TBD|placeholder|\(Automated by build process\)/i,
 
   /**

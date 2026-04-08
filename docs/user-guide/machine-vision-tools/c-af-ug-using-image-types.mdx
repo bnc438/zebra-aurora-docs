@@ -1,6 +1,6 @@
 ---
 title: Using Image Types
-description: ''
+description: 'When using the Image Type drop-down menu to use a filter or tool output as the source image, the ROI of the tool must be fully contained within the ROI of the source images.'
 slug: /machine-vision-tools/c-af-ug-using-image-types
 sidebar_label: Using Image Types
 product_name: aurora focus
@@ -19,23 +19,6 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
+When using the **Image Type** drop-down menu to use a filter or tool output as the source image, the ROI of the tool must be fully contained within the ROI of the source images. If the tool's ROI exceeds the source's ROI, the tool automatically issues a failing result.
 
-
-
-
-When using the
-Image Type
-drop-down menu to use a filter or tool output as the source image, the ROI of the tool must be fully contained within the ROI of the source images. If the tool's ROI exceeds the source's ROI, the tool automatically issues a failing result.
-
-In the following image, the
-Brightness
-tool uses the
-Binarize
-tools output as the source image. As a result, the ROI of the
-Brightness
-tool must be fully contained within the
-Binarize
-tools source ROI. If there is an overlap between the two ROIs, the
-Brightness
-tool issues a fail.
-
+In the following example, the **Brightness** tool uses the **Binarize** tool's output as the source image. As a result, the ROI of the **Brightness** tool must be fully contained within the **Binarize** tool's source ROI. If there is an overlap between the two ROIs, the **Brightness** tool issues a fail.

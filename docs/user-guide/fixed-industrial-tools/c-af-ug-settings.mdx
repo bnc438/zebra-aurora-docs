@@ -1,8 +1,6 @@
 ---
 title: Fixed Industrial Scanner Settings
-description: "Configure Fixed Industrial Scanning settings such as timeout, adaptive\
-  \ ROI search, barcode string match, or\_a no-read string, depending on your use\
-  \ case."
+description: 'Configure Fixed Industrial Scanning settings such as timeout, adaptive ROI search, barcode string match, or a no-read string, depending on your use case.'
 slug: /fixed-industrial-tools/c-af-ug-settings
 sidebar_label: Fixed Industrial Scanner Settings
 product_name: aurora focus
@@ -21,55 +19,15 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 Configure Fixed Industrial Scanning settings such as timeout, adaptive ROI search, barcode string match, or a no-read string, depending on your use case.
-
-
-
 
 ## Fixed Industrial Scanning Tool Settings
 
-Setting
-Description
-Timeout
-
-
-
-The amount of time (ms) the tool should stop its process of searching for barcodes.
-
-
-For high-speed barcode-reading applications (for example, a fast conveyor belt or high-speed turntable), set this value as low as possible, just above the average time to read a barcode. Deploy the application and obtain real-world data on the decode speed in your specific use case (for example, a range of 5-15ms). Set this to a value just above that speed (for example, 20ms). This allows the application to capture frames from high-speed subject images, increasing the odds of a good read.
-Inverse 1D
-
-
-- Regular - reads dark foreground/light background barcodes.
-- Inverse Only - reads light foreground/dark background codes only.
-- Inverse Autodetect - reads both barcode types defined above.
-Regular - reads dark foreground/light background barcodes.
-Inverse Only - reads light foreground/dark background codes only.
-Inverse Autodetect - reads both barcode types defined above.
-Minimum Percentage Barcode/ROI Overlap
-
-Define the minimum percentage a barcode needs to be contained within the ROI to be read.
-- For 1D barcodes, this applies only to the horizontal (X) dimension.
-- For 2D barcodes, this applies to horizontal and vertical (X & Y) dimensions.
-For 1D barcodes, this applies only to the horizontal (X) dimension.
-For 2D barcodes, this applies to horizontal and vertical (X & Y) dimensions.
-No Read String
-
-Define the data that should be output if no barcode is read (in place of barcode data in a successful read, as opposed to no output at all).
-Enable Adaptive ROI Search
-
-Enabling this parameter allows the underlying barcode scanning algorithm to alter (shrink and reposition) the area of the ROI for subsequent reads based on the presence of past-read barcodes. This provides quicker and better-performing barcode reads. The small/medium/large drop-down settings alter how the adapted ROI component is generated.
-Barcode String Match
-
-Enable this setting to define the pass/fail criteria based on the contents of the decoded barcode. If the Match String matches and the substring within the barcode is, the barcode tool passes.
-Minimum BQM Grade
-
-Defines a minimum BQM threshold (produces a barcode-based pass/fail if it does not meet this minimum BQM score).
-Send Decode on Failure
-
-If a barcode is read but does not meet the
-String Match
-criteria, enabling this setting allows the barcode data to be output while the tool fails.
+| Setting | Description |
+| --- | --- |
+| Timeout | The amount of time (ms) the tool should stop its process of searching for barcodes. For high-speed barcode-reading applications (for example, a fast conveyor belt or high-speed turntable), set this value as low as possible, just above the average time to read a barcode. Deploy the application and obtain real-world data on the decode speed in your specific use case (for example, a range of 5-15ms). Set this to a value just above that speed (for example, 20ms). This allows the application to capture frames from high-speed subject images, increasing the odds of a good read. |
+| Inverse 1D | - Regular - reads dark foreground/light background barcodes. - Inverse Only - reads light foreground/dark background codes only. - Inverse Autodetect - reads both barcode types defined above. |
+| Minimum Percentage Barcode/ROI Overlap | Define the minimum percentage a barcode needs to be contained within the ROI to be read. - For 1D barcodes, this applies only to the horizontal (X) dimension. - For 2D barcodes, this applies to horizontal and vertical (X & Y) dimensions. |
+| No Read String | Define the data that should be output if no barcode is read (in place of barcode data in a successful read, as opposed to no output at all). Enable Adaptive ROI Search Enabling this parameter allows the underlying barcode scanning algorithm to alter (shrink and reposition) the area of the ROI for subsequent reads based on the presence of past-read barcodes. This provides quicker and better-performing barcode reads. The small/medium/large drop-down settings alter how the adapted ROI component is generated. |
+| Barcode String Match | Enable this setting to define the pass/fail criteria based on the contents of the decoded barcode. If the Match String matches and the substring within the barcode is, the barcode tool passes. |
+| Minimum BQM Grade | Defines a minimum BQM threshold (produces a barcode-based pass/fail if it does not meet this minimum BQM score). Send Decode on Failure If a barcode is read but does not meet the **String Match** criteria, enabling this setting allows the barcode data to be output while the tool fails. |

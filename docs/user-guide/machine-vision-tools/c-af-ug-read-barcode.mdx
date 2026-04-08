@@ -1,7 +1,6 @@
 ---
 title: Read Barcode
-description: Configure barcode decode settings such as Inverse 1D, ROI overlap, or
-  ROI search.
+description: 'Configure barcode decode settings such as Inverse 1D, ROI overlap, or ROI search.'
 slug: /machine-vision-tools/c-af-ug-read-barcode
 sidebar_label: Read Barcode
 product_name: aurora focus
@@ -20,54 +19,15 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 Configure barcode decode settings such as Inverse 1D, ROI overlap, or ROI search.
-
-
-
 
 ## Read DPM and Barcode Settings
 
-Settings
-Description
-Inverse 1D
-
-Choose the type of barcode to read.
-Minimum Percentage Barcode/ROI Overlap
-
-Define the minimum percentage a barcode needs to be contained within the Region of Interest (ROI) to decode. For 1D barcodes, this applies only to the horizontal (X) dimension. For 2D barcodes, this applies to horizontal and vertical (X & Y) dimensions.
-No Read String
-
-Define the data that should be output if no barcode is read (in place of barcode data in a successful read, as opposed to no output at all).
-Enable Adaptive ROI Search
-
-Enabling Adaptive Region of Interest (ROI) allows the underlying barcode scanning algorithm to alter (shrink and reposition) the area of the ROI for subsequent reads based on the presence of past-read barcodes, providing better-performing barcode reads. The small/medium/large drop-down settings alter the generation of the adapted ROI component.
-Barcode String Match
-
-Enable this setting to define the pass/fail criteria based on the contents of the decoded barcode.
-Enable Barcode Quality Metrics
-
-Enable this checkbox to enable BQM outputs (Overall Grade).
-2D DataMatrix BQM Parameters
-
-Enable or disable parameter options to include in BQM calculations.
-
-
-These settings are applicable to 2D DataMatrix barcodes only.
-Minimum BQM Grade
-
-Enable this option to use a threshold for issuing a pass or fail based on the BQM overall grade for each barcode scan.
-
-For example, by setting the threshold between C and D, if a barcode achieves a BQM grade of A, B, or C, the job/tool issues a pass. If the overall grade is a D or an F, the BQM grade is a fail.
-Send Decode on Failure
-
-By default, if a barcode is read but has a failing BQM grade (as defined by the
-Minimum BQM Grade
-threshold above), its data is not output (to either the
-Deploy
-screen or various outputs such as TCPIP/Serial/USB).
-
-When enabled, the decoded data is output even if the BQM Overall Grade is a failing grade, based on the
-Minimum BQM Grade
-threshold.
+| Settings | Description |
+| --- | --- |
+| Inverse 1D | Choose the type of barcode to read. |
+| Minimum Percentage Barcode/ROI Overlap | Define the minimum percentage a barcode needs to be contained within the Region of Interest (ROI) to decode. For 1D barcodes, this applies only to the horizontal (X) dimension. For 2D barcodes, this applies to horizontal and vertical (X & Y) dimensions. |
+| No Read String | Define the data that should be output if no barcode is read (in place of barcode data in a successful read, as opposed to no output at all). Enable Adaptive ROI Search Enabling Adaptive Region of Interest (ROI) allows the underlying barcode scanning algorithm to alter (shrink and reposition) the area of the ROI for subsequent reads based on the presence of past-read barcodes, providing better-performing barcode reads. The small/medium/large drop-down settings alter the generation of the adapted ROI component. |
+| Barcode String Match | Enable this setting to define the pass/fail criteria based on the contents of the decoded barcode. Enable Barcode Quality Metrics Enable this checkbox to enable BQM outputs (Overall Grade). |
+| 2D DataMatrix BQM Parameters | Enable or disable parameter options to include in BQM calculations. These settings are applicable to 2D DataMatrix barcodes only. |
+| Minimum BQM Grade | Enable this option to use a threshold for issuing a pass or fail based on the BQM overall grade for each barcode scan. For example, by setting the threshold between C and D, if a barcode achieves a BQM grade of A, B, or C, the job/tool issues a pass. If the overall grade is a D or an F, the BQM grade is a fail. Send Decode on Failure By default, if a barcode is read but has a failing BQM grade (as defined by the **Minimum BQM Grade** threshold above), its data is not output (to either the **Deploy** screen or various outputs such as TCPIP/Serial/USB). When enabled, the decoded data is output even if the BQM Overall Grade is a failing grade, based on the **Minimum BQM Grade** threshold. |

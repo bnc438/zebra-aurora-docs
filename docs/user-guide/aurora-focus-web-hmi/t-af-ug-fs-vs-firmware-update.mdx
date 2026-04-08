@@ -22,53 +22,24 @@ exclude_from_search: false
 
 
 This section outlines how to perform a firmware update on the device.
-Open
-File Explorer
-on your host Windows desktop PC.
-On the left window pane, scroll down and select
-Network
-to view devices on your network and identify a device.
-Right-click on the device and select
-Properties
-to obtain the device's IP address information.
+Open **File Explorer** on your host Windows desktop PC.
+On the left window pane, scroll down and select **Network** to view devices on your network and identify a device.
+Right-click on the device and select **Properties** to obtain the device's IP address information.
 Enter the IP address (or hostname) into your browser.
 This example refers to the hostname as localhost in the top left corner of the Properties window.
-View the Zebra Web HMI and observe the build number RELEASE-xx (where xx is the build number) in the
-Device Information
-section of the dashboard.
-Click
-Operator
-to launch the login window.
+View the Zebra Web HMI and observe the build number RELEASE-xx (where xx is the build number) in the **Device Information** section of the dashboard.
+Click **Operator** to launch the login window.
 Enter the following login credentials:
 User ID: admin
 Password: admin
-Click
-Login
-.
-Observe that
-Operator
-now displays as
-Admin
-.
-Click
-.
-Click the
-Firmware Update
-tab.
-Click
-Choose File
-, navigate to the location of the file stored on the Local PC, and select the latest firmware file.
-Click
-Open
-.
-Select either
-Forced Update
-or
-Dual Update
-.
+Click **Login**.
+Observe that **Operator** now displays as **Admin**.
+Click the **Settings** icon.
+Click the **Firmware Update** tab.
+Click **Choose File** , navigate to the location of the file stored on the Local PC, and select the latest firmware file.
+Click **Open**.
+Select either **Forced Update** or **Dual Update**.
 Forced Update loads the device in cases where it is identical to the current firmware on the device. Dual Update loads the device firmware and updates the backup partition. This option typically takes longer (twice as long) than a forced update.
-Click
-Update
-.
+Click **Update**.
 The device LED blinks red and the upload progress displays on the screen. The device reboots after the upload is complete.
 Refresh the browser window and view the build number in the device information field to confirm that it has been updated from the previous version.

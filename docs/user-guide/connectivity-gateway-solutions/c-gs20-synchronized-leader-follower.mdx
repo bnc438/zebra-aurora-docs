@@ -1,8 +1,6 @@
 ---
 title: Synchronized Leader Follower
-description: In synchronized leader-follower use cases, the leader receives a trigger,
-  activates the follower devices, receives the data from the followers, and sends
-  the results to the host.
+description: 'In synchronized leader-follower use cases, the leader receives a trigger, activates the follower devices, receives the data from the followers, and sends...'
 slug: /connectivity-gateway-solutions/c-gs20-synchronized-leader-follower
 sidebar_label: Synchronized Leader Follower
 product_name: aurora focus
@@ -21,59 +19,25 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 In synchronized leader-follower use cases, the leader receives a trigger, activates the follower devices, receives the data from the followers, and sends the results to the host.
 
 Examples:
 - Multi-sided reading of parcels.
 - Multi-point reading of barcodes on a tire rim (overhead view only).
-Multi-sided reading of parcels.
-Multi-point reading of barcodes on a tire rim (overhead view only).
 
-Leader Input:
+**Leader Input:**
 
+- Generic: GPIO Trigger
+- From Follower: Results
 
-- Generic:
-- From Follower:
-Generic:
-- GPIO Trigger
-GPIO Trigger
-From Follower:
-- Results:
-Results:
+**Leader Output:**
 
-Leader Output:
+- To Host: TCPIP, Industrial Communication, Serial, USB HID
+- To Follower: Trigger
+- To Machine/PLC: Total Result String, Total Pass/Fail GPIO
 
-
-- To Host:
-- To Follower:
-- To Machine/PLC:
-To Host:
-- TCPIP
-- Industrial Communication
-- Serial
-- USB HID
-TCPIP
-Industrial Communication
-Serial
-USB HID
-To Follower:
-- Trigger
-Trigger
-To Machine/PLC:
-- Total Result String
-- Total Pass/Fail GPIO
-Total Result String
-Total Pass/Fail GPIO
-
-Functionalities:
-
+**Functionalities:**
 
 - Enable synchronous triggers from leader to follower devices.
-- Recieve results from follower devices and apply pass/fail criteria.
+- Receive results from follower devices and apply pass/fail criteria.
 - Send result data to the host, GPIO, or PLC.
-Enable synchronous triggers from leader to follower devices.
-Recieve results from follower devices and apply pass/fail criteria.
-Send result data to the host, GPIO, or PLC.
-## Synchronized Leader-Follower

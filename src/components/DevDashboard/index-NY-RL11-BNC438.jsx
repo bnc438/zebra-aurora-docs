@@ -35,6 +35,7 @@ const PALETTE = [
 
 const V2_GROUP_ORDER = [
   'releaseIntelligence',
+  'jiraIntelligence',
   'contentIntelligence',
   'userBehavior',
   'searchInsights',
@@ -50,6 +51,11 @@ const V2_PRESETS = {
 };
 
 const V2_TILE_META = {
+  jiraIntelligence: {
+    title: 'JIRA Intelligence',
+    icon: '📋',
+    description: 'JIRA ticket coverage, traceability, and workflow status analytics.',
+  },
   releaseIntelligence: {
     title: 'Release Intelligence',
     icon: '🚀',
@@ -1463,7 +1469,7 @@ export default function DevDashboard() {
       <div className={styles.v2Section}>
         <div className={styles.v2Header}>
           <div>
-            <h2 className={styles.v2Title}>Dashboard V2 Preview</h2>
+            <h2 className={styles.v2Title}>Dashboard V2 Metrics Overview</h2>
             <p className={styles.panelSubtitle}>
               Phase 1 preview using contract-backed sample snapshot data.
             </p>

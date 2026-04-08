@@ -986,7 +986,7 @@ export default function AskAIPage() {
         </p>
         {enableInternalAnalytics ? (
           <p>
-            <Link to="/ask-ai-insights">Open AskAI Insights dashboard</Link> to review failed-search aggregates and export to CSV/Google Sheets.
+            Use the <Link to="/dev-dashboard">Dev Dashboard</Link> Ask AI Analytics tile to review failed-search aggregates and export to CSV/Google Sheets.
           </p>
         ) : null}
 

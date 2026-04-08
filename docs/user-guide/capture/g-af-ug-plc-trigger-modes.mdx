@@ -1,7 +1,6 @@
 ---
 title: PLC Trigger Modes
-description: The device supports different use cases with single shot, level continuous,
-  series (burst), periodic single shot, continuous, and presentation trigger modes.
+description: 'The device supports Single Shot, Level Continuous, and Presentation trigger modes for PLC-controlled workflows.'
 slug: /capture/g-af-ug-plc-trigger-modes
 sidebar_label: PLC Trigger Modes
 product_name: aurora focus
@@ -23,12 +22,10 @@ exclude_from_search: false
 
 ## Single Shot
 
-
 When the job is in Single Shot trigger mode, the device runs one job on each trigger and decodes the barcode.
 
 Toggle the trigger bit from 0 to 1 to perform a trigger. The job stops when the trigger is complete. Toggle the trigger bit to run the job again. Toggling the trigger bit from 0 to 1 executes the job once.
 ## Level Continuous
-
 
 Level Continuous initiates an image capture on a level trigger for objects in motion. This trigger mode is particularly helpful for use cases involving a conveyor belt. This mode consistently captures the image for the duration specified in the Active Job Timeout setting. When that duration expires, the job stops capturing the image.
 
@@ -36,30 +33,25 @@ To trigger the job for the first time, the trigger bit state should be toggled f
 Toggling the trigger bit from 1 to 0 does not affect the job.
 ## Series (Burst)
 
-
 Burst mode initiates a series of image captures, which is helpful for use cases that require capturing a series of images based on a specified amount of trigger intervals and frequency.
 
 In this mode, the first trigger event (toggling the trigger bit from 0 to 1) starts the burst sequence. Consecutive trigger events do not have any effect until the previous burst sequence is complete. The following trigger event (toggling the trigger bit from 0 to 1) restarts the burst sequence.
 ## Periodic Single Shot
-
 
 Periodic Single Shot mode initiates a single image capture after a specified time. This is helpful for debugging use cases.
 
 Periodic Single shot maintains the triggering job periodically after a specified period. Send the trigger again to stop the job in progress. While using PLC, the first trigger (toggling the trigger bit from 0 to 1) starts the job, and a second trigger event (toggling the trigger bit from 0 to 1) stops the job.
 ## Continuous
 
-
 Continuous mode initiates a series of image captures rapidly. This mode is helpful for barcode scanning applications.
 
 While in Continuous Mode, the PLC behavior is the same as in Periodic Single Shot mode.
 ## Presentation
-
 
 Presentation mode illuminates the scan window when the sensor detects motion. This mode is helpful for kiosk and retail point-of-sale applications.
 
 The first trigger event (toggling the trigger bit from 0  to 1) starts Presentation mode. Send the second trigger event (toggling the trigger bit from 0 to 1) before scanning the barcode to cancel Presentation mode.
 Presentation mode stops after the barcode successfully decodes and restarts when the next trigger event occurs.
 ## Presentation (Aggregate Mode)
-
 
 Presentation Aggregate mode is triggered the same way as Presentation mode. It aggregates all barcodes decoded during the active job timeout.

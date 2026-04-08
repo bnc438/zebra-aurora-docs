@@ -1,0 +1,2257 @@
+{
+  "generatedAt": "2026-04-03T02:41:26.673Z",
+  "dryRun": false,
+  "totalFiles": 194,
+  "filesModified": 81,
+  "totalRejoins": 240,
+  "totalLinesRecovered": 692,
+  "files": [
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-firmware-update.mdx",
+      "rejoins": 12,
+      "linesRecovered": 25,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 9,
+          "linesConsumed": 3,
+          "result": "On the left window pane, scroll down and select **Network** to view devices on your network and identify a device."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 10,
+          "endLine": 12,
+          "linesConsumed": 3,
+          "result": "Right-click on the device and select **Properties** to obtain the device's IP address information."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 15,
+          "endLine": 17,
+          "linesConsumed": 3,
+          "result": "View the Zebra Web HMI and observe the build number RELEASE-xx (where xx is the build number) in the **Device Information** section of the dashboard."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 18,
+          "endLine": 20,
+          "linesConsumed": 3,
+          "result": "Click **Operator** to launch the login window."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 26,
+          "linesConsumed": 3,
+          "result": "Click **Login**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 27,
+          "endLine": 31,
+          "linesConsumed": 5,
+          "result": "Observe that **Operator** now displays as **Admin**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 32,
+          "endLine": 33,
+          "linesConsumed": 2,
+          "result": "Click ."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 34,
+          "endLine": 36,
+          "linesConsumed": 3,
+          "result": "Click the **Firmware Update** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 37,
+          "endLine": 39,
+          "linesConsumed": 3,
+          "result": "Click **Choose File** , navigate to the location of the file stored on the Local PC, and select the latest firmware file."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 40,
+          "endLine": 42,
+          "linesConsumed": 3,
+          "result": "Click **Open**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 45,
+          "endLine": 47,
+          "linesConsumed": 3,
+          "result": "or **Dual Update**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 49,
+          "endLine": 51,
+          "linesConsumed": 3,
+          "result": "Click **Update**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-performing-a-factory-reset.mdx",
+      "rejoins": 4,
+      "linesRecovered": 11,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 7,
+          "linesConsumed": 3,
+          "result": "Click **Operator** to launch the login window."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "Click **Login**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 15,
+          "linesConsumed": 2,
+          "result": "Click ."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 22,
+          "linesConsumed": 7,
+          "result": "On the **General** tab, click **Reset All** in the **Factory Reset** field, and wait for the device to reboot (approximately 45-60 seconds)."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-advanced-filtering-and-formatting.mdx",
+      "rejoins": 9,
+      "linesRecovered": 32,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 20,
+          "linesConsumed": 5,
+          "result": "Select the **Data Formatting** tab to access **Advanced Filtering and Formatting**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 21,
+          "endLine": 23,
+          "linesConsumed": 3,
+          "result": "Select the **Advanced Filtering and Formatting** radio button."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 26,
+          "linesConsumed": 3,
+          "result": "Click **Edit Rules** to create a new rule or edit an existing rule. Rename the rule if necessary."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 27,
+          "endLine": 37,
+          "linesConsumed": 11,
+          "result": "To add a **Filter** , click **Edit** and select an **And** or **Or** operation from the drop-down menu, or select the **Not** checkbox to invert the r"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 39,
+          "endLine": 40,
+          "linesConsumed": 2,
+          "result": "2. 2. Click **Click**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 43,
+          "endLine": 45,
+          "linesConsumed": 3,
+          "result": "Click **Add Group** to add a parenthesis block that contains rules separated by the same combinator."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 46,
+          "endLine": 50,
+          "linesConsumed": 5,
+          "result": "To add an **Action** , click **Add**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 57,
+          "endLine": 60,
+          "linesConsumed": 4,
+          "result": "Click to specify an **Action** to add to the list of selected actions by clicking the plus sign."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 66,
+          "endLine": 70,
+          "linesConsumed": 5,
+          "result": "After a **Filter** and **Action** are identified for the rule, and rules are managed by clicking the ellipses."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-build.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "The **Build** tab facilitates job configuration and deployment for FIS and MV tools."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-custom-formatting.mdx",
+      "rejoins": 8,
+      "linesRecovered": 30,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 11,
+          "linesConsumed": 7,
+          "result": "To configure **Custom Formatting** , access the **Data Formatting** tab from the **Build** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 21,
+          "endLine": 23,
+          "linesConsumed": 3,
+          "result": "Select the **Custom Formatting** radio button."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 28,
+          "endLine": 31,
+          "linesConsumed": 4,
+          "result": "Click next to **Find** to add a data type to identify."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 32,
+          "endLine": 35,
+          "linesConsumed": 4,
+          "result": "Next, click next to **Replace With** to designate a data type to replace the data type identified in the Find form field."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 36,
+          "endLine": 42,
+          "linesConsumed": 7,
+          "result": "Click next to the **Prefix** form field to add a data type. Follow the same steps for **Data** and **Suffix.**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 43,
+          "endLine": 45,
+          "linesConsumed": 3,
+          "result": "Select a **Data Type Delimiter** from the drop-down."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 46,
+          "endLine": 48,
+          "linesConsumed": 3,
+          "result": "Select a **End Delimiter** from the drop-down."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 49,
+          "endLine": 55,
+          "linesConsumed": 7,
+          "result": "Click **Get Last** to retrieve the **String** or **Result**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-lime-deploy-mode.mdx",
+      "rejoins": 2,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 9,
+          "linesConsumed": 5,
+          "result": "Click **Deploy** while in **Edit** mode"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 10,
+          "endLine": 12,
+          "linesConsumed": 3,
+          "result": "to enter **Deploy** mode"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-command-channels.mdx",
+      "rejoins": 1,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 9,
+          "linesConsumed": 7,
+          "result": "Ensure that **Enable TCP/IP Control** and **Enable TCP/IP Results** are enabled in **Communication** settings."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-set-and-get-match-strings.mdx",
+      "rejoins": 3,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 8,
+          "linesConsumed": 5,
+          "result": "Add the tool in **FlowBuilder** using the **Build** tab to view match string options."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "Select the **Barcode String Match** mode from the drop-down menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 18,
+          "endLine": 20,
+          "linesConsumed": 3,
+          "result": "Click **Last Decode** to use the last successful read string as the current match string value."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-ssi-mode.mdx",
+      "rejoins": 5,
+      "linesRecovered": 18,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 10,
+          "linesConsumed": 5,
+          "result": "In Aurora Focus, navigate to the **Communication** section in **Device Settings**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 17,
+          "linesConsumed": 7,
+          "result": "Click **Enable SSI communication over USB** under **Automation Wedge** in the **USB Settings** section."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 21,
+          "endLine": 25,
+          "linesConsumed": 5,
+          "result": "and **Job Mode** settings from the drop-down menu on the **Triggers** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 29,
+          "endLine": 31,
+          "linesConsumed": 3,
+          "result": "Ensure that **Aim Code Identifier** is enabled when creating a new job in SSI mode."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 32,
+          "endLine": 34,
+          "linesConsumed": 3,
+          "result": "An **Aim Code Identifier** is required for decoded data to be transmitted correctly. If it is not enabled, the first three characters may get removed "
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-undo-redo.mdx",
+      "rejoins": 1,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 10,
+          "linesConsumed": 7,
+          "result": "Click **Edit** from the top menu and select **Undo** or **Redo** to revert back or forward while building a job."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-capture.mdx",
+      "rejoins": 4,
+      "linesRecovered": 10,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 9,
+          "linesConsumed": 3,
+          "result": "and **Acquisition Settings** for Fixed Industrial Scanning or Machine Vision jobs."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 15,
+          "endLine": 17,
+          "linesConsumed": 3,
+          "result": "- - By drawing a region directly in the **AROI Settings** section."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 23,
+          "endLine": 25,
+          "linesConsumed": 3,
+          "result": ", defining the maximum possible value for the **Exposure** and"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 130,
+          "endLine": 134,
+          "linesConsumed": 5,
+          "result": "and **Inch** measurements are available in addition to **Diopter** . While the millimeter and inch distance values calculated in the application may d"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-triggered-buffering.mdx",
+      "rejoins": 2,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 7,
+          "linesConsumed": 3,
+          "result": "Increase the **Maximum Image Queue Size** to configure the size of the image queue."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "Select the **Drop Mode** from the menu to determine when images should no longer be included in the queue."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-using-imageperfect-plus.mdx",
+      "rejoins": 1,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 11,
+          "linesConsumed": 5,
+          "result": "Click **Default Setup** to clone the current configuration or click **Add Settings** at the bottom of the page to create a new configuration."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/t-af-ug-using-golden-image-compare.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "Select the Golden Image candidate to compare to the current image in the canvas and click **Next**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/configuring-jobs/t-aurora-job-slot-management.mdx",
+      "rejoins": 6,
+      "linesRecovered": 11,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 5,
+          "linesConsumed": 2,
+          "result": "Go to **Device Details**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 8,
+          "linesConsumed": 3,
+          "result": "Select **Jobs** from the menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 13,
+          "endLine": 15,
+          "linesConsumed": 3,
+          "result": "Click **Edit** to edit the job in build mode."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 17,
+          "linesConsumed": 2,
+          "result": "Click to set the job as running, clear the running jobs, set the selected job as the Startup job, clear the Startup job, delete, duplicate, or rename "
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 18,
+          "endLine": 21,
+          "linesConsumed": 4,
+          "result": "Click and click **Swap Job** to swap the current job slot with another available slot."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 23,
+          "endLine": 25,
+          "linesConsumed": 3,
+          "result": "Click **Swap Job** to confirm the change."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-aurora-output-formatting.mdx",
+      "rejoins": 6,
+      "linesRecovered": 28,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Use Output Formatting to customize data output from identification and Machine Vision Tools. Access Output Formatting using the **Connect** tab to adj"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 16,
+          "linesConsumed": 5,
+          "result": "6. 6. Click **Connect** tab and click **Output Formatting**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 26,
+          "endLine": 34,
+          "linesConsumed": 9,
+          "result": "to add a **Results Field** or **Delimeter** to a **Prefix, Data,** or **Suffix** category."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 36,
+          "endLine": 44,
+          "linesConsumed": 9,
+          "result": "to add a **Results Field** or **Delimeter** to a **Prefix, Data,** or **Suffix** category."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 45,
+          "endLine": 47,
+          "linesConsumed": 3,
+          "result": "Select a **Data Type Delimeter** from the dropdown menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 48,
+          "endLine": 52,
+          "linesConsumed": 5,
+          "result": "Click **Copy** to copy the **Message Sample** to clipboard."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-connect.mdx",
+      "rejoins": 1,
+      "linesRecovered": 1,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 27,
+          "endLine": 28,
+          "linesConsumed": 2,
+          "result": "Click to configure advanced settings."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-ftp-file-saving-in-aurora.mdx",
+      "rejoins": 2,
+      "linesRecovered": 5,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 28,
+          "linesConsumed": 5,
+          "result": "Select **FTP** under **Save Location**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 29,
+          "endLine": 30,
+          "linesConsumed": 2,
+          "result": "Click the **Gear**"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-js-accessing-the-script-editor.mdx",
+      "rejoins": 2,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 7,
+          "linesConsumed": 5,
+          "result": "Access **Script Formatting** from the **Connect** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 15,
+          "linesConsumed": 5,
+          "result": "Enable **Script Formatting** from the menu and click **Open Editor** to open a new editor window."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-js-using-the-js-editor.mdx",
+      "rejoins": 6,
+      "linesRecovered": 12,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 14,
+          "linesConsumed": 3,
+          "result": "The top navigation menu provides access to **File**,"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 18,
+          "linesConsumed": 3,
+          "result": ", and **View** functions for the application."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 21,
+          "endLine": 23,
+          "linesConsumed": 3,
+          "result": "- - Adjust editor font size from the **File** menu. JavaScript by default is saved in job file when saving a whole job or deploying a job to the devic"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 31,
+          "endLine": 33,
+          "linesConsumed": 3,
+          "result": "Click **Run Job** on the control bar to validate test code in the editor by running a job on an image in the Filmstrip in Aurora Focus. You can also t"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 37,
+          "endLine": 39,
+          "linesConsumed": 3,
+          "result": "Disable JavaScript formatting by using the **Script Formatting** toggle in top-right corner of the editor window."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 43,
+          "endLine": 45,
+          "linesConsumed": 3,
+          "result": "Use IntelliSense for script recommendations to enable code-completion. When a function has JSDoc documentation, the editor assumes its variable types "
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-applying-a-simplified-ftp-folder-structure.mdx",
+      "rejoins": 2,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 8,
+          "linesConsumed": 3,
+          "result": "in the **Settings** dialog for the FTP connection."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 13,
+          "linesConsumed": 5,
+          "result": "To save pass or fail images only and avoid the JSON file, use the **Connect** chevron and deselect the **Enable JSON** checkbox."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-byte-swapping.mdx",
+      "rejoins": 3,
+      "linesRecovered": 10,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 15,
+          "linesConsumed": 7,
+          "result": "Go to the **Connect** tab and click **Edit** in the **Results Data** to edit the Results Data Configuration."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 18,
+          "linesConsumed": 3,
+          "result": "Select two fields or more to **Byte Swap**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 19,
+          "endLine": 21,
+          "linesConsumed": 3,
+          "result": "Click **Submit**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-focus-saving-good-reads.mdx",
+      "rejoins": 5,
+      "linesRecovered": 9,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 6,
+          "linesConsumed": 3,
+          "result": "Select the **Save File Format** from the dropdown."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 9,
+          "linesConsumed": 3,
+          "result": "Define the **Quality** of saved image filenames."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 13,
+          "linesConsumed": 2,
+          "result": "to remove or to add data types."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 16,
+          "linesConsumed": 3,
+          "result": "Select a **Data Type Delimiter** to add between each data type from the dropdown."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 17,
+          "endLine": 19,
+          "linesConsumed": 3,
+          "result": "Enable **Limit Image Saving** to save fewer images and reduce memory and disk usage."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-ftp-naming.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 16,
+          "linesConsumed": 3,
+          "result": "It is recommended to align the image name with the setting name in **Acquisition Settings**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-image-saving.mdx",
+      "rejoins": 2,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 8,
+          "endLine": 10,
+          "linesConsumed": 3,
+          "result": "is useful to understand the final outcome of a job. If multiple frames are processed for a single job, enable **Save Immediate Session Images** . Savi"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "Enable **Save Result JSON** to save JSON files for each saved inspection result."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/c-af-ug-failure-timeout.mdx",
+      "rejoins": 2,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 11,
+          "linesConsumed": 5,
+          "result": "3. 3. Click **Configuration** screen using the left menu on the **Home** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 16,
+          "linesConsumed": 3,
+          "result": "Click **Update** for the changes to take effect."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-attributes.mdx",
+      "rejoins": 3,
+      "linesRecovered": 11,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 7,
+          "linesConsumed": 2,
+          "result": "2. 2. Enter the **Access**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "from the **Admin Settings** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 20,
+          "linesConsumed": 9,
+          "result": "Enter the **Attribute ID** and **Attribute Value** and click **Get** or **Set** to retrieve the response."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-alarms.mdx",
+      "rejoins": 3,
+      "linesRecovered": 5,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 7,
+          "linesConsumed": 2,
+          "result": "2. 2. Enable an alarm for **Click**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "on the **Admin Settings** menu to enable alerts."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 17,
+          "endLine": 19,
+          "linesConsumed": 3,
+          "result": ", or **Trigger Overrun** by sliding the corresponding toggle to the right."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-follower-devices.mdx",
+      "rejoins": 1,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 7,
+          "linesConsumed": 5,
+          "result": "Click **Config** on the **Home** screen to configure GPIO, Filtering, Triggering, Timeout, and Run Mode settings."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-gpio.mdx",
+      "rejoins": 4,
+      "linesRecovered": 7,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 7,
+          "linesConsumed": 2,
+          "result": "3. 3. Click **Access**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "from the **Admin Settings** menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 15,
+          "endLine": 17,
+          "linesConsumed": 3,
+          "result": ", and **Debounce** settings."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 18,
+          "endLine": 20,
+          "linesConsumed": 3,
+          "result": "Click **Confirm** to apply the changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-the-database.mdx",
+      "rejoins": 5,
+      "linesRecovered": 9,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 8,
+          "linesConsumed": 2,
+          "result": "4. 4. Click **Click**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 10,
+          "endLine": 12,
+          "linesConsumed": 3,
+          "result": "on the **Admin Settings** menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 13,
+          "endLine": 15,
+          "linesConsumed": 3,
+          "result": "Enable a **Database Cap** by sliding the toggle to the right and selecting an entry capacity from the drop-down menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 18,
+          "linesConsumed": 3,
+          "result": "Enter a **Clear Interval** in ms."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 19,
+          "endLine": 21,
+          "linesConsumed": 3,
+          "result": "Click **Update** to apply the changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-mirroring.mdx",
+      "rejoins": 4,
+      "linesRecovered": 16,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 11,
+          "linesConsumed": 5,
+          "result": "Navigate to the **Configuration** screen using the left menu on the **Home** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 16,
+          "linesConsumed": 5,
+          "result": "Locate the **GPIO Mirroring** section and toggle **GPIO Mirroring** to enable."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 17,
+          "endLine": 23,
+          "linesConsumed": 7,
+          "result": "Click **Config** and select an **Input Pin** and an **Output Pin** from drop-down."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 26,
+          "linesConsumed": 3,
+          "result": "Click **Update** to apply the changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-pass-fail.mdx",
+      "rejoins": 2,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 9,
+          "linesConsumed": 5,
+          "result": "Navigate to the **Configuration** screen using the left menu on the **Home** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 13,
+          "endLine": 17,
+          "linesConsumed": 5,
+          "result": "Set the toggle to **Enabled** and click **Update**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-triggering.mdx",
+      "rejoins": 3,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 8,
+          "linesConsumed": 5,
+          "result": "Navigate to the **Configuration** screen using the left menu on the **Home** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 14,
+          "linesConsumed": 3,
+          "result": "Click **Config** to edit the Trigger Pulse and Pass/Fail Pulse fields."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 15,
+          "endLine": 17,
+          "linesConsumed": 3,
+          "result": "Enter the desired values and click **Update**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-modbus-configuration.mdx",
+      "rejoins": 10,
+      "linesRecovered": 36,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 10,
+          "linesConsumed": 7,
+          "result": "Navigate to the **Admin Settings** menu from the **Home** screen and click **Modbus Config**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "Slide the toggle to the right to enable **Modbus Triggering** or"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 18,
+          "linesConsumed": 3,
+          "result": "Click **Control Device** to access controls to the Modbus device."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 19,
+          "endLine": 29,
+          "linesConsumed": 11,
+          "result": "Select the Modbus device from the menu and click **Start** to begin controlling the device. Click **Stop** to end the session or **Delete** to remove "
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 30,
+          "endLine": 32,
+          "linesConsumed": 3,
+          "result": "Click **Results** to access Modbus results and configure where results are sent to."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 33,
+          "endLine": 35,
+          "linesConsumed": 3,
+          "result": "Select the Modbus device from the menu and define a **Holding Register**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 36,
+          "endLine": 40,
+          "linesConsumed": 5,
+          "result": "Click **Confirm** to save changes and return to the **Admin Settings** menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 41,
+          "endLine": 43,
+          "linesConsumed": 3,
+          "result": "Click **Create Device** to configure the device information."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 44,
+          "endLine": 48,
+          "linesConsumed": 5,
+          "result": "Provide the required device information and click **Create** to return to the **Admin Settings** menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 49,
+          "endLine": 51,
+          "linesConsumed": 3,
+          "result": "Click **Monitoring** to monitor a specific coil on the Modbus device"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-plc-configuration.mdx",
+      "rejoins": 5,
+      "linesRecovered": 15,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 8,
+          "endLine": 9,
+          "linesConsumed": 2,
+          "result": "4. 4. Click **Select**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "from the **Admin Settings** menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 18,
+          "linesConsumed": 5,
+          "result": "Select **Create PLC** from the **PLC Configuration** menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 20,
+          "endLine": 26,
+          "linesConsumed": 7,
+          "result": "and **Model** of the PLC, specify a **Friendly Name** for the PLC, and enter the **IP Address**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 27,
+          "endLine": 29,
+          "linesConsumed": 3,
+          "result": "Click **Confirm** and observe the confirmation message."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-run-mode.mdx",
+      "rejoins": 8,
+      "linesRecovered": 28,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 8,
+          "linesConsumed": 5,
+          "result": "Navigate to the **Configuration** screen from the **Home** screen using the left navigation menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 15,
+          "linesConsumed": 5,
+          "result": "section on the **Configuration** screen to change between **Single Shot**,"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 17,
+          "endLine": 19,
+          "linesConsumed": 3,
+          "result": "and **Level** modes."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 20,
+          "endLine": 22,
+          "linesConsumed": 3,
+          "result": "Click **Config** to edit"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 30,
+          "endLine": 36,
+          "linesConsumed": 7,
+          "result": "- - Output Delimiter - determine the delimiting characters separating the barcode output after a level session when running in **Active** . When set t"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 38,
+          "endLine": 42,
+          "linesConsumed": 5,
+          "result": ". When set to **Normal** , the application waits for the stop trigger signal from the host or GPIO and forwards the data to the followers. When set to"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 44,
+          "endLine": 48,
+          "linesConsumed": 5,
+          "result": ". When set to **As Received** , barcodes are sent as received. When set to **Level End** , barcodes are combined into a single payload separated by th"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 51,
+          "endLine": 53,
+          "linesConsumed": 3,
+          "result": "Click **Update** for the changes to take effect."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-sending-results-to-a-plc-device.mdx",
+      "rejoins": 5,
+      "linesRecovered": 15,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 10,
+          "linesConsumed": 7,
+          "result": "Navigate to the **Admin Settings** screen from the left menu on the **Home** screen and click **PLC Config**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 15,
+          "linesConsumed": 5,
+          "result": "Click **Results Tag** on the **PLC Configuration** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 17,
+          "endLine": 19,
+          "linesConsumed": 3,
+          "result": "On the **PLC Configuration** screen, toggle"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 21,
+          "endLine": 22,
+          "linesConsumed": 2,
+          "result": "to **On**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 27,
+          "endLine": 29,
+          "linesConsumed": 3,
+          "result": "screen, select the PLC device from the menu, and click **Start** to begin sending results."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-serial-triggering.mdx",
+      "rejoins": 3,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 7,
+          "linesConsumed": 3,
+          "result": "Navigate to the **Configuration** screen using the left menu on the Home screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 8,
+          "endLine": 12,
+          "linesConsumed": 5,
+          "result": "Locate the **Serial** section and click **Config** to set the serial settings for the device."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 13,
+          "endLine": 15,
+          "linesConsumed": 3,
+          "result": "Configure the form fields and click **Confirm** to enable the settings on the device."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-setting-up-a-network.mdx",
+      "rejoins": 1,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 11,
+          "linesConsumed": 7,
+          "result": "Access **Network Config** from the **Admin Settings** menu to edit the hostname and server settings and click **Update** to save each setting."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-setting-up-follower-devices.mdx",
+      "rejoins": 4,
+      "linesRecovered": 12,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 8,
+          "linesConsumed": 5,
+          "result": "Navigate to the **Setup** screen using the left menu on the **Home** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "- - To set up the TCP port to act as a Server, select this option from the **Update**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 18,
+          "endLine": 22,
+          "linesConsumed": 5,
+          "result": "Click **Update** to enable the changes and update the field values. Select **Server** to use the TCP port as a server."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 26,
+          "linesConsumed": 3,
+          "result": "Once the form fields are populated, click **Commit Changes**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-string-filtering.mdx",
+      "rejoins": 4,
+      "linesRecovered": 10,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 31,
+          "endLine": 35,
+          "linesConsumed": 5,
+          "result": "Navigate to the **Configuration** screen using the left menu on the **Home** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 36,
+          "endLine": 38,
+          "linesConsumed": 3,
+          "result": "Use the **String Filtering** section to select the desired"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 44,
+          "endLine": 46,
+          "linesConsumed": 3,
+          "result": ", and **Filter Type**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 47,
+          "endLine": 49,
+          "linesConsumed": 3,
+          "result": "Click **Update** to apply the changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-tcp-ip-triggering.mdx",
+      "rejoins": 3,
+      "linesRecovered": 10,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 8,
+          "linesConsumed": 5,
+          "result": "Navigate to the **Configuration** screen using the left menu on the **Home** screen."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 13,
+          "linesConsumed": 5,
+          "result": "Locate the **Trigger Strings** section and click **Config**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 16,
+          "linesConsumed": 3,
+          "result": "Select the terminator for each trigger from the drop-down menu and click **Update** to apply the changes."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-using-the-fs80-as-a-leader-module.mdx",
+      "rejoins": 3,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 4,
+          "endLine": 5,
+          "linesConsumed": 2,
+          "result": "Go to **Device Details**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 8,
+          "linesConsumed": 3,
+          "result": "Select **Communication** from the menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 10,
+          "linesConsumed": 2,
+          "result": "Click **Enable Edit Mode**"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-zeti-with-followers.mdx",
+      "rejoins": 3,
+      "linesRecovered": 9,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 8,
+          "linesConsumed": 2,
+          "result": "3. 3. Click **Access**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 10,
+          "endLine": 12,
+          "linesConsumed": 3,
+          "result": "from the **Admin Settings** menu."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 13,
+          "endLine": 19,
+          "linesConsumed": 7,
+          "result": "Click **Exec** to execute the command and observe the **Status** and **Response**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-gs20-leader-follower-licensing.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Click the **Licensing** tab to activate a new license and view active licenses."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-changing-the-hostname.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "Click **Apply** when complete."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-configuring-a-job-on-the-device-to-accept-serial-triggers.mdx",
+      "rejoins": 1,
+      "linesRecovered": 7,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 12,
+          "linesConsumed": 8,
+          "result": "3. 3. Complete the job configuration and click **Capture** tab and navigate to the **Triggers** tab to set the **Trigger Source** to **Serial.**"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-configuring-jobs-to-accept-tcp-ip-triggers.mdx",
+      "rejoins": 2,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 10,
+          "linesConsumed": 5,
+          "result": "4. 4. Click **Connect** tab and navigate to the **Triggers** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 15,
+          "linesConsumed": 5,
+          "result": "Ensure the **Trigger Source** is set to **TCP/IP**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-rs-232-output-.mdx",
+      "rejoins": 3,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "Check the **Enable RS-232 Control** checkbox (disabled by default)."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 14,
+          "linesConsumed": 3,
+          "result": "Observe the **Trigger String** and keep this value for reference to send a Serial trigger from external software."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 15,
+          "endLine": 19,
+          "linesConsumed": 5,
+          "result": "Click **Apply** in the RS-232 area and **OK** on the resulting prompt to save the configuration."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-tcp-ip-output-in-device-settings.mdx",
+      "rejoins": 2,
+      "linesRecovered": 8,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 13,
+          "linesConsumed": 5,
+          "result": "Make note of the **Control Part Number** and **Trigger String** fields. This information is required to send a TCP/IP trigger from external software."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 18,
+          "linesConsumed": 5,
+          "result": "Click **Apply** in the TCP/IP settings window. Click **OK** in the following prompt."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-listening-to-rs-232-output-events.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 18,
+          "endLine": 20,
+          "linesConsumed": 3,
+          "result": "Click **Open** to open a serial connection in terminal."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-rs-232-results.mdx",
+      "rejoins": 2,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "Scroll down to **RS-232 Settings**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 17,
+          "endLine": 21,
+          "linesConsumed": 5,
+          "result": "Click **Apply** within the **RS-232 Settings** area."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-sending-a-serial-trigger-to-the-device.mdx",
+      "rejoins": 5,
+      "linesRecovered": 13,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 11,
+          "linesConsumed": 3,
+          "result": "7. 7. Enter **Serial** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 19,
+          "endLine": 21,
+          "linesConsumed": 3,
+          "result": "Click **Open** to establish a serial connection."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 29,
+          "linesConsumed": 6,
+          "result": "Type the **Trigger String** as defined in **Settings** in Zebra Aurora Focus and click **Enter.**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 30,
+          "endLine": 32,
+          "linesConsumed": 3,
+          "result": "Enter **TRIGGER** as the default"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 34,
+          "endLine": 36,
+          "linesConsumed": 3,
+          "result": "and click **Send** to send a trigger using serial."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-a-static-ip-address.mdx",
+      "rejoins": 2,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 8,
+          "endLine": 10,
+          "linesConsumed": 3,
+          "result": "Disable the **Enable DHCP** checkbox."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 19,
+          "endLine": 21,
+          "linesConsumed": 3,
+          "result": "Click **Apply** when complete. The device reboots with the new static IP address."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/t-af-ug-setting-up-cdc-serial-output-in-device-settings.mdx",
+      "rejoins": 3,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 8,
+          "endLine": 10,
+          "linesConsumed": 3,
+          "result": "Scroll to **USB Settings**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 13,
+          "endLine": 15,
+          "linesConsumed": 3,
+          "result": "Click **Apply** within the USB Settings."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 18,
+          "linesConsumed": 3,
+          "result": "Click **OK**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/c-aurora-setting-up-an-emulator.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Click **Setup New Device** on the home screen to configure an FS or VS Emulator."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/t-aurora-updating-firmware-on-multiple-devices.mdx",
+      "rejoins": 2,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Select devices on the **View Devices** list to perform a firmware update."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 10,
+          "endLine": 12,
+          "linesConsumed": 3,
+          "result": "- - Select a firmware file from the File Explorer to use the **File Based Upload** option."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/t-fs10-xs20-Device-Discovery.mdx",
+      "rejoins": 1,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 9,
+          "linesConsumed": 7,
+          "result": "Emulated devices are accessible under **Virtual Devices** on the **Setup New Device** screen. Devices that are physically connected to the system and "
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/t-fs10-xs20-Setting-an-IP-Address.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 7,
+          "linesConsumed": 3,
+          "result": "in the bottom right corner of the **View Devices** screen. Use this feature for devices with a known IP Address that are not automatically discoverabl"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-mgmt-network-setup/c-aurora-multi-device-management.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Manage multiple cameras from Aurora Focus using **View Devices** list."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-mgmt-network-setup/c-aurora-viewing-devices.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Click **View Devices** to access additional device information such as name, part number, IP, serial number, firmware version, and status."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-image-banks.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "All available image banks display on the left side of the table. The right side of the table provides a top-down sequence of image capture acquisition"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-settings.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 38,
+          "endLine": 40,
+          "linesConsumed": 3,
+          "result": "If a barcode is read but does not meet the **String Match** criteria, enabling this setting allows the barcode data to be output while the tool fails."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-using-bqm-for-fixed-scanning-jobs.mdx",
+      "rejoins": 3,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Barcode Quality Metrics are enabled on the **Settings** tab for FIS jobs."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 9,
+          "linesConsumed": 3,
+          "result": "After the **Minimum BQM Grade** is set, observe the additional metrics displayed on the"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "tab in the **Results** section."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/t-af-ug-deploying-fs-jobs.mdx",
+      "rejoins": 1,
+      "linesRecovered": 4,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 8,
+          "endLine": 12,
+          "linesConsumed": 5,
+          "result": "and the **Filmstrip** controls to view job progress. The **Image Viewer** contains a status bar that displays the result and runtime. In the FS editor"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/t-af-ug-focus-using-pharmacode.mdx",
+      "rejoins": 3,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 7,
+          "linesConsumed": 3,
+          "result": "Access the **Symbologies** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 8,
+          "endLine": 10,
+          "linesConsumed": 3,
+          "result": "Select **Pharmacode** from the symbologies list."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 14,
+          "linesConsumed": 3,
+          "result": "Configure the **Pharmacode** settings."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-edges.mdx",
+      "rejoins": 3,
+      "linesRecovered": 12,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 9,
+          "endLine": 17,
+          "linesConsumed": 9,
+          "result": "The **Edge Threshold** and **Edge Hysteresis** parameters in the **Inspection** tab should have the same value as in the **Training** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 20,
+          "endLine": 22,
+          "linesConsumed": 3,
+          "result": "If the input image's brightness significantly differs from the brightness of the golden image used in the **Training** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 26,
+          "linesConsumed": 3,
+          "result": "Decrease the **Edge Threshold** slightly to concentrate on missing edges or increase the value to focus on excessive edges."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-intensity.mdx",
+      "rejoins": 1,
+      "linesRecovered": 12,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 19,
+          "linesConsumed": 13,
+          "result": "The **Edge Threshold** and **Edge Hysteresis** parameters in the **Inspection** tab should have the same value as in the **Training** tab. The values "
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-locate-blob.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 7,
+          "linesConsumed": 3,
+          "result": "This filter is helpful for quickly segmenting an image. The Locate Blob tool performs a series of operations on the image, including; thresholding usi"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-read-barcode.mdx",
+      "rejoins": 2,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 39,
+          "endLine": 43,
+          "linesConsumed": 5,
+          "result": "By default, if a barcode is read but has a failing BQM grade (as defined by the **Minimum BQM Grade** threshold above), its data is not output (to eit"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 45,
+          "endLine": 47,
+          "linesConsumed": 3,
+          "result": "When enabled, the decoded data is output even if the BQM Overall Grade is a failing grade, based on the **Minimum BQM Grade** threshold."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-using-bqm-for-identification-tools.mdx",
+      "rejoins": 2,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "Click the **Select Advanced Formatting** radio button."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 18,
+          "linesConsumed": 5,
+          "result": "Click **Add Data Types** in the **Data** section."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-using-image-types.mdx",
+      "rejoins": 2,
+      "linesRecovered": 12,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "When using the **Image Type** drop-down menu to use a filter or tool output as the source image, the ROI of the tool must be fully contained within th"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 7,
+          "endLine": 17,
+          "linesConsumed": 11,
+          "result": "In the following image, the **Brightness** tool uses the **Binarize** tools output as the source image. As a result, the ROI of the **Brightness** too"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/t-af-ug-using-accelerated-tools.mdx",
+      "rejoins": 4,
+      "linesRecovered": 10,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 8,
+          "linesConsumed": 3,
+          "result": "3. 3. All accelerated tools are marked on the **Accelerate** toggle to the right."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 11,
+          "endLine": 13,
+          "linesConsumed": 3,
+          "result": "and **Character Width Scale %** are not editable while in Accelerate mode. Move the slider to the left to disable Accelerated mode and edit tool setti"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 18,
+          "linesConsumed": 5,
+          "result": "After **Accelerate** is enabled, the **Optimization** overlay displays, and all settings are blocked and transferred to the device."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 24,
+          "endLine": 26,
+          "linesConsumed": 3,
+          "result": "If a job is saved with the **Accelerate** setting enabled and later opened on a device that does not support this setting, it is automatically switche"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/troubleshooting/c-af-ug-troubleshooting.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 25,
+          "endLine": 27,
+          "linesConsumed": 3,
+          "result": "Type `regedit` to access the Registry Editor on your PC, and manually delete the Zebra Aurora Focus folder under Computer\\HKEY_LOCAL_MACHINE\\SOFTWARE\\"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/troubleshooting/t-af-ug-configuring-the-firewall.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 12,
+          "endLine": 14,
+          "linesConsumed": 3,
+          "result": "Click **OK** to apply the settings."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/c-aurora-parameter-barcodes.mdx",
+      "rejoins": 8,
+      "linesRecovered": 17,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "The **Configuration Barcodes** tab generates barcodes using a device configuration snapshot. Use an existing configuration snapshot or select the curr"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 16,
+          "linesConsumed": 3,
+          "result": "6. 6. Click **Configuration Barcodes** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 17,
+          "endLine": 19,
+          "linesConsumed": 3,
+          "result": "Select a **Device Setup** to create a snapshot from the current managed device or load one from the PC."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 20,
+          "endLine": 22,
+          "linesConsumed": 3,
+          "result": "If the device is not managed, you cannot select a setup from the device. Status is indicated next to the **Currently Managed Device** option."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 23,
+          "endLine": 26,
+          "linesConsumed": 4,
+          "result": "To create a saved configuration snapshot of a connected device, click **Create Configuration Snapshot** in **Devices Details.**"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 27,
+          "endLine": 29,
+          "linesConsumed": 3,
+          "result": "Enable **Replace Network Settings** to replace the network settings from the configuration file with the network settings of the new device onto which"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 30,
+          "endLine": 32,
+          "linesConsumed": 3,
+          "result": "Enable **Replace Hostname** to replace the hostname in the configuration file with the hostname of the new device that the configuration is being depl"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 33,
+          "endLine": 35,
+          "linesConsumed": 3,
+          "result": "Click **Generate**."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/c-aurora-ui-overview.mdx",
+      "rejoins": 5,
+      "linesRecovered": 10,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "The **Getting Started** screen features functionality such as viewing and configuring connected or emulated devices and settings for Fixed Industrial "
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 16,
+          "endLine": 18,
+          "linesConsumed": 3,
+          "result": "Click **Settings** to manage localization and notification settings or clear the cache."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 20,
+          "endLine": 24,
+          "linesConsumed": 5,
+          "result": "options and **Image Capture Disk Management** settings on the **Job Management** tab."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 26,
+          "endLine": 27,
+          "linesConsumed": 2,
+          "result": "Click the drop-down menu to sort by:"
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 39,
+          "endLine": 40,
+          "linesConsumed": 2,
+          "result": "Type **Name**"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/g-aurora-app-settings.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 3,
+          "endLine": 5,
+          "linesConsumed": 3,
+          "result": "Click **File** to configure general application settings."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/t-aurora-general-application-settings.mdx",
+      "rejoins": 1,
+      "linesRecovered": 2,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 6,
+          "endLine": 8,
+          "linesConsumed": 3,
+          "result": "- - Cache - click **Clear Cache** to delete the cache on the device."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/zeti/t-aurora-lime-enabling-telnet-connections.mdx",
+      "rejoins": 3,
+      "linesRecovered": 6,
+      "changes": [
+        {
+          "action": "REJOIN",
+          "startLine": 5,
+          "endLine": 7,
+          "linesConsumed": 3,
+          "result": "Search for the Control Panel and click **OK**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 14,
+          "endLine": 16,
+          "linesConsumed": 3,
+          "result": "In the Windows Features dialog, scroll down and select **Telnet Client**."
+        },
+        {
+          "action": "REJOIN",
+          "startLine": 19,
+          "endLine": 21,
+          "linesConsumed": 3,
+          "result": "After opening the session, type the command name and press **Enter**."
+        }
+      ]
+    }
+  ]
+}

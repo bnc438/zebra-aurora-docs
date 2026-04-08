@@ -32,7 +32,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'es', 'fr', 'de', 'ja'],
   },
 
   customFields: {
@@ -93,7 +93,7 @@ const config = {
         // THIS 'items' ARRAY IS THE MOST IMPORTANT PART
         items: [
           {
-            to: '/docs/t-aurora-focus-getting-started-and-mdx-summary',
+            to: '/docs/js-guide/t-aurora-focus-getting-started-and-mdx-summary',
             position: 'left',
             label: 'Getting Started',
           },

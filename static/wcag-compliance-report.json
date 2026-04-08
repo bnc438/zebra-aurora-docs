@@ -1,0 +1,310 @@
+{
+  "timestamp": "2026-03-27T01:10:43.575Z",
+  "baseUrl": "http://localhost:3000",
+  "pageCount": 20,
+  "pageResults": [
+    {
+      "path": "ask-ai",
+      "url": "http://localhost:3000ask-ai",
+      "errorCount": 2,
+      "warningCount": 1,
+      "noticeCount": 0,
+      "violations": [
+        {
+          "id": "image.missing_alt_text",
+          "description": "Image missing alt text",
+          "type": "error"
+        },
+        {
+          "id": "image.missing_alt_text",
+          "description": "Image missing alt text",
+          "type": "error"
+        },
+        {
+          "id": "contrast",
+          "description": "Low contrast text",
+          "type": "warning"
+        }
+      ]
+    },
+    {
+      "path": "ask-ai-NY-RL11-BNC438",
+      "url": "http://localhost:3000ask-ai-NY-RL11-BNC438",
+      "errorCount": 2,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": [
+        {
+          "id": "heading.skipped",
+          "description": "Heading level skip (h1→h3)",
+          "type": "error"
+        },
+        {
+          "id": "link.empty",
+          "description": "Empty link text",
+          "type": "error"
+        }
+      ]
+    },
+    {
+      "path": "de\\ask-ai",
+      "url": "http://localhost:3000de\\ask-ai",
+      "errorCount": 1,
+      "warningCount": 1,
+      "noticeCount": 0,
+      "violations": [
+        {
+          "id": "form.missing_label",
+          "description": "Form input missing label",
+          "type": "error"
+        },
+        {
+          "id": "contrast_enhanced",
+          "description": "Color contrast below AAA",
+          "type": "warning"
+        }
+      ]
+    },
+    {
+      "path": "de\\ask-ai-NY-RL11-BNC438",
+      "url": "http://localhost:3000de\\ask-ai-NY-RL11-BNC438",
+      "errorCount": 0,
+      "warningCount": 1,
+      "noticeCount": 0,
+      "violations": [
+        {
+          "id": "contrast",
+          "description": "Low contrast text",
+          "type": "warning"
+        }
+      ]
+    },
+    {
+      "path": "de\\dev-dashboard",
+      "url": "http://localhost:3000de\\dev-dashboard",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\dev-dashboard-NY-RL11-BNC438",
+      "url": "http://localhost:3000de\\dev-dashboard-NY-RL11-BNC438",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\about-this-guide\\c-aurora-about-this-guide",
+      "url": "http://localhost:3000de\\docs\\about-this-guide\\c-aurora-about-this-guide",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\about-this-guide\\c-Service-Information",
+      "url": "http://localhost:3000de\\docs\\about-this-guide\\c-Service-Information",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\about-this-guide\\r-icon-conventions",
+      "url": "http://localhost:3000de\\docs\\about-this-guide\\r-icon-conventions",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\about-this-guide\\r-notational-conventions",
+      "url": "http://localhost:3000de\\docs\\about-this-guide\\r-notational-conventions",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-overview\\t-fs10-xs20-Zebra-Aurora-Software-Overview",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-overview\\t-fs10-xs20-Zebra-Aurora-Software-Overview",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-overview\\Zebra-Aurora-Features",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-overview\\Zebra-Aurora-Features",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\c-af-ug-aurora-viewing-result-history",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\c-af-ug-aurora-viewing-result-history",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\c-af-ug-fs10-xs20-live-monitoring-web-hmi",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\c-af-ug-fs10-xs20-live-monitoring-web-hmi",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\c-af-ug-viewing-the-activity-log",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\c-af-ug-viewing-the-activity-log",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\c-af-ug-viewing-the-job-list",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\c-af-ug-viewing-the-job-list",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\c-af-ug-web-hmi-dashboard",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\c-af-ug-web-hmi-dashboard",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\c-af-ug-web-hmi-top-menu",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\c-af-ug-web-hmi-top-menu",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\t-af-ug-fs-vs-firmware-update",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\t-af-ug-fs-vs-firmware-update",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    },
+    {
+      "path": "de\\docs\\aurora-focus-web-hmi\\t-af-ug-fs-vs-firmware-update-user-guide",
+      "url": "http://localhost:3000de\\docs\\aurora-focus-web-hmi\\t-af-ug-fs-vs-firmware-update-user-guide",
+      "errorCount": 0,
+      "warningCount": 0,
+      "noticeCount": 0,
+      "violations": []
+    }
+  ],
+  "aggregateViolations": [
+    {
+      "id": "image.missing_alt_text",
+      "description": "Image missing alt text",
+      "type": "error"
+    },
+    {
+      "id": "image.missing_alt_text",
+      "description": "Image missing alt text",
+      "type": "error"
+    },
+    {
+      "id": "contrast",
+      "description": "Low contrast text",
+      "type": "warning"
+    },
+    {
+      "id": "heading.skipped",
+      "description": "Heading level skip (h1→h3)",
+      "type": "error"
+    },
+    {
+      "id": "link.empty",
+      "description": "Empty link text",
+      "type": "error"
+    },
+    {
+      "id": "form.missing_label",
+      "description": "Form input missing label",
+      "type": "error"
+    },
+    {
+      "id": "contrast_enhanced",
+      "description": "Color contrast below AAA",
+      "type": "warning"
+    },
+    {
+      "id": "contrast",
+      "description": "Low contrast text",
+      "type": "warning"
+    }
+  ],
+  "wcagLevel": "A",
+  "analysis": {
+    "totalViolations": 8,
+    "criticalErrors": 5,
+    "warnings": 3,
+    "notices": 0,
+    "levelBreakdown": {
+      "wcagA": 5,
+      "wcagAA": 3,
+      "wcagAAA": 0
+    },
+    "topIssues": [
+      {
+        "description": "Low contrast text (AA: 4.5:1)",
+        "count": 3
+      },
+      {
+        "description": "Image missing alt text",
+        "count": 2
+      },
+      {
+        "description": "Heading level skip",
+        "count": 1
+      },
+      {
+        "description": "Empty link",
+        "count": 1
+      },
+      {
+        "description": "Form control missing label",
+        "count": 1
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "description": "Fix missing image alt text (most common issue)",
+      "action": "Add descriptive alt attributes to all <img> tags"
+    },
+    {
+      "priority": "high",
+      "description": "Address heading hierarchy violations",
+      "action": "Ensure no heading levels are skipped (h1→h2→h3)"
+    },
+    {
+      "priority": "high",
+      "description": "Improve color contrast ratios",
+      "action": "Ensure text meets WCAG AA (4.5:1) or AAA (7:1) standards"
+    },
+    {
+      "priority": "medium",
+      "description": "Add missing form labels",
+      "action": "Associate all form controls with <label> elements"
+    }
+  ],
+  "notes": "This is a DEMO report with realistic accessibility patterns. For production use, run with actual WAVE API when Playwright browsers are installed."
+}

@@ -1,8 +1,6 @@
 ---
 title: Edges
-description: The Edge tool compares edges given input image with an image stored in
-  a model created in the Training tab. As a result, the tool creates a region containing
-  only pixels with different edges.
+description: The Edge tool compares edges given input image with an image stored in a model created in the Training tab.
 slug: /machine-vision-tools/c-af-ug-edges
 sidebar_label: Edges
 product_name: aurora focus
@@ -21,45 +19,23 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 The Edge tool compares edges given input image with an image stored in a model created in the Training tab. As a result, the tool creates a region containing only pixels with different edges.
 
 This method helps find defects in the object's shape. Due to its resilience against pixel gray level changes, it is helpful in applications with changing light conditions.
 
 Parameter Maximum Distance defines the maximum distances of two edges that should be treated as the same edge.
 
-The
-Edge Threshold
-and
-Edge Hysteresis
-parameters in the
-Inspection
-tab should have the same value as in the
-Training
-tab.
+The **Edge Threshold** and **Edge Hysteresis** parameters in the **Inspection** tab should have the same value as in the **Training** tab.
 Increasing the Edge Hysteresis connects more pixels by detecting edges.
 
-If the input image's brightness significantly differs from the brightness of the golden image used in the
-Training
-tab.
+If the input image's brightness significantly differs from the brightness of the golden image used in the **Training** tab.
 
-Decrease the
-Edge Threshold
-slightly to concentrate on missing edges or increase the value to focus on excessive edges.
-
+Decrease the **Edge Threshold** slightly to concentrate on missing edges or increase the value to focus on excessive edges.
 
 ## Edges Settings
 
-Setting
-Description
-Edge Threshold
-
-Determine a sufficient edge strength. Edges of at least 30 are detected on the input image.
-Edge Hysteresis
-
-Determine the value by which the edge threshold decreases for edge points neighboring sufficiently strong edges.
-Use this parameter to control how weak adjacent pixels can be connected to a strong pixel. A higher value connects more pixels
-Smoothing
-
-Determine the tool's amount of horizontal and vertical smoothing to improve edge detection.
+| Setting | Description |
+| --- | --- |
+| Edge Threshold | Determine a sufficient edge strength. Edges of at least 30 are detected on the input image. |
+| Edge Hysteresis | Determine the value by which the edge threshold decreases for edge points neighboring sufficiently strong edges. Use this parameter to control how weak adjacent pixels can be connected to a strong pixel. A higher value connects more pixels |
+| Smoothing | Determine the tool's amount of horizontal and vertical smoothing to improve edge detection. |

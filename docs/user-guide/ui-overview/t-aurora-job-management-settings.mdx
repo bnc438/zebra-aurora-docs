@@ -1,7 +1,6 @@
 ---
 title: Job Management Settings
-description: Configure fixturing, image capture, filmstrip management settings, and
-  sensor cropping settings.
+description: 'Configure the following application settings using the General tab in Settings: - Machine Vision Jobs - enable fixturing to the nearest or last selected...'
 slug: /ui-overview/t-aurora-job-management-settings
 sidebar_label: Job Management Settings
 product_name: aurora focus
@@ -20,39 +19,24 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 Configure the following application settings using the General tab in Settings:
-- Machine Vision Jobs - enable fixturing to the nearest or last selected fixture.
-- Image Capture Disk Management - determine the
-- Filmstrip Management - determine the behavior when going from Deploy to Edit mode:
-Machine Vision Jobs - enable fixturing to the nearest or last selected fixture.
-Image Capture Disk Management - determine the
-Maximum Filesize of Images
-(10-5000 mb, default: 1000) to save on the device and the
-Maximum Length of Days to Retain
-(1-1000 days, default: 60) the data on the device.
-Filmstrip Management - determine the behavior when going from Deploy to Edit mode:
-- Capture New Image
-- Use Last Filmstrip Image
-- Use Last Triggered Image
-- Sensor Cropping Management - determine the behavior when going from Deploy to Edit mode:
-Capture New Image
-Use Last Filmstrip Image
-Use Last Triggered Image
-Use Last Triggered Image attempts to download the last triggered image. If unavailable, this setting uses the last Filmstrip image as a fallback.
-Sensor Cropping Management - determine the behavior when going from Deploy to Edit mode:
-- On Enter Sensor Settings tab:
-- On Exit Sensor Settings tab:
-On Enter Sensor Settings tab:
-- Auto-Capture When No Image: Auto-Capture on enter if no matching image is found.
-- Auto-Capture Enabled: Auto-Capture on every enter.
-Auto-Capture When No Image: Auto-Capture on enter if no matching image is found.
-Auto-Capture Enabled: Auto-Capture on every enter.
-On Exit Sensor Settings tab:
-- Auto-Capture Disabled: No Auto-Capture
-- Auto-Capture Enabled: Auto-Capture on every enter
-- Auto-Capture on Change: Auto-Capture on exit when the Acquisition Region of Interest (AROI) has changed.
-Auto-Capture Disabled: No Auto-Capture
-Auto-Capture Enabled: Auto-Capture on every enter
-Auto-Capture on Change: Auto-Capture on exit when the Acquisition Region of Interest (AROI) has changed.
+
+- **Machine Vision Jobs** - enable fixturing to the nearest or last selected fixture.
+- **Image Capture Disk Management** - determine the **Maximum Filesize of Images** (10-5000 mb, default: 1000) to save on the device and the **Maximum Length of Days to Retain** (1-1000 days, default: 60) the data on the device.
+- **Filmstrip Management** - determine the behavior when going from Deploy to Edit mode:
+  - Capture New Image
+  - Use Last Filmstrip Image
+  - Use Last Triggered Image
+- **Sensor Cropping Management** - determine the behavior when going from Deploy to Edit mode:
+
+  :::note
+  Use Last Triggered Image attempts to download the last triggered image. If unavailable, this setting uses the last Filmstrip image as a fallback.
+  :::
+
+  - On Enter Sensor Settings tab:
+    - Auto-Capture When No Image: Auto-Capture on enter if no matching image is found.
+    - Auto-Capture Enabled: Auto-Capture on every enter.
+    - Auto-Capture Disabled: No Auto-Capture
+  - On Exit Sensor Settings tab:
+    - Auto-Capture Enabled: Auto-Capture on every enter
+    - Auto-Capture on Change: Auto-Capture on exit when the Acquisition Region of Interest (AROI) has changed.

@@ -1,8 +1,6 @@
 ---
 title: Troubleshooting
-description: This section describes potential issues that may occur while using the
-  application and solutions that could correct the problem, such as rebooting the
-  device and reconnecting the USB cable.
+description: 'This section describes potential issues that may occur while using the application and solutions that could correct the problem, such as rebooting the...'
 slug: /troubleshooting/c-af-ug-troubleshooting
 sidebar_label: Troubleshooting
 product_name: aurora focus
@@ -21,31 +19,15 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
 This section describes potential issues that may occur while using the application and solutions that could correct the problem, such as rebooting the device and reconnecting the USB cable.
 
-
-Problem
-Solution
-Installation
-Run as Administrator
-If you receive an error when attempting to install Aurora Focus, try again by right-clicking the Aurora Focus icon on your PC, and selecting Run as Administrator.
-Backward Compatibility
-Aurora Focus does not connect to a device with older firmware. This may cause a break in functionality if the device is not updated.
-Software
-The device becomes idle while configuring an inspection task.
-Perform a factory reset. This can resolve issues that may occur after updating the firmware version.
-Device
-External illumination does not turn on when running a job created with a previous firmware version.
-Enable external illumination.
-External illumination does not turn off when in NPN mode.
-Switch back to PNP mode before powering off the device.
-On FS10 devices, specific hubs cause USB interfaces (RNDIS and HID) to break upon HID keyboard re-enumeration.
-Disconnect and reconnect the USB cable.
-Firmware updates fail if the memory consumption on the device is currently high.
-Reboot the device and upgrade.
-Uninstalling the InstallShield does not always remove all of the registry entries.
-Type
-`regedit`
-to access the Registry Editor on your PC, and manually delete the Zebra Aurora Focus folder under Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Zebra\
+| Problem | Solution |
+| --- | --- |
+| **Installation:** Run as Administrator | If you receive an error when attempting to install Aurora Focus, try again by right-clicking the Aurora Focus icon on your PC, and selecting Run as Administrator. |
+| Backward Compatibility | Aurora Focus does not connect to a device with older firmware. This may cause a break in functionality if the device is not updated. |
+| **Software:** The device becomes idle while configuring an inspection task. | Perform a factory reset. This can resolve issues that may occur after updating the firmware version. |
+| **Device:** External illumination does not turn on when running a job created with a previous firmware version. | Enable external illumination. |
+| External illumination does not turn off when in NPN mode. | Switch back to PNP mode before powering off the device. |
+| On FS10 devices, specific hubs cause USB interfaces (RNDIS and HID) to break upon HID keyboard re-enumeration. | Disconnect and reconnect the USB cable. |
+| Firmware updates fail if the memory consumption on the device is currently high. | Reboot the device and upgrade. |
+| Uninstalling the InstallShield does not always remove all of the registry entries. | Type egedit to access the Registry Editor on your PC, and manually delete the Zebra Aurora Focus folder under Computer\\HKEY_LOCAL_MACHINE\\SOFTWARE\\Zebra\\ |

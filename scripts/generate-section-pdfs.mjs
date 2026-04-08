@@ -14,6 +14,8 @@ const buildDir = path.join(repoRoot, 'build');
 const outputDir = path.join(repoRoot, 'static', 'pdf');
 const tempDir = path.join(buildDir, '_pdf_tmp');
 const pdfAssetDir = path.join(buildDir, '_pdf_assets');
+const docusaurusCliPath = path.join(repoRoot, 'node_modules', '@docusaurus', 'core', 'bin', 'docusaurus.mjs');
+const playwrightCliPath = path.join(repoRoot, 'node_modules', 'playwright', 'cli.js');
 const DEFAULT_PORT = Number(process.env.PDF_PORT || 4277);
 const HOST = '127.0.0.1';
 
@@ -27,6 +29,10 @@ function runCommand(command, args, env = {}) {
       env: {...process.env, ...env},
       stdio: 'inherit',
       shell: false,
+    });
+
+    child.on('error', (error) => {
+      reject(new Error(`Failed to start ${command}: ${error.message}`));
     });
 
     child.on('exit', (code) => {
@@ -735,13 +741,23 @@ async function waitForImagesToLoad(page, timeoutMs = 30000) {
   }
 }
 
+async function ensurePlaywrightChromiumInstalled() {
+  const executablePath = chromium.executablePath();
+  if (fs.existsSync(executablePath)) {
+    return;
+  }
+
+  console.log('[PDF] Playwright Chromium not found. Installing browser runtime...');
+  await runCommand(process.execPath, [playwrightCliPath, 'install', 'chromium']);
+}
+
 async function generate() {
   ensureDir(outputDir);
   const portRef = {current: DEFAULT_PORT};
   const siteUrl = () => `http://${HOST}:${portRef.current}`;
 
   console.log('\n[PDF] Building site with PDF-friendly base URL...');
-  await runCommand('npx', ['docusaurus', 'build'], {
+  await runCommand(process.execPath, [docusaurusCliPath, 'build'], {
     DOCUSAURUS_BASE_URL: '/',
     DOCUSAURUS_URL: siteUrl(),
   });
@@ -757,6 +773,7 @@ async function generate() {
   portRef.current = await listenWithPortFallback(server, HOST, DEFAULT_PORT);
   console.log(`[PDF] Serving build output at ${siteUrl()}`);
 
+  await ensurePlaywrightChromiumInstalled();
   const browser = await chromium.launch({headless: true});
   const assetCache = new Map();
 

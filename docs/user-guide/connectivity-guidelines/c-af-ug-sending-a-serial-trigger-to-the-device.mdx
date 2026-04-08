@@ -1,6 +1,6 @@
 ---
 title: Sending a Serial Trigger to the Device
-description: ''
+description: 'Send a serial trigger to the device using a terminal application such as PuTTy.'
 slug: /connectivity-guidelines/c-af-ug-sending-a-serial-trigger-to-the-device
 sidebar_label: Sending a Serial Trigger to the Device
 product_name: aurora focus
@@ -21,47 +21,21 @@ exclude_from_search: false
 ---
 
 
-
-
-
 1. Open a Serial client terminal software such as PuTTy.
 2. Establish a connection to the device by clicking
 3. Enter the
-4. Click
+4. Click **Open** to establish a serial connection.
 5. If a connection is successfully established, observe the
-6. Type the
-7. Enter
-Open a Serial client terminal software such as PuTTy.
-Establish a connection to the device by clicking
-Serial
-tab.
-Enter the
+6. Type the **Trigger String** as defined in **Settings** in Zebra Aurora Focus and click **Enter.**
+7. 7. Enter **Serial** tab.
 COM port
 settings:
 - Name: COM port number as defined in Device Manager.
 - Speed, Baud, and Parity as defined in Device Settings using Zebra Aurora Focus.
 - Stop Bits: 1
 - Handshake/Mode: Off
-Name: COM port number as defined in Device Manager.
-Speed, Baud, and Parity as defined in Device Settings using Zebra Aurora Focus.
-Stop Bits: 1
-Handshake/Mode: Off
-Click
-Open
-to establish a serial connection.
-If a connection is successfully established, observe the
 **Serial Port COM opened**
 message.
-Type the
+Enter **TRIGGER** as the default
 Trigger String
-as defined in
-Settings
-in Zebra Aurora Focus and click
-Enter.
-Enter
-TRIGGER
-as the default
-Trigger String
-and click
-Send
-to send a trigger using serial.
+and click **Send** to send a trigger using serial.

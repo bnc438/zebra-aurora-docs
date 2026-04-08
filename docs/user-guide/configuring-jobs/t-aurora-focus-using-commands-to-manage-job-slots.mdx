@@ -1,7 +1,6 @@
 ---
 title: Using Commands to Manage Job Slots
-description: Use Telnet to communicate with the device and manage job slots by executing
-  commands.
+description: 'Use Telnet commands to manage job slots on the device, including listing, activating, swapping, and deleting jobs.'
 slug: /configuring-jobs/t-aurora-focus-using-commands-to-manage-job-slots
 sidebar_label: Using Commands to Manage Job Slots
 product_name: aurora focus
@@ -22,40 +21,34 @@ exclude_from_search: false
 ---
 
 
-
+:::note
 Ensure that TCP/IP control is enabled using the Communications tab in Device Settings to use commands to manage job slots.
+:::
 
 Load a job to a job slot:
-
 
 `job_slot_load <slot number>`
 
 Load a job to run at device startup:
 
-
 `job_slot_load <slot number> --startup`
 
 Swap a current job slot:
-
 
 `job_slot_swap <current slot number> <new slot number>`
 
 Set a job slot:
 
-
 `job_slot_set <slot number>`
 
 Get a job slot:
-
 
 `job_slot_get`
 
 Delete a job slot:
 
-
 `job_slot_delete <slot number>`
 
 List all current job slots:
-
 
 `job_slot_list`

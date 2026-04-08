@@ -30,11 +30,23 @@ export const dashboardTooltips = {
         label: 'Content Health Score',
         tooltip: 'Weighted score (0–100%) combining SEO completeness, title/description presence, and frontmatter metadata. Green (≥75%), Yellow (50–74%), Red (<50%).',
       },
+      globalStability: {
+        label: 'Global Stability',
+        tooltip: 'Percentage of docs free from stability issues (missing required fields, broken links, duplicate titles, broken images). Higher = more stable.',
+      },
+      criticalAlerts: {
+        label: 'Critical Alerts',
+        tooltip: 'Count of critical issue categories detected: broken internal links, SSR guard violations, missing CSP configuration, critical CVEs.',
+      },
+      warningAlerts: {
+        label: 'Warning Alerts',
+        tooltip: 'Count of warning-level issue categories: duplicate titles, missing required frontmatter, orphaned sidebar docs, broken image references.',
+      },
     },
   },
 
   schemaAnalytics: {
-    title: 'Schema Analytics',
+    title: 'Metadata Schema Analytics',
     description: 'Taxonomy and audience distribution—tracks which topics, devices, roles, and use cases are covered.',
     metrics: {
       deviceType: {
@@ -66,7 +78,7 @@ export const dashboardTooltips = {
     metrics: {
       guessedFields: {
         label: 'Guessed Fields',
-        tooltip: 'Total number of frontmatter fields auto-populated by the build system. High values = incomplete manual authoring. Target: low/zero.',
+        tooltip: 'Total number of frontmatter fields auto-populated by the build system. Target: low/zero. High values indicate docs need manual review.',
       },
       docsWithGuesses: {
         label: 'Docs w/ Guesses',
@@ -167,7 +179,7 @@ export const dashboardTooltips = {
       },
       publishRate: {
         label: 'Publish Rate',
-        tooltip: 'Percentage of docs published (Published ÷ Total). Target: ≥95%. Low rates suggest incomplete workflows.',
+        tooltip: 'Percentage of docs published (Published ÷ Total). Target: ≥95%. Low rates require workflow review.',
       },
     },
   },
@@ -223,6 +235,22 @@ export const dashboardTooltips = {
         label: 'By Section',
         tooltip: 'Bar chart showing search index distribution across major documentation sections. Identifies which sections have the richest searchable content.',
       },
+      failedSearchEvents: {
+        label: 'Failed Searches',
+        tooltip: 'Total failed AskAI search events captured in browser storage for the selected week scope. Higher values indicate discovery gaps.',
+      },
+      failedSearchRows: {
+        label: 'Aggregate Rows',
+        tooltip: 'Weekly grouped failed-search records (query + normalized query + closest page). Used for triage and trend tracking.',
+      },
+      failedSearchConfidence: {
+        label: 'Failed Search Confidence',
+        tooltip: 'Weighted average confidence for failed-search outcomes. Lower values generally indicate poorer query-to-content relevance.',
+      },
+      failedSearchSignals: {
+        label: 'Signals',
+        tooltip: 'Detected content-gap signals (for example missing docs, synonym gaps, release-note discoverability issues) across visible failed-search rows.',
+      },
     },
   },
 
@@ -232,7 +260,7 @@ export const dashboardTooltips = {
     metrics: {
       placeholders: {
         label: 'Docs with Placeholders',
-        tooltip: 'Count of docs containing placeholder text (e.g., [TODO], [YYYY-MM-DD], (Automated by build process)). Status: ✓ if 0, ⚠ if 1–10, ✗ if >10.',
+        tooltip: 'Count of docs containing placeholder text (e.g., [TODO], [YYYY-MM-DD], (Automated by build process)). Status: ✓ if 0, ⚠ if 1–10, ✗ if >10. All placeholders must be resolved before release.',
       },
       missingTitle: {
         label: 'Missing Title',
@@ -253,6 +281,25 @@ export const dashboardTooltips = {
       needsAttention: {
         label: 'Needs Attention',
         tooltip: 'Ranked table of 8 docs with lowest completeness score and most auto-guessed fields. Focus author effort here first.',
+      },
+    },
+  },
+
+  dashboardConfig: {
+    title: 'Dashboard Config In Use',
+    description: 'Tracked fields, required fields, and taxonomy settings loaded from dashboard config.',
+    metrics: {
+      trackedFields: {
+        label: 'Tracked Fields',
+        tooltip: 'Total number of frontmatter fields monitored by the dashboard/report pipeline.',
+      },
+      requiredFields: {
+        label: 'Required Fields',
+        tooltip: 'Count of tracked fields marked required in the dashboard config. Missing values directly reduce completeness.',
+      },
+      taxonomyFields: {
+        label: 'Taxonomy Fields',
+        tooltip: 'Fields used for grouping and analytics dimensions such as audience, role, product, or use case.',
       },
     },
   },
@@ -284,6 +331,10 @@ export const dashboardTooltips = {
       emptyHeadings: {
         label: 'Empty Headings',
         tooltip: 'Headings with no text content—causes confusion for visual and assistive users alike.',
+      },
+      contrastIssues: {
+        label: 'Low Contrast Text',
+        tooltip: 'Count of inline-styled text elements where explicit foreground/background color contrast is below WCAG AA threshold (4.5:1).',
       },
     },
   },
@@ -319,6 +370,335 @@ export const dashboardTooltips = {
       duplicateTitles: {
         label: 'Duplicate Titles',
         tooltip: 'Same title appears in multiple docs. Confusing for users and SEO. Should be unique.',
+      },
+    },
+  },
+
+  epicReleaseGate: {
+    title: 'Epic Release Gate',
+    description: 'Release-blocking view for epic closure across Jira tickets, support load, cycle time, and MDX churn.',
+    metrics: {
+      gateStatus: {
+        label: 'Gate Status',
+        tooltip: 'Overall release gate result from critical + warning checks. fail = block release, warn = review needed, pass = release criteria met.',
+      },
+      epicOpenNow: {
+        label: 'Epic Open Now',
+        tooltip: 'Current count of Story/Task/Sub-task tickets still open for the tracked epic. Target: 0 before production release.',
+      },
+      supportOpenNow: {
+        label: 'Support Open Now',
+        tooltip: 'Current count of support tickets opened during the epic window that are still open. Target: 0 before production release.',
+      },
+      supportResolutionDays: {
+        label: 'Service TTR (Days)',
+        tooltip: 'Weighted average time-to-resolution in days for closed service-related tickets collected in the epic window.',
+      },
+      cycleAvgDays: {
+        label: 'Cycle Avg (Days)',
+        tooltip: 'Weighted average ticket closure time in days for closed tickets tied to the epic. Helps identify throughput and delivery risk.',
+      },
+      mdxUniqueFiles: {
+        label: 'MDX Unique Files Edited',
+        tooltip: 'Unique MDX files changed during the epic window, based on git history between epic created and epic closed dates.',
+      },
+    },
+  },
+
+  userBehavior: {
+    title: 'User Behavior',
+    description: 'Engagement analytics from aurora-tracking — scroll depth, session duration, navigation patterns, and Microsoft Clarity readiness.',
+    metrics: {
+      pageViews: {
+        label: 'Page Views',
+        tooltip: 'Total page_view events captured from documentation pages during the metrics window.',
+      },
+      totalSessions: {
+        label: 'Sessions',
+        tooltip: 'Unique session count recorded during the metrics window.',
+      },
+      uniqueDocuments: {
+        label: 'Unique Docs Visited',
+        tooltip: 'Distinct documentation pages viewed across all sessions.',
+      },
+      avgSessionDuration: {
+        label: 'Avg Session Duration',
+        tooltip: 'Average session length in seconds. Long sessions indicate deep engagement; very short may signal confusion.',
+      },
+      avgScrollDepth: {
+        label: 'Avg Scroll Depth',
+        tooltip: 'Average maximum scroll percentage reached across all tracked scroll_depth events. Higher = users reading more content.',
+      },
+      scrollDistribution: {
+        label: 'Scroll Depth Distribution',
+        tooltip: 'Distribution of scroll depth across 0–25%, 25–50%, 50–75%, 75–100% buckets. Ideally weighted toward deeper reads.',
+      },
+      codeCopies: {
+        label: 'Code Copy Events',
+        tooltip: 'Number of times users copied code blocks. High values indicate actionable, developer-focused content.',
+      },
+      monacoOpens: {
+        label: 'Monaco Editor Opens',
+        tooltip: 'Number of times users opened the live code editor. Indicates interactive engagement with examples.',
+      },
+      pdfRequests: {
+        label: 'PDF Downloads',
+        tooltip: 'Button click events for PDF generation. Indicates demand for offline/printable documentation.',
+      },
+      topDocuments: {
+        label: 'Top Documents',
+        tooltip: 'Most-viewed documentation pages during the metrics window. Helps prioritize content investment.',
+      },
+      contentRequests: {
+        label: 'Content Requests',
+        tooltip: 'User-submitted content requests or questions captured via AskAI prompts.',
+      },
+      cesScore: {
+        label: 'CES Score',
+        tooltip: 'Customer Effort Score derived from event patterns. Lower effort = better experience. Target: ≤5.',
+      },
+      clarityStatus: {
+        label: 'Microsoft Clarity',
+        tooltip: 'Integration status for Microsoft Clarity (rage clicks, dead clicks, session recordings). Planned data source for UX frustration signals.',
+      },
+    },
+  },
+
+  lighthouseCI: {
+    title: 'Lighthouse CI (ENG-10)',
+    description: 'Performance, accessibility, best practices, and SEO scores from Lighthouse CI audits.',
+    metrics: {
+      performance: {
+        label: 'Performance',
+        tooltip: 'Lighthouse performance score (0–100). Measures load speed, interactivity, and visual stability. Required threshold: ≥85.',
+      },
+      accessibility: {
+        label: 'Accessibility',
+        tooltip: 'Lighthouse accessibility score (0–100). Measures ARIA, color contrast, and semantic HTML. Required threshold: ≥95.',
+      },
+      bestPractices: {
+        label: 'Best Practices',
+        tooltip: 'Lighthouse best practices score (0–100). Covers HTTPS, console errors, deprecated APIs. Required threshold: ≥90.',
+      },
+      seo: {
+        label: 'SEO',
+        tooltip: 'Lighthouse SEO score (0–100). Checks meta tags, crawlability, and structured data.',
+      },
+      lastAuditDate: {
+        label: 'Last Audit',
+        tooltip: 'Date of the most recent Lighthouse CI run. Stale audits may not reflect current site performance.',
+      },
+      auditUrl: {
+        label: 'Audited URL',
+        tooltip: 'The URL that was audited. Typically the production or staging homepage.',
+      },
+    },
+  },
+
+  playwrightE2E: {
+    title: 'Playwright E2E (ENG-08)',
+    description: 'End-to-end test results across Chromium, Firefox, and WebKit browsers.',
+    metrics: {
+      totalTests: {
+        label: 'Total Tests',
+        tooltip: 'Number of E2E test cases defined in the Playwright suite.',
+      },
+      passed: {
+        label: 'Passed',
+        tooltip: 'Test cases that completed successfully.',
+      },
+      failed: {
+        label: 'Failed',
+        tooltip: 'Test cases that failed. Any non-zero value should block release.',
+      },
+      skipped: {
+        label: 'Skipped',
+        tooltip: 'Test cases that were skipped (e.g., platform-specific or flaky tests).',
+      },
+      passRate: {
+        label: 'Pass Rate',
+        tooltip: 'Percentage of tests passing. Target: 100%. Below 95% indicates critical regression.',
+      },
+      browsers: {
+        label: 'Browsers Tested',
+        tooltip: 'Browsers included in the E2E run. Expected: Chromium, Firefox, WebKit.',
+      },
+      duration: {
+        label: 'Suite Duration',
+        tooltip: 'Total wall-clock time to run the complete E2E suite. Rising durations may indicate test bloat.',
+      },
+      lastRunDate: {
+        label: 'Last Run',
+        tooltip: 'Date/time of the most recent Playwright E2E run.',
+      },
+    },
+  },
+
+  engineeringTests: {
+    title: 'Engineering Tests',
+    description: '14 engineering procedures across P0 critical (ENG-01–07) and P1 important (ENG-08–14) tiers.',
+    metrics: {
+      eng02: {
+        label: 'ENG-02 Required Fields',
+        tooltip: 'MDX Frontmatter Validation. Docs missing one or more required frontmatter fields. Cross-referenced from Build Stability. Target: 0.',
+      },
+      ssrGuardViolations: {
+        label: 'ENG-07 SSR Violations',
+        tooltip: 'SSR/Hydration Mismatch. Source files in src/ using window/document/localStorage without useEffect, useLayoutEffect, BrowserOnly, or typeof window guards. 0 = clean.',
+      },
+      brokenInternalLinks: {
+        label: 'ENG-09 Broken Links (static)',
+        tooltip: 'Internal Link Detection (static). Relative markdown links in docs/ checked against docs/ filesystem. Partial coverage only — full crawl via linkinator requires a built site.',
+      },
+      sidebarOrphanedDocs: {
+        label: 'ENG-11 Orphaned Sidebar IDs',
+        tooltip: 'Plugin & Sidebar Config. Explicit doc IDs in sidebars.js with no matching file in docs/. Dynamic filesystem-scanned sections pass by design. Target: 0.',
+      },
+      cspConfigured: {
+        label: 'ENG-13 CSP Configured',
+        tooltip: 'CSP Header Validation. Detects Content-Security-Policy in docusaurus.config.js. Does not validate directives or run violation tests — that requires a live server.',
+      },
+      criticalCves: {
+        label: 'ENG-14 High/Critical CVEs',
+        tooltip: 'Dependency Vulnerability Audit. Count of high + critical severity CVEs from npm audit --json. null = audit unavailable (check network). Target: 0.',
+      },
+      ghaWorkflowCoverage: {
+        label: 'GitHub Actions Workflow Coverage',
+        tooltip: 'Percentage of planned CI gate workflows present in .github/workflows. Low coverage means PRs can merge without objective release gates.',
+      },
+      ghaPullRequestTriggers: {
+        label: 'GitHub Actions PR Triggers',
+        tooltip: 'How many planned workflows currently run on pull_request. Missing triggers means checks are defined but not enforced before merge.',
+      },
+      ghaSchedules: {
+        label: 'Scheduled Jobs (Nightly/Weekly)',
+        tooltip: 'Verifies nightly link scanning and weekly security scans exist. Missing schedules allows external-link rot and CVEs to accumulate silently.',
+      },
+      eng12Placeholder: {
+        label: 'ENG-12 Translation Placeholder',
+        tooltip: 'Translation readiness guard. Placeholder remains pending until i18n.locales includes non-English locales, then ENG-12 workflow should be activated.',
+      },
+      ghaRunStatusApi: {
+        label: 'GitHub Run Status API',
+        tooltip: 'Connection status for fetching latest workflow run outcomes from GitHub Actions. Requires GITHUB_TOKEN and repository slug.',
+      },
+      ghaRunPassed: {
+        label: 'Latest Runs Passed',
+        tooltip: 'Count of tracked GitHub Action gates whose most recent workflow run finished successfully.',
+      },
+      ghaRunFailed: {
+        label: 'Latest Runs Failed',
+        tooltip: 'Count of tracked gates whose latest run failed. Any non-zero value is a release risk and should be investigated before merge.',
+      },
+    },
+  },
+
+  i18nCoverage: {
+    title: 'i18n Coverage',
+    description: 'Translation coverage across supported locales. Supports ENG-12 gate activation.',
+    metrics: {
+      locales: {
+        label: 'Locales',
+        tooltip: 'Number of non-English locales with at least one translated document.',
+      },
+      translatedDocs: {
+        label: 'Translated Docs',
+        tooltip: 'Total translated documents across all locales.',
+      },
+      avgCoverage: {
+        label: 'Avg Coverage',
+        tooltip: 'Average percentage of source docs translated per locale. Target: ≥80% for production readiness.',
+      },
+    },
+  },
+
+  ditaMigration: {
+    title: 'DITA Migration Progress',
+    description: 'Tracks semantic loss issues from DITA-to-MDX conversion and remediation progress.',
+    metrics: {
+      totalIssues: {
+        label: 'Total Issues',
+        tooltip: 'Count of semantic loss issues detected across all migrated files.',
+      },
+      highSeverity: {
+        label: 'High Severity',
+        tooltip: 'Critical issues requiring immediate attention (e.g., lost content, broken structure).',
+      },
+      remediationScore: {
+        label: 'Remediation Score',
+        tooltip: 'Percentage of files without high-severity issues. Higher = closer to migration completion.',
+      },
+    },
+  },
+
+  brokenLinkTrend: {
+    title: 'Broken Link Health',
+    description: 'Internal link integrity analysis from build output (ENG-09).',
+    metrics: {
+      brokenLinks: {
+        label: 'Broken Links',
+        tooltip: 'Total count of internal links that resolve to non-existent pages.',
+      },
+      affectedDocs: {
+        label: 'Affected Docs',
+        tooltip: 'Number of source documents containing at least one broken link.',
+      },
+    },
+  },
+
+  dependencyFreshness: {
+    title: 'Dependency Freshness',
+    description: 'Package health and security posture. Complements ENG-14 CVE gate.',
+    metrics: {
+      criticalCves: {
+        label: 'Critical CVEs',
+        tooltip: 'High + critical severity vulnerabilities from npm audit. Target: 0.',
+      },
+      outdated: {
+        label: 'Outdated',
+        tooltip: 'Packages with newer versions available. High counts increase security and compatibility risk.',
+      },
+      majorBehind: {
+        label: 'Major Behind',
+        tooltip: 'Packages that are one or more major versions behind. These may have breaking changes when updated.',
+      },
+    },
+  },
+
+  pdfCoverage: {
+    title: 'PDF Section Coverage',
+    description: 'Per-section PDF generation status and render success rates.',
+    metrics: {
+      expectedPdfs: {
+        label: 'Expected PDFs',
+        tooltip: 'Number of documentation sections configured for PDF generation.',
+      },
+      renderSuccess: {
+        label: 'Render Success',
+        tooltip: 'Percentage of PDF renders that completed without errors.',
+      },
+      outputValidity: {
+        label: 'Output Validity',
+        tooltip: 'Percentage of generated PDFs that pass structural validation checks.',
+      },
+    },
+  },
+
+  docFeedback: {
+    title: 'Doc Feedback',
+    description: 'Aggregated thumbs-up/down feedback from the DocFeedbackWidget.',
+    metrics: {
+      helpful: {
+        label: 'Helpful',
+        tooltip: 'Total thumbs-up votes across all documents.',
+      },
+      notHelpful: {
+        label: 'Not Helpful',
+        tooltip: 'Total thumbs-down votes. High counts indicate content quality issues on specific pages.',
+      },
+      satisfaction: {
+        label: 'Satisfaction',
+        tooltip: 'Percentage of positive votes (thumbs-up / total votes). Target: ≥70%.',
       },
     },
   },

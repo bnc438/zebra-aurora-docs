@@ -39,6 +39,110 @@
   font-family: var(--ifm-font-family-base);
 }
 
+.v2Section {
+  margin-bottom: 1.25rem;
+}
+
+.v2Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.v2Title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.v2Controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.v2ControlLabel {
+  font-size: 0.72rem;
+  color: var(--dd-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.v2Select {
+  border: 0.5px solid #000;
+  border-radius: 8px;
+  padding: 0.4rem 0.65rem;
+  background: var(--dd-surface);
+  color: var(--dd-text);
+}
+
+.v2GlobalStrip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.v2GlobalCard {
+  background: var(--dd-surface);
+  border: 0.5px solid #000;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+
+.v2GlobalTitle {
+  font-size: 0.72rem;
+  color: var(--dd-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.v2GlobalValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-top: 0.3rem;
+}
+
+.v2StatusChip {
+  display: inline-flex;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.v2StatusGreen { background: rgba(46, 204, 113, 0.2); color: #1f9d56; }
+.v2StatusAmber { background: rgba(243, 156, 18, 0.2); color: #b57305; }
+.v2StatusRed { background: rgba(231, 76, 60, 0.2); color: #c0392b; }
+
+.v2MetricList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.v2MetricRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px dashed var(--dd-border);
+  padding-top: 0.4rem;
+}
+
+.v2MetricLabel {
+  font-size: 0.76rem;
+  color: var(--dd-text);
+}
+
+.v2MetricValue {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--dd-primary);
+}
+
 /* ---------------------------------------------------------------------------
  * Dev-only notice banner
  * --------------------------------------------------------------------------- */
@@ -65,7 +169,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 1.25rem;
-  margin-top: 1.25rem;
+  margin-top: 0;
 }
 
 .panelWide {
@@ -78,11 +182,46 @@
 }
 
 /* ---------------------------------------------------------------------------
+ * Section headers - group related panels with a labeled divider
+ * --------------------------------------------------------------------------- */
+.sectionGroup {
+  margin-top: 1.5rem;
+}
+
+.sectionGroup:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--dd-border);
+}
+
+.sectionIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #003fbd;
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------------------------
  * Panel card
  * --------------------------------------------------------------------------- */
 .panel {
   background: var(--dd-surface);
-  border: 1px solid var(--dd-border);
+  border: 0.5px solid #000;
   border-radius: var(--dd-radius);
   padding: 1.4rem 1.6rem;
   display: flex;
@@ -107,7 +246,7 @@
  * --------------------------------------------------------------------------- */
 .panelHero {
   margin-bottom: 0;
-  border: 1px solid var(--dd-border);
+  border: 0.5px solid #000;
   border-radius: var(--dd-radius);
   overflow: hidden;
   position: relative;
@@ -141,10 +280,9 @@
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: flex-start;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 0.25rem;
   padding: 1.6rem 1.8rem;
-  flex-wrap: wrap;
 }
 
 .heroLeft  { flex: 1 1 340px; }
@@ -164,6 +302,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  margin-bottom: 0.2rem;
 }
 
 .panelIcon  { font-size: 1.25rem; line-height: 1; }
@@ -179,7 +318,7 @@
 .panelSubtitle {
   font-size: 0.73rem;
   color: var(--dd-muted);
-  margin: -0.5rem 0 0;
+  margin: 0;
   line-height: 1.5;
 }
 
@@ -258,10 +397,14 @@
 }
 
 .gaugeLabel {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--dd-muted);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .gaugeCaption {
@@ -479,7 +622,7 @@
 .donutLegendCount { font-weight: 700; color: var(--ifm-heading-color); }
 
 /* ---------------------------------------------------------------------------
- * Schema Analytics
+ * Metadata Schema Analytics
  * --------------------------------------------------------------------------- */
 .schemaGrid {
   display: grid;
@@ -625,8 +768,7 @@
   text-align: left;
   font-size: 0.63rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--dd-muted);
+  color: #003fbd;
   padding: 0.3rem 0.5rem;
   border-bottom: 2px solid var(--dd-border);
 }
@@ -708,4 +850,38 @@
   overflow-y: auto;
   border-radius: 6px;
   border: 1px solid var(--dd-border);
+}
+
+/* Scrollable container for tables */
+.scrollBox {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid var(--dd-border);
+  border-radius: 6px;
+}
+
+/* Data table inside panels */
+.docTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.docTable th,
+.docTable td {
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--dd-border);
+}
+.docTable th {
+  position: sticky;
+  top: 0;
+  background: var(--dd-panel-bg);
+  font-weight: 600;
+  z-index: 1;
+}
+.docTable tr:last-child td {
+  border-bottom: none;
+}
+.docTable td:first-child {
+  word-break: break-all;
 }

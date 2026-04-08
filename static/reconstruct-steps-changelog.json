@@ -1,0 +1,747 @@
+{
+  "generatedAt": "2026-04-03T02:53:07.440Z",
+  "dryRun": false,
+  "totalFiles": 194,
+  "filesModified": 26,
+  "totalReconstructions": 30,
+  "files": [
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-usb-a-to-usb-c-hardware-setup.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 6,
+          "endLine": 7,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "preview": [
+            {
+              "stub": "USB-A to USB-C cable, Zebra P/N: CBL-USB0200-USA00 or",
+              "full": "(no match)"
+            },
+            {
+              "stub": "USB-C to USB-C cable, Zebra P/N: CBL-USB0200-USC00",
+              "full": "USB-C to USB-C cable, Zebra P/N: CBL-USB0200-USC00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-advanced-filtering-and-formatting.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 10,
+          "endLine": 25,
+          "stubCount": 6,
+          "matchedCount": 5,
+          "truncatedCount": 6,
+          "preview": [
+            {
+              "stub": "Select the",
+              "full": "Select the **Data Formatting** tab to access **Advanced Filtering and Formatting"
+            },
+            {
+              "stub": "Select the",
+              "full": "Select the **Advanced Filtering and Formatting** radio button."
+            },
+            {
+              "stub": "Click",
+              "full": "Click **Edit Rules** to create a new rule or edit an existing rule. Rename the r"
+            }
+          ]
+        },
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 26,
+          "endLine": 32,
+          "stubCount": 4,
+          "matchedCount": 3,
+          "truncatedCount": 2,
+          "preview": [
+            {
+              "stub": "Select a type of",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Click",
+              "full": "Click to specify an **Action** to add to the list of selected actions by clickin"
+            },
+            {
+              "stub": "Use",
+              "full": "Use"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-custom-formatting.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 6,
+          "endLine": 25,
+          "stubCount": 9,
+          "matchedCount": 7,
+          "truncatedCount": 9,
+          "preview": [
+            {
+              "stub": "Select the",
+              "full": "Select the **Custom Formatting** radio button."
+            },
+            {
+              "stub": "Select a symbology from the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Depending on the symbology, click",
+              "full": "(no match)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-capture.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 12,
+          "endLine": 13,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "preview": [
+            {
+              "stub": "By entering parameters in the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "- By drawing a region directly in the **AROI Settings** sect",
+              "full": "- By drawing a region directly in the **AROI Settings** section."
+            }
+          ]
+        },
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 25,
+          "endLine": 26,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "preview": [
+            {
+              "stub": "After adding a tool in the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "The Long exposure option becomes unavailable.",
+              "full": "The Long exposure option becomes unavailable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-aurora-output-formatting.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 23,
+          "stubCount": 6,
+          "matchedCount": 3,
+          "truncatedCount": 4,
+          "preview": [
+            {
+              "stub": "Navigate to the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Slide the toggle to the right to enable",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Click the specified tool under",
+              "full": "(no match)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-ftp-file-saving-in-aurora.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 4,
+          "endLine": 5,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "truncatedCount": 1,
+          "preview": [
+            {
+              "stub": "Navigate to Settings and define the home directory for files",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Use the following credentials:",
+              "full": "Use the following credentials:"
+            }
+          ]
+        },
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 14,
+          "endLine": 25,
+          "stubCount": 6,
+          "matchedCount": 5,
+          "truncatedCount": 3,
+          "preview": [
+            {
+              "stub": "In Aurora Focus, navigate to the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Select",
+              "full": "Select **FTP** under **Save Location**."
+            },
+            {
+              "stub": "Click the",
+              "full": "Click the **Gear**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-js-using-the-js-editor.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 15,
+          "endLine": 17,
+          "stubCount": 3,
+          "matchedCount": 1,
+          "preview": [
+            {
+              "stub": "Open an existing file with JavaScript code and save JavaScri",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Use templates and snippets to quickly develop new JavaScript",
+              "full": "(no match)"
+            },
+            {
+              "stub": "- Adjust editor font size from the **File** menu. JavaScript",
+              "full": "- Adjust editor font size from the **File** menu. JavaScript by default is saved"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-attributes.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 6,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "truncatedCount": 1,
+          "preview": [
+            {
+              "stub": "Access",
+              "full": "(no match)"
+            },
+            {
+              "stub": "2. Enter the **Access**",
+              "full": "2. Enter the **Access**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-alarms.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 6,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "truncatedCount": 1,
+          "preview": [
+            {
+              "stub": "Click",
+              "full": "(no match)"
+            },
+            {
+              "stub": "2. Enable an alarm for **Click**",
+              "full": "2. Enable an alarm for **Click**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-gpio.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 4,
+          "endLine": 6,
+          "stubCount": 3,
+          "matchedCount": 1,
+          "truncatedCount": 2,
+          "preview": [
+            {
+              "stub": "Access",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Select the GPIO pin from dropdown and configure the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "3. Click **Access**",
+              "full": "3. Click **Access**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-the-database.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 4,
+          "endLine": 12,
+          "stubCount": 4,
+          "matchedCount": 4,
+          "truncatedCount": 3,
+          "preview": [
+            {
+              "stub": "Click",
+              "full": "Click **Update** to apply the changes."
+            },
+            {
+              "stub": "Enable a",
+              "full": "Enable a **Database Cap** by sliding the toggle to the right and selecting an en"
+            },
+            {
+              "stub": "Enter a",
+              "full": "Enter a **Clear Interval** in ms."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-mirroring.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 5,
+          "endLine": 6,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "preview": [
+            {
+              "stub": "Disabled GPIO Mirroring: the output signal goes high for its",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Enabling Opposite pins: input 0 mirrors Out0, and Input1 is ",
+              "full": "Enabling Opposite pins: input 0 mirrors Out0, and Input1 is mirrored to Out1 by "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-plc-configuration.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 11,
+          "stubCount": 4,
+          "matchedCount": 2,
+          "truncatedCount": 3,
+          "preview": [
+            {
+              "stub": "Select",
+              "full": "Select **Create PLC** from the **PLC Configuration** menu."
+            },
+            {
+              "stub": "Select",
+              "full": "(no match)"
+            },
+            {
+              "stub": "On the Create PLC screen, select the",
+              "full": "(no match)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-setting-up-follower-devices.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 5,
+          "endLine": 7,
+          "stubCount": 3,
+          "matchedCount": 1,
+          "preview": [
+            {
+              "stub": "If you are in triggered mode and intend to update the port t",
+              "full": "(no match)"
+            },
+            {
+              "stub": "To configure the IP and Port address of the host, enter the ",
+              "full": "(no match)"
+            },
+            {
+              "stub": "- To set up the TCP port to act as a Server, select this opt",
+              "full": "- To set up the TCP port to act as a Server, select this option from the **Updat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-configuring-a-job-on-the-device-to-accept-serial-triggers.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 4,
+          "endLine": 5,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "truncatedCount": 1,
+          "preview": [
+            {
+              "stub": "On the Job tab, click the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "3. Complete the job configuration and click **Capture** tab ",
+              "full": "3. Complete the job configuration and click **Capture** tab and navigate to the "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-configuring-jobs-to-accept-tcp-ip-triggers.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 4,
+          "endLine": 7,
+          "stubCount": 3,
+          "matchedCount": 2,
+          "truncatedCount": 2,
+          "preview": [
+            {
+              "stub": "Within the job tab, click the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Ensure the",
+              "full": "Ensure the **Trigger Source** is set to **TCP/IP**."
+            },
+            {
+              "stub": "4. Click **Connect** tab and navigate to the **Triggers** ta",
+              "full": "4. Click **Connect** tab and navigate to the **Triggers** tab."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-rs-232-output-.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 7,
+          "endLine": 11,
+          "stubCount": 2,
+          "matchedCount": 2,
+          "truncatedCount": 2,
+          "preview": [
+            {
+              "stub": "Check the",
+              "full": "Check the **Enable RS-232 Control** checkbox (disabled by default)."
+            },
+            {
+              "stub": "Click",
+              "full": "Click **Apply** in the RS-232 area and **OK** on the resulting prompt to save th"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-rs-232-results.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 6,
+          "endLine": 15,
+          "stubCount": 3,
+          "matchedCount": 2,
+          "truncatedCount": 3,
+          "preview": [
+            {
+              "stub": "Scroll down to",
+              "full": "Scroll down to **RS-232 Settings**."
+            },
+            {
+              "stub": "Ensure that the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Click",
+              "full": "Click **Apply** within the **RS-232 Settings** area."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-sending-a-serial-trigger-to-the-device.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 20,
+          "stubCount": 5,
+          "matchedCount": 4,
+          "truncatedCount": 4,
+          "preview": [
+            {
+              "stub": "Enter the",
+              "full": "Enter the"
+            },
+            {
+              "stub": "Click",
+              "full": "Click **Open** to establish a serial connection."
+            },
+            {
+              "stub": "If a connection is successfully established, observe the",
+              "full": "(no match)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-a-static-ip-address.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 8,
+          "stubCount": 3,
+          "matchedCount": 2,
+          "truncatedCount": 2,
+          "preview": [
+            {
+              "stub": "Disable the",
+              "full": "Disable the **Enable DHCP** checkbox."
+            },
+            {
+              "stub": "Change the network-related settings based on your network co",
+              "full": "Change the network-related settings based on your network configuration. For exa"
+            },
+            {
+              "stub": "Click",
+              "full": "(no match)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/t-af-ug-setting-up-cdc-serial-output-in-device-settings.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 4,
+          "endLine": 12,
+          "stubCount": 4,
+          "matchedCount": 3,
+          "truncatedCount": 4,
+          "preview": [
+            {
+              "stub": "Scroll to",
+              "full": "Scroll to **USB Settings**."
+            },
+            {
+              "stub": "Ensure that the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Click",
+              "full": "Click **Apply** within the USB Settings."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-mgmt-network-setup/t-fs10-xs20-Network-Setup.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 7,
+          "stubCount": 2,
+          "matchedCount": 2,
+          "truncatedCount": 1,
+          "preview": [
+            {
+              "stub": "Use an M12-ETH cable to connect the device (M12) directly to",
+              "full": "Use an M12-ETH cable to connect the device (M12) directly to the PC's Ethernet p"
+            },
+            {
+              "stub": "Use an M12-ETH cable to connect the device (M12) to a switch",
+              "full": "Use an M12-ETH cable to connect the device (M12) to a switch or router (ETH) on "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-using-bqm-for-identification-tools.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 5,
+          "endLine": 12,
+          "stubCount": 4,
+          "matchedCount": 3,
+          "truncatedCount": 3,
+          "preview": [
+            {
+              "stub": "Navigate to the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Click the",
+              "full": "Click the **Select Advanced Formatting** radio button."
+            },
+            {
+              "stub": "Click",
+              "full": "Click **Add Data Types** in the **Data** section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/t-af-ug-using-accelerated-tools.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 4,
+          "endLine": 10,
+          "stubCount": 3,
+          "matchedCount": 2,
+          "truncatedCount": 2,
+          "preview": [
+            {
+              "stub": "Enable acceleration by sliding the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "After",
+              "full": "After **Accelerate** is enabled, the **Optimization** overlay displays, and all "
+            },
+            {
+              "stub": "3. All accelerated tools are marked on the **Accelerate** to",
+              "full": "3. All accelerated tools are marked on the **Accelerate** toggle to the right."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/c-aurora-parameter-barcodes.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_STEPS",
+          "startLine": 7,
+          "endLine": 17,
+          "stubCount": 6,
+          "matchedCount": 5,
+          "truncatedCount": 4,
+          "preview": [
+            {
+              "stub": "Navigate to the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Select a",
+              "full": "Select a **Device Setup** to create a snapshot from the current managed device o"
+            },
+            {
+              "stub": "Configure the size of the barcode being exported. The option",
+              "full": "Configure the size of the barcode being exported. The options are Small, Medium,"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/t-aurora-job-management-settings.mdx",
+      "changes": [
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 5,
+          "endLine": 6,
+          "stubCount": 2,
+          "matchedCount": 1,
+          "preview": [
+            {
+              "stub": "Image Capture Disk Management - determine the",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Filmstrip Management - determine the behavior when going fro",
+              "full": "Filmstrip Management - determine the behavior when going from Deploy to Edit mod"
+            }
+          ]
+        },
+        {
+          "action": "RECONSTRUCT_BULLETS",
+          "startLine": 19,
+          "endLine": 22,
+          "stubCount": 4,
+          "matchedCount": 2,
+          "preview": [
+            {
+              "stub": "Auto-Capture Enabled: Auto-Capture on every enter.",
+              "full": "(no match)"
+            },
+            {
+              "stub": "Auto-Capture Disabled: No Auto-Capture",
+              "full": "Auto-Capture Disabled: No Auto-Capture"
+            },
+            {
+              "stub": "Auto-Capture Enabled: Auto-Capture on every enter",
+              "full": "(no match)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

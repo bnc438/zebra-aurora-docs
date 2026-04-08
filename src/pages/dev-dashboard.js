@@ -52,7 +52,7 @@ export default function DevDashboardPage() {
       <BrowserOnly fallback={<div style={{ padding: '2rem' }}>Loading dashboard…</div>}>
         {() => {
           // Dynamic import keeps the heavy DevDashboard component out of the SSR bundle
-          const DevDashboard = require('@site/src/components/DevDashboard').default;
+          const DevDashboard = require('@site/src/components/DevDashboard/index.jsx').default;
           return <DevDashboard />;
         }}
       </BrowserOnly>

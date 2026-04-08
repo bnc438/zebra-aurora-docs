@@ -1,6 +1,6 @@
 ---
 title: FTP File Saving
-description: ''
+description: Determine the IP address of the host computer where the FTP resides.
 slug: /connect/c-af-ug-ftp-file-saving-in-aurora
 sidebar_label: FTP File Saving
 product_name: aurora focus
@@ -19,75 +19,34 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-
-
-
-
-
-1. Download babyftp (free FTP solution):
+1. Download babyftp (free FTP solution) from [pablosoftwaresolutions.com/html/baby_ftp_server.html](https://www.pablosoftwaresolutions.com/html/baby_ftp_server.html). Babyftp does not have an option for credentialed access (SFTP).
 2. Navigate to Settings and define the home directory for files to be saved to.
 3. Use the following credentials:
-Download babyftp (free FTP solution):
-[pablosoftwaresolutions.com/html/baby_ftp_server.html](https://www.pablosoftwaresolutions.com/html/baby_ftp_server.html)
-.
-Navigate to Settings and define the home directory for files to be saved to.
-Babyftp does not have an option for credentialed access (SFTP).
-Use the following credentials:
-- Username = anonymous
-- Password = (blank)
-Username = anonymous
-Password = (blank)
+   - Username = anonymous
+   - Password = (blank)
 
 Determine the IP address of the host computer where the FTP resides.
 
-
-1. In Aurora Focus, navigate to the
-2. Select
-3. Click the
+1. In Aurora Focus, navigate to the **Connect** chevron, then **Save Image**.
+2. Select **FTP** under **Save Location**.
+3. Click the **Gear** icon.
 4. Enter the IP address of the host PC.
 5. Use the following credentials:
+   - Username = anonymous
+   - Password = (blank)
 6. To save to a specific subdirectory on the FTP server, enter the following format:
-In Aurora Focus, navigate to the
-Connect
-chevron, then
-Save Image
-.
-Select
-FTP
-under
-Save Location
-.
-Click the
-Gear
-Icon
-Enter the IP address of the host PC.
-Use the following credentials:
-- Username = anonymous
-- Password = (blank)
-Username = anonymous
-Password = (blank)
-To save to a specific subdirectory on the FTP server, enter the following format:
 
-```
+   `/xyz/ (this will write to the folder identified below)`
 
-```
+   `<FTP home directory>/xyz/`
 
-`/xyz/ (this will write to the folder identified below)`
+   `C:\Users\RMQ783\Desktop\babftp\xyz\`
 
-```
+7. Save.
 
-```
-
-`<FTP home directory>/xyz/`
-
-```
-
-```
-
-`C:\Users\RMQ783\Desktop\babftp\xyz\`
-
-Save.
+:::note
 Include a tilde (~) when providing the file path, for example, ~/myFilePath/
+:::
 
 Deploy a job to observe the Pass/Fail images in the expected folder.
-For example, failed images are saved in the following directory after a Failed job run: Desktop\babyftp\VS407a8e\result\asf\fail. Each job run generates a .jpg and a JSON file.
+For example, failed images are saved in the following directory after a Failed job run: Desktop\babyftp\VS407a8e\result\asf\fail. Each job run generates a .jpg and a JSON file.

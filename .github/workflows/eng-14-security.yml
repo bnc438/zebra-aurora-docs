@@ -1,0 +1,73 @@
+name: ENG-14 Security Audit
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  schedule:
+    # Daily at 6 AM UTC
+    - cron: '0 6 * * *'
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    name: Detect High/Critical Vulnerabilities
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        id: audit
+        run: |
+          npm audit --json > audit-report.json 2>&1 || true
+          
+          # Extract vulnerability counts
+          HIGH_VULNS=$(jq '.metadata.vulnerabilities.high // 0' audit-report.json)
+          CRITICAL_VULNS=$(jq '.metadata.vulnerabilities.critical // 0' audit-report.json)
+          
+          echo "high_vulns=$HIGH_VULNS" >> $GITHUB_OUTPUT
+          echo "critical_vulns=$CRITICAL_VULNS" >> $GITHUB_OUTPUT
+          
+          echo "Vulnerability Report:"
+          echo "  High: $HIGH_VULNS"
+          echo "  Critical: $CRITICAL_VULNS"
+
+      - name: Fail on critical vulnerabilities
+        run: |
+          HIGH=${{ steps.audit.outputs.high_vulns }}
+          CRITICAL=${{ steps.audit.outputs.critical_vulns }}
+          
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "ERROR: $CRITICAL critical vulnerabilities found"
+            exit 1
+          fi
+          
+          if [ "$HIGH" -gt 0 ]; then
+            echo "WARNING: $HIGH high-severity vulnerabilities found"
+            echo "Review with: npm audit"
+            # Note: For now, warnings don't fail the check
+            exit 1
+          fi
+          
+          echo "✓ Security audit passed (zero critical vulnerabilities)"
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: audit-report.json
+          retention-days: 30
+
+    timeout-minutes: 30

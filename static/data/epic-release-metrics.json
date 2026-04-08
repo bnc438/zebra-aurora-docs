@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-03-27T05:19:10.362Z",
+  "skipped": true,
+  "epicKey": "PROJ-1234",
+  "releaseFixVersion": null,
+  "reason": "No Jira site config found. Set JIRA_SITES_JSON (recommended) or single-site fallback env vars.",
+  "placeholder": {
+    "EPIC_KEY": "PROJ-1234",
+    "RELEASE_FIX_VERSION": null,
+    "JIRA_SITES_JSON": "[{\"siteId\":\"zebra-cloud\",\"baseUrl\":\"https://example.atlassian.net\",\"emailEnv\":\"JIRA_ZEBRA_EMAIL\",\"tokenEnv\":\"JIRA_ZEBRA_TOKEN\",\"projectKeys\":[\"DOC\"],\"supportProjectKeys\":[\"SUP\"],\"epicKey\":\"PROJ-1234\",\"boardFilterJql\":\"project = DOC AND component = Core\",\"rapidView\":\"1234\"}]",
+    "JIRA_BOARD_FILTER_JQL": "project = DOC AND component = Core",
+    "JIRA_RAPID_VIEW_ID": "1234"
+  },
+  "sites": []
+}

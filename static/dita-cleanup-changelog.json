@@ -1,0 +1,3992 @@
+{
+  "generatedAt": "2026-04-03T01:26:31.091Z",
+  "dryRun": false,
+  "totalFiles": 194,
+  "filesModified": 193,
+  "totalChanges": 641,
+  "changesByType": {
+    "NORMALIZE_WHITESPACE": 192,
+    "REMOVE_DUPLICATE": 448,
+    "WRAP_NOTE": 1
+  },
+  "files": [
+    {
+      "path": "docs/user-guide/about-this-guide/c-aurora-about-this-guide.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/about-this-guide/c-Service-Information.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Serial number of the unit"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Model number or product name"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Software/firmware type and version number"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/about-this-guide/r-icon-conventions.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/about-this-guide/r-notational-conventions.mdx",
+      "changeCount": 12,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Dialog box, window, and screen names"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 16,
+          "text": "Dropdown list and list box names"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Checkbox and radio button names"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Icons on a screen"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Key names on a keypad"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Button names on a screen"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Bullets (•) indicate:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "Action items"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "List of alternatives"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Lists of required steps that are not necessarily sequential"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "Sequential lists (for example, those that describe step-by-step procedures) appe"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-overview/t-fs10-xs20-Zebra-Aurora-Software-Overview.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-overview/Zebra-Aurora-Features.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "QuickDraw – enables the user to draw right on an image to create a tool with min"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "Object Locate and Pattern Matching – Zebra’s algorithms and intuitively crafted "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Golden Image Compare – allows users to efficiently identify and resolve issues b"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Image Perfect - captures up to 16 different images, each with unique settings fo"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Deep Learning Optical Character Recognition (OCR) - uses Deep Learning tools to "
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-aurora-viewing-result-history.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-fs10-xs20-live-monitoring-web-hmi.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-viewing-the-activity-log.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-viewing-the-job-list.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-web-hmi-dashboard.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/c-af-ug-web-hmi-top-menu.mdx",
+      "changeCount": 11,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Device Status Icon - describes the state of the device:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Blue - indicates the device is managed and available in Zebra Aurora Focus."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Red - indicates a job is actively being edited or deployed in Zebra Aurora Focus"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Green - indicates the device is online and running."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "Hostname (FS4072E7) – displays the hostname of the camera."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 23,
+          "text": "Timestamp - displays the current date and time."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Profile Icon (Operator) - displays the current user role. Click the icon and pro"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "Gear Icon (Settings Menu) – provides access to updating the device firmware, sel"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "Notification Icon - displays the current number of unread notifications."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Localization - displays the current language of the UI."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-firmware-update-user-guide.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Web browser (Google Chrome, Mozilla Firefox, or equivalent)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Firmware file on the local PC"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-firmware-update.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-performing-a-factory-reset.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs-vs-usb-a-to-usb-c-hardware-setup.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Windows 10 or higher PC with USB-A or USB-C port"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "USB-A to USB-C cable, Zebra P/N: CBL-USB0200-USA00 or"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "USB-C to USB-C cable, Zebra P/N: CBL-USB0200-USC00"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/aurora-focus-web-hmi/t-af-ug-fs10-xs20-accessing-web-hmi.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-advanced-filtering-and-formatting.mdx",
+      "changeCount": 7,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "Non-standard, customer-specific check digit calculations"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Location based Pattern Match requirements based on barcode positional dependenci"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Interjection of time delays between transmitted barcode data"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Non-ASCII values"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 61,
+          "text": "Select a type of"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 71,
+          "text": "Edit the action by clicking"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-bqm-best-practices.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Consistent lighting with high contrast, little to no gradient, and clear focus i"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Consider using a polarized light filter accessory to eliminate glare. A clean an"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 16,
+          "text": "Position the barcode close to the center of the Field of View (FOV) to minimize "
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-bqm.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-build.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-custom-formatting.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Select a symbology from the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Depending on the symbology, click"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/c-af-ug-lime-deploy-mode.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-available-get-set-commands.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-command-channels.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-get-match-string-commands.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-set-match-string-commands.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 57,
+          "text": "unknown - either previous mode from job is used or string_contains, if it was no"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 58,
+          "text": "disabled - every match string is accepted, regardless of set value;"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 59,
+          "text": "string_contains - result must contain given match string in any place;"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 60,
+          "text": "string_exact - result must exactly match the given match string;"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 61,
+          "text": "regex - result acceptance follows the given regex rule."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-fixturing-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-match-string.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Deep Learning OCR"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "Read Barcode"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-set-and-get-match-strings.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 16,
+          "text": "Disabled (Default) - no match string is used, and every string is accepted."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Exact string - the result must match the exact string provided."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "String Contains - the result must contain the given string."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Regex - result acceptance follows the given regex rule."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-ssi-mode.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "Supported Trigger Sources: Auto/Self"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Supported Trigger Modes: Presentation, Continuous, and Periodic Single Shot"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-using-undo-redo.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/build/t-af-ug-zebra-automation-wedge-solutions.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-capture.mdx",
+      "changeCount": 21,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "By entering parameters in the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "By drawing a region directly in the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 37,
+          "text": "The AROI must be defined before switching to other tabs."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 38,
+          "text": "After adding a tool in the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 41,
+          "text": "The Long exposure option becomes unavailable."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 55,
+          "text": "Sensor resolution"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 56,
+          "text": "Offset step"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 57,
+          "text": "Resolution step"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 58,
+          "text": "Minimal resolution"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 170,
+          "text": "Minimum: 1"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 171,
+          "text": "Default: 4"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 172,
+          "text": "Maximum: 10"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 178,
+          "text": "Top: enable this setting to use the top illuminator on the device."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 179,
+          "text": "Bottom: enable this setting to use the bottom illuminator on the device."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 180,
+          "text": "Right: enable this setting to use the suitable illuminator on the device."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 181,
+          "text": "Left: enable this setting to use the left illuminator on the device."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 193,
+          "text": "Minimum: 1"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 194,
+          "text": "Default: 8"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 195,
+          "text": "Maximum: 10"
+        },
+        {
+          "action": "WRAP_NOTE",
+          "text": "When editing, remember:"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-trigger-settings.mdx",
+      "changeCount": 8,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Single Shot - initiates a single image capture. Single Shot helps inspect an ima"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Level Continuous - initiates an image capture on a level trigger for objects in "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Series (Burst Mode) - initiates a series of image captures. Bust mode is helpful"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 16,
+          "text": "Periodic Single Shot - initiates a single image capture after a user-defined per"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Continuous - initiates a series of captures rapidly. Continuous is helpful for b"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Presentation Mode - illuminates the scan window when the sensor detects motion. "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Presentation (Aggregate Mode) - triggered the same way as Presentation Mode and "
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-triggered-buffering.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-using-imageperfect-plus.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/c-af-ug-using-the-filmstrip.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/g-af-ug-plc-trigger-modes.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/r-af-ug-configuring-autotune-barcodes.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "Read one of the autofocus barcodes to start the focus-tuning process based on th"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "During this delay, bring the desired test barcode into the field of view for the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "After the delay, the autofocus process starts and continues for 5-15 seconds."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Listen for the confirmation beeper sequence indicating the focus calibration pro"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/t-af-ug-saving-imageperfect-images.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/capture/t-af-ug-using-golden-image-compare.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/configuring-jobs/c-aurora-jobs.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/configuring-jobs/t-aurora-focus-using-commands-to-manage-job-slots.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/configuring-jobs/t-aurora-job-slot-management.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-aurora-output-formatting.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Navigate to the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "Slide the toggle to the right to enable"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "Click the specified tool under"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 39,
+          "text": "Click the specified"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-connect.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-ftp-file-saving-in-aurora.mdx",
+      "changeCount": 12,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Download babyftp (free FTP solution):"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Navigate to Settings and define the home directory for files to be saved to."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Use the following credentials:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Username = anonymous"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Password = (blank)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "In Aurora Focus, navigate to the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 42,
+          "text": "Enter the IP address of the host PC."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 43,
+          "text": "Use the following credentials:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 46,
+          "text": "Username = anonymous"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 47,
+          "text": "Password = (blank)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 48,
+          "text": "To save to a specific subdirectory on the FTP server, enter the following format"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/c-af-ug-ftp-folder-structure.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Host Name (as configured in"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Pass or Fail (based on Good Read and No Read events)"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-js-accessing-the-script-editor.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-js-using-the-js-editor.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "Open an existing file with JavaScript code and save JavaScript to an external fi"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "Use templates and snippets to quickly develop new JavaScript code that is specif"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "Adjust editor font size from the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-applying-a-simplified-ftp-folder-structure.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-byte-swapping.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-focus-saving-good-reads.mdx",
+      "changeCount": 10,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "Job Name - add the name of the current job."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 32,
+          "text": "Image Bank Number - include the image bank number the job is in."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 33,
+          "text": "Index - include the position of the job in the index."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 34,
+          "text": "Image Time - include a timestamp of when the image was taken."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 35,
+          "text": "Trigger Time - include a timestamp of when the image was triggered."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 36,
+          "text": "Trigger Image Index - include the position of the triggered image in the index."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 37,
+          "text": "Trigger ID - include the ID of the trigger."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 38,
+          "text": "Barcode Read Count - include the number of barcode reads."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 39,
+          "text": "Custom String - include a custom string (include the string when selecting this "
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-ftp-naming.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Parameter File Name Prefix as configured in the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "bank_0 that identifies the first image acquired by ImagePerfect+"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 16,
+          "text": "The image timestamp with time representation up to microseconds."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-image-saving.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-saving-a-series-of-images-in-burst-mode.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connect/t-af-ug-sftp-ftp-settings-and-best-practices.mdx",
+      "changeCount": 8,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "SFTP/FTP username:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 16,
+          "text": "Only upper and lower case letters, numbers, and underscores are permitted in the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Linux filenames:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Avoid the following characters:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "FTP filenames:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Avoid the following characters in the FTP path:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": ": * ? | < > \" &"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/c-af-ug-compatable-plc-devices.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/c-af-ug-failure-timeout.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Navigate to the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Use the bottom left"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/c-gs20-asynchronic-passthrough.mdx",
+      "changeCount": 7,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "High-speed scan tunnels."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Humans present barcodes for scanning in a sorting facility."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "TCPIP (Followers)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Industrial Communication"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 36,
+          "text": "Enable simple passthrough to send result data without changes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 37,
+          "text": "Enable advanced passthrough to change or add input text before the output."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/c-gs20-connectivity-gateway-solutions.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Fixed Scanning and Gateway devices enable USB HID mode as output. However, GS20 "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "Fixed Scanning and Gateway devices support up to 9 total GPIO. GS20 devices have"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "It is recommended that no more than four followers be implemented in a given Con"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/c-gs20-synchronized-leader-follower.mdx",
+      "changeCount": 12,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Multi-sided reading of parcels."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Multi-point reading of barcodes on a tire rim (overhead view only)."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "GPIO Trigger"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "From Follower:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 35,
+          "text": "Industrial Communication"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 38,
+          "text": "To Follower:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 41,
+          "text": "To Machine/PLC:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 44,
+          "text": "Total Result String"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 45,
+          "text": "Total Pass/Fail GPIO"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 53,
+          "text": "Enable synchronous triggers from leader to follower devices."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 54,
+          "text": "Recieve results from follower devices and apply pass/fail criteria."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 55,
+          "text": "Send result data to the host, GPIO, or PLC."
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-administrator-settings.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-attributes.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-alarms.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Enable an alarm for"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "Follower Heartbeat: enables a heartbeat (timeout interval) for follower devices."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Host Heartbeat: enables a heartbeat (timeout interval) for the host device."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "Read Rate: enables a notification on the Home screen if the read rate drops belo"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "Trigger Overrun: enables a notification on the Home screen when triggering occur"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-follower-devices.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-gpio.mdx",
+      "changeCount": 2,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Select the GPIO pin from dropdown and configure the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-configuring-the-database.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-mirroring.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 7,
+          "text": "Enabled GPIO Mirroring: the output signal goes high whenever the input pin that "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Disabled GPIO Mirroring: the output signal goes high for its predefined pulse wi"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Enabling Opposite pins: input 0 mirrors Out0, and Input1 is mirrored to Out1 by "
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-pass-fail.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-gpio-triggering.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Trigger Pulse: specifies the pulse width for the signal that triggers the follow"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Pass/Fail Pulse: specifies the pulse width for the pass/fail result signal."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-modbus-configuration.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-plc-configuration.mdx",
+      "changeCount": 2,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "On the Create PLC screen, select the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-run-mode.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "Level Mode - determines how a level starts and stops. The default setting is"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 38,
+          "text": "Grace Period - the amount of time to wait after a level stop signal is received "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 39,
+          "text": "Stop Mode - determines how the level session stops. The default setting is"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 46,
+          "text": "Output Mode - determines how barcodes are output over all configurable host inte"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 53,
+          "text": "Output Delimiter - determine the delimiting characters separating the barcode ou"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-sending-results-to-a-plc-device.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-serial-triggering.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-setting-up-a-network.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-setting-up-follower-devices.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "If you are in triggered mode and intend to update the port that the device is mo"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "To configure the IP and Port address of the host, enter the required IP address "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "To set up the TCP port to act as a Server, select this option from the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-split-codes.mdx",
+      "changeCount": 13,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 36,
+          "text": "Prefix: None"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 40,
+          "text": "Many Code String"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 41,
+          "text": "Custom String \"~~$$~~\""
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 42,
+          "text": "Suffix: None"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 47,
+          "text": "Data Type: None"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 49,
+          "text": "ManyCode String: None"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 58,
+          "text": "Prefix: None"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 65,
+          "text": "Custom String \",\""
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 66,
+          "text": "Full String: Base 64"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 67,
+          "text": "Custom String: \"~~##~~\""
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 68,
+          "text": "Suffix: None"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 72,
+          "text": "Data Type: None"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-string-filtering.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-tcp-ip-triggering.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-using-the-fs80-as-a-leader-module.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-af-ug-zeti-with-followers.mdx",
+      "changeCount": 2,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Select a follower from the drop-down menu and enter a command."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-gateway-solutions/t-gs20-leader-follower-licensing.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-adding-a-keystring-delay.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-changing-the-hostname.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Locate the hostname field."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Enter the desired hostname:"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-com-port-usage.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-configuring-a-job-on-the-device-to-accept-serial-triggers.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Create or open a job on the device using Zebra Aurora Focus."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "On the Job tab, click the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Complete the job configuration and click"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-configuring-jobs-to-accept-tcp-ip-triggers.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "Create or open a job on the device."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Within the job tab, click the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-connectivity-guidelines.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-hid-keyboard.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-rs-232-output-.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Select the respective communication type tab. For example, Ethernet Port 1 or US"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Scroll down to RS-232 settings."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-enabling-tcp-ip-output-in-device-settings.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Select the representative communication type tab. For example, Ethernet Port 1."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Scroll to TCPIP Settings."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Check the Enable TCP/IP Control checkbox (disabled by default)."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-listening-to-rs-232-output-events.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Open an RS-232 client terminal software such as PuTTy."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Establish a connection to the device by clicking"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "If the connection is successful, observe the terminal window with a green cursor"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Trigger the job and observe the results in the terminal window to confirm that t"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-plc-protocol.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-rs-232-results.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Select the associated communication type tab."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Ensure that the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-sending-a-serial-trigger-to-the-device.mdx",
+      "changeCount": 8,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Open a Serial client terminal software such as PuTTy."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Establish a connection to the device by clicking"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Name: COM port number as defined in Device Manager."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "Speed, Baud, and Parity as defined in Device Settings using Zebra Aurora Focus."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "Stop Bits: 1"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Handshake/Mode: Off"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "If a connection is successfully established, observe the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-a-static-ip-address.mdx",
+      "changeCount": 10,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Change the network-related settings based on your network configuration. For exa"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Open a command prompt."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Type the command: ipconfig"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 23,
+          "text": "All TCP/IP network configuration values display on the host PC."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Identify a valid network interface:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "In Aurora Focus, enter the following values:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "IP Address: 192.168.4.xxx (where xxx is any value from 1-255)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Subnet Mask: 255.255.252.0"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "Default Gateway: 192.168.4.1"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-up-rs-232-triggering-.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-setting-up-tcp-ip-triggering.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-tcp-ip-communication.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/c-af-ug-usb-settings.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/g-af-ug-network-communication.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/t-af-ug-listening-for-usb-cdc-output-events.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/t-af-ug-listening-over-usb-cdc-serial-connection.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "After enabling USB CDC-Serial Results, navigate to Device Manager to identify th"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Follow the instructions outlined in the RS-232 sections using the COM port in De"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/t-af-ug-setting-up-cdc-serial-output-in-device-settings.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Select the associated communication type tab."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Ensure that the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/connectivity-guidelines/t-af-ug-setting-up-rs-232-hardware.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Power/GPIO Flying Leads cable"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "USB to Serial Adaptor"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "DB9 RS-232 D-SUB Serial Adaptor"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/c-aurora-setting-up-an-emulator.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/t-aurora-updating-firmware-on-multiple-devices.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Specify the host, username, password, file path, and if the server is running in"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Select a firmware file from the File Explorer to use the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/t-fs10-xs20-Device-Discovery.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-discovery/t-fs10-xs20-Setting-an-IP-Address.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-mgmt-network-setup/c-aurora-multi-device-management.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-mgmt-network-setup/c-aurora-viewing-devices.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/device-mgmt-network-setup/t-fs10-xs20-Network-Setup.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 7,
+          "text": "Connect the device directly to a PC using a USB cable. Using this method does no"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Use an M12-ETH cable to connect the device (M12) to a switch or router (ETH) on "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "Contact the IT department to allow network traffic."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 16,
+          "text": "Create a proxy server to allow traffic to the license server."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Move the PC to a home network and attempt to connect again with a less restricti"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-advanced.mdx",
+      "changeCount": 7,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Fast – This strategy is designed to be fast but may not find a barcode if it is "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Moderate - This strategy is helpful for most use cases with a moderate increase "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Exhaustive – This strategy does an exhaustive search to identify hard to find ba"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Uniform—uses a splatter pattern to analyze the whole image uniformly. This is he"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "Quiet Zone - specialized to find 2D barcodes fast and helpful when over 8 pixels"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 32,
+          "text": "Finder Pattern - uses a contrast map that finds patterns with little or no noise"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-image-banks.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-manycode.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Alphabetical"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "First Decoded"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 32,
+          "text": "Top to Bottom"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 33,
+          "text": "Left to Right"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-settings.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "Regular - reads dark foreground/light background barcodes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Inverse Only - reads light foreground/dark background codes only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "Inverse Autodetect - reads both barcode types defined above."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 34,
+          "text": "For 1D barcodes, this applies only to the horizontal (X) dimension."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 35,
+          "text": "For 2D barcodes, this applies to horizontal and vertical (X & Y) dimensions."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-symbologies.mdx",
+      "changeCount": 97,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Trioptic - Trioptic Code 39 is a variant of Code 39 used in the marking of compu"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Full ASCII Conversion - Code 39 Full ASCII is a variant of Code 39 that pairs ch"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Set lengths for Code 39 to any length, one or two discrete lengths, or lengths w"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 23,
+          "text": "Check Digit Verification - enable to check the integrity of all Code 39 symbols "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "Convert to Code 32 - Code 32 is a variant of Code 39 used by the Italian pharmac"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 37,
+          "text": "Enable GS1128"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 38,
+          "text": "ISBT 128 - ISBT 128 is a variant of Code 128 used in the blood bank industry."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 40,
+          "text": "Set lengths for Code 128 to any length, one or two discrete lengths, or lengths "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 42,
+          "text": "ISBT Concatenation Redundancy - if ISBT Concatenation is set to Autodiscriminate"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 43,
+          "text": "Emulate UCC128"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 44,
+          "text": "Select ISBT Concatenation - select an option for concatenating pairs of ISBT cod"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 48,
+          "text": "Disable ISBT Concatenation - the device does not concatenate pairs of ISBT codes"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 49,
+          "text": "Enable ISBT Concatenation - there must be two ISBT codes in order for the device"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 50,
+          "text": "Autodiscriminate ISBT Concatenation - the digital scanner decodes and concatenat"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 51,
+          "text": "Ignore Code128 FNC4 - enable to strip the Code 128 (FNC4) character from the dec"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 60,
+          "text": "Set lengths for I 2 of 5 to any length, one or two discrete lengths, or lengths "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 62,
+          "text": "Check Digit Verification - check the integrity of all I 2 of 5 symbols to verify"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 63,
+          "text": "Transmit Check Digit - scan the appropriate barcode to transmit I 2 of 5 data wi"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 64,
+          "text": "Convert Interleaved 2 of 5 Length to EAN13 - convert 14-character I 2 of 5 codes"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 66,
+          "text": "Febraban (Interleaved 2 of 5 Length) - Febraban is an I 2 of 5 barcode of length"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 73,
+          "text": "Decode Data Matrix Mirror Images - use one of the following barcodes to select a"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 77,
+          "text": "Regular Only - decodes regular images only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 78,
+          "text": "Mirrored Only - decodes mirrored images only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 79,
+          "text": "Both Regular and Mirrored - decodes both regular and mirrored images."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 80,
+          "text": "Inverse Data Matrix - sets the Data Matrix inverse decoder setting."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 84,
+          "text": "Regular Only - decodes regular Data Matrix barcodes only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 85,
+          "text": "Inverse Only - decodes inverse Data Matrix barcodes only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 86,
+          "text": "Both Regular and Inverse - decodes regular and inverse Data Matrix barcodes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 87,
+          "text": "Enable or Disable GS1 Datamatrix."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 92,
+          "text": "Enable MicroPDF."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 99,
+          "text": "Enable MicroQR (Enabled by Default)."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 100,
+          "text": "Enable GS1 QR."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 101,
+          "text": "Select Linked QR Mode - use one of the following barcodes to select a linked QR "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 105,
+          "text": "Linked QR Only - does not decode individual QRs from a set of linked QR codes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 106,
+          "text": "Individual QR With Headers - decodes individual QR codes from a set of linked QR"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 107,
+          "text": "Individual QR No Headers - decodes individual QRs from a set of linked QR codes "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 114,
+          "text": "Select UPC/EAN/JAN Supplementals."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 115,
+          "text": "2 Digital Supplemental."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 116,
+          "text": "5 Digital Supplemental."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 122,
+          "text": "Enable UPC-A - preamble characters are part of the UPC symbol, and include Count"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 123,
+          "text": "Select UPC-A Preamble - select the appropriate option to transmit a UPC-E preamb"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 124,
+          "text": "Transmit UPC-A Check Digit - transmits data with or without the UPC-A check digi"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 131,
+          "text": "Enable UPC-E - preamble characters are part of the UPC symbol, and include Count"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 132,
+          "text": "Select UPC-E Preamble - select the appropriate option for transmitting a UPC-E p"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 133,
+          "text": "Transmit UPC-E Check Digit - transmits data with or without the UPC-E check digi"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 134,
+          "text": "Convert UPC-E to UPC-A - converts UPC-E (zero suppressed) decoded data to UPC-A "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 141,
+          "text": "Enable UPC-E1."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 142,
+          "text": "Select UPC-E1 Preamble - the preamble parameter that transmits the system charac"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 143,
+          "text": "Transmit UPC-E1 Check Digit - transmits the data with the UPC-E1 check digit."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 144,
+          "text": "Convert UPC-E1 Check Digit to UPC-A - converts UPC-E1 (zero suppressed) decoded "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 148,
+          "text": "Enable EAN-13/JAN13"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 153,
+          "text": "Enable or Disable EAN-8/JAN8"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 154,
+          "text": "Enable EAN-8/JAN8 Extend"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 159,
+          "text": "Select Code 93 Length - the length of a code refers to the number of characters "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 167,
+          "text": "Select DotCode Inverse - scan one of the following barcodes to select a DotCode "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 171,
+          "text": "Regular Only - decodes DotCode barcodes with normal reflectance only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 172,
+          "text": "Inverse Only - decodes DotCode barcodes with inverse reflectance only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 173,
+          "text": "Both Regular and Inverse - decodes both regular and inverse DotCode barcodes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 174,
+          "text": "Select DotCode Mirror - use one of the following barcodes to select a DotCode Mi"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 178,
+          "text": "Never - decodes non-mirrored DotCode barcodes only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 179,
+          "text": "Always - decodes mirrored DotCode barcodes only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 180,
+          "text": "Auto - decodes both mirrored and non-mirrored DotCode barcodes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 181,
+          "text": "Determine DotCode ECC Erasure - set the maximum number of erasures in DotCode co"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 192,
+          "text": "Select Inverse Aztec - set the Aztec inverse decoder setting, options include:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 196,
+          "text": "Regular Only - decodes regular Aztec barcodes only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 197,
+          "text": "Inverse Only - decodes inverse Aztec barcodes only."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 198,
+          "text": "Both Regular and Inverse - decodes both regular and inverse Aztec barcodes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 207,
+          "text": "Select MSI Length - the length of a code refers to the number of characters (for"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 209,
+          "text": "MSI Check Digits - when using MSI symbols, one check digit is mandatory and alwa"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 210,
+          "text": "Transmit Check Digit - transmit MSI data with or without the check digit."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 211,
+          "text": "Select MSI Check Algorithm: two algorithms are available for verifying the secon"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 212,
+          "text": "MSI Reduced Quiet Zone - enable or disable decoding MSI barcodes with reduced qu"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 223,
+          "text": "Select Codabar Length - the length of a code refers to the number of characters "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 225,
+          "text": "CLSI Editing - enable to strip the start and stop characters and insert a space "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 227,
+          "text": "NOTIS Editing - enable this parameter to strip the start and stop characters fro"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 228,
+          "text": "Upper or Lower Case Start/Stop Characters - select whether to detect upper case "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 229,
+          "text": "Select Security Level - the device offers four levels of decode security for del"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 231,
+          "text": "Mod 16 Check Digit Verification - check the Codabar Mod 16 check digit to verify"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 232,
+          "text": "Transmit Codabar Check Digit - select whether or not to transmit the Codabar che"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 243,
+          "text": "Range (4-55)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 251,
+          "text": "Omnidirectional"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 254,
+          "text": "Transmit Codabar Check Digit - select whether or not to transmit the Codabar che"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 260,
+          "text": "Convert GS1 Databar to UPC/EAN/JAN"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 261,
+          "text": "Limited Margin Check"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 266,
+          "text": "Level 1 - this setting does not require a clear margin and complies with the ori"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 267,
+          "text": "Level 2 - this setting automatically detects risks. This level of margin check c"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 268,
+          "text": "Level 3 - this setting reflects the newly proposed GS1 standard and requires a f"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 269,
+          "text": "Level 4 - this setting extends beyond the standard GS1 requirement."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 270,
+          "text": "Security Level"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 275,
+          "text": "Level 0 - the scanner operates in its most aggressive state while providing suff"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 276,
+          "text": "Level 1 - this setting eliminates most misdecodes."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 277,
+          "text": "Level 2 - this setting applies greater barcode security requirements if Security"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 278,
+          "text": "Level 3 - this setting applies the highest security requirements."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 286,
+          "text": "Bar Count (3-16)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 287,
+          "text": "Orientation"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 290,
+          "text": "Horizontal"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-using-bqm-for-fixed-scanning-jobs.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-using-fis-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/c-af-ug-using-the-job-toolstrip.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/t-af-ug-deploying-fs-jobs.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/t-af-ug-focus-using-pharmacode.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "3-16 (Default)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Orientation"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Horizontal (Default)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "Normal (Default)"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/fixed-industrial-tools/t-af-ug-pharmacode-best-practices.mdx",
+      "changeCount": 19,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Disable other Barcode Symbolgies"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Pharmacode can easily be misinterpreted if multiple barcode symbologies are enab"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "Minimize Background in the Scan Area"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Avoid capturing unnecessary background elements, as random patterns, text, or li"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Ensure high contrast between the barcode and its background for better recogniti"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Keep the Barcode Area Clear of Text and Graphics"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "Nearby text, lines, or graphical elements may be misinterpreted as part of the b"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 23,
+          "text": "Maintain a quiet zone around the barcode to enhance scanning accuracy."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Implement Verification Algorithms"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "Use software validation checks to ensure that the scanned value matches expected"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Avoid Excessive Light and Reflections"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Glossy or reflective surfaces (for example, laminated packaging) can cause disto"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "Adjust the angle of illumination to reduce glare and improve readability."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 32,
+          "text": "Ensure Proper Printing Quality"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 35,
+          "text": "Poorly printed Pharmacodes with smudges, inconsistent bar widths, or faded ink c"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 36,
+          "text": "Print Pharmacodes using high-precision techniques and verify compliance with Lae"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 37,
+          "text": "Optimize Scan Resolution"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 39,
+          "text": "Avoid blurry or low-quality images, as they can cause false positives or incorre"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/getting-started/c-aurora-installation.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/getting-started/c-aurora-localization.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/getting-started/c-aurora-minimum-pc-requirements.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/getting-started/t-aurora-additional-help-and-resources.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 14,
+          "text": "User Guides"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 15,
+          "text": "How-to Videos"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Support Central"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Licensing Information"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "About the Application"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/getting-started/t-aurora-focus-getting-started.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-binarize.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 10,
+          "text": "Pixel values in the range (MinValue, MaxValue) are transformed to the maximum le"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Other pixel values are transformed to the minimum level."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-blob-count.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-blob-presence-absence.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-brightness.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-circle-diameter.mdx",
+      "changeCount": 6,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Best Score"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Largest Circle"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "Smallest Circle"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 32,
+          "text": "Dark to Light"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 33,
+          "text": "Light to Dark"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-close.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-common-mv-tool-settings.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-contrast.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-counting-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-datacode.mdx",
+      "changeCount": 14,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 41,
+          "text": "Disabled - no match string."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 42,
+          "text": "Exact String - string must match the exact string provided."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 43,
+          "text": "String Contains - code must contain the match string."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 44,
+          "text": "RegEx - enable to input complex match string conditions."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 65,
+          "text": "Super Fast"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 79,
+          "text": "Super Fast"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 91,
+          "text": "Finder Pattern"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 92,
+          "text": "Finder Edges"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 100,
+          "text": "Extra Sensitive"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 104,
+          "text": "Extra Robust"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 119,
+          "text": "Auto (slower)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 185,
+          "text": "Discrete - select a specific number as the barcode length."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 186,
+          "text": "Range - select a range of numbers as the barcode length."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-deploying-vs-jobs.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-dilate.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-distance.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Left - measures from left or top of an edge."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "Middle - measures from the middle of an edge"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 23,
+          "text": "Right - measures from right/bottom of an edge"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "Perpendicular/Bottom - creates a measuring line perpendicular to this edge, exte"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-edge-count.mdx",
+      "changeCount": 5,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Left to Right"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Right to Left"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "Top to Bottom"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "Bottom to Top"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-edge-detect.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-edges.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-erode.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-filter-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-flaw-detection.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Edges - comparison based on objects' edges. This method is helpful when defects "
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Intensity - comparison based on pixel intensity. Using this method, two images a"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-general-locate-object-count-settings.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-gradient-full.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-gradient-vertical.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-identification-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-intensity.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-locate-blob.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-locate-circle.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-locate-edge.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-locate-object-plus.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-locate-object.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 11,
+          "text": "Increase edge contrast to keep only the most important edges (reduce noisy edges"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Reduce scale (if possible)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Reduce rotation (if possible)"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-locate-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-measurement-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-neasure-object-width.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-object-pa.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-object-plus-pa.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-open.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-pixel-count.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-presence-absense-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-read-barcode.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-read-dpm-barcode.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-read-dpm.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-using-bqm-for-identification-tools.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 12,
+          "text": "Navigate to the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 23,
+          "text": "Scroll to observe various BQM-related statistics that you can send to your outpu"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-using-image-types.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/c-af-ug-using-machine-vision-tools.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/g-af-ug-gradient-horizontal.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/t-af-ug-mint-using-anomaly-detection.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/machine-vision-tools/t-af-ug-using-accelerated-tools.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Enable acceleration by sliding the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "All accelerated tools are marked on the"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/regex/c-af-ug-regex-overview.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/regex/t-af-ug-focus-regex-examples.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 645,
+          "text": "“^” anchor at the start of the code."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 646,
+          "text": "“$” anchor at the end of the code."
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/troubleshooting/c-af-ug-troubleshooting.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/troubleshooting/t-af-ug-configuring-the-firewall.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/troubleshooting/t-af-ug-firmeware-troubleshooting.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/troubleshooting/t-af-ug-ftp-troubleshooting.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/troubleshooting/t-af-ug-testing-the-ftp-connection.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/c-aurora-parameter-barcodes.mdx",
+      "changeCount": 3,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 17,
+          "text": "Navigate to the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Configure the size of the barcode being exported. The options are Small, Medium,"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/c-aurora-ui-overview.mdx",
+      "changeCount": 7,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "Recent Activities"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 35,
+          "text": "Recent Activities"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 36,
+          "text": "Recent Jobs"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 37,
+          "text": "Recent Devices"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 47,
+          "text": "Model Name"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 49,
+          "text": "Last Accessed"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/g-aurora-app-settings.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/r-aurora-hid-keyboard-localization.mdx",
+      "changeCount": 16,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "English (North America)"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "French (France) Windows"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 21,
+          "text": "German Windows"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "Spanish (Spain) Windows"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 23,
+          "text": "Italian Windows"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 24,
+          "text": "English (UK) Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "German Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 26,
+          "text": "Czech Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 27,
+          "text": "Spanish (Mexico) Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "French (France) Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "Polish Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "Spanish (Spain) Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 31,
+          "text": "Italian Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 32,
+          "text": "Portuguese (Brazil) Linux"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 33,
+          "text": "Japanese Linux"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/t-aurora-general-application-settings.mdx",
+      "changeCount": 4,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 7,
+          "text": "Language - select a language for the UI text from the dropdown."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Toasts - enable toast notifications for the device and device status."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 9,
+          "text": "Cache - click"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/ui-overview/t-aurora-job-management-settings.mdx",
+      "changeCount": 15,
+      "changes": [
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 7,
+          "text": "Machine Vision Jobs - enable fixturing to the nearest or last selected fixture."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 8,
+          "text": "Image Capture Disk Management - determine the"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 13,
+          "text": "Filmstrip Management - determine the behavior when going from Deploy to Edit mod"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 18,
+          "text": "Capture New Image"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 19,
+          "text": "Use Last Filmstrip Image"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 20,
+          "text": "Use Last Triggered Image"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 22,
+          "text": "Sensor Cropping Management - determine the behavior when going from Deploy to Ed"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 25,
+          "text": "On Enter Sensor Settings tab:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 28,
+          "text": "Auto-Capture When No Image: Auto-Capture on enter if no matching image is found."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 29,
+          "text": "Auto-Capture Enabled: Auto-Capture on every enter."
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 30,
+          "text": "On Exit Sensor Settings tab:"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 34,
+          "text": "Auto-Capture Disabled: No Auto-Capture"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 35,
+          "text": "Auto-Capture Enabled: Auto-Capture on every enter"
+        },
+        {
+          "action": "REMOVE_DUPLICATE",
+          "line": 36,
+          "text": "Auto-Capture on Change: Auto-Capture on exit when the Acquisition Region of Inte"
+        },
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/zeti/c-aurora-using-zebra-easy-text-interface.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/zeti/c-aurora-zeti-commands.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    },
+    {
+      "path": "docs/user-guide/zeti/t-aurora-lime-enabling-telnet-connections.mdx",
+      "changeCount": 1,
+      "changes": [
+        {
+          "action": "NORMALIZE_WHITESPACE"
+        }
+      ]
+    }
+  ]
+}

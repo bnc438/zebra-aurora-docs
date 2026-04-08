@@ -1,7 +1,6 @@
 ---
 title: Listening for USB-CDC Output Events
-description: To set USB CDC-Serial Results as job output, enable USB CDC-Serial Output
-  in
+description: 'To set USB CDC-Serial Results as job output, enable USB CDC-Serial Output in Device Settings using the procedure below.'
 slug: /connectivity-guidelines/t-af-ug-listening-for-usb-cdc-output-events
 sidebar_label: Listening for USB-CDC Output Events
 product_name: aurora focus
@@ -20,5 +19,28 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
+To set USB CDC-Serial Results as job output, enable USB CDC-Serial Output in Device Settings using the procedure below.
 
+## Prerequisites
 
+- A Zebra smart camera (FS40, FS42, or NS42) connected via USB to the host PC.
+- Aurora Focus installed on the host PC.
+
+## Procedure
+
+1. In Aurora Focus, navigate to the **Communication** section in **Device Settings**.
+2. Select the associated communication type tab and scroll to **USB Settings**.
+3. Ensure that the **Enable USB CDC-Serial Results** checkbox is enabled.
+4. Click **Apply** within the USB Settings.
+5. Click **OK**.
+
+## Listening for Output Events
+
+After enabling CDC-Serial output, use one of the following methods to listen for output events:
+
+- **Device Manager** — Navigate to Device Manager on the host PC to identify the COM port associated with your USB CDC-Serial connection.
+- **Terminal application** — Use a terminal application such as PuTTY, Tera Term, or a similar serial terminal to connect to the identified COM port and listen for output data.
+
+:::note
+The process of listening over USB CDC-Serial connections is similar to the RS-232 setup. Refer to [Listening Over USB CDC-Serial Connection](./t-af-ug-listening-over-usb-cdc-serial-connection) for detailed instructions using the COM port from Device Manager.
+:::

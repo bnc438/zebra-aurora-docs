@@ -1,7 +1,6 @@
 ---
 title: Command Channels
-description: Match strings are set by channels that support controlling devices that
-  use commands such as TCP/IP or Serial Port.
+description: 'Configure command channels to control match string settings over TCP/IP using get and set commands.'
 slug: /build/t-af-ug-command-channels
 sidebar_label: Command Channels
 product_name: aurora focus
@@ -22,18 +21,12 @@ exclude_from_search: false
 ---
 
 
+:::note
+Ensure that **Enable TCP/IP Control** and **Enable TCP/IP Results** are enabled in **Communication** settings.
+:::
 
-Ensure that
-Enable TCP/IP Control
-and
-Enable TCP/IP Results
-are enabled in
-Communication
-settings.
+Enable **TCP/IP Results**. The command results must be read from the channel. Enabling this setting is recommended even in cases where the return value is unnecessary for the set command because it can return useful information about possible errors.
 
-
-
-Enabling
-TCP/IP Results
-The command results must be read from the channel. Enabling this setting is recommended even in cases where the return value is unnecessary for the set command because it can return useful information about possible errors.
+:::note
 You cannot get a match string value if this option is disabled.
+:::

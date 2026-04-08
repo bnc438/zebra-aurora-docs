@@ -1,0 +1,54 @@
+name: ENG-01 Production Build
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  schedule:
+    # Daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build & Verify Production Output
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run production build
+        run: npm run build
+        timeout-minutes: 30
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "build" ]; then
+            echo "ERROR: Build directory not created"
+            exit 1
+          fi
+          if [ ! -f "build/index.html" ]; then
+            echo "ERROR: index.html not generated"
+            exit 1
+          fi
+          echo "✓ Build successful and output verified"
+
+      - name: Check build size
+        run: |
+          BUILD_SIZE=$(du -sh build | cut -f1)
+          echo "Build size: $BUILD_SIZE"
+          if [ $(du -sk build | awk '{print $1}') -gt 500000 ]; then
+            echo "WARNING: Build size exceeds 500MB threshold"
+          fi
+
+    timeout-minutes: 45

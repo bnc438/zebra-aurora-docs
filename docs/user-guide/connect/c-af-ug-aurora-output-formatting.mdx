@@ -1,7 +1,6 @@
 ---
 title: Output Formatting
-description: "Use\_Output Formatting to customize data output from identification\
-  \ and Machine Vision Tools. Access Output Formatting using the"
+description: Use Output Formatting to customize data output from identification and Machine Vision Tools.
 slug: /connect/c-af-ug-aurora-output-formatting
 sidebar_label: Output Formatting
 product_name: aurora focus
@@ -20,60 +19,19 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
+Use Output Formatting to customize data output from identification and Machine Vision Tools. Access Output Formatting using the **Connect** tab to adjust delimiter settings for each tool or job.
 
+1. Navigate to the **Connect** tab and click **Output Formatting**.
+2. Slide the toggle to the right to enable **Output Formatting** and customize the output result format.
+3. Click the specified tool under **Tools** to add a **Results Field** or **Delimiter** to a **Prefix, Data,** or **Suffix** category.
+4. Click the specified **Job** to add a **Results Field** or **Delimiter** to a **Prefix, Data,** or **Suffix** category.
+5. Select a **Data Type Delimiter** from the dropdown menu.
+6. Click **Copy** to copy the **Message Sample** to clipboard.
 
-Use Output Formatting to customize data output from identification and Machine Vision Tools. Access Output Formatting using the
-Connect
-tab to adjust delimiter settings for each tool or job.
+Standard identification tools (Read Barcode, Read DPM, Read DPM & Barcode, and Datacode) will have their Decodes.formattedOutputValue output. If there is more than one standard identification tool, the additional tool's Decodes.formattedOutputValue will be appended to the existing result data. The output result will be in the order of the tools on the flowbuilder. For example, barcodeTool1barcodeTool2barcodeTool3
 
-
-1. Navigate to the
-2. Slide the toggle to the right to enable
-3. Click the specified tool under
-4. Click the specified
-5. Select a
-6. Click
-Navigate to the
-Connect
-tab and click
-Output Formatting
-.
-Standard identification tools (Read Barcode, Read DPM, Read DPM & Barcode, and Datacode) will have their Decodes.formattedOutputValue output. If there is more than one standard identification tool, the additional tool's Decodes.formattedOutputValue will be appended to the existing result data. The output result will be in the order of the tools on the flowbuilder. For example, barcodeTool1barcodeTool2barcodeTool3
 Machine Vision Tools will add the overall job Success field (Pass/Fail) to the result output. If a standard identification tool is in the job, the job Success field is added to the front of the output result with a comma separator between the job success and barcode data.
 
 For MV tools only: Pass
 
 For MV tools and standard identification tools: Pass,barcodeTool1barcodeTool2barcodeTool3
-Slide the toggle to the right to enable
-Output Formatting
-and customize the output result format.
-Click the specified tool under
-Tools
-to add a
-Results Field
-or
-Delimeter
-to a
-Prefix, Data,
-or
-Suffix
-category.
-Click the specified
-Job
-to add a
-Results Field
-or
-Delimeter
-to a
-Prefix, Data,
-or
-Suffix
-category.
-Select a
-Data Type Delimeter
-from the dropdown menu.
-Click
-Copy
-to copy the
-Message Sample
-to clipboard.

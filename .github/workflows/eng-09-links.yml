@@ -1,0 +1,71 @@
+name: ENG-09 Internal Links Validation
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  schedule:
+    # Daily at 4 AM UTC
+    - cron: '0 4 * * *'
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    name: Validate Internal Links (Zero 404s)
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+        timeout-minutes: 30
+
+      - name: Install link checker
+        run: npm install -g broken-link-checker
+
+      - name: Check internal links
+        run: |
+          blc http://localhost:3000 \
+            -ro \
+            --exclude-external \
+            --filter-level 3 \
+            --port 3000 &
+          
+          # Start simple HTTP server
+          cd build
+          npx http-server -p 3000 -c -1 &
+          SERVER_PID=$!
+          
+          # Wait for server
+          sleep 2
+          
+          # Run check
+          blc http://localhost:3000 \
+            -ro \
+            --exclude-external \
+            --recursive
+          
+          CHECK_EXIT=$?
+          kill $SERVER_PID 2>/dev/null || true
+          exit $CHECK_EXIT
+        timeout-minutes: 20
+
+      - name: Report broken links
+        if: failure()
+        run: |
+          echo "ERROR: Broken internal links detected"
+          echo "Run 'npm run build && blc http://localhost:3000 -ro --exclude-external' locally to debug"
+          exit 1
+
+    timeout-minutes: 45

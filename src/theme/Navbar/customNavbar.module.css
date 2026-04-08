@@ -1,0 +1,15 @@
+.languageDropdownWrapper {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+@media (max-width: 996px) {
+  .languageDropdownWrapper {
+    position: static;
+    transform: none;
+    margin: 8px 0 0 0;
+  }
+}

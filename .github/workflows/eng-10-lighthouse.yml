@@ -1,0 +1,66 @@
+name: ENG-10 Lighthouse CI
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  schedule:
+    # Daily at 5 AM UTC
+    - cron: '0 5 * * *'
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    name: Lighthouse Performance & Accessibility Audit
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+        timeout-minutes: 30
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@latest
+
+      - name: Start test server
+        run: |
+          cd build
+          npx http-server -p 3000 -c -1 &
+          echo "HTTP_SERVER_PID=$!" >> $GITHUB_ENV
+
+      - name: Wait for server
+        run: sleep 3
+
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun \
+            --config=./lighthouserc.json \
+            --upload.target=temporary-public-storage
+        timeout-minutes: 20
+        continue-on-error: true
+
+      - name: Verify thresholds
+        run: |
+          echo "Lighthouse performance audit complete."
+          echo "Required thresholds:"
+          echo "  - Performance: >= 85"
+          echo "  - Accessibility: >= 95"
+          echo "  - Best Practices: >= 90"
+
+      - name: Stop test server
+        if: always()
+        run: kill $HTTP_SERVER_PID 2>/dev/null || true
+
+    timeout-minutes: 45

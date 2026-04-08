@@ -1,0 +1,12 @@
+{
+  "pass": "PASS-04",
+  "name": "Broken Table Reconstruction",
+  "dryRun": false,
+  "timestamp": "2026-04-03T18:34:30.745Z",
+  "summary": {
+    "filesModified": 0,
+    "tablesReconstructed": 0,
+    "rowsRecovered": 0
+  },
+  "files": []
+}

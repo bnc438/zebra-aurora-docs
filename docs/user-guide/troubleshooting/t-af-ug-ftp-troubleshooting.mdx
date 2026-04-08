@@ -1,7 +1,6 @@
 ---
 title: FTP Troubleshooting
-description: If the FTP server is not saving images correctly, it could be a result
-  of an issue with the firewall, folder access or invalid permissions.
+description: 'Troubleshoot FTP server issues such as missing messages, write permission errors, and firewall settings.'
 slug: /troubleshooting/t-af-ug-ftp-troubleshooting
 sidebar_label: FTP Troubleshooting
 product_name: aurora focus
@@ -23,23 +22,12 @@ exclude_from_search: false
 
 ## Firewall Settings
 
-
-If the FTP server is not receiving messages, as in the image below, review the firewall settings.
-
+If the FTP server is not receiving messages, review the firewall settings. Ensure that the FTP port (default: 21) is open and that the firewall allows both inbound and outbound FTP traffic.
 
 ## Invalid Folder Attributes
 
-
-In cases where the FTP server application cannot write on the destination folder. Select the folder and use the
-**ALT+ENTER**
-command to open the properties window and verify that the
-**Read-only**
-checkbox is not enabled.
-
+In cases where the FTP server application cannot write on the destination folder, select the folder and use the **ALT+ENTER** command to open the properties window and verify that the **Read-only** checkbox is not enabled.
 
 ## Invalid Permissions
 
-
-The FTP server configuration prevents certain operations. If the log of the FTP server application shows a critical file transfer error.
-
-To create a directory and upload a file, activate all options as shown in the following figure:
+The FTP server configuration prevents certain operations. If the log of the FTP server application shows a critical file transfer error, ensure that the FTP user has permissions to create directories and upload files. Activate all file operation options (read, write, delete, append, create directory) in the FTP server configuration.
