@@ -383,6 +383,73 @@ export function parseDateField(value) {
 }
 
 // ---------------------------------------------------------------------------
+// UX Metrics: Microsoft Clarity section
+// ---------------------------------------------------------------------------
+const DAY_MS = 86_400_000; // milliseconds in one day (shared with freshness buckets below)
+/**
+ * Fetches UX metrics from the Microsoft Clarity Export API.
+ * Requires env vars: CLARITY_API_KEY, CLARITY_PROJECT_ID.
+ * Falls back to static mock seed data when env vars are absent or the API fails.
+ *
+ * @returns {Promise<object>} Clarity metrics object.
+ */
+async function buildClaritySection() {
+  const apiKey   = process.env.CLARITY_API_KEY;
+  const projectId = process.env.CLARITY_PROJECT_ID;
+
+  if (apiKey && projectId) {
+    try {
+      const endDate   = new Date().toISOString().slice(0, 10);
+      const startDate = new Date(Date.now() - 30 * DAY_MS).toISOString().slice(0, 10);
+      const url =
+        `https://www.clarity.ms/export/api/v1/${projectId}/metrics` +
+        `?startDate=${startDate}&endDate=${endDate}`;
+      const res = await fetch(url, { headers: { Authorization: `Bearer ${apiKey}` } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      return {
+        sessions:           data.totalSessions       ?? 0,
+        pageViews:          data.totalPageViews       ?? 0,
+        rageClicks:         data.totalRageClicks      ?? 0,
+        deadClicks:         data.totalDeadClicks      ?? 0,
+        avgScrollDepth:     data.averageScrollDepth   ?? 0,
+        avgSessionDuration: data.averageSessionDuration ?? 0,
+        pagesPerSession:    data.pagesPerSession ?? 0,
+        topPages:           Array.isArray(data.topPages) ? data.topPages : [],
+        hasMockData:        false,
+        fetchedAt:          new Date().toISOString(),
+        dateRange:          { startDate, endDate },
+      };
+    } catch (err) {
+      console.warn(`[build-report] Clarity API error: ${err.message} — using mock data`);
+    }
+  } else {
+    console.log('[build-report] CLARITY_API_KEY / CLARITY_PROJECT_ID not set — using mock Clarity data');
+  }
+
+  // Mock seed data — representative of a small technical-documentation site.
+  return {
+    sessions:           1240,
+    pageViews:          3870,
+    rageClicks:         47,
+    deadClicks:         83,
+    avgScrollDepth:     62,
+    avgSessionDuration: 184,
+    pagesPerSession:    3.1,
+    topPages: [
+      { url: '/docs/aurora-js-about-this-guide', views: 410 },
+      { url: '/docs/licensing',                  views: 287 },
+      { url: '/docs/aurora-js-getting-started',  views: 198 },
+      { url: '/docs/release-notes',              views: 162 },
+      { url: '/docs/aurora-js-barcode-reading',  views: 124 },
+    ],
+    hasMockData: true,
+    fetchedAt:   null,
+    dateRange:   null,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Main: process all docs
 // ---------------------------------------------------------------------------
 const files = walk(docsRoot);
@@ -515,7 +582,6 @@ for (const d of docs) {
 // ---------------------------------------------------------------------------
 // Date analytics (freshness buckets based on file mtime)
 // ---------------------------------------------------------------------------
-const DAY_MS = 86_400_000;
 const dateAnalytics = { fresh: 0, recent: 0, aging: 0, stale: 0 };
 for (const d of docs) {
   const ageMs = nowMs - new Date(d.lastModified).getTime();
@@ -536,6 +602,11 @@ for (const d of docs) {
   const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
   modifiedByMonth[key] = (modifiedByMonth[key] || 0) + 1;
 }
+
+// ---------------------------------------------------------------------------
+// Clarity (UX metrics)
+// ---------------------------------------------------------------------------
+const clarity = await buildClaritySection();
 
 // ---------------------------------------------------------------------------
 // Output
@@ -572,6 +643,7 @@ const report = {
     },
   },
   docs,
+  clarity,
 };
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -581,3 +653,4 @@ console.log(`[build-report] ${totalDocs} docs processed → ${outputPath}`);
 console.log(`[build-report] avg completeness: ${(avgCompleteness * 100).toFixed(0)}%`);
 console.log(`[build-report] guessed fields: ${totalGuessed} across ${docsWithGuesses} docs`);
 console.log(`[build-report] placeholder warnings: ${docsWithPlaceholders} docs`);
+console.log(`[build-report] clarity: ${clarity.hasMockData ? 'mock data' : `live (${clarity.sessions} sessions)`}`);
