@@ -1,6 +1,20 @@
 /**
  * src/components/DevDashboard/index.jsx
  * ============================================================================
+ * Developer Dashboard — visually impressive 11-panel build intelligence suite.
+ *
+ * Panels:
+ *   1.  Build Overview (hero header with health score gauge)
+ *   2.  Schema Analytics (device type · role · use case · skill level)
+ *   3.  Schema Intelligence (field coverage heatmap + guessing stats)
+ *   4.  Date & Freshness Analytics (freshness buckets · monthly velocity)
+ *   5.  SEO Health (metadata completeness)
+ *   6.  Analytics (GA presence · publish status)
+ *   7.  Content Performance (word count distribution)
+ *   8.  Ask AI Engine (index statistics)
+ *   9.  Content Quality (placeholders · missing metadata table)
+ *  10.  JIRA Metrics (epic tracker · release readiness · SR SLA placeholder · PR↔ticket↔file table)
+ *  11.  UX Metrics — Microsoft Clarity (sessions · rage/dead clicks · scroll depth)
  * Developer Dashboard — visually impressive 10-panel build intelligence suite.
  *
  * Panels:
@@ -892,6 +906,299 @@ function ContentQualityPanel({ report }) {
 }
 
 // ---------------------------------------------------------------------------
+// PANEL 10A: JIRA Epic Tracker
+// ---------------------------------------------------------------------------
+function JiraEpicPanel({ jira }) {
+  if (!jira) return null;
+  const { isMock, epic, tickets, velocity } = jira;
+
+  const today   = new Date();
+  const dueDate = epic?.dueDate ? new Date(epic.dueDate) : null;
+  const startDate = epic?.startDate ? new Date(epic.startDate) : null;
+
+  const totalDays   = startDate && dueDate ? Math.max(1, Math.round((dueDate - startDate) / 86_400_000)) : null;
+  const elapsedDays = startDate ? Math.max(0, Math.round((today - startDate) / 86_400_000)) : null;
+  const daysLeft    = dueDate ? Math.max(0, Math.round((dueDate - today) / 86_400_000)) : null;
+
+  const total   = tickets?.total || 0;
+  const done    = tickets?.done  || 0;
+  const closedPct  = total > 0 ? done / total : 0;
+  const elapsedPct = totalDays != null && elapsedDays != null ? Math.min(1, elapsedDays / totalDays) : 0;
+
+  // readiness delta: positive = ahead of schedule, negative = behind
+  const delta = closedPct - elapsedPct;
+  const readinessLabel =
+    delta >= 0.05 ? 'Ahead of Schedule' :
+    delta >= -0.1 ? 'On Track' :
+    delta >= -0.25 ? 'At Risk' : 'Critical';
+  const readinessCls =
+    delta >= -0.1 ? styles.readinessOnTrack :
+    delta >= -0.25 ? styles.readinessBehind : styles.readinessCritical;
+  const fillColor =
+    delta >= -0.1  ? '#2ecc71' :
+    delta >= -0.25 ? '#e67e22' : '#e74c3c';
+
+  return (
+    <div className={styles.panel}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>🎯</span>
+        <h3 className={styles.panelTitle}>
+          JIRA Epic Tracker
+          {isMock && <span className={styles.mockBadge}>mock data</span>}
+        </h3>
+      </div>
+      <p className={styles.panelSubtitle}>
+        {epic?.key} — {epic?.summary}
+        {daysLeft != null && (
+          <span className={styles.countdownBadge} style={{ marginLeft: '0.5rem' }}>
+            ⏱ {daysLeft} day{daysLeft !== 1 ? 's' : ''} remaining
+          </span>
+        )}
+      </p>
+
+      {/* Ticket count chips */}
+      <div className={styles.chipRow}>
+        <div className={styles.chip}>
+          <span className={styles.chipValue} style={{ color: '#e74c3c' }}>{tickets?.open ?? '–'}</span>
+          <span className={styles.chipLabel}>Open</span>
+        </div>
+        <div className={styles.chip}>
+          <span className={styles.chipValue} style={{ color: '#f39c12' }}>{tickets?.inProgress ?? '–'}</span>
+          <span className={styles.chipLabel}>In Progress</span>
+        </div>
+        <div className={styles.chip}>
+          <span className={styles.chipValue} style={{ color: '#2ecc71' }}>{tickets?.done ?? '–'}</span>
+          <span className={styles.chipLabel}>Done</span>
+        </div>
+        <div className={styles.chip}>
+          <span className={styles.chipValue}>{total}</span>
+          <span className={styles.chipLabel}>Total</span>
+        </div>
+        <div className={styles.chip}>
+          <span className={styles.chipValue}>{velocity ?? '–'}</span>
+          <span className={styles.chipLabel}>Velocity/wk</span>
+        </div>
+      </div>
+
+      {/* Release Readiness gauge */}
+      <div className={styles.readinessGauge}>
+        <div className={styles.readinessMeta}>
+          <span className={styles.readinessLabel}>Release Readiness</span>
+          <span className={readinessCls}>{readinessLabel}</span>
+        </div>
+        <div className={styles.readinessTrack}>
+          <div
+            className={styles.readinessFill}
+            style={{ width: `${Math.round(closedPct * 100)}%`, background: fillColor }}
+          />
+          {elapsedPct > 0 && (
+            <div
+              className={styles.readinessTimeMarker}
+              style={{ left: `calc(${Math.round(elapsedPct * 100)}% - 1px)` }}
+            />
+          )}
+        </div>
+        <div className={styles.readinessMeta}>
+          <span style={{ color: 'var(--dd-muted)', fontSize: '0.67rem' }}>
+            {Math.round(closedPct * 100)}% tickets closed
+          </span>
+          {elapsedPct > 0 && (
+            <span style={{ color: 'var(--dd-muted)', fontSize: '0.67rem' }}>
+              {Math.round(elapsedPct * 100)}% time elapsed
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 10B: Service Request SLA (placeholder)
+// ---------------------------------------------------------------------------
+function ServiceRequestPanel({ jira }) {
+  const sr = jira?.serviceRequest;
+  return (
+    <div className={styles.panel}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>🎫</span>
+        <h3 className={styles.panelTitle}>Service Request SLA</h3>
+      </div>
+      <p className={styles.panelSubtitle}>Time to complete a service request update</p>
+
+      <div className={styles.placeholderCard}>
+        <span className={styles.placeholderBadge}>⏳ Placeholder</span>
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '0.25rem' }}>
+          <div className={styles.chip}>
+            <span className={styles.chipValue} style={{ color: 'var(--dd-muted)' }}>
+              {sr?.srAvgDays ?? '--'}
+            </span>
+            <span className={styles.chipLabel}>Avg Days</span>
+          </div>
+          <div className={styles.chip}>
+            <span className={styles.chipValue} style={{ color: 'var(--dd-muted)' }}>
+              {sr?.srCount ?? '--'}
+            </span>
+            <span className={styles.chipLabel}>SR Count</span>
+          </div>
+          <div className={styles.chip}>
+            <span className={styles.chipValue} style={{ color: 'var(--dd-muted)' }}>
+              {sr?.srP95Days ?? '--'}
+            </span>
+            <span className={styles.chipLabel}>P95 Days</span>
+          </div>
+        </div>
+        <p className={styles.panelSubtitle} style={{ margin: '0.4rem 0 0', fontSize: '0.67rem' }}>
+          {sr?.note ?? "Connect JIRA JQL filter `type = 'Service Request'` to populate"}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 10C: JIRA ↔ PR ↔ Files linkage table
+// ---------------------------------------------------------------------------
+function JiraLinkagePanel({ jira }) {
+  const [filter, setFilter] = React.useState('');
+  const links = jira?.jiraLinks || [];
+
+  const filtered = filter.trim()
+    ? links.filter((row) => {
+        const q = filter.toLowerCase();
+        return (
+          row.jiraKey?.toLowerCase().includes(q) ||
+          row.summary?.toLowerCase().includes(q) ||
+          String(row.prNumber).includes(q) ||
+          row.files?.some((f) => f.toLowerCase().includes(q))
+        );
+      })
+    : links;
+
+  return (
+    <div className={`${styles.panel} ${styles.panelWide}`}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>🔗</span>
+        <h3 className={styles.panelTitle}>
+          JIRA ↔ Pull Requests ↔ Files
+          {jira?.isMock && <span className={styles.mockBadge}>mock data</span>}
+        </h3>
+      </div>
+      <p className={styles.panelSubtitle}>
+        Every JIRA ticket linked to its associated pull request and changed files.
+        Populated from PR titles/bodies matching <code>[A-Z]+-\d+</code> and the GitHub Files API.
+      </p>
+
+      <div className={styles.filterBar}>
+        <input
+          className={styles.filterInput}
+          type="text"
+          placeholder="Filter by ticket, PR number, file path…"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        />
+        {filter && (
+          <span style={{ fontSize: '0.72rem', color: 'var(--dd-muted)' }}>
+            {filtered.length} / {links.length} rows
+          </span>
+        )}
+      </div>
+
+      <div className={styles.scrollBox} style={{ maxHeight: '280px' }}>
+        <table className={styles.linkageTable}>
+          <thead>
+            <tr>
+              <th>JIRA Ticket</th>
+              <th>Summary</th>
+              <th>Status</th>
+              <th>Pull Request</th>
+              <th>Changed Files</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.length === 0 && (
+              <tr>
+                <td colSpan={5} className={styles.empty}>No matching rows</td>
+              </tr>
+            )}
+            {filtered.map((row) => (
+              <tr key={`${row.jiraKey}-${row.prNumber}`}>
+                <td>
+                  <span className={styles.linkageKey}>
+                    {row.jiraUrl
+                      ? <a href={row.jiraUrl} target="_blank" rel="noopener noreferrer">{row.jiraKey}</a>
+                      : row.jiraKey}
+                  </span>
+                </td>
+                <td style={{ maxWidth: '220px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+                    title={row.summary}>
+                  {row.summary}
+                </td>
+                <td>
+                  <StatusBadge
+                    ok={row.status === 'Done'}
+                    warn={row.status === 'In Progress'}
+                    label={row.status}
+                  />
+                </td>
+                <td style={{ whiteSpace: 'nowrap' }}>
+                  {row.prNumber
+                    ? <a href={row.prUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--dd-primary)', fontWeight: 600 }}>
+                        #{row.prNumber}
+                      </a>
+                    : <span style={{ color: 'var(--dd-muted)' }}>—</span>}
+                  {row.prTitle && (
+                    <span style={{ color: 'var(--dd-muted)', fontSize: '0.65rem', marginLeft: '0.35rem' }}>
+                      {row.prTitle}
+                    </span>
+                  )}
+                </td>
+                <td>
+                  {row.files && row.files.length > 0
+                    ? <div className={styles.linkageFiles}>
+                        {row.files.map((f) => <span key={f}>{f}</span>)}
+                      </div>
+                    : <span style={{ color: 'var(--dd-muted)' }}>—</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL 11: UX Metrics (Microsoft Clarity)
+// ---------------------------------------------------------------------------
+function UXMetricsPanel({ clarity }) {
+  if (!clarity) return null;
+  const {
+    isMock,
+    sessions,
+    avgSessionDurationSec,
+    rageClickRate,
+    deadClickRate,
+    clickBackRate,
+    jsErrorCount,
+    scrollDepth,
+    rageClickPages,
+  } = clarity;
+
+  const fmtPct  = (r) => `${(r * 100).toFixed(1)}%`;
+  const fmtTime = (s) => {
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return m > 0 ? `${m}m ${sec}s` : `${sec}s`;
+  };
+
+  const depthBuckets = [
+    { label: '0–25%',   value: scrollDepth?.d25  ?? 0, color: '#003fbd' },
+    { label: '25–50%',  value: scrollDepth?.d50  ?? 0, color: '#3498db' },
+    { label: '50–75%',  value: scrollDepth?.d75  ?? 0, color: '#1abc9c' },
+    { label: '75–100%', value: scrollDepth?.d100 ?? 0, color: '#2ecc71' },
+  ];
 // PANEL 10: UX Metrics / Clarity
 // ---------------------------------------------------------------------------
 function UxMetricsPanel({ report }) {
@@ -913,6 +1220,105 @@ function UxMetricsPanel({ report }) {
   return (
     <div className={`${styles.panel} ${styles.panelWide}`}>
       <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>🖱️</span>
+        <h3 className={styles.panelTitle}>
+          UX Metrics — Microsoft Clarity
+          {isMock && <span className={styles.mockBadge}>mock data</span>}
+        </h3>
+      </div>
+      <p className={styles.panelSubtitle}>
+        Session quality · rage/dead clicks · scroll depth — 30-day rolling window.
+        Set <code>CLARITY_API_KEY</code> + <code>CLARITY_PROJECT_ID</code> for live data.
+      </p>
+
+      {/* Top stat chips */}
+      <div className={styles.chipRow}>
+        <div className={styles.chip}>
+          <span className={styles.chipValue}>{sessions?.toLocaleString() ?? '–'}</span>
+          <span className={styles.chipLabel}>Sessions</span>
+        </div>
+        <div className={styles.chip}>
+          <span className={styles.chipValue}>{avgSessionDurationSec != null ? fmtTime(avgSessionDurationSec) : '–'}</span>
+          <span className={styles.chipLabel}>Avg Duration</span>
+        </div>
+        <div className={styles.chip}>
+          <span
+            className={styles.chipValue}
+            style={{ color: rageClickRate > 0.05 ? '#e74c3c' : rageClickRate > 0.02 ? '#f39c12' : '#2ecc71' }}
+          >
+            {rageClickRate != null ? fmtPct(rageClickRate) : '–'}
+          </span>
+          <span className={styles.chipLabel}>Rage Clicks</span>
+        </div>
+        <div className={styles.chip}>
+          <span
+            className={styles.chipValue}
+            style={{ color: deadClickRate > 0.1 ? '#e74c3c' : deadClickRate > 0.05 ? '#f39c12' : '#2ecc71' }}
+          >
+            {deadClickRate != null ? fmtPct(deadClickRate) : '–'}
+          </span>
+          <span className={styles.chipLabel}>Dead Clicks</span>
+        </div>
+        <div className={styles.chip}>
+          <span className={styles.chipValue}
+            style={{ color: clickBackRate > 0.15 ? '#e74c3c' : '#f39c12' }}
+          >
+            {clickBackRate != null ? fmtPct(clickBackRate) : '–'}
+          </span>
+          <span className={styles.chipLabel}>Click-Back</span>
+        </div>
+        <div className={styles.chip}>
+          <span className={styles.chipValue}
+            style={{ color: jsErrorCount > 10 ? '#e74c3c' : jsErrorCount > 0 ? '#f39c12' : '#2ecc71' }}
+          >
+            {jsErrorCount ?? '–'}
+          </span>
+          <span className={styles.chipLabel}>JS Errors</span>
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+        {/* Scroll depth */}
+        <div style={{ flex: '0 0 auto' }}>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.6rem' }}>
+            Scroll Depth (% sessions reaching depth)
+          </p>
+          <div className={styles.scrollDepthRow}>
+            {depthBuckets.map(({ label, value, color }) => (
+              <div key={label} className={styles.scrollDepthBar}>
+                <span className={styles.scrollDepthPct}>{Math.round(value * 100)}%</span>
+                <div
+                  className={styles.scrollDepthFill}
+                  style={{ height: `${Math.max(4, Math.round(value * 100))}%`, background: color }}
+                />
+                <span className={styles.scrollDepthLabel}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Rage click hot pages */}
+        <div style={{ flex: '1 1 220px' }}>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>
+            🔥 Rage Click Hot Pages (top 5)
+          </p>
+          <table className={styles.clarityTable}>
+            <thead>
+              <tr><th>Page URL</th><th>Count</th></tr>
+            </thead>
+            <tbody>
+              {(rageClickPages || []).map((p) => (
+                <tr key={p.url}>
+                  <td style={{ fontFamily: 'monospace', fontSize: '0.68rem' }}>{p.url}</td>
+                  <td style={{ fontWeight: 700, color: '#e74c3c', whiteSpace: 'nowrap' }}>{p.count}</td>
+                </tr>
+              ))}
+              {(!rageClickPages || rageClickPages.length === 0) && (
+                <tr><td colSpan={2} className={styles.empty}>No rage click data</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
         <span className={styles.panelIcon}>👁</span>
         <h3 className={styles.panelTitle}>UX Metrics / Clarity</h3>
       </div>
@@ -1066,6 +1472,19 @@ export default function DevDashboard() {
         <ContentPerformancePanel report={report} />
         <AskAiPanel report={report} />
         <ContentQualityPanel report={report} />
+
+        {/* JIRA Metrics */}
+        <div className={`${styles.panelWide}`} style={{ display: 'contents' }}>
+          {/* Epic tracker + SR SLA side-by-side */}
+          <div className={`${styles.tilesRow} ${styles.panelWide}`}>
+            <JiraEpicPanel jira={report.jira} />
+            <ServiceRequestPanel jira={report.jira} />
+          </div>
+          <JiraLinkagePanel jira={report.jira} />
+        </div>
+
+        {/* UX Metrics */}
+        <UXMetricsPanel clarity={report.clarity} />
         <UxMetricsPanel report={report} />
       </div>
     </div>

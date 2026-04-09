@@ -604,6 +604,314 @@ for (const d of docs) {
 }
 
 // ---------------------------------------------------------------------------
+// JIRA section — live fetch when env vars present, otherwise mock seed data
+// ---------------------------------------------------------------------------
+// Regex for extracting JIRA ticket keys from PR titles/bodies
+const JIRA_TICKET_RE = /([A-Z]+-\d+)/g;
+/**
+ * buildJiraSection()
+ *
+ * When JIRA_BASE_URL + JIRA_TOKEN + JIRA_EPIC_KEY are all set, this function
+ * calls the JIRA REST API v3 to retrieve real epic + ticket data and optionally
+ * the GitHub API to build the PR↔ticket linkage table.
+ *
+ * When the env vars are absent it returns deterministic mock data so the
+ * dashboard UI is fully functional and reviewable without any credentials.
+ *
+ * Shape returned:
+ * {
+ *   isMock: boolean,
+ *   epic: { key, summary, status, startDate, dueDate },
+ *   tickets: { open, inProgress, done, total },
+ *   velocity: number,          // tickets closed per week (last 4 weeks)
+ *   jiraLinks: Array<{         // JIRA ↔ PR ↔ files table rows
+ *     jiraKey, summary, status, prNumber, prTitle, prUrl, files
+ *   }>,
+ *   serviceRequest: {          // placeholder — wire to JQL in the future
+ *     isMock: true,
+ *     srAvgDays: null,
+ *     srCount: null,
+ *     srP95Days: null,
+ *   },
+ * }
+ */
+async function buildJiraSection(config) {
+  const { jiraBaseUrl, projectKey, epicKey, ghOwner, ghRepo } = config?.jira || {};
+  const jiraToken = process.env.JIRA_TOKEN || '';
+  const jiraEmail = process.env.JIRA_EMAIL || '';
+  const ghToken   = process.env.GH_TOKEN   || '';
+
+  const canUseLive = jiraBaseUrl && jiraToken && jiraEmail && epicKey;
+
+  // ── Shared service-request placeholder (always mock for now) ──────────────
+  const serviceRequest = {
+    isMock: true,
+    srAvgDays: null,
+    srCount: null,
+    srP95Days: null,
+    note: "Connect JIRA JQL filter `type = 'Service Request'` to populate",
+  };
+
+  if (!canUseLive) {
+    // ── Mock seed data ────────────────────────────────────────────────────────
+    const today = new Date();
+    const epicStart = new Date(today);
+    epicStart.setDate(today.getDate() - 28);
+    const epicDue   = new Date(today);
+    epicDue.setDate(today.getDate() + 14);
+
+    return {
+      isMock: true,
+      epic: {
+        key:       epicKey || `${projectKey || 'AURORA'}-42`,
+        summary:   'Q2 Documentation Sprint',
+        status:    'In Progress',
+        startDate: epicStart.toISOString().slice(0, 10),
+        dueDate:   epicDue.toISOString().slice(0, 10),
+      },
+      tickets: { open: 8, inProgress: 5, done: 12, total: 25 },
+      velocity: 3,
+      jiraLinks: [
+        {
+          jiraKey: `${projectKey || 'AURORA'}-43`,
+          summary: 'Update licensing documentation',
+          status:  'In Progress',
+          jiraUrl:  null,
+          prNumber: 87,
+          prTitle: 'docs: update licensing page',
+          prUrl:   `https://github.com/${ghOwner || 'org'}/${ghRepo || 'repo'}/pull/87`,
+          files:   ['docs/licensing/overview.mdx', 'docs/licensing/faq.md'],
+        },
+        {
+          jiraKey: `${projectKey || 'AURORA'}-44`,
+          summary: 'Add SDK quick-start guide',
+          status:  'Done',
+          jiraUrl:  null,
+          prNumber: 91,
+          prTitle: 'docs: sdk quick-start',
+          prUrl:   `https://github.com/${ghOwner || 'org'}/${ghRepo || 'repo'}/pull/91`,
+          files:   ['docs/sdk/quickstart.mdx'],
+        },
+        {
+          jiraKey: `${projectKey || 'AURORA'}-45`,
+          summary: 'Refresh API reference for v3',
+          status:  'Open',
+          jiraUrl:  null,
+          prNumber: null,
+          prTitle: null,
+          prUrl:   null,
+          files:   [],
+        },
+        {
+          jiraKey: `${projectKey || 'AURORA'}-46`,
+          summary: 'Fix broken anchors in security guide',
+          status:  'Done',
+          jiraUrl:  null,
+          prNumber: 94,
+          prTitle: 'fix: broken anchors in security guide',
+          prUrl:   `https://github.com/${ghOwner || 'org'}/${ghRepo || 'repo'}/pull/94`,
+          files:   ['docs/security/index.mdx', 'docs/security/hardening.md'],
+        },
+        {
+          jiraKey: `${projectKey || 'AURORA'}-47`,
+          summary: 'Add glossary for scanner terminology',
+          status:  'Open',
+          jiraUrl:  null,
+          prNumber: null,
+          prTitle: null,
+          prUrl:   null,
+          files:   [],
+        },
+      ],
+      serviceRequest,
+    };
+  }
+
+  // ── Live JIRA fetch ───────────────────────────────────────────────────────
+  const authHeader = `Basic ${Buffer.from(`${jiraEmail}:${jiraToken}`).toString('base64')}`;
+  const headers    = { Authorization: authHeader, Accept: 'application/json' };
+
+  async function jiraGet(path) {
+    const res = await fetch(`${jiraBaseUrl}/rest/api/3/${path}`, { headers });
+    if (!res.ok) throw new Error(`JIRA ${path}: HTTP ${res.status}`);
+    return res.json();
+  }
+
+  // Epic details
+  const epicIssue = await jiraGet(`issue/${epicKey}?fields=summary,status,customfield_10015,duedate`);
+  const epicData  = {
+    key:       epicKey,
+    summary:   epicIssue.fields.summary,
+    status:    epicIssue.fields.status?.name || 'Unknown',
+    startDate: epicIssue.fields.customfield_10015 || null,
+    dueDate:   epicIssue.fields.duedate || null,
+  };
+
+  // Tickets in epic (JQL)
+  const jql = encodeURIComponent(`"Epic Link" = ${epicKey} OR parent = ${epicKey}`);
+  const searchResult = await jiraGet(`search?jql=${jql}&maxResults=200&fields=summary,status,resolutiondate`);
+  const allTickets   = searchResult.issues || [];
+
+  const ticketCounts = { open: 0, inProgress: 0, done: 0, total: allTickets.length };
+  const now30 = Date.now() - 28 * 86_400_000;
+  let closedLast4w = 0;
+  for (const t of allTickets) {
+    const cat = t.fields.status?.statusCategory?.name || '';
+    if      (cat === 'Done')        { ticketCounts.done++; }
+    else if (cat === 'In Progress') { ticketCounts.inProgress++; }
+    else                            { ticketCounts.open++; }
+    if (t.fields.resolutiondate && new Date(t.fields.resolutiondate).getTime() > now30) {
+      closedLast4w++;
+    }
+  }
+  const velocity = Number((closedLast4w / 4).toFixed(1));
+
+  // JIRA ↔ PR linkage via GitHub API (optional)
+  const jiraLinks = [];
+  if (ghOwner && ghRepo && ghToken) {
+    const ghHeaders = { Authorization: `token ${ghToken}`, Accept: 'application/vnd.github+json' };
+    const prsRes = await fetch(
+      `https://api.github.com/repos/${ghOwner}/${ghRepo}/pulls?state=all&per_page=100`,
+      { headers: ghHeaders }
+    );
+    if (prsRes.ok) {
+      const prs = await prsRes.json();
+      // Build a map of ticket key → JIRA details from the already-fetched epic tickets
+      const ticketCache = {};
+      for (const t of allTickets) {
+        ticketCache[t.key] = {
+          summary: t.fields.summary,
+          status:  t.fields.status?.name || 'Unknown',
+        };
+      }
+      for (const pr of prs) {
+        const body  = `${pr.title || ''} ${pr.body || ''}`;
+        // Reset lastIndex before each use since the regex is stateful
+        JIRA_TICKET_RE.lastIndex = 0;
+        const keys  = [...new Set([...body.matchAll(JIRA_TICKET_RE)].map((m) => m[1]))];
+        if (!keys.length) continue;
+        const filesRes = await fetch(
+          `https://api.github.com/repos/${ghOwner}/${ghRepo}/pulls/${pr.number}/files`,
+          { headers: ghHeaders }
+        );
+        const changedFiles = filesRes.ok
+          ? (await filesRes.json()).map((f) => f.filename)
+          : [];
+        for (const key of keys) {
+          // Use cached details; fall back to a single API call only for tickets outside the epic
+          let summary = key;
+          let status  = 'Unknown';
+          if (ticketCache[key]) {
+            ({ summary, status } = ticketCache[key]);
+          } else {
+            try {
+              const issue = await jiraGet(`issue/${key}?fields=summary,status`);
+              summary = issue.fields.summary;
+              status  = issue.fields.status?.name || 'Unknown';
+              ticketCache[key] = { summary, status };
+            } catch { /* skip if ticket not accessible */ }
+          }
+          jiraLinks.push({
+            jiraKey:  key,
+            summary,
+            status,
+            jiraUrl:  `${jiraBaseUrl}/browse/${key}`,
+            prNumber: pr.number,
+            prTitle:  pr.title,
+            prUrl:    pr.html_url,
+            files:    changedFiles,
+          });
+        }
+      }
+    }
+  }
+
+  return { isMock: false, epic: epicData, tickets: ticketCounts, velocity, jiraLinks, serviceRequest };
+}
+
+// ---------------------------------------------------------------------------
+// Clarity / UX Metrics section — live fetch or mock seed data
+// ---------------------------------------------------------------------------
+/**
+ * buildClaritySection(config)
+ *
+ * When CLARITY_API_KEY + CLARITY_PROJECT_ID are set, fetches live UX metrics
+ * from the Microsoft Clarity Data Export API.  Otherwise returns mock seed data.
+ *
+ * Shape returned:
+ * {
+ *   isMock: boolean,
+ *   sessions: number,
+ *   avgSessionDurationSec: number,
+ *   rageClickRate: number,       // 0–1 fraction
+ *   deadClickRate: number,       // 0–1 fraction
+ *   clickBackRate: number,       // 0–1 fraction
+ *   jsErrorCount: number,
+ *   scrollDepth: { d25: number, d50: number, d75: number, d100: number }, // fractions
+ *   rageClickPages: Array<{ url: string, count: number }>,
+ * }
+ */
+async function buildClaritySection(config) {
+  const { clarityProjectId, clarityApiKey } = config?.clarity || {};
+  const canUseLive = clarityProjectId && clarityApiKey;
+
+  if (!canUseLive) {
+    return {
+      isMock: true,
+      sessions: 3842,
+      avgSessionDurationSec: 127,
+      rageClickRate: 0.034,
+      deadClickRate: 0.089,
+      clickBackRate: 0.112,
+      jsErrorCount: 7,
+      scrollDepth: { d25: 0.91, d50: 0.72, d75: 0.48, d100: 0.23 },
+      rageClickPages: [
+        { url: '/docs/sdk/quickstart',      count: 18 },
+        { url: '/docs/security/hardening',  count: 11 },
+        { url: '/docs/api/reference',       count:  9 },
+        { url: '/docs/licensing/overview',  count:  6 },
+        { url: '/docs/getting-started',     count:  4 },
+      ],
+    };
+  }
+
+  // ── Live Clarity Data Export API ──────────────────────────────────────────
+  // Reference: https://learn.microsoft.com/en-us/clarity/data-export/clarity-data-export-api
+  const baseUrl = `https://www.clarity.ms/export-data/api/v1`;
+  const authHeaders = { 'Authorization': `Bearer ${clarityApiKey}`, 'Accept': 'application/json' };
+  const endDate   = new Date().toISOString().slice(0, 10);
+  const startDate = new Date(Date.now() - 30 * 86_400_000).toISOString().slice(0, 10);
+
+  async function clarityGet(endpoint) {
+    const res = await fetch(`${baseUrl}/${endpoint}`, { headers: authHeaders });
+    if (!res.ok) throw new Error(`Clarity ${endpoint}: HTTP ${res.status}`);
+    return res.json();
+  }
+
+  const [summary, scrollData, rageData] = await Promise.all([
+    clarityGet(`project/${clarityProjectId}/summary?startDate=${startDate}&endDate=${endDate}`),
+    clarityGet(`project/${clarityProjectId}/scroll-depth?startDate=${startDate}&endDate=${endDate}`),
+    clarityGet(`project/${clarityProjectId}/rage-clicks?startDate=${startDate}&endDate=${endDate}&top=5`),
+  ]);
+
+  const totalSessions = summary.totalSessionCount || 0;
+  return {
+    isMock: false,
+    sessions:             totalSessions,
+    avgSessionDurationSec: Math.round(summary.avgSessionDurationMs / 1000) || 0,
+    rageClickRate:        totalSessions > 0 ? (summary.rageClickCount || 0) / totalSessions : 0,
+    deadClickRate:        totalSessions > 0 ? (summary.deadClickCount || 0) / totalSessions : 0,
+    clickBackRate:        totalSessions > 0 ? (summary.clickBackCount || 0) / totalSessions : 0,
+    jsErrorCount:         summary.jsErrorCount || 0,
+    scrollDepth: {
+      d25:  scrollData.d25  ?? 0,
+      d50:  scrollData.d50  ?? 0,
+      d75:  scrollData.d75  ?? 0,
+      d100: scrollData.d100 ?? 0,
+    },
+    rageClickPages: (rageData.pages || []).map((p) => ({ url: p.url, count: p.count })),
+  };
+}
 // Clarity (UX metrics)
 // ---------------------------------------------------------------------------
 const clarity = await buildClaritySection();
@@ -611,6 +919,9 @@ const clarity = await buildClaritySection();
 // ---------------------------------------------------------------------------
 // Output
 // ---------------------------------------------------------------------------
+const jira    = await buildJiraSection(dashboardConfig);
+const clarity = await buildClaritySection(dashboardConfig);
+
 const report = {
   generatedAt: new Date().toISOString(),
   nodeVersion: process.version,
@@ -642,6 +953,8 @@ const report = {
       modifiedByMonth,
     },
   },
+  jira,
+  clarity,
   docs,
   clarity,
 };
@@ -653,4 +966,6 @@ console.log(`[build-report] ${totalDocs} docs processed → ${outputPath}`);
 console.log(`[build-report] avg completeness: ${(avgCompleteness * 100).toFixed(0)}%`);
 console.log(`[build-report] guessed fields: ${totalGuessed} across ${docsWithGuesses} docs`);
 console.log(`[build-report] placeholder warnings: ${docsWithPlaceholders} docs`);
+console.log(`[build-report] JIRA section: ${jira.isMock ? 'mock data' : 'live'}`);
+console.log(`[build-report] Clarity section: ${clarity.isMock ? 'mock data' : 'live'}`);
 console.log(`[build-report] clarity: ${clarity.hasMockData ? 'mock data' : `live (${clarity.sessions} sessions)`}`);
