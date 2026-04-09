@@ -15,6 +15,19 @@
  *   9.  Content Quality (placeholders · missing metadata table)
  *  10.  JIRA Metrics (epic tracker · release readiness · SR SLA placeholder · PR↔ticket↔file table)
  *  11.  UX Metrics — Microsoft Clarity (sessions · rage/dead clicks · scroll depth)
+ * Developer Dashboard — visually impressive 10-panel build intelligence suite.
+ *
+ * Panels:
+ *   1. Build Overview (hero header with health score gauge)
+ *   2. Schema Analytics (device type · role · use case · skill level)
+ *   3. Schema Intelligence (field coverage heatmap + guessing stats)
+ *   4. Date & Freshness Analytics (freshness buckets · monthly velocity)
+ *   5. SEO Health (metadata completeness)
+ *   6. Analytics (GA presence · publish status)
+ *   7. Content Performance (word count distribution)
+ *   8. Ask AI Engine (index statistics)
+ *   9. Content Quality (placeholders · missing metadata table)
+ *  10. UX Metrics / Clarity (sessions · rage & dead clicks · scroll depth · top pages)
  *
  * All charts: pure CSS/SVG (conic-gradient donuts, CSS flex bars).
  * Zero external chart libraries.
@@ -1186,6 +1199,23 @@ function UXMetricsPanel({ clarity }) {
     { label: '50–75%',  value: scrollDepth?.d75  ?? 0, color: '#1abc9c' },
     { label: '75–100%', value: scrollDepth?.d100 ?? 0, color: '#2ecc71' },
   ];
+// PANEL 10: UX Metrics / Clarity
+// ---------------------------------------------------------------------------
+function UxMetricsPanel({ report }) {
+  const clarity = report.clarity || {};
+  const topPages = clarity.topPages || [];
+  const maxViews = topPages[0]?.views || 1;
+
+  const formatDuration = (seconds) => {
+    if (!seconds) return '—';
+    const m = Math.floor(seconds / 60);
+    const s = Math.round(seconds % 60);
+    return `${m}m ${String(s).padStart(2, '0')}s`;
+  };
+
+  const dateLabel = clarity.dateRange
+    ? `${clarity.dateRange.startDate} → ${clarity.dateRange.endDate}`
+    : 'last 30 days';
 
   return (
     <div className={`${styles.panel} ${styles.panelWide}`}>
@@ -1289,6 +1319,94 @@ function UXMetricsPanel({ clarity }) {
             </tbody>
           </table>
         </div>
+        <span className={styles.panelIcon}>👁</span>
+        <h3 className={styles.panelTitle}>UX Metrics / Clarity</h3>
+      </div>
+      <p className={styles.panelSubtitle}>
+        Session analytics · rage &amp; dead clicks · scroll depth · {dateLabel}
+      </p>
+
+      {clarity.hasMockData && (
+        <div className={styles.statusRow}>
+          <StatusBadge
+            warn
+            label="Mock data — set CLARITY_API_KEY + CLARITY_PROJECT_ID for live metrics"
+          />
+        </div>
+      )}
+
+      {/* Top KPIs */}
+      <div className={styles.statRow}>
+        <div className={styles.stat}>
+          <div className={styles.statValue}>{(clarity.sessions || 0).toLocaleString()}</div>
+          <div className={styles.statLabel}>Sessions</div>
+        </div>
+        <div className={styles.stat}>
+          <div className={styles.statValue}>{(clarity.pageViews || 0).toLocaleString()}</div>
+          <div className={styles.statLabel}>Page Views</div>
+        </div>
+        <div className={styles.stat}>
+          <div
+            className={styles.statValue}
+            style={{ color: (clarity.rageClicks || 0) > 0 ? '#e74c3c' : '#2ecc71' }}
+          >
+            {clarity.rageClicks || 0}
+          </div>
+          <div className={styles.statLabel}>Rage Clicks</div>
+        </div>
+        <div className={styles.stat}>
+          <div
+            className={styles.statValue}
+            style={{ color: (clarity.deadClicks || 0) > 0 ? '#e67e22' : '#2ecc71' }}
+          >
+            {clarity.deadClicks || 0}
+          </div>
+          <div className={styles.statLabel}>Dead Clicks</div>
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+        {/* Engagement metrics */}
+        <div style={{ flex: '1 1 180px' }}>
+          <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Engagement</p>
+          <ProgressList
+            items={[{ label: 'Avg Scroll Depth', value: (clarity.avgScrollDepth || 0) / 100 }]}
+          />
+          <div className={styles.statRow} style={{ marginTop: '0.75rem' }}>
+            <div className={styles.stat}>
+              <div className={styles.statValue} style={{ fontSize: '1.1rem' }}>
+                {formatDuration(clarity.avgSessionDuration)}
+              </div>
+              <div className={styles.statLabel}>Avg Session</div>
+            </div>
+            <div className={styles.stat}>
+              <div className={styles.statValue} style={{ fontSize: '1.1rem' }}>
+                {(clarity.pagesPerSession || 0).toFixed(1)}
+              </div>
+              <div className={styles.statLabel}>Pages / Session</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Top pages */}
+        {topPages.length > 0 && (
+          <div style={{ flex: '2 1 220px' }}>
+            <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>
+              Top pages by views
+            </p>
+            <div className={styles.hBarList}>
+              {topPages.slice(0, 5).map(({ url, views }, i) => (
+                <HorizontalBar
+                  key={url}
+                  label={url.replace(/^\/docs\//, '') || url}
+                  value={views}
+                  max={maxViews}
+                  color={PALETTE[i % PALETTE.length]}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -1367,6 +1485,7 @@ export default function DevDashboard() {
 
         {/* UX Metrics */}
         <UXMetricsPanel clarity={report.clarity} />
+        <UxMetricsPanel report={report} />
       </div>
     </div>
   );
