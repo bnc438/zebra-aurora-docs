@@ -1,4 +1,33 @@
 // ---------------------------------------------------------------------------
+// PANEL 10b: Accessibility Recommendations (split from WCAG panel)
+// ---------------------------------------------------------------------------
+function AccessibilityRecommendationsPanel({ report }) {
+  const a11y = report.aggregate?.a11yStats || {};
+  const wcag = a11y.wcagCompliance || {};
+
+  return (
+    <div className={styles.panel}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>💡</span>
+        <h3 className={styles.panelTitle}>A11y Recommendations</h3>
+      </div>
+      <p className={styles.panelSubtitle}>
+        Prioritized actions to improve WCAG compliance.
+      </p>
+      {wcag.recommendations && wcag.recommendations.length > 0 ? (
+        <ul>
+          {wcag.recommendations.map((rec, i) => (
+            <li key={i}><strong>[{rec.priority}]</strong> {rec.description} — <em>{rec.action}</em></li>
+          ))}
+        </ul>
+      ) : (
+        <span className={styles.empty}>No recommendations</span>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // PANEL 10: Accessibility (WCAG compliance)
 // ---------------------------------------------------------------------------
 function AccessibilityPanel({ report }) {
@@ -67,7 +96,7 @@ function AccessibilityPanel({ report }) {
       </div>
 
       <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginTop: '1rem' }}>
-        {/* Top Issues + Recommendations */}
+        {/* Top Issues */}
         <div style={{ flex: '1 1 260px' }}>
           <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Top Issues</p>
           {wcag.topIssues && wcag.topIssues.length > 0 ? (
@@ -78,16 +107,6 @@ function AccessibilityPanel({ report }) {
             </ul>
           ) : (
             <span className={styles.empty}>No issues reported</span>
-          )}
-          <p className={styles.panelSubtitle} style={{ margin: '1rem 0 0.5rem' }}>Recommendations</p>
-          {wcag.recommendations && wcag.recommendations.length > 0 ? (
-            <ul>
-              {wcag.recommendations.map((rec, i) => (
-                <li key={i}><strong>[{rec.priority}]</strong> {rec.description} — <em>{rec.action}</em></li>
-              ))}
-            </ul>
-          ) : (
-            <span className={styles.empty}>No recommendations</span>
           )}
         </div>
 
@@ -103,7 +122,7 @@ function AccessibilityPanel({ report }) {
                 <tbody>
                   {docsWithIssues.map((d) => (
                     <tr key={d.file}>
-                      <td title={d.file}>{d.file.replace(/^docs\//, '')}</td>
+                      <td><RepoFileLink filePath={d.file} /></td>
                       <td>{d.section}</td>
                       <td>{d.issues}</td>
                       <td style={{ color: d.issueCount > 2 ? '#e74c3c' : d.issueCount > 0 ? '#f39c12' : '#2ecc71', fontWeight: 600 }}>{d.issueCount}</td>
@@ -143,6 +162,7 @@ function AccessibilityPanel({ report }) {
 import React, { useEffect, useState } from 'react';
 import { dashboardTooltips } from './dashboardTooltips';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 // ---------------------------------------------------------------------------
@@ -152,6 +172,21 @@ const PALETTE = [
   '#003fbd', '#bdf75f', '#e67e22', '#9b59b6', '#1abc9c',
   '#e74c3c', '#3498db', '#f39c12', '#2ecc71', '#e91e63',
 ];
+
+// ---------------------------------------------------------------------------
+// Repo file link helper
+// ---------------------------------------------------------------------------
+const REPO_BASE = 'https://github.com/bnc438/zebra-aurora-docs/blob/main/';
+
+function RepoFileLink({ filePath, children, className }) {
+  const display = children || filePath.replace(/^docs\//, '');
+  const href = `${REPO_BASE}${filePath}`;
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" title={filePath} className={className} style={{ color: 'var(--dd-primary)', textDecoration: 'none' }}>
+      {display}
+    </a>
+  );
+}
 
 // ---------------------------------------------------------------------------
 // Section header — groups related panels with a labeled divider
@@ -842,7 +877,7 @@ function DateFreshnessPanel({ report }) {
             <tbody>
               {recentDocs.map((d) => (
                 <tr key={d.filePath}>
-                  <td title={d.title}>{d.title}</td>
+                  <td><RepoFileLink filePath={d.filePath}>{d.title}</RepoFileLink></td>
                   <td>{new Date(d.lastModified).toLocaleDateString()}</td>
                   <td>{d.section}</td>
                 </tr>
@@ -1018,7 +1053,7 @@ function ContentPerformancePanel({ report }) {
             <tbody>
               {topDocs.map((d) => (
                 <tr key={d.filePath}>
-                  <td title={d.title}>{d.title}</td>
+                  <td><RepoFileLink filePath={d.filePath}>{d.title}</RepoFileLink></td>
                   <td>{d.wordCount}</td>
                   <td>{d.section}</td>
                 </tr>
@@ -1255,7 +1290,7 @@ function ContentQualityPanel({ report }) {
                     '#e74c3c';
                   return (
                     <tr key={d.filePath}>
-                      <td title={d.title}>{d.title}</td>
+                      <td><RepoFileLink filePath={d.filePath}>{d.title}</RepoFileLink></td>
                       <td style={{ color, fontWeight: 600 }}>{pct}%</td>
                       <td>{d.guessedFields.length > 0
                         ? <span className={styles.guessedChip}>{d.guessedFields.length} guessed</span>
@@ -1502,7 +1537,7 @@ function EpicReleaseGatePanel({ report }) {
       <p className={styles.panelSubtitle}>{dashboardTooltips.epicReleaseGate.description}</p>
       {epicErr || epicData?.skipped ? (
         <div className={styles.statusRow} style={{ gap: '0.75rem', display: 'flex', flexWrap: 'wrap' }}>
-          <StatusBadge warn label={epicData?.skipped ? `Skipped: ${epicData.reason || 'No epic configured'}` : 'Epic metrics not available — run npm run epic-metrics'} />
+          <StatusBadge warn label={epicData?.skipped ? `Skipped: ${(epicData.reason || 'No epic configured').slice(0, 60)}${(epicData.reason || '').length > 60 ? '…' : ''}` : 'Epic metrics not available — run npm run epic-metrics'} tooltip={epicData?.skipped ? epicData.reason : undefined} />
         </div>
       ) : !epicData ? (
         <StatusBadge warn label="Loading epic metrics…" />
@@ -1572,19 +1607,45 @@ function EpicReleaseGatePanel({ report }) {
 // ---------------------------------------------------------------------------
 function EngineeringTestsPanel({ report }) {
   const eng = report.aggregate?.engineeringTests || {};
+  const bs = report.aggregate?.buildStability || {};
+  const gha = eng.githubActions || {};
   const tooltips = dashboardTooltips.engineeringTests.metrics;
 
   const tests = [
-    { id: 'ENG-02', label: tooltips.eng02.label, value: eng.missingRequiredFields ?? null, pass: (eng.missingRequiredFields || 0) === 0, tooltip: tooltips.eng02.tooltip },
-    { id: 'ENG-07', label: tooltips.ssrGuardViolations.label, value: eng.ssrGuardViolations ?? null, pass: (eng.ssrGuardViolations || 0) === 0, tooltip: tooltips.ssrGuardViolations.tooltip },
-    { id: 'ENG-09', label: tooltips.brokenInternalLinks.label, value: eng.brokenInternalLinks ?? null, pass: (eng.brokenInternalLinks || 0) === 0, tooltip: tooltips.brokenInternalLinks.tooltip },
-    { id: 'ENG-11', label: tooltips.sidebarOrphanedDocs.label, value: eng.sidebarOrphanedDocs ?? null, pass: (eng.sidebarOrphanedDocs || 0) === 0, tooltip: tooltips.sidebarOrphanedDocs.tooltip },
-    { id: 'ENG-13', label: tooltips.cspConfigured.label, value: eng.cspConfigured ?? null, pass: eng.cspConfigured === true, tooltip: tooltips.cspConfigured.tooltip },
-    { id: 'ENG-14', label: tooltips.criticalCves.label, value: eng.criticalCves ?? null, pass: (eng.criticalCves || 0) === 0, tooltip: tooltips.criticalCves.tooltip },
+    { id: 'ENG-01', tip: tooltips.eng01, value: gha.gateStatus?.find((g) => g.id === 'ENG-01')?.exists ? '✓' : 'CI-only', pass: true, ciOnly: true },
+    { id: 'ENG-02', tip: tooltips.eng02, value: bs.docsWithMissingRequired ?? null, pass: (bs.docsWithMissingRequired || 0) === 0 },
+    { id: 'ENG-03', tip: tooltips.eng03, value: gha.suggestedGateStatus?.find((g) => g.id === 'ENG-03')?.exists ? '✓' : 'Planned', pass: null, planned: true },
+    { id: 'ENG-04', tip: tooltips.eng04, value: bs.brokenImageRefs ?? null, pass: (bs.brokenImageRefs || 0) === 0 },
+    { id: 'ENG-05', tip: tooltips.eng05, value: bs.duplicateSlugsCount ?? null, pass: (bs.duplicateSlugsCount || 0) === 0 },
+    { id: 'ENG-06', tip: tooltips.eng06, value: bs.invalidDateFormats ?? null, pass: (bs.invalidDateFormats || 0) === 0 },
+    { id: 'ENG-07', tip: tooltips.eng07, value: eng.ssrGuardViolations ?? null, pass: (eng.ssrGuardViolations || 0) === 0 },
+    { id: 'ENG-08', tip: tooltips.eng08, value: gha.gateStatus?.find((g) => g.id === 'ENG-08')?.exists ? '✓' : 'CI-only', pass: true, ciOnly: true },
+    { id: 'ENG-09', tip: tooltips.eng09, value: eng.brokenInternalLinks ?? null, pass: (eng.brokenInternalLinks || 0) === 0 },
+    { id: 'ENG-10', tip: tooltips.eng10, value: gha.gateStatus?.find((g) => g.id === 'ENG-10')?.exists ? '✓' : 'CI-only', pass: true, ciOnly: true },
+    { id: 'ENG-11', tip: tooltips.eng11, value: eng.sidebarOrphanedDocs ?? null, pass: (eng.sidebarOrphanedDocs || 0) === 0 },
+    { id: 'ENG-12', tip: tooltips.eng12, value: gha.hasNonEnglishLocales ? 'Active' : 'Pending', pass: null, planned: !gha.hasNonEnglishLocales },
+    { id: 'ENG-13', tip: tooltips.eng13, value: eng.cspConfigured ?? null, pass: eng.cspConfigured === true },
+    { id: 'ENG-14', tip: tooltips.eng14, value: eng.criticalCves ?? null, pass: (eng.criticalCves || 0) === 0 },
   ];
 
-  const passCount = tests.filter((t) => t.pass).length;
+  const passCount = tests.filter((t) => t.pass === true).length;
+  const failCount = tests.filter((t) => t.pass === false).length;
   const totalCount = tests.length;
+
+  function statusLabel(t) {
+    if (t.planned) return 'PLANNED';
+    if (t.ciOnly) return 'CI-ONLY';
+    if (t.pass === true) return 'PASS';
+    if (t.pass === false) return 'FAIL';
+    return '–';
+  }
+  function statusColor(t) {
+    if (t.planned) return 'var(--dd-muted)';
+    if (t.ciOnly) return '#3498db';
+    if (t.pass === true) return '#2ecc71';
+    if (t.pass === false) return '#e74c3c';
+    return 'var(--dd-muted)';
+  }
 
   return (
     <div className={`${styles.panel} ${styles.panelWide}`}>
@@ -1595,22 +1656,28 @@ function EngineeringTestsPanel({ report }) {
       <p className={styles.panelSubtitle}>{dashboardTooltips.engineeringTests.description}</p>
       <div className={styles.statusRow} style={{ gap: '0.75rem', display: 'flex', flexWrap: 'wrap' }}>
         <StatusBadge
-          ok={passCount === totalCount}
-          warn={passCount > 0 && passCount < totalCount}
-          label={`${passCount}/${totalCount} checks passing`}
-          tooltip="Number of engineering checks currently passing out of total tracked checks."
+          ok={failCount === 0}
+          warn={failCount > 0 && passCount > 0}
+          label={`${passCount} pass · ${failCount} fail · ${totalCount - passCount - failCount} pending`}
+          tooltip="Number of engineering checks currently passing, failing, and pending/CI-only."
         />
       </div>
-      <div className={styles.scrollBox} style={{ marginTop: '0.75rem' }}>
-        <table className={styles.docTable}>
+      <div style={{ marginTop: '0.75rem', border: '1px solid var(--dd-border)', borderRadius: '6px', overflow: 'hidden' }}>
+        <table className={styles.docTable} style={{ width: '100%', tableLayout: 'fixed' }}>
+          <colgroup>
+            <col style={{ width: '72px' }} />
+            <col />
+            <col style={{ width: '72px' }} />
+            <col style={{ width: '72px' }} />
+          </colgroup>
           <thead><tr><th>ID</th><th>Check</th><th>Value</th><th>Status</th></tr></thead>
           <tbody>
             {tests.map((t) => (
-              <tr key={t.id} title={t.tooltip}>
+              <tr key={t.id} title={t.tip.tooltip}>
                 <td><strong>{t.id}</strong></td>
-                <td>{t.label}</td>
+                <td style={{ whiteSpace: 'normal', maxWidth: 'none' }}>{t.tip.description || t.tip.label}</td>
                 <td>{t.value != null ? String(t.value) : '–'}</td>
-                <td style={{ color: t.pass ? '#2ecc71' : '#e74c3c', fontWeight: 600 }}>{t.pass ? 'PASS' : 'FAIL'}</td>
+                <td style={{ color: statusColor(t), fontWeight: 600 }}>{statusLabel(t)}</td>
               </tr>
             ))}
           </tbody>
@@ -1661,6 +1728,7 @@ function UserBehaviorPanel() {
   const scrollDist = scrollDepth.distribution || {};
   const topDocs = Array.isArray(navigation.topDocuments) ? navigation.topDocuments : [];
   const topRequests = engagement.contentRequests?.topRequests || [];
+  const clickPatterns = metrics?.clickPatterns || {};
 
   return (
     <div className={`${styles.panel} ${styles.panelWide}`}>
@@ -1721,6 +1789,28 @@ function UserBehaviorPanel() {
               <div className={styles.statLabel}>{tooltips.contentRequests.label}</div>
             </div>
           </div>
+          <div className={styles.statRow} style={{ marginTop: '0.5rem' }}>
+            <div className={styles.stat} title="Rapid repeated clicks on the same element — indicates user frustration">
+              <div className={styles.statValue} style={{ color: (clickPatterns.rageClicks || 0) > 0 ? '#e74c3c' : '#2ecc71' }}>{clickPatterns.rageClicks ?? '–'}</div>
+              <div className={styles.statLabel}>Rage Clicks</div>
+            </div>
+            <div className={styles.stat} title="Clicks on non-interactive elements — may indicate confusing UI">
+              <div className={styles.statValue} style={{ color: (clickPatterns.deadClicks || 0) > 5 ? '#f39c12' : '#2ecc71' }}>{clickPatterns.deadClicks ?? '–'}</div>
+              <div className={styles.statLabel}>Dead Clicks</div>
+            </div>
+            <div className={styles.stat} title="Prev/next navigation link clicks between doc pages">
+              <div className={styles.statValue}>{clickPatterns.navigationClicks ?? '–'}</div>
+              <div className={styles.statLabel}>Nav Clicks</div>
+            </div>
+            <div className={styles.stat} title="Clicks on internal documentation links">
+              <div className={styles.statValue}>{clickPatterns.internalLinkClicks ?? '–'}</div>
+              <div className={styles.statLabel}>Internal Links</div>
+            </div>
+            <div className={styles.stat} title="Engagement rate: interactive events / page views">
+              <div className={styles.statValue}>{engagement.executionRate != null ? `${engagement.executionRate}%` : '–'}</div>
+              <div className={styles.statLabel}>Engagement Rate</div>
+            </div>
+          </div>
 
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginTop: '1rem' }}>
             {/* Scroll depth distribution */}
@@ -1769,6 +1859,123 @@ function UserBehaviorPanel() {
           </div>
         </>
       )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PANEL: Topic Demand & Engagement (split from User Behavior)
+// ---------------------------------------------------------------------------
+function TopicDemandPanel({ aggregateV2 }) {
+  const v2Metrics = aggregateV2?.tiles?.userBehavior?.metrics || {};
+  const v2Tooltips = aggregateV2?.tooltips || {};
+  const v2Entries = Object.entries(v2Metrics);
+  const feedbackTooltips = dashboardTooltips.docFeedback.metrics;
+  const [feedback, setFeedback] = useState(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const stored = JSON.parse(localStorage.getItem('doc-feedback-data') || '{}');
+      if (Object.keys(stored).length > 0) {
+        setFeedback(stored);
+      }
+    } catch { /* ignore */ }
+  }, []);
+
+  const fbEntries = feedback ? Object.entries(feedback) : [];
+  let thumbsUp = 0;
+  let thumbsDown = 0;
+  const byDoc = [];
+  fbEntries.forEach(([doc, data]) => {
+    const up = data?.up || 0;
+    const down = data?.down || 0;
+    thumbsUp += up;
+    thumbsDown += down;
+    if (up + down > 0) byDoc.push({ doc, up, down, total: up + down });
+  });
+  byDoc.sort((a, b) => b.total - a.total);
+  const totalVotes = thumbsUp + thumbsDown;
+  const satisfactionPct = totalVotes > 0 ? Math.round((thumbsUp / totalVotes) * 100) : null;
+  const scoreColor = satisfactionPct == null ? '#888' : satisfactionPct >= 70 ? '#2ecc71' : satisfactionPct >= 40 ? '#f39c12' : '#e74c3c';
+
+  return (
+    <div className={styles.panel}>
+      <div className={styles.panelHead}>
+        <span className={styles.panelIcon}>📊</span>
+        <h3 className={styles.panelTitle}>Topic Demand & Engagement</h3>
+      </div>
+      <p className={styles.panelSubtitle}>Topic demand and engagement score details.</p>
+      {v2Entries.length > 0 ? (
+        <div className={styles.v2MetricList}>
+          {v2Entries.map(([key, value]) => {
+            const tip = v2Tooltips[key];
+            const tipText = tip ? `${tip.definition || ''}${tip.formula ? ` | Formula: ${tip.formula}` : ''}` : '';
+            return (
+              <div key={key} className={styles.v2MetricRow} title={tipText}>
+                <span className={styles.v2MetricLabel}>{formatMetricLabel(key)}</span>
+                <span className={styles.v2MetricValue}>{formatMetricValue(value)}</span>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <span className={styles.empty}>No metrics available</span>
+      )}
+
+      {/* Doc Feedback */}
+      <div style={{ borderTop: '1px dashed var(--dd-border, #e2e8f0)', marginTop: '1rem', paddingTop: '1rem' }}>
+        <div className={styles.panelHead}>
+          <span className={styles.panelIcon}>💬</span>
+          <h3 className={styles.panelTitle}>Doc Feedback</h3>
+        </div>
+        <p className={styles.panelSubtitle}>Aggregated thumbs-up/down feedback from the DocFeedbackWidget.</p>
+        {totalVotes === 0 ? (
+          <div className={styles.statusRow}>
+            <StatusBadge warn label="No feedback data collected yet" tooltip="Feedback is stored in localStorage when users interact with the widget." />
+          </div>
+        ) : (
+          <>
+            <div className={styles.statRow}>
+              <div className={styles.stat}>
+                <div className={styles.statValue} style={{ color: '#2ecc71' }}>{thumbsUp}</div>
+                <div className={styles.statLabel} title={feedbackTooltips.helpful.tooltip}>👍 {feedbackTooltips.helpful.label}</div>
+              </div>
+              <div className={styles.stat}>
+                <div className={styles.statValue} style={{ color: '#e74c3c' }}>{thumbsDown}</div>
+                <div className={styles.statLabel} title={feedbackTooltips.notHelpful.tooltip}>👎 {feedbackTooltips.notHelpful.label}</div>
+              </div>
+              <div className={styles.stat}>
+                <div className={styles.statValue}>{totalVotes}</div>
+                <div className={styles.statLabel}>Total Votes</div>
+              </div>
+              <div className={styles.stat}>
+                <div className={styles.statValue} style={{ color: scoreColor }}>{satisfactionPct != null ? `${satisfactionPct}%` : '–'}</div>
+                <div className={styles.statLabel} title={feedbackTooltips.satisfaction.tooltip}>{feedbackTooltips.satisfaction.label}</div>
+              </div>
+            </div>
+            {byDoc.length > 0 && (
+              <div style={{ marginTop: '0.75rem' }}>
+                <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Top Feedback by Page</p>
+                <div className={styles.scrollBox}>
+                  <table className={styles.docTable}>
+                    <thead><tr><th>Document</th><th>👍</th><th>👎</th></tr></thead>
+                    <tbody>
+                      {byDoc.slice(0, 8).map((d) => (
+                        <tr key={d.doc}>
+                          <td title={d.doc}>{d.doc.replace(/^\/docs\//, '')}</td>
+                          <td style={{ color: '#2ecc71' }}>{d.up}</td>
+                          <td style={{ color: '#e74c3c' }}>{d.down}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
@@ -2114,15 +2321,19 @@ function DitaMigrationPanel() {
           <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Severity Breakdown</p>
           <DonutChart counts={bySeverity} />
         </div>
-        <div style={{ flex: '2 1 260px' }}>
+        <div style={{ flex: '2 1 260px', minWidth: 0 }}>
           <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Top Issue Types</p>
-          <div className={styles.scrollBox}>
-            <table className={styles.docTable}>
+          <div className={styles.scrollBox} style={{ overflow: 'auto' }}>
+            <table className={styles.docTable} style={{ width: '100%', tableLayout: 'fixed' }}>
+              <colgroup>
+                <col />
+                <col style={{ width: '72px' }} />
+              </colgroup>
               <thead><tr><th>Issue Type</th><th>Count</th></tr></thead>
               <tbody>
                 {topIssues.map(([type, count]) => (
-                  <tr key={type}>
-                    <td>{type.replace(/_/g, ' ')}</td>
+                  <tr key={type} title={tooltips.issueTypes?.[type] || ''}>
+                    <td style={{ whiteSpace: 'normal', maxWidth: 'none' }}>{type.replace(/_/g, ' ')}</td>
                     <td>{count}</td>
                   </tr>
                 ))}
@@ -2188,7 +2399,7 @@ function BrokenLinkTrendPanel({ report }) {
                   .sort(([, a], [, b]) => b - a)
                   .map(([file, count]) => (
                     <tr key={file}>
-                      <td title={file}>{file.replace(/^docs\//, '')}</td>
+                      <td><RepoFileLink filePath={file} /></td>
                       <td style={{ color: '#e74c3c', fontWeight: 600 }}>{count}</td>
                     </tr>
                   ))}
@@ -2332,97 +2543,6 @@ function PdfCoveragePanel({ report }) {
           </tbody>
         </table>
       </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// PANEL: Doc Feedback Widget Metrics
-// ---------------------------------------------------------------------------
-function DocFeedbackPanel() {
-  const tooltips = dashboardTooltips.docFeedback.metrics;
-  const [feedback, setFeedback] = useState(null);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    try {
-      const stored = JSON.parse(localStorage.getItem('doc-feedback-data') || '{}');
-      if (Object.keys(stored).length > 0) {
-        setFeedback(stored);
-      }
-    } catch { /* ignore */ }
-  }, []);
-
-  const entries = feedback ? Object.entries(feedback) : [];
-  let thumbsUp = 0;
-  let thumbsDown = 0;
-  const byDoc = [];
-
-  entries.forEach(([doc, data]) => {
-    const up = data?.up || 0;
-    const down = data?.down || 0;
-    thumbsUp += up;
-    thumbsDown += down;
-    if (up + down > 0) byDoc.push({ doc, up, down, total: up + down });
-  });
-
-  byDoc.sort((a, b) => b.total - a.total);
-  const totalVotes = thumbsUp + thumbsDown;
-  const satisfactionPct = totalVotes > 0 ? Math.round((thumbsUp / totalVotes) * 100) : null;
-  const scoreColor = satisfactionPct == null ? '#888' : satisfactionPct >= 70 ? '#2ecc71' : satisfactionPct >= 40 ? '#f39c12' : '#e74c3c';
-
-  return (
-    <div className={styles.panel}>
-      <div className={styles.panelHead}>
-        <span className={styles.panelIcon}>💬</span>
-        <h3 className={styles.panelTitle}>Doc Feedback</h3>
-      </div>
-      <p className={styles.panelSubtitle}>Aggregated thumbs-up/down feedback from the DocFeedbackWidget.</p>
-      {totalVotes === 0 ? (
-        <div className={styles.statusRow}>
-          <StatusBadge warn label="No feedback data collected yet" tooltip="Feedback is stored in localStorage when users interact with the widget." />
-        </div>
-      ) : (
-        <>
-          <div className={styles.statRow}>
-            <div className={styles.stat}>
-              <div className={styles.statValue} style={{ color: '#2ecc71' }}>{thumbsUp}</div>
-              <div className={styles.statLabel} title={tooltips.helpful.tooltip}>👍 {tooltips.helpful.label}</div>
-            </div>
-            <div className={styles.stat}>
-              <div className={styles.statValue} style={{ color: '#e74c3c' }}>{thumbsDown}</div>
-              <div className={styles.statLabel} title={tooltips.notHelpful.tooltip}>👎 {tooltips.notHelpful.label}</div>
-            </div>
-            <div className={styles.stat}>
-              <div className={styles.statValue}>{totalVotes}</div>
-              <div className={styles.statLabel}>Total Votes</div>
-            </div>
-            <div className={styles.stat}>
-              <div className={styles.statValue} style={{ color: scoreColor }}>{satisfactionPct}%</div>
-              <div className={styles.statLabel} title={tooltips.satisfaction.tooltip}>{tooltips.satisfaction.label}</div>
-            </div>
-          </div>
-          {byDoc.length > 0 && (
-            <div style={{ marginTop: '0.75rem' }}>
-              <p className={styles.panelSubtitle} style={{ margin: '0 0 0.5rem' }}>Top Feedback by Page</p>
-              <div className={styles.scrollBox}>
-                <table className={styles.docTable}>
-                  <thead><tr><th>Document</th><th>👍</th><th>👎</th></tr></thead>
-                  <tbody>
-                    {byDoc.slice(0, 8).map((d) => (
-                      <tr key={d.doc}>
-                        <td title={d.doc}>{d.doc.replace(/^\/docs\//, '')}</td>
-                        <td style={{ color: '#2ecc71' }}>{d.up}</td>
-                        <td style={{ color: '#e74c3c' }}>{d.down}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-        </>
-      )}
     </div>
   );
 }
@@ -2602,7 +2722,7 @@ export default function DevDashboard() {
       )}
 
       {/* ── Platform Intelligence ────────────────────────── */}
-      {(showPanel('analytics') || showPanel('searchInsights') || showPanel('accessibility')) && (
+      {(showPanel('analytics') || showPanel('searchInsights')) && (
         <div className={styles.sectionGroup}>
           <SectionHeader icon="📊" title="Platform Intelligence" />
           <div className={styles.panelGrid}>
@@ -2611,21 +2731,21 @@ export default function DevDashboard() {
             {showPanel('searchInsights') && aggregateV2?.tiles?.searchInsights && (
               <V2MetricTile tileKey="searchInsights" tileData={aggregateV2.tiles.searchInsights} tooltips={aggregateV2.tooltips} />
             )}
-            {showPanel('accessibility') && <AccessibilityPanel report={report} />}
           </div>
         </div>
       )}
 
       {/* ── UX Metrics ───────────────────────────────────── */}
-      {(showPanel('userBehavior') || showPanel('docFeedback')) && (
+      {(showPanel('userBehavior') || showPanel('docFeedback') || showPanel('accessibility')) && (
         <div className={styles.sectionGroup}>
           <SectionHeader icon="👥" title="User Experience Metrics" />
           <div className={styles.panelGrid}>
             {showPanel('userBehavior') && <UserBehaviorPanel />}
-            {showPanel('docFeedback') && <DocFeedbackPanel />}
-            {aggregateV2?.tiles?.userBehavior && (
-              <V2MetricTile tileKey="userBehavior" tileData={aggregateV2.tiles.userBehavior} tooltips={aggregateV2.tooltips} />
-            )}
+            {showPanel('userBehavior') && <TopicDemandPanel aggregateV2={aggregateV2} />}
+          </div>
+          <div className={styles.panelGrid} style={{ marginTop: 'var(--dd-spacing-lg, 1.5rem)' }}>
+            {showPanel('accessibility') && <AccessibilityPanel report={report} />}
+            {showPanel('accessibility') && <AccessibilityRecommendationsPanel report={report} />}
           </div>
         </div>
       )}

@@ -25,6 +25,19 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
+// Seeded PRNG (mulberry32) for deterministic demo data
+function mulberry32(seed) {
+  return function () {
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+const DEMO_SEED = 20260409;
+const seededRandom = mulberry32(DEMO_SEED);
+
 // Get rolling window from env (default 30 days)
 const ROLLING_WINDOW_DAYS = parseInt(process.env.METRICS_WINDOW_DAYS || '30', 10);
 const WINDOW_START = new Date(Date.now() - ROLLING_WINDOW_DAYS * 24 * 60 * 60 * 1000);
@@ -65,14 +78,18 @@ function generateDemoEvents() {
   const events = [];
   const now = Date.now();
 
-  // Generate 200+ realistic events over the rolling window
+  // Generate 250+ realistic events over the rolling window
   for (let i = 0; i < 250; i++) {
-    const randomTime = now - Math.random() * ROLLING_WINDOW_DAYS * 24 * 60 * 60 * 1000;
-    const doc = docs[Math.floor(Math.random() * docs.length)];
+    const randomTime = now - seededRandom() * ROLLING_WINDOW_DAYS * 24 * 60 * 60 * 1000;
+    const doc = docs[Math.floor(seededRandom() * docs.length)];
     const sessionId = `session_${Math.floor(i / 10)}`; // Group events by session
 
-    const eventTypes = ['page_view', 'code_copy', 'monaco_editor_open', 'pdf_button_click', 'scroll_depth', 'session_end', 'content_request'];
-    const eventType = eventTypes[Math.floor(Math.random() * eventTypes.length)];
+    const eventTypes = [
+      'page_view', 'code_copy', 'monaco_editor_open', 'pdf_button_click',
+      'scroll_depth', 'session_end', 'content_request',
+      'rage_click', 'dead_click', 'navigation_click', 'internal_link_click',
+    ];
+    const eventType = eventTypes[Math.floor(seededRandom() * eventTypes.length)];
 
     const event = {
       type: eventType,
@@ -84,21 +101,32 @@ function generateDemoEvents() {
 
     // Add type-specific metadata
     if (eventType === 'code_copy') {
-      event.codeLanguage = ['javascript', 'json', 'xml', 'python'][Math.floor(Math.random() * 4)];
+      event.codeLanguage = ['javascript', 'json', 'xml', 'python'][Math.floor(seededRandom() * 4)];
     } else if (eventType === 'monaco_editor_open') {
-      event.codeLanguage = ['javascript', 'json'][Math.floor(Math.random() * 2)];
+      event.codeLanguage = ['javascript', 'json'][Math.floor(seededRandom() * 2)];
     } else if (eventType === 'scroll_depth') {
-      event.percentScroll = [25, 50, 75, 100][Math.floor(Math.random() * 4)];
+      event.percentScroll = [25, 50, 75, 100][Math.floor(seededRandom() * 4)];
     } else if (eventType === 'session_end') {
-      event.timeSpentSeconds = Math.floor(Math.random() * 600) + 10; // 10s to 10m
+      event.timeSpentSeconds = Math.floor(seededRandom() * 600) + 10; // 10s to 10m
     } else if (eventType === 'content_request') {
       event.text = [
         'How do I debug JavaScript in the editor?',
         'Example for FTP file transfer',
         'More info on GPIO port control',
         'Troubleshooting Monaco editor issues',
-      ][Math.floor(Math.random() * 4)];
-      event.email = Math.random() > 0.3 ? `user${i % 20}@example.com` : 'anonymous';
+      ][Math.floor(seededRandom() * 4)];
+      event.email = seededRandom() > 0.3 ? `user${i % 20}@example.com` : 'anonymous';
+    } else if (eventType === 'rage_click') {
+      event.selector = ['DIV.theme-doc-markdown', 'SPAN.token', 'P.paragraph', 'TD.cell'][Math.floor(seededRandom() * 4)];
+      event.clickCount = Math.floor(seededRandom() * 5) + 3;
+    } else if (eventType === 'dead_click') {
+      event.selector = ['DIV.container', 'SPAN.breadcrumb', 'DIV.margin-top', 'P.paragraph'][Math.floor(seededRandom() * 4)];
+    } else if (eventType === 'navigation_click') {
+      event.targetUrl = docs[Math.floor(seededRandom() * docs.length)];
+      event.navType = ['next', 'prev'][Math.floor(seededRandom() * 2)];
+    } else if (eventType === 'internal_link_click') {
+      event.targetUrl = docs[Math.floor(seededRandom() * docs.length)];
+      event.linkText = ['Getting Started', 'API Reference', 'Configuration', 'Examples'][Math.floor(seededRandom() * 4)];
     }
 
     events.push(event);
@@ -162,6 +190,14 @@ function aggregateMetrics(events) {
         average: 0,
         median: 0,
       },
+    },
+    clickPatterns: {
+      rageClicks: 0,
+      deadClicks: 0,
+      navigationClicks: 0,
+      internalLinkClicks: 0,
+      rageClickTargets: {},
+      deadClickTargets: {},
     },
   };
 
@@ -235,6 +271,30 @@ function aggregateMetrics(events) {
 
       case 'session_end':
         sessionTimes.push(event.timeSpentSeconds);
+        break;
+
+      case 'rage_click':
+        metrics.clickPatterns.rageClicks++;
+        if (event.selector) {
+          metrics.clickPatterns.rageClickTargets[event.selector] =
+            (metrics.clickPatterns.rageClickTargets[event.selector] || 0) + 1;
+        }
+        break;
+
+      case 'dead_click':
+        metrics.clickPatterns.deadClicks++;
+        if (event.selector) {
+          metrics.clickPatterns.deadClickTargets[event.selector] =
+            (metrics.clickPatterns.deadClickTargets[event.selector] || 0) + 1;
+        }
+        break;
+
+      case 'navigation_click':
+        metrics.clickPatterns.navigationClicks++;
+        break;
+
+      case 'internal_link_click':
+        metrics.clickPatterns.internalLinkClicks++;
         break;
     }
   }

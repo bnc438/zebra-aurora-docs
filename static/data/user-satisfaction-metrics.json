@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-03-27T04:43:58.144Z",
+  "timestamp": "2026-04-09T21:53:24.712Z",
   "metrics": {
     "window": {
-      "startDate": "2026-02-25T04:43:58.124Z",
-      "endDate": "2026-03-27T04:43:58.143Z",
+      "startDate": "2026-03-10T21:53:24.696Z",
+      "endDate": "2026-04-09T21:53:24.711Z",
       "days": 30
     },
     "summary": {
@@ -11,121 +11,143 @@
       "totalSessions": 25,
       "uniqueDocuments": 6,
       "eventsByType": {
-        "page_view": 36,
-        "pdf_button_click": 31,
-        "monaco_editor_open": 37,
-        "scroll_depth": 39,
-        "content_request": 45,
-        "code_copy": 28,
-        "session_end": 34
+        "pdf_button_click": 18,
+        "code_copy": 31,
+        "dead_click": 25,
+        "content_request": 18,
+        "navigation_click": 23,
+        "page_view": 24,
+        "scroll_depth": 22,
+        "session_end": 24,
+        "rage_click": 18,
+        "internal_link_click": 25,
+        "monaco_editor_open": 22
       }
     },
     "engagement": {
       "codeExecution": {
-        "monacoOpens": 37,
-        "codeCopies": 28,
+        "monacoOpens": 22,
+        "codeCopies": 31,
         "topLanguages": {
-          "json": 20,
-          "python": 11,
-          "javascript": 29,
-          "xml": 5
+          "json": 17,
+          "python": 8,
+          "javascript": 22,
+          "xml": 6
         }
       },
       "pdfGeneration": {
-        "requests": 31,
+        "requests": 18,
         "topDocuments": {
-          "/docs/js-guide/t-aurora-js-getting-started/": 6,
-          "/docs/js-guide/": 4,
-          "/docs/release-notes/": 4,
           "/docs/user-guide/": 6,
-          "/docs/licensing/": 5,
-          "/docs/js-guide/t-aurora-js-using-the-javascript-editor/": 6
+          "/docs/js-guide/": 4,
+          "/docs/licensing/": 3,
+          "/docs/js-guide/t-aurora-js-getting-started/": 1,
+          "/docs/release-notes/": 3,
+          "/docs/js-guide/t-aurora-js-using-the-javascript-editor/": 1
         }
       },
       "contentRequests": {
-        "total": 45,
+        "total": 18,
         "topRequests": [
           {
             "request": "How do I debug JavaScript in the editor?",
-            "count": 12
-          },
-          {
-            "request": "Example for FTP file transfer",
-            "count": 12
-          },
-          {
-            "request": "More info on GPIO port control",
-            "count": 11
+            "count": 10
           },
           {
             "request": "Troubleshooting Monaco editor issues",
-            "count": 10
+            "count": 3
+          },
+          {
+            "request": "Example for FTP file transfer",
+            "count": 3
+          },
+          {
+            "request": "More info on GPIO port control",
+            "count": 2
           }
         ],
         "byDocument": {
-          "/docs/release-notes/": 8,
-          "/docs/user-guide/": 10,
-          "/docs/licensing/": 10,
-          "/docs/js-guide/": 7,
           "/docs/js-guide/t-aurora-js-getting-started/": 5,
-          "/docs/js-guide/t-aurora-js-using-the-javascript-editor/": 5
+          "/docs/licensing/": 3,
+          "/docs/js-guide/t-aurora-js-using-the-javascript-editor/": 5,
+          "/docs/js-guide/": 3,
+          "/docs/user-guide/": 1,
+          "/docs/release-notes/": 1
         }
       },
-      "executionRate": 267
+      "executionRate": 296
     },
     "navigation": {
-      "pageViews": 36,
+      "pageViews": 24,
       "topDocuments": [
         {
-          "document": "/docs/user-guide/",
-          "views": 9
-        },
-        {
-          "document": "/docs/licensing/",
-          "views": 7
-        },
-        {
-          "document": "/docs/js-guide/",
+          "document": "/docs/js-guide/t-aurora-js-getting-started/",
           "views": 6
         },
         {
           "document": "/docs/js-guide/t-aurora-js-using-the-javascript-editor/",
-          "views": 6
-        },
-        {
-          "document": "/docs/release-notes/",
           "views": 5
         },
         {
-          "document": "/docs/js-guide/t-aurora-js-getting-started/",
+          "document": "/docs/licensing/",
+          "views": 4
+        },
+        {
+          "document": "/docs/js-guide/",
+          "views": 4
+        },
+        {
+          "document": "/docs/user-guide/",
           "views": 3
+        },
+        {
+          "document": "/docs/release-notes/",
+          "views": 2
         }
       ],
       "sessionDuration": {
-        "average": 344,
-        "total": 34,
+        "average": 312,
+        "total": 24,
         "samples": [],
-        "median": 408
+        "median": 330
       }
     },
     "performance": {
       "scrollDepth": {
-        "average": 58,
+        "average": 67,
         "distribution": {
-          "0-25%": 11,
-          "25-50%": 11,
-          "50-75%": 10,
-          "75-100%": 7
+          "0-25%": 3,
+          "25-50%": 6,
+          "50-75%": 8,
+          "75-100%": 5
         }
       },
       "timeOnPage": {
-        "average": 344,
-        "median": 408
+        "average": 312,
+        "median": 330
+      }
+    },
+    "clickPatterns": {
+      "rageClicks": 18,
+      "deadClicks": 25,
+      "navigationClicks": 23,
+      "internalLinkClicks": 25,
+      "rageClickTargets": {
+        "TD.cell": 6,
+        "P.paragraph": 4,
+        "DIV.theme-doc-markdown": 4,
+        "SPAN.token": 4
+      },
+      "deadClickTargets": {
+        "P.paragraph": 8,
+        "DIV.container": 9,
+        "SPAN.breadcrumb": 4,
+        "DIV.margin-top": 4
       }
     },
     "ces": {
-      "score": 10,
-      "totalRequests": 45,
+      "score": 64,
+      "totalRequests": 18,
       "interpretation": "Needs attention"
     }
   },

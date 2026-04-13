@@ -176,6 +176,41 @@
     });
   }
 
+  // Track rage clicks (3+ clicks within 1 second on same element)
+  function trackRageClicks() {
+    const clickLog = [];
+    document.addEventListener('click', (e) => {
+      const now = Date.now();
+      const target = e.target;
+      clickLog.push({ target, time: now });
+      // Keep only clicks in the last 1 second
+      while (clickLog.length > 0 && now - clickLog[0].time > 1000) {
+        clickLog.shift();
+      }
+      const sameTarget = clickLog.filter((c) => c.target === target);
+      if (sameTarget.length >= 3) {
+        logEvent('rage_click', {
+          selector: target.tagName + (target.className ? '.' + String(target.className).split(' ')[0] : ''),
+          clickCount: sameTarget.length,
+        });
+        clickLog.length = 0; // Reset after detection
+      }
+    });
+  }
+
+  // Track dead clicks (click on non-interactive element that produces no navigation)
+  function trackDeadClicks() {
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      const isInteractive = target.closest('a, button, input, select, textarea, [role="button"], [tabindex]');
+      if (!isInteractive && !target.closest('[class*="codeBlock"]')) {
+        logEvent('dead_click', {
+          selector: target.tagName + (target.className ? '.' + String(target.className).split(' ')[0] : ''),
+        });
+      }
+    });
+  }
+
   // Initialize all trackers
   try {
     trackMonacoEvents();
@@ -185,6 +220,8 @@
     trackTimeOnPage();
     trackNavigation();
     trackInternalLinks();
+    trackRageClicks();
+    trackDeadClicks();
     console.log('[Aurora Tracking] Initialized');
   } catch (error) {
     console.warn('[Aurora Tracking] Initialization error:', error);

@@ -459,7 +459,27 @@ export const dashboardTooltips = {
       },
       clarityStatus: {
         label: 'Microsoft Clarity',
-        tooltip: 'Integration status for Microsoft Clarity (rage clicks, dead clicks, session recordings). Planned data source for UX frustration signals.',
+        tooltip: 'Integration status for Microsoft Clarity (session recordings). Rage clicks and dead clicks are now tracked natively.',
+      },
+      rageClicks: {
+        label: 'Rage Clicks',
+        tooltip: 'Rapid repeated clicks (3+ within 1s) on the same element. High counts indicate user frustration with unresponsive UI.',
+      },
+      deadClicks: {
+        label: 'Dead Clicks',
+        tooltip: 'Clicks on non-interactive elements that produce no effect. May indicate confusing affordances or broken targets.',
+      },
+      navigationClicks: {
+        label: 'Nav Clicks',
+        tooltip: 'Prev/next navigation link clicks between doc pages. Shows sequential reading behavior.',
+      },
+      internalLinkClicks: {
+        label: 'Internal Links',
+        tooltip: 'Clicks on internal documentation cross-reference links. Higher values indicate good content interconnection.',
+      },
+      engagementRate: {
+        label: 'Engagement Rate',
+        tooltip: 'Percentage of page views that resulted in an interactive action (code copy, editor open, PDF request).',
       },
     },
   },
@@ -538,10 +558,77 @@ export const dashboardTooltips = {
     title: 'Engineering Tests',
     description: '14 engineering procedures across P0 critical (ENG-01–07) and P1 important (ENG-08–14) tiers.',
     metrics: {
+      eng01: {
+        label: 'ENG-01 Production Build',
+        description: 'Verifies npm run build exits 0 with no compilation errors. The foundational gate — all other checks depend on a successful build.',
+        tooltip: 'Production Build. npm run build must exit 0. Merge blocker.',
+      },
       eng02: {
         label: 'ENG-02 Required Fields',
+        description: 'Scans every MDX doc for required frontmatter fields (title, description, slug). Missing fields degrade SEO and search indexing.',
         tooltip: 'MDX Frontmatter Validation. Docs missing one or more required frontmatter fields. Cross-referenced from Build Stability. Target: 0.',
       },
+      eng03: {
+        label: 'ENG-03 MDX + Import Integrity',
+        description: 'Checks that all MDX component imports resolve correctly and no broken JSX references exist in documentation files.',
+        tooltip: 'MDX + Import Integrity. Prevents unresolved MDX imports and component references from reaching main. Planned gate.',
+      },
+      eng04: {
+        label: 'ENG-04 Image Asset Integrity',
+        description: 'Detects broken image references in docs — missing files, wrong paths, or unreachable remote URLs that would show broken icons.',
+        tooltip: 'Image Asset Integrity. Broken image references in docs/. Target: 0.',
+      },
+      eng05: {
+        label: 'ENG-05 Slug Uniqueness',
+        description: 'Ensures no two documents share the same URL slug. Duplicate slugs cause one page to shadow another, making content unreachable.',
+        tooltip: 'Slug Uniqueness. Duplicate slugs detected in docs/. Target: 0.',
+      },
+      eng06: {
+        label: 'ENG-06 Date Format Validation',
+        description: 'Validates that frontmatter date fields use ISO 8601 format. Invalid dates break sorting, filtering, and release note ordering.',
+        tooltip: 'Date Format Validation. Docs with invalid date fields. Target: 0.',
+      },
+      eng07: {
+        label: 'ENG-07 SSR Guard Violations',
+        description: 'Scans src/ for browser-only APIs (window, document, localStorage) used outside SSR-safe guards like useEffect or BrowserOnly.',
+        tooltip: 'SSR/Hydration Mismatch. Source files in src/ using window/document/localStorage without useEffect, useLayoutEffect, BrowserOnly, or typeof window guards. 0 = clean.',
+      },
+      eng08: {
+        label: 'ENG-08 Playwright E2E',
+        description: 'Runs end-to-end tests across Chromium, Firefox, and WebKit to verify critical user journeys like navigation, search, and PDF downloads.',
+        tooltip: 'Playwright E2E. Critical journeys across Chromium, Firefox, WebKit. CI-only gate.',
+      },
+      eng09: {
+        label: 'ENG-09 Internal Links',
+        description: 'Crawls all internal links in the built site to find 404s. Static check scans markdown references; full crawl requires a built site.',
+        tooltip: 'Internal Link Detection (static). Relative markdown links in docs/ checked against docs/ filesystem. Partial coverage only — full crawl via linkinator requires a built site.',
+      },
+      eng10: {
+        label: 'ENG-10 Lighthouse CI',
+        description: 'Runs Lighthouse audits on key pages. Thresholds: Performance ≥ 85, Accessibility ≥ 95, Best Practices ≥ 90. Enforced in CI.',
+        tooltip: 'Lighthouse CI. Perf >= 85, A11y >= 95, Best Practices >= 90. CI-only gate.',
+      },
+      eng11: {
+        label: 'ENG-11 Orphaned Sidebar IDs',
+        description: 'Checks that every doc ID referenced in sidebars.js has a matching file in docs/. Orphaned IDs cause build warnings or 404 sidebar links.',
+        tooltip: 'Plugin & Sidebar Config. Explicit doc IDs in sidebars.js with no matching file in docs/. Dynamic filesystem-scanned sections pass by design. Target: 0.',
+      },
+      eng12: {
+        label: 'ENG-12 i18n Build Verification',
+        description: 'Placeholder gate activated when non-English locales are enabled. Verifies every locale builds without raw key IDs or missing translations.',
+        tooltip: 'Translation readiness guard. Placeholder remains pending until i18n.locales includes non-English locales, then ENG-12 workflow should be activated.',
+      },
+      eng13: {
+        label: 'ENG-13 CSP Configured',
+        description: 'Detects a Content-Security-Policy meta tag or header in docusaurus.config.js. Prevents XSS and injection attacks on the published site.',
+        tooltip: 'CSP Header Validation. Detects Content-Security-Policy in docusaurus.config.js. Does not validate directives or run violation tests — that requires a live server.',
+      },
+      eng14: {
+        label: 'ENG-14 Security Audit',
+        description: 'Runs npm audit to count high and critical CVEs in dependencies. Any non-zero count is a release blocker requiring dependency updates.',
+        tooltip: 'Dependency Vulnerability Audit. Count of high + critical severity CVEs from npm audit --json. null = audit unavailable (check network). Target: 0.',
+      },
+      // Aliases for backward compat with existing code
       ssrGuardViolations: {
         label: 'ENG-07 SSR Violations',
         tooltip: 'SSR/Hydration Mismatch. Source files in src/ using window/document/localStorage without useEffect, useLayoutEffect, BrowserOnly, or typeof window guards. 0 = clean.',
@@ -627,6 +714,26 @@ export const dashboardTooltips = {
       remediationScore: {
         label: 'Remediation Score',
         tooltip: 'Percentage of files without high-severity issues. Higher = closer to migration completion.',
+      },
+      issueTypes: {
+        STUB_CONTENT: 'Placeholder or stub text remaining from DITA conversion — content was not fully migrated.',
+        TRUNCATED_DESCRIPTION: 'Description field was cut short during conversion, losing important context.',
+        LOST_KBD: 'DITA <kbd> keyboard input markup was stripped during MDX conversion.',
+        LOST_UICONTROL: 'DITA <uicontrol> UI element references lost their semantic markup.',
+        EMPTY_BODY: 'Document body is empty — content was not transferred from the DITA source.',
+        EMPTY_DESCRIPTION: 'Frontmatter description is blank — needs manual restoration from DITA source.',
+        ORPHAN_INLINE_ELEMENT: 'Inline markup (bold, code, etc.) orphaned outside its parent context.',
+        ORPHAN_TABLE_HEADERS: 'Table headers exist without corresponding table body rows.',
+        FRAGMENTED_UICONTROL: 'UI control references split across multiple elements instead of one.',
+        MISSING_ADMONITION: 'DITA note/warning/caution block not converted to MDX admonition.',
+        MISSING_RESULT: 'DITA <result> element (expected outcome of a task) was dropped.',
+        LOST_MENUCASCADE: 'DITA <menucascade> navigation path (e.g., File > Save) lost its formatting.',
+        TRUNCATED_STEP_STUBS: 'Task steps truncated to stubs — full procedural content not migrated.',
+        BROKEN_TABLE_STRUCTURE: 'Table HTML structure is malformed — missing rows, cells, or nesting errors.',
+        NO_MARKDOWN_TABLES: 'Tables remain as raw HTML instead of being converted to Markdown format.',
+        MISSING_IMAGE_REFERENCE: 'Image reference from DITA source not carried over — broken or missing path.',
+        ORPHANED_STEP_CONTENT: 'Step content detached from its parent task structure.',
+        LOST_DEFINITION_LIST: 'DITA <dl> definition list not converted to equivalent MDX markup.',
       },
     },
   },

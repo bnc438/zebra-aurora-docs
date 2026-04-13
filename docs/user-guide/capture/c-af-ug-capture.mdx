@@ -1,6 +1,6 @@
 ---
 title: Capture
-description: 'The Capture tab configures Sensor Settings , Triggers and Acquisition Settings for Fixed Industrial Scanning or Machine Vision jobs.'
+description: The Capture tab configures
 slug: /capture/c-af-ug-capture
 sidebar_label: Capture
 product_name: aurora focus
@@ -19,73 +19,143 @@ last_updated: (Automated by build process)
 last_reviewed: ''
 exclude_from_search: false
 ---
-The Capture tab configures
-Sensor Settings
-,
-Triggers
-and **Acquisition Settings** for Fixed Industrial Scanning or Machine Vision jobs.
+
+
+The Capture tab configures Sensor Settings, Triggers and Acquisition Settings for Fixed Industrial Scanning or Machine Vision jobs.
+
+
 
 The sensor cropping feature allows for a flexible definition of the AROI leading to a reduction in acquisition time.
 
 Define the AROI in two ways:
-- By entering parameters in the
-- - By drawing a region directly in the **AROI Settings** section.
-Image Viewer
-window.
+- By entering parameters in the **ROI Settings** section.
+- By drawing a region directly in the **Image Viewer** window.
 
-In the top-left corner of the Image Viewer, you will find the current values for
-Acquisition time
-, defining the maximum possible value for the **Exposure** and
-Frame rate
-.
+In the top-left corner of the Image Viewer, you will find the current values for **Acquisition time**, defining the maximum possible value for the **Exposure** and **Frame rate**.
 
-:::note[When editing, remember]
+When editing, remember:
 - The AROI must be defined before switching to other tabs.
-- After adding a tool in the
+- After adding a tool in the **Build** tab, the AROI cannot be changed.
 - The Long exposure option becomes unavailable.
-:::Build
-tab, the AROI cannot be changed.
+
 
 ## Sensor Settings
 
 | Item | Description |
-| --- | --- |
-| Sensor Details | This section contains important sensor parameters, including: - Sensor resolution - Offset step - Resolution step - Minimal resolution |
+|---|---|
+| Sensor Details | This section contains important sensor parameters, including: Sensor resolution, Offset step, Resolution step, Minimal resolution |
 | Sensor Cropping | Enable to configure AROI settings. When enabled, the Image Viewer displays the Acquisition time and Frame rate. |
-| AROI Settings |  |
-| X – starting point on the x-axis with minimum, maximum value, and step |  |
-| Y – starting point on the y-axis with minimum, maximum value, and step |  |
-| Width – width resolution with minimum, maximum value and step |  |
-| Height – height resolution with minimum, maximum value, and step |  |
+| AROI Settings | X – starting point on the x-axis with minimum, maximum value, and step. Y – starting point on the y-axis with minimum, maximum value, and step. Width – width resolution with minimum, maximum value and step. Height – height resolution with minimum, maximum value, and step. |
+
+
+
+
 ## Trigger Settings
 
 | Item | Description |
-| --- | --- |
+|---|---|
 | Source | Select the trigger source from GPIO, Device Trigger, Serial, PLC, TCP/IP Auto(Self), or Test Trigger. |
-| Job Mode | Select the Job Mode between Single Shot, Level Continuous, Series (Burst), Presentation (Aggregate Mode), Periodic Single Shot, Continuous, Presentation Show Image Enable to configure Show Image settings. When enabled, the device sends the images back to Aurora Focus, which takes cycle time. To speed up job times, configure these settings to reduce or disable the frequency of image transmission. Show Image Mode Determine the method to updating shown images. Update Every Determine how frequently shown images are updated per inspection. |
+| Job Mode | Select the Job Mode between Single Shot, Level Continuous, Series (Burst), Presentation (Aggregate Mode), Periodic Single Shot, Continuous, Presentation |
+| Show Image | Enable to configure Show Image settings. When enabled, the device sends the images back to Aurora Focus, which takes cycle time. To speed up job times, configure these settings to reduce or disable the frequency of image transmission. |
+| Show Image Mode | Determine the method to updating shown images. |
+| Update Every | Determine how frequently shown images are updated per inspection. |
 | Triggered Image Buffering | Buffer images for triggers received while a job is in progress. |
 | Maximum Image Queue Size | Determine the maximum number of images that can be queued before they are dropped from the queue. |
 | Drop Mode | Determine the approach to drop images when the queue is full. |
 
 Acquisition Settings determine the configuration used to capture images with the device.
+
+
+
+
 ## Acquisition
 
-| Setting | Description |
-| --- | --- |
-| Barcode Autotune | Force an automatic tune procedure, configuring the camera to read the barcode or Datamatrix and adjust. **Exposure** , **Gain Factor** and **Focus** |
-| Autotune Settings | Open the dialog to adjust the Autotune Settings. |
-| Image Perfect+ Setup | The setup list on the left is the possible configuration for ImagePerfect+. |
-| Add Settings | Use this command to add a new setup to Image Perfect+. |
-| Name | Assign a name for the Image Acquisition Setup |
-| Exposure | Exposure time in ms. |
-| Long Exposure | Activate this option to adjust the exposure time from 33 to 750 ms. |
-| Gain Factor | Use this slider to adjust the sensor gain factor from 0 to 100. |
-| Focus | Use this slider to adjust the focus length. |
-| Focus Unit | Select Millimeter, Inch, or Dioptor to configure the focus measurement units on the device. Depending on the hardware version of your device, |
-| Millimeter | and **Inch** measurements are available in addition to **Diopter** . While the millimeter and inch distance values calculated in the application may differ slightly from the actual distance value, this does not impact the device’s performance. |
-| Aiming Configuration | Enabling this feature projects an aiming pattern onto the surface where the camera is pointing, helping to position the camera by identifying the focal point of the field of view. |
-| Internal Illumination | This setting is only available with Unrestricted USB Power, PoE, and 24V external power. Select the Light Intensity (0-10V), color (red, white, green, IR), and quadrant (top, bottom, left, right) of the 360° LED light. |
-| Light Intensity | Use the slider to increase light intensity by sliding to the right. - Minimum: 1 - Default: 4 - Maximum: 10 |
-| Red Light | - Top: enable this setting to use the top illuminator on the device. - Bottom: enable this setting to use the bottom illuminator on the device. - Right: enable this setting to use the suitable illuminator on the device. - Left: enable this setting to use the left illuminator on the device. |
-| External Illumination | Internal and External illumination can be activated simultaneously on FS42 devices while connected to a 24V DC power supply. Select the Light Intensity (0-10V). |
-| Light Intensity | This controls the analog voltage pin on the Analog Output Pin. - Minimum: 1 - Default: 8 - Maximum: 10 |
+Setting
+Description
+Barcode Autotune
+
+Force an automatic tune procedure, configuring the camera to read the barcode or Datamatrix and adjust.
+**Exposure**
+,
+**Gain Factor**
+and
+**Focus**
+.
+Autotune Settings
+
+Open the dialog to adjust the Autotune Settings.
+Image Perfect+ Setup
+
+The setup list on the left is the possible configuration for ImagePerfect+.
+Add Settings
+
+Use this command to add a new setup to Image Perfect+
+Name
+
+Assign a name for the Image Acquisition Setup
+Exposure
+
+Exposure time in ms.
+Long Exposure
+
+Activate this option to adjust the exposure time from 33 to 750 ms.
+Gain Factor
+
+Use this slider to adjust the sensor gain factor from 0 to 100.
+Focus
+
+Use this slider to adjust the focus length.
+Focus Unit
+
+Select Millimeter, Inch, or Dioptor to configure the focus measurement units on the device.
+
+
+Depending on the hardware version of your device,
+Millimeter
+and
+Inch
+measurements are available in addition to
+Diopter
+. While the millimeter and inch distance values calculated in the application may differ slightly from the actual distance value, this does not impact the device’s performance.
+Aiming Configuration
+
+Enabling this feature projects an aiming pattern onto the surface where the camera is pointing, helping to position the camera by identifying the focal point of the field of view.
+Internal Illumination
+
+This setting is only available with Unrestricted USB Power, PoE, and 24V external power.
+
+Select the Light Intensity (0-10V), color (red, white, green, IR), and quadrant (top, bottom, left, right) of the 360° LED light.
+Light Intensity
+
+Use the slider to increase light intensity by sliding to the right.
+
+
+- Minimum: 1
+- Default: 4
+- Maximum: 10
+Minimum: 1
+Default: 4
+Maximum: 10
+Red Light
+- Top: enable this setting to use the top illuminator on the device.
+- Bottom: enable this setting to use the bottom illuminator on the device.
+- Right: enable this setting to use the suitable illuminator on the device.
+- Left: enable this setting to use the left illuminator on the device.
+Top: enable this setting to use the top illuminator on the device.
+Bottom: enable this setting to use the bottom illuminator on the device.
+Right: enable this setting to use the suitable illuminator on the device.
+Left: enable this setting to use the left illuminator on the device.
+External Illumination
+Internal and External illumination can be activated simultaneously on FS42 devices while connected to a 24V DC power supply.
+
+Select the Light Intensity (0-10V).
+Light Intensity
+This controls the analog voltage pin on the Analog Output Pin.
+
+
+- Minimum: 1
+- Default: 8
+- Maximum: 10
+Minimum: 1
+Default: 8
+Maximum: 10
