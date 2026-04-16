@@ -30,16 +30,16 @@ const config = {
     },
   },
 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
 
   customFields: {
     /** True during `docusaurus start` (development), false in production builds. */
     isDev: process.env.NODE_ENV !== 'production',
     enableInternalAnalytics,
   },
-
-  stylesheets: [
-    'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
-  ],
 
   presets: [
     [
@@ -57,17 +57,22 @@ const config = {
         },
         blog: false, // We disabled the blog.
         theme: {
-          customCss: [
-            require.resolve('./src/css/custom.css'),
-            require.resolve('@orama/wc-components/dist/orama-ui/orama-ui.css'),
-          ],
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
   ],
 
   plugins: [
-    '@orama/plugin-docusaurus-v3',
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        docsRouteBasePath: ['/docs'],
+        indexBlog: false,
+        indexPages: true,
+      },
+    ],
   ],
 
   themeConfig:
@@ -81,14 +86,14 @@ const config = {
       navbar: {
         title: 'Zebra Aurora Focus',
         logo: {
-          alt: 'Zebra Technologies Logo',
+          alt: 'Zebra Technologies',
           src: 'img/z-logo-b.svg',
           srcDark: 'img/z-logo-bw.svg',
         },
         // THIS 'items' ARRAY IS THE MOST IMPORTANT PART
         items: [
           {
-            to: '/docs/js-guide/t-aurora-focus-getting-started-and-mdx-summary',
+            to: '/docs/t-aurora-focus-getting-started-and-mdx-summary',
             position: 'left',
             label: 'Getting Started',
           },
@@ -105,9 +110,9 @@ const config = {
           ...(enableInternalAnalytics
             ? [
                 {
-                  to: '/dev-dashboard',
+                  to: '/ask-ai-insights',
                   position: 'right',
-                  label: 'Dev Dashboard',
+                  label: 'AskAI Insights',
                 },
               ]
             : []),

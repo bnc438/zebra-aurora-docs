@@ -74,6 +74,7 @@ The developer dashboard is a **dev-only** panel available at [`/dev-dashboard`](
 | Performance Metrics | Word count distribution, docs per section |
 | Ask AI Engine | Index record count, index size, section distribution |
 | Content Freshness | Review coverage, content type velocity, top docs |
+| UX Metrics / Clarity | Sessions · page views · rage & dead clicks · avg scroll depth · top pages |
 
 ### Setup
 
@@ -83,6 +84,21 @@ To regenerate it manually:
 
 ```bash
 npm run build-report
+```
+
+### UX Metrics / Clarity (panel 10)
+
+The **UX Metrics / Clarity** panel displays session data from [Microsoft Clarity](https://clarity.microsoft.com/). When the following environment variables are set, `generate-build-report.mjs` fetches the last 30 days of metrics from the Clarity Export API and stores them in `build-report.json` under the `clarity` key:
+
+| Variable | Description |
+|---|---|
+| `CLARITY_API_KEY` | Bearer token from Clarity → Settings → API token |
+| `CLARITY_PROJECT_ID` | The Project ID shown in your Clarity project URL |
+
+If either variable is absent (or the API call fails), the script falls back to representative mock seed data and displays a warning badge in the dashboard.
+
+```bash
+CLARITY_API_KEY=your-token CLARITY_PROJECT_ID=your-project npm run build-report
 ```
 
 ### Schema guessing and flagging

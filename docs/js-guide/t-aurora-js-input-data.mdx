@@ -46,6 +46,9 @@ interface IJobInformationArguments {
  acquisition_images_count: number;
  metrics: IMetricsArgument;
 }
+```
+
+```typescript
 interface IMetricsArguments {
  trigger_counts: number;
  trigger_overruns: number;
@@ -55,37 +58,34 @@ interface IMetricsArguments {
  job_time_max: number;
  job_time_average: number;
 }
+```
 
-The job_success field indicates if the job was completed successfully. The script can override this value by using an output structure.
+The `job_success` field indicates if the job was completed successfully. The script can override this value by using an output structure.
 
+```typescript
 interface IMainArguments {
  tool_results: TOOL_RESULTS_TYPE[];
  tool_results_by_names: TOOL_RESULTS_BY_NAMES_TYPE;
  job_info: IJobInformationArguments;
  job_success: boolean;
 }
+```
 
 The following code snippet describes definitions for additional types.
-The IBarcodeResultArguments interface in TypeScript defines the structure for barcode scanning results. 
-It includes the following properties:
-time: number; This number indicates the time a tool or process takes, such as image acquisition.
 
-tool_time: number; similar to time, this is a number that might indicate the time taken by a tool or process.
+The `IBarcodeResultArguments` interface in TypeScript defines the structure for barcode scanning results. It includes the following properties:
 
-success: boolean; indicates whether a specific operation or process was successful (true) or not (false).
+- `time: number` — Indicates the time a tool or process takes, such as image acquisition.
+- `tool_time: number` — Similar to `time`, indicates the time taken by a tool or process.
+- `success: boolean` — Indicates whether a specific operation or process was successful (`true`) or not (`false`).
+- `decode_time: number` — Represents the time taken to decode a barcode.
+- `decode_count: number` — Represents the count of successful decodes.
+- `decode_totalcount: number` — Represents the total count of attempted decodes, successful or not.
+- `decodes: IDecodeArguments[]` — An array of objects conforming to the `IDecodeArguments` interface. Each element represents a decoded result.
+- `unmatched_decodes: IDecodeArguments[]` — As above, but codes that do not match the pattern specified in the tool.
+- `statistics: IStatisticsArguments` — Contains tool execution statistics accumulated between operations.
 
-decode_time: number; represents the time taken to decode a barcode.
-
-decode_count: number; represents the count of successful decodes.
-
-decode_totalcount: number; represents the total count of attempted decodes, successful or not.
-
-decodes: IDecodeArguments[]; an array of objects that conform to the IDecodeArguments interface. Each element in this array represents a decoded result, and IDecodeArguments would be another interface that describes the structure of these decoded results.
-
-unmatched_decodes: IDecodeArguments[]; as above, but codes that do not match the pattern specified in the tool have been detected.
-
-statistics: IStatisticsArguments; contains tools execution statistics accumulated between operations.
-
+```typescript
 interface IBarcodeResultArguments {
  time: number;
  tool_time: number;
@@ -95,28 +95,35 @@ interface IBarcodeResultArguments {
  decode_totalcount: number;
  decodes: IDecodeArguments[];
 }
+```
 
-The IPointArguements interface defines an object structure representing a point in a two-dimensional space. It includes two properties: x and y, both numbers.
-x: number; expected to be a number representing the x-coordinate of a point in a two-dimensional space.
+The `IPointArguments` interface defines an object structure representing a point in a two-dimensional space. It includes two properties: `x` and `y`, both numbers.
 
-y: number; a number representing the y-coordinate of the point.
+- `x: number` — Represents the x-coordinate of a point in two-dimensional space.
+- `y: number` — Represents the y-coordinate of the point.
 
+```typescript
 interface IPointArguments {
  x: number;
  y: number;
 }
+```
 
-The IQualityGradeArguements interface defines an object structure for representing a quality grade.
-grade_: number; a number representing the numerical value of the grade.
+The `IQualityGradeArguments` interface defines an object structure for representing a quality grade.
 
-letter_grade: string; a string representing the letter equivalent of the grade, such as A, B, or C.
+- `grade_: number` — A number representing the numerical value of the grade.
+- `letter_grade: string` — A string representing the letter equivalent of the grade, such as A, B, or C.
 
+```typescript
 interface IQualityGradeArguments {
  grade_: number;
  letter_grade: string;
 }
+```
 
-The IDecodeBQMArguments interface in TypeScript defines the structure for barcode quality metrics (BQM). Each property typically involves quality grading using the IQualityGradeArguements interface, which includes a numerical grade and a letter grade.
+The `IDecodeBQMArguments` interface in TypeScript defines the structure for barcode quality metrics (BQM). Each property typically involves quality grading using the `IQualityGradeArguments` interface.
+
+```typescript
 interface IDecodeBQMArguments {
  overall_grade: IQualityGradeArguments;
  decodability: IQualityGradeArguments | null;
@@ -142,39 +149,36 @@ interface IDecodeBQMArguments {
  horizontal_print_growth: IQualityGradeArguments | null;
  vertical_print_growth: IQualityGradeArguments | null;
 }
+```
 
-The IStatisticsArguments interface defines the tool execution statistics, considering all iterations (including the current iteration).
-total_pass : number; total number of tool successes.
+The `IStatisticsArguments` interface defines the tool execution statistics, considering all iterations (including the current iteration).
 
-total_fail : number; the total number of tool failures.
+- `total_pass: number` — Total number of tool successes.
+- `total_fail: number` — The total number of tool failures.
+- `tool_time_min: number` — Minimum tool execution time.
+- `tool_time_max: number` — Maximum tool execution time.
+- `tool_time_average: number` — Average execution time.
 
-tool_time_min : number; minimum tool-making time.
-
-tool_time_max : number; maximum tool-making time.
-
-tool_time_average : number; average execution time.
-
+```typescript
 interface IStatisticsArguments {
-total_pass: number;
-total_fail: number;
-tool_time_min: number;
-tool_time_max: number;
-tool_time_average: number;
+ total_pass: number;
+ total_fail: number;
+ tool_time_min: number;
+ tool_time_max: number;
+ tool_time_average: number;
 }
+```
 
-The IDecodeArguments interface defines the structure of an object representing the result og a decoding process, such as decoding a barcode.
-value: string; represents the decoded value, such as the data extracted from a barcode.
+The `IDecodeArguments` interface defines the structure of an object representing the result of a decoding process, such as decoding a barcode.
 
-raw_value: number[]; represents the decoded value, such as the data extracted from a barcode in ASCII codes.
+- `value: string` — Represents the decoded value, such as the data extracted from a barcode.
+- `raw_value: number[]` — Represents the decoded value in ASCII codes.
+- `symbology: string` — Indicates the type or format of the decoded code, such as QR or Code128.
+- `position: IPointArguments[]` — An array of `IPointArguments` objects denoting the positions or corners of the decoded symbol within an image.
+- `ppm: number | null` — Represents pixels per module, which is used to measure barcode module density. Can be `null`.
+- `score: IDecodeBQMArguments | null` — An object representing the quality score of the decoding process. Can be `null`.
 
-symbology: string; indicates the type or format of the decoded code, such as QR or Code128.
-
-position: IPointArguments[]; an array of IPointArguments objects, each representing a point in two-dimensional space. It typically denotes the positions or corners of the decoded symbol within an image or a scanning field.
-
-ppm: number | null; represents pixel per module, which is used to measure barcode module density in the images being decoded. It can also be null, indicating that this information is not available or applicable.
-
-score: IDecodeBQMArguments | null; an object conforming to the IDecodeBQMArguments interface, representing the quality score of the decoding process. It can also be null, indicating that a score is not available or applicable.
-
+```typescript
 interface IDecodeArguments {
  value: string;
  raw_value: number[];
@@ -183,25 +187,20 @@ interface IDecodeArguments {
  ppm: number | null;
  score: IDecodeBQMArguments | null;
 }
+```
 
-The IAnomalyDetectionResultArguments interface in TypeScript defines the structure for anomaly detection results. It includes the following properties:
+The `IAnomalyDetectionResultArguments` interface in TypeScript defines the structure for anomaly detection results. It includes the following properties:
 
-time: number; a number that might indicate the time a tool or process takes, such as image acquisition.
+- `time: number` — A number that indicates the time a tool or process takes, such as image acquisition.
+- `tool_time: number` — Similar to `time`, indicates the time taken by a tool or process.
+- `success: boolean` — Indicates whether a specific operation or process was successful (`true`) or not (`false`).
+- `statistics: IStatisticsArguments` — Contains tool execution statistics accumulated between operations.
+- `valid: boolean` — Indicates whether an image is considered valid (`true`) or not (`false`).
+- `score: number` — Represents the score of an image.
+- `confident: boolean` — Indicates whether a result is considered confident (`true`) or not (`false`).
+- `roi: IPointArguments[]` — An array of `IPointArguments` objects denoting the positions or corners of the tool region of interest.
 
-tool_time: number; similar to time, this number might indicate the time taken by a tool or process.
-
-success: boolean; indicates whether a specific operation or process was successful (true) or not (false).
-
-statistics: IStatisticsArguments; contains tools execution statistics accumulated between operations.
-
-valid: boolean; indicates whether an image is considered valid (true) or not (false).
-
-score: number; represents the score of an image.
-
-confident: boolean; indicates whether a result is considered confident (true) or not (false).
-
-roi: IPointArguments[]; an array of IPointArguments objects, each representing a point in two-dimensional space. It typically denotes the positions or corners of the tool region of interest.
-
+```typescript
 interface IAnomalyDetectionResultArguments {
  time: number;
  tool_time: number;
@@ -212,21 +211,18 @@ interface IAnomalyDetectionResultArguments {
  confident: boolean;
  roi: IPointArguments[];
 }
+```
 
-The IDeepLearningOcrResultArguments interface in TypeScript defines the structure for deep learning-based OCR results. It includes the following properties:
+The `IDeepLearningOcrResultArguments` interface in TypeScript defines the structure for deep learning-based OCR results. It includes the following properties:
 
-time: number; a number that might indicate the time a tool or process takes, such as image acquisition.
+- `time: number` — A number that indicates the time a tool or process takes, such as image acquisition.
+- `tool_time: number` — Similar to `time`, indicates the time taken by a tool or process.
+- `success: boolean` — Indicates whether a specific operation or process was successful (`true`) or not (`false`).
+- `characters: ICharacterResultArguments[]` — An array of `ICharacterResultArguments` objects, each representing a decoded character.
+- `ocr_result: string` — Represents the decoded characters.
+- `statistics: IStatisticsArguments` — Contains tool execution statistics accumulated between operations.
 
-tool_time: number; similar to time, this number might indicate the time taken by a tool or process.
-
-success: boolean; indicates whether a specific operation or process was successful (true) or not (false).
-
-characters: ICharacterResultArguments[]; an array of ICharacterResultArguments objects, each representing a decoded character.
-
-ocr_result: string; represents the decoded characters.
-
-statistics: IStatisticsArguments; contains tools execution statistics accumulated between operations.
-
+```typescript
 interface IDeepLearningOcrResultArguments {
  time: number;
  tool_time: number;
@@ -235,21 +231,18 @@ interface IDeepLearningOcrResultArguments {
  ocr_result: string;
  statistics: IStatisticsArguments;
 }
+```
 
-The ICharacterResultArguments interface defines an object structure representing a decoded character. It includes the following properties:
+The `ICharacterResultArguments` interface defines an object structure representing a decoded character. It includes the following properties:
 
-value: string; represents the confidence character.
+- `value: string` — Represents the confidence character.
+- `roi: IPointArguments[]` — An array of `IPointArguments` objects denoting the positions or corners of the decoded character.
+- `confidence: number` — Represents the confidence of the character.
+- `quality: number` — Represents the quality of the character.
+- `height: number` — Represents the height of the character.
+- `is_part_of_result_string: boolean` — Indicates if a character is contained in the result string.
 
-roi: IPointArguments[]; an array of IPointArguments objects, each representing a point in a two-dimensional space. It typically denotes the positions or corners of the decoded character.
-
-confidence: number; represents the confidence of the character.
-
-quality: number; represents the quality of the character.
-
-height: number; represents the height of the character.
-
-is_part_of_result_string: boolean; indicates if a character is contained in the result string.
-
+```typescript
 interface ICharacterResultArguments {
     value: string;
     roi: IPointArguments[];
@@ -258,27 +251,21 @@ interface ICharacterResultArguments {
     height: number;
     is_part_of_result_string: boolean;
 }
+```
 
-The IContrastResultArguments interface in TypeScript defines the structure for contrast results. It includes the following properties:
+The `IContrastResultArguments` interface in TypeScript defines the structure for contrast results. It includes the following properties:
 
-time: number; this number indicates the time taken by a tool or process including image acquisition.
+- `time: number` — Indicates the time taken by a tool or process including image acquisition.
+- `tool_time: number` — Similar to `time`, indicates the time taken by a tool or process.
+- `success: boolean` — Indicates whether a specific operation or process was successful (`true`) or not (`false`).
+- `value: number` — Indicates contrast value.
+- `minimum_threshold: number` — Indicates the minimum threshold value set in the tool configuration.
+- `maximum_threshold: number` — Indicates the maximum threshold value set in the tool configuration.
+- `minimum_calculation_value: number` — Indicates the minimum pixel value.
+- `maximum_calculation_value: number` — Indicates the maximum pixel value.
+- `statistics: IStatisticsArguments` — Contains tool execution statistics accumulated between operations.
 
-tool_time: number; similar to time, this number indicates the time taken by a tool or process.
-
-success: boolean; indicates whether a specific operation or process was successful (true) or not (false).
-
-value: number; indicates contrast value.
-
-minimum_threshold: number; indicates the minimum threshold value set in the tool configuration.
-
-maximum_threshold: number; indicates the maximum threshold value set in the tool configuration.
-
-minimum_calculation_value: number; indicates the minimum pixel value.
-
-maximum_calculation_value: number; indicates the maximum pixel value.
-
-statistics: IStatisticsArguments; contains tools execution statistics accumulated between operations.
-
+```typescript
 interface IContrastResultArguments {
  time: number;
  tool_time: number;
@@ -290,21 +277,18 @@ interface IContrastResultArguments {
  maximum_calculation_value: number;
  statistics: IStatisticsArguments;
 }
+```
 
-The IEdgeResultArguments interface in TypeScript defines the structure for edge detection results. It includes the following properties:
+The `IEdgeResultArguments` interface in TypeScript defines the structure for edge detection results. It includes the following properties:
 
-time: number; this number indicates the time taken by a tool or process including image acquisition.
+- `time: number` — Indicates the time taken by a tool or process including image acquisition.
+- `tool_time: number` — Similar to `time`, indicates the time taken by a tool or process.
+- `success: boolean` — Indicates whether a specific operation or process was successful (`true`) or not (`false`).
+- `edge_count: number` — Indicates the number of detected edges.
+- `line_segments: ILineArguments[]` — An array of `ILineArguments` objects, each representing a line in two-dimensional space.
+- `statistics: IStatisticsArguments` — Contains tool execution statistics accumulated between operations.
 
-tool_time: number; similar to time, this number indicates the time taken by a tool or process.
-
-success: boolean; indicates whether a specific operation or process was successful (true) or not (false).
-
-edge_count: number; indicates the number of detected edges.
-
-line_segments: ILineArguments[]; an array of ILineArguments objects, each representing a line in two-dimensional space.
-
-statistics: IStatisticsArguments; contains tools execution statistics accumulated between operations.
-
+```typescript
 interface IEdgeResultArguments {
  time: number;
  tool_time: number;
@@ -313,19 +297,20 @@ interface IEdgeResultArguments {
  line_segments: ILineArguments[];
  statistics: IStatisticsArguments;
 }
+```
 
-The ILineArguments interface defines an object structure representing a line in a two-dimensional space. It includes two properties: point1 and point2, both of which are IPointArguments.
+The `ILineArguments` interface defines an object structure representing a line in a two-dimensional space. It includes two properties: `point1` and `point2`, both of which are `IPointArguments`.
 
-point1: IPointArguments; represents the line start point.
+- `point1: IPointArguments` — Represents the line start point.
+- `point2: IPointArguments` — Represents the line endpoint.
 
-point2: IPointArguments; represents the line endpoint.
-
+```typescript
 interface ILineArguments {
  point1: IPointArguments;
  point2: IPointArguments;
 }
-
 ```
+
 
 <div data-no-pdf="true">
 
