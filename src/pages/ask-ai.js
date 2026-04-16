@@ -1060,9 +1060,6 @@ export default function AskAIPage() {
             <button type="submit" className="button button--primary" disabled={isLoading || !searchIndex}>
               Ask
             </button>
-            <Link className="button button--secondary" to={searchPath}>
-              Open Search
-            </Link>
           </div>
         </form>
 
